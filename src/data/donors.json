@@ -1,0 +1,58 @@
+{
+  "donors": [
+    {
+      "id": "donor-001",
+      "name": "Ahmed Rahman",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      "contribution": "Sponsored 50 students' education",
+      "date": "2024-01-15",
+      "type": "education",
+      "featured": true
+    },
+    {
+      "id": "donor-002",
+      "name": "Fatima Khatun",
+      "image": "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face",
+      "contribution": "Donated 1,000 books to library",
+      "date": "2024-02-01",
+      "type": "books",
+      "featured": true
+    },
+    {
+      "id": "donor-003",
+      "name": "Tech Solutions Ltd",
+      "image": "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=100&fit=crop",
+      "contribution": "IT equipment and training resources",
+      "date": "2024-01-20",
+      "type": "technology",
+      "featured": true
+    },
+    {
+      "id": "donor-004",
+      "name": "Rashida Begum",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      "contribution": "Monthly food distribution sponsor",
+      "date": "2023-12-15",
+      "type": "food",
+      "featured": false
+    },
+    {
+      "id": "donor-005",
+      "name": "Mohammad Ali",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      "contribution": "Healthcare camp funding",
+      "date": "2024-01-10",
+      "type": "healthcare",
+      "featured": false
+    },
+    {
+      "id": "donor-006",
+      "name": "Green Valley Corp",
+      "image": "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop",
+      "contribution": "Solar panel installation support",
+      "date": "2024-02-05",
+      "type": "environment",
+      "featured": true
+    }
+  ]
+}

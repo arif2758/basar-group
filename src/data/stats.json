@@ -1,0 +1,46 @@
+{
+  "stats": [
+    {
+      "id": "beneficiaries",
+      "label": "Total Beneficiaries",
+      "value": 25000,
+      "suffix": "+",
+      "description": "Lives touched through our programs"
+    },
+    {
+      "id": "members",
+      "label": "Active Members",
+      "value": 5000,
+      "suffix": "+",
+      "description": "Community members actively participating"
+    },
+    {
+      "id": "books",
+      "label": "Books Distributed",
+      "value": 150000,
+      "suffix": "+",
+      "description": "Free books provided to students and families"
+    },
+    {
+      "id": "jobs",
+      "label": "Local Jobs Created",
+      "value": 450,
+      "suffix": "+",
+      "description": "Employment opportunities generated"
+    },
+    {
+      "id": "deliveries",
+      "label": "Monthly Deliveries",
+      "value": 2000,
+      "suffix": "+",
+      "description": "Essential goods delivered to families"
+    },
+    {
+      "id": "donors",
+      "label": "Supporting Donors",
+      "value": 1200,
+      "suffix": "+",
+      "description": "Generous supporters of our mission"
+    }
+  ]
+}

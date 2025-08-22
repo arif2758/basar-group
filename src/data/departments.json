@@ -1,0 +1,132 @@
+{
+  "departments": [
+    {
+      "id": "library",
+      "slug": "library",
+      "color": "#0B6E4F",
+      "image": "https://res.cloudinary.com/tanjumart/image/upload/v1755513186/granthagar_uqnpjn.svg",
+      "name": { "en": "BASAR Library", "bn": "বাসার লাইব্রেরি" },
+      "tagline": { "en": "Knowledge for All", "bn": "সবার জন্য জ্ঞান" },
+      "description": {
+        "en": "A comprehensive community library providing free access to books, digital resources, and educational programs for learners of all ages.",
+        "bn": "একটি সম্প্রদায় ভিত্তিক লাইব্রেরি যা সকল বয়সের শিক্ষার্থীদের জন্য বই, ডিজিটাল রিসোর্স এবং শিক্ষামূলক প্রোগ্রাম বিনামূল্যে প্রদান করে।"
+      },
+      "beneficiaries": { "en": "5,000+", "bn": "৫,০০০+" },
+      "impact": { "en": "85% literacy improvement", "bn": "৮৫% সাক্ষরতা বৃদ্ধি" },
+      "features": {
+        "en": [
+          "10,000+ books in Bengali & English",
+          "Digital learning resources",
+          "Study spaces & reading rooms",
+          "Children's storytelling sessions",
+          "Adult literacy programs",
+          "Computer & internet access"
+        ],
+        "bn": [
+          "১০,০০০+ বাংলা ও ইংরেজি বই",
+          "ডিজিটাল শিক্ষামূলক রিসোর্স",
+          "অধ্যয়ন ও পাঠাগারের স্থান",
+          "শিশুদের গল্প বলার সেশন",
+          "প্রাপ্তবয়স্কদের সাক্ষরতা প্রোগ্রাম",
+          "কম্পিউটার ও ইন্টারনেট অ্যাক্সেস"
+        ]
+      }
+    },
+    {
+      "id": "foundation",
+      "slug": "foundation",
+      "color": "#2B6CB0",
+      "image": "https://res.cloudinary.com/tanjumart/image/upload/v1755513185/foundation_v17yzx.svg",
+      "name": { "en": "BASAR Foundation", "bn": "বাসার ফাউন্ডেশন" },
+      "tagline": { "en": "Empowering Communities", "bn": "সম্প্রদায়কে ক্ষমতায়ন" },
+      "description": {
+        "en": "Supporting vulnerable families through education scholarships, healthcare assistance, and emergency relief programs.",
+        "bn": "শিক্ষা বৃত্তি, স্বাস্থ্যসেবা সহায়তা এবং জরুরি ত্রাণ প্রোগ্রামের মাধ্যমে দুর্বল পরিবারের সহায়তা প্রদান।"
+      },
+      "beneficiaries": { "en": "3,200+", "bn": "৩,২০০+" },
+      "impact": { "en": "92% family stability rate", "bn": "৯২% পরিবারের স্থিতিশীলতা" },
+      "features": {
+        "en": [
+          "Education scholarships",
+          "Healthcare support",
+          "Emergency relief funds",
+          "Skill development training",
+          "Women empowerment programs",
+          "Child nutrition support"
+        ],
+        "bn": [
+          "শিক্ষা বৃত্তি",
+          "স্বাস্থ্যসেবা সহায়তা",
+          "জরুরি ত্রাণ তহবিল",
+          "দক্ষতা উন্নয়ন প্রশিক্ষণ",
+          "মহিলা ক্ষমতায়ন প্রোগ্রাম",
+          "শিশু পুষ্টি সহায়তা"
+        ]
+      }
+    },
+    {
+      "id": "super-shop",
+      "slug": "super-shop",
+      "color": "#FFB84D",
+      "image": "https://res.cloudinary.com/tanjumart/image/upload/v1755513186/super-shop_v6bap0.svg",
+      "name": { "en": "BASAR Super Shop", "bn": "বাসার সুপার শপ" },
+      "tagline": { "en": "Community Commerce", "bn": "সম্প্রদায় ব্যবসা" },
+      "description": {
+        "en": "A cooperative marketplace providing essential goods at fair prices while creating local employment and supporting community development.",
+        "bn": "একটি সমবায় বাজার যা ন্যায্য মূল্যে প্রয়োজনীয় পণ্য সরবরাহ করে এবং স্থানীয় কর্মসংস্থান ও সম্প্রদায় উন্নয়নকে সমর্থন করে।"
+      },
+      "beneficiaries": { "en": "8,500+", "bn": "৮,৫০০+" },
+      "impact": { "en": "450+ jobs created", "bn": "৪৫০+ চাকরি সৃষ্টি হয়েছে" },
+      "features": {
+        "en": [
+          "Essential goods at fair prices",
+          "Local product marketplace",
+          "Home delivery service",
+          "Community profit sharing",
+          "Employment opportunities",
+          "Supplier development program"
+        ],
+        "bn": [
+          "ন্যায্য মূল্যে প্রয়োজনীয় পণ্য",
+          "স্থানীয় পণ্য বাজার",
+          "হোম ডেলিভারি সেবা",
+          "সম্প্রদায় মুনাফা ভাগাভাগি",
+          "কর্মসংস্থানের সুযোগ",
+          "সরবরাহকারী উন্নয়ন প্রোগ্রাম"
+        ]
+      }
+    },
+    {
+      "id": "it-park",
+      "slug": "it-park",
+      "color": "#8B5CF6",
+      "image": "https://res.cloudinary.com/tanjumart/image/upload/v1755513185/it-park_ch9wsq.svg",
+      "name": { "en": "BASAR IT Park", "bn": "বাসার আইটি পার্ক" },
+      "tagline": { "en": "Digital Innovation Hub", "bn": "ডিজিটাল উদ্ভাবন কেন্দ্র" },
+      "description": {
+        "en": "Technology training center offering courses in web development, digital marketing, and freelancing to bridge the digital divide.",
+        "bn": "ওয়েব ডেভেলপমেন্ট, ডিজিটাল মার্কেটিং এবং ফ্রিল্যান্সিং কোর্স প্রদান করে ডিজিটাল বিভাজন কমানোর জন্য প্রযুক্তি প্রশিক্ষণ কেন্দ্র।"
+      },
+      "beneficiaries": { "en": "1,800+", "bn": "১,৮০০+" },
+      "impact": { "en": "78% job placement rate", "bn": "৭৮% চাকরি অর্জনের হার" },
+      "features": {
+        "en": [
+          "Web development bootcamps",
+          "Digital marketing courses",
+          "Freelancing training",
+          "Startup incubation",
+          "Tech mentorship programs",
+          "Industry partnerships"
+        ],
+        "bn": [
+          "ওয়েব ডেভেলপমেন্ট বুটক্যাম্প",
+          "ডিজিটাল মার্কেটিং কোর্স",
+          "ফ্রিল্যান্সিং প্রশিক্ষণ",
+          "স্টার্টআপ ইনকিউবেশন",
+          "টেক মেন্টরশিপ প্রোগ্রাম",
+          "শিল্প অংশীদারিত্ব"
+        ]
+      }
+    }
+  ]
+}

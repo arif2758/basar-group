@@ -1,0 +1,384 @@
+"use client";
+
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { donors } from "@/lib/data";
+import Image from "next/image";
+import { FiDownload, FiHeart, FiTrendingUp, FiUsers } from "react-icons/fi";
+
+gsap.registerPlugin(ScrollTrigger);
+
+interface DonorWallProps {
+  language: "bn" | "en";
+}
+
+export default function DonorWall({ language }: DonorWallProps) {
+  const containerRef = useRef<HTMLElement>(null);
+  const donorGridRef = useRef<HTMLDivElement>(null);
+  const reportCardRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Main heading animation with heart icon
+      tl.fromTo(
+        ".main-heading",
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        }
+      )
+
+        // Subtitle fade in
+        .fromTo(
+          ".subtitle",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.4"
+        )
+
+        // Donor cards staggered animation
+        .fromTo(
+          ".donor-card",
+          {
+            opacity: 0,
+            y: 60,
+            scale: 0.8,
+            rotationY: 15,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            duration: 0.6,
+            stagger: {
+              amount: 0.8,
+              grid: [3, 3],
+              from: "start",
+            },
+            ease: "back.out(1.4)",
+          },
+          "-=0.2"
+        )
+
+        // View all button
+        .fromTo(
+          ".view-all-btn",
+          { opacity: 0, y: 30, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" },
+          "-=0.3"
+        )
+
+        // Report card animation
+        .fromTo(
+          reportCardRef.current,
+          {
+            opacity: 0,
+            x: 100,
+            rotationY: -15,
+            scale: 0.9,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotationY: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.6"
+        )
+
+        // Stats animation
+        .fromTo(
+          ".stat-card",
+          {
+            opacity: 0,
+            y: 40,
+            scale: 0.8,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4"
+        )
+
+        // Download button
+        .fromTo(
+          ".download-btn",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+          "-=0.2"
+        );
+
+      // Hover animations for donor cards
+      const donorCards = gsap.utils.toArray<HTMLElement>(".donor-card");
+      donorCards.forEach((card) => {
+        const avatar = card.querySelector<HTMLImageElement>(".donor-avatar");
+        const name = card.querySelector<HTMLParagraphElement>(".donor-name");
+
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, {
+            y: -8,
+            scale: 1.05,
+            boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          if (avatar) {
+            gsap.to(avatar, {
+              scale: 1.1,
+              rotation: 5,
+              duration: 0.3,
+              ease: "back.out(1.7)",
+            });
+          }
+          if (name) {
+            gsap.to(name, {
+              color: "#10B981",
+              duration: 0.2,
+            });
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          if (avatar) {
+            gsap.to(avatar, {
+              scale: 1,
+              rotation: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          }
+          if (name) {
+            gsap.to(name, {
+              color: "#6B7280",
+              duration: 0.2,
+            });
+          }
+        });
+      });
+
+      // Button hover animations
+      const buttons = gsap.utils.toArray<HTMLButtonElement>(".animated-btn");
+      buttons.forEach((btn) => {
+        btn.addEventListener("mouseenter", () => {
+          gsap.to(btn, {
+            scale: 1.05,
+            y: -2,
+            boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        btn.addEventListener("mouseleave", () => {
+          gsap.to(btn, {
+            scale: 1,
+            y: 0,
+            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+
+      // Floating animation for heart icon
+      gsap.to(".heart-icon", {
+        y: -5,
+        duration: 2,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+
+      // Number counter animation
+      const counters = gsap.utils.toArray<HTMLElement>(".counter-number");
+      counters.forEach((counter) => {
+        const target = parseInt(
+          counter.textContent?.replace(/[^\d]/g, "") || "0"
+        );
+        const obj = { value: 0 };
+
+        ScrollTrigger.create({
+          trigger: counter,
+          start: "top 80%",
+          onEnter: () => {
+            gsap.to(obj, {
+              value: target,
+              duration: 2,
+              ease: "power2.out",
+              onUpdate: () => {
+                if (counter.textContent?.includes("Tk")) {
+                  counter.textContent = `Tk ${Math.round(
+                    obj.value
+                  ).toLocaleString()}`;
+                } else {
+                  counter.textContent = Math.round(obj.value).toString();
+                }
+              },
+            });
+          },
+        });
+      });
+    },
+    { scope: containerRef }
+  );
+
+  return (
+    <section
+      ref={containerRef}
+      className="py-20 bg-gradient-to-br from-emerald-50 via-white to-blue-50 relative overflow-hidden"
+    >
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-200 to-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+          {/* Donor Wall */}
+          <div className="space-y-8">
+            <div className="main-heading">
+              <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-6 flex items-center">
+                <FiHeart className="heart-icon w-8 h-8 lg:w-10 lg:h-10 text-rose-500 mr-3 drop-shadow-sm" />
+                {language === "bn" ? "আমাদের দাতাগণ" : "Our Donors"}
+              </h2>
+            </div>
+
+            <p className="subtitle text-gray-600 text-lg leading-relaxed">
+              {language === "bn"
+                ? "যারা আমাদের কমিউনিটির উন্নয়নে অবদান রাখছেন এবং একসাথে একটি উন্নত ভবিষ্যৎ গড়ে তুলছেন"
+                : "Those who are contributing to our community development and building a better future together"}
+            </p>
+
+            <div
+              ref={donorGridRef}
+              className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-6"
+            >
+              {donors.map((donor, index) => (
+                <div
+                  key={index}
+                  className="donor-card bg-white/80 backdrop-blur-sm rounded-2xl p-4 lg:p-6 shadow-lg border border-white/20 cursor-pointer group"
+                >
+                  <div className="relative">
+                    <Image
+                      src={donor.avatar}
+                      alt={donor.name}
+                      width={64}
+                      height={64}
+                      className="donor-avatar rounded-full object-cover mx-auto mb-3 ring-2 ring-emerald-100 group-hover:ring-emerald-300 transition-all duration-300"
+                    />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white"></div>
+                  </div>
+                  <p className="donor-name text-sm text-center text-gray-600 font-medium truncate transition-colors duration-200">
+                    {donor.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <button className="view-all-btn animated-btn bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center group">
+              <FiUsers className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-200" />
+              {language === "bn" ? "সকল দাতা দেখুন" : "View All Donors"}
+            </button>
+          </div>
+
+          {/* Monthly Report */}
+          <div ref={reportCardRef} className="lg:pl-8">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-10 border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                  <FiTrendingUp className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-poppins text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                  {language === "bn" ? "মাসিক প্রতিবেদন" : "Monthly Report"}
+                </h3>
+              </div>
+
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                {language === "bn"
+                  ? "আমাদের কার্যক্রমের সম্পূর্ণ বিবরণ এবং আর্থিক স্বচ্ছতার জন্য প্রতি মাসে প্রকাশিত প্রতিবেদন ডাউনলোড করুন।"
+                  : "Download our monthly published report for complete details of our activities and financial transparency."}
+              </p>
+
+              {/* Report Stats */}
+              <div
+                ref={statsRef}
+                className="grid grid-cols-2 gap-4 lg:gap-6 mb-8"
+              >
+                <div className="stat-card bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 text-center border border-emerald-200">
+                  <div className="counter-number text-2xl lg:text-3xl font-bold text-emerald-600 mb-2">
+                    Tk 2,45,000
+                  </div>
+                  <div className="text-sm text-emerald-700 font-medium">
+                    {language === "bn" ? "এ মাসে দান" : "This Month Donations"}
+                  </div>
+                </div>
+                <div className="stat-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border border-blue-200">
+                  <div className="counter-number text-2xl lg:text-3xl font-bold text-blue-600 mb-2">
+                    185
+                  </div>
+                  <div className="text-sm text-blue-700 font-medium">
+                    {language === "bn" ? "নতুন সদস্য" : "New Members"}
+                  </div>
+                </div>
+              </div>
+
+              <button className="download-btn animated-btn group w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                <FiDownload className="w-5 h-5 mr-3 group-hover:translate-y-1 transition-transform duration-200" />
+                {language === "bn"
+                  ? "ডিসেম্বর ২০২৪ প্রতিবেদন ডাউনলোড"
+                  : "Download December 2024 Report"}
+              </button>
+
+              <p className="text-xs text-gray-500 text-center mt-4 opacity-75">
+                {language === "bn"
+                  ? "PDF ফরম্যাট • ২.৩ MB • সর্বশেষ আপডেট"
+                  : "PDF Format • 2.3 MB • Last Updated"}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional floating elements for visual appeal */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full opacity-60 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+}
