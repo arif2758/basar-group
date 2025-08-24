@@ -585,8 +585,8 @@ export default function VolunteerOpportunities() {
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Being a volunteer at BASAR Group means more than giving your time
-              — it&asop;s about learning, growing, and making a meaningful
-              difference in people&asop;s lives.
+              — it&apos;s about learning, growing, and making a meaningful
+              difference in people&apos;s lives.
             </p>
           </div>
 
@@ -632,7 +632,7 @@ export default function VolunteerOpportunities() {
                 <span className="text-3xl">💬</span>
               </div>
               <blockquote className="text-xl lg:text-2xl font-medium mb-6 max-w-4xl mx-auto leading-relaxed">
-                Volunteering with BASAR Group has been life-changing. I&asop;ve
+                Volunteering with BASAR Group has been life-changing. I&apos;ve
                 gained valuable skills, made lifelong friends, and most
                 importantly, contributed to meaningful change in my community.
               </blockquote>
@@ -860,7 +860,7 @@ export default function VolunteerOpportunities() {
                   </button>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    We&asop;ll review your application and get back to you
+                    We&apos;ll review your application and get back to you
                     within 3-5 business days.
                   </p>
                 </div>

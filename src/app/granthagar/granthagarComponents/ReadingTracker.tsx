@@ -1,4 +1,9 @@
+"use client";
 import React from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import {
   BookOpen,
   Trophy,
@@ -9,7 +14,370 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ReadingTracker: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const goalsRef = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const booksRef = useRef<HTMLDivElement>(null);
+  const achievementsRef = useRef<HTMLDivElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
+  const streakRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      // Header Animation
+      gsap.fromTo(
+        headerRef.current,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+        }
+      );
+
+      // Stats Cards Animation with Counter Effect
+      const statCards = statsRef.current?.querySelectorAll(".stat-card");
+      statCards?.forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 60,
+            scale: 0.8,
+            rotationY: 15,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: statsRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Counter animation for numbers
+        const numberElement = card.querySelector(".stat-number") as HTMLElement;
+        if (numberElement) {
+          const finalValue = parseInt(
+            numberElement.textContent?.replace(/,/g, "") || "0"
+          );
+          const counterObj = { value: 0 };
+
+          gsap.to(counterObj, {
+            value: finalValue,
+            duration: 2,
+            delay: index * 0.1 + 0.5,
+            ease: "power2.out",
+            onUpdate: function () {
+              const currentValue = Math.round(counterObj.value);
+              numberElement.textContent = currentValue.toLocaleString();
+            },
+            scrollTrigger: {
+              trigger: statsRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          });
+        }
+      });
+
+      // Goals Section Animation
+      gsap.fromTo(
+        goalsRef.current,
+        {
+          opacity: 0,
+          x: -100,
+          rotationX: 10,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          rotationX: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: goalsRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Progress bars animation
+      const progressBars = goalsRef.current?.querySelectorAll(
+        ".progress-bar"
+      ) as NodeListOf<HTMLElement>;
+      progressBars?.forEach((bar, index) => {
+        const targetWidth = bar.getAttribute("data-width") || "0%";
+        gsap.fromTo(
+          bar,
+          { width: "0%" },
+          {
+            width: targetWidth,
+            duration: 1.5,
+            delay: index * 0.3 + 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: goalsRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Chart Animation
+      const chartBars = chartRef.current?.querySelectorAll(
+        ".chart-bar"
+      ) as NodeListOf<HTMLElement>;
+      chartBars?.forEach((bar, index) => {
+        const targetHeight = bar.getAttribute("data-height") || "0%";
+        gsap.fromTo(
+          bar,
+          {
+            height: "0%",
+            opacity: 0,
+          },
+          {
+            height: targetHeight,
+            opacity: 1,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "bounce.out",
+            scrollTrigger: {
+              trigger: chartRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Recent Books Animation
+      const bookItems = booksRef.current?.querySelectorAll(".book-item");
+      bookItems?.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            x: 100,
+            rotationY: 15,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotationY: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: booksRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Achievements Animation
+      const badges = achievementsRef.current?.querySelectorAll(".badge-item");
+      badges?.forEach((badge, index) => {
+        gsap.fromTo(
+          badge,
+          {
+            opacity: 0,
+            scale: 0.5,
+            rotation: 10,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: achievementsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Quick Actions Animation
+      const actionButtons =
+        actionsRef.current?.querySelectorAll(".action-button");
+      actionButtons?.forEach((button, index) => {
+        gsap.fromTo(
+          button,
+          {
+            opacity: 0,
+            y: 30,
+            scale: 0.9,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: actionsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Streak Card Animation
+      gsap.fromTo(
+        streakRef.current,
+        {
+          opacity: 0,
+          scale: 0.8,
+          rotationZ: 5,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotationZ: 0,
+          duration: 1.2,
+          ease: "elastic.out(1, 0.5)",
+          scrollTrigger: {
+            trigger: streakRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Flame icon pulsing animation
+      const flameIcon = streakRef.current?.querySelector(".flame-icon");
+      if (flameIcon) {
+        gsap.to(flameIcon, {
+          scale: 1.1,
+          duration: 1,
+          repeat: -1,
+          yoyo: true,
+          ease: "power2.inOut",
+        });
+      }
+
+      // Hover animations for interactive elements
+      const statCards2 = statsRef.current?.querySelectorAll(".stat-card");
+      statCards2?.forEach((card) => {
+        const cardElement = card as HTMLElement;
+        cardElement.addEventListener("mouseenter", () => {
+          gsap.to(cardElement, {
+            y: -8,
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        cardElement.addEventListener("mouseleave", () => {
+          gsap.to(cardElement, {
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+
+      // Book items hover effect
+      const bookItems2 = booksRef.current?.querySelectorAll(".book-item");
+      bookItems2?.forEach((item) => {
+        const itemElement = item as HTMLElement;
+        itemElement.addEventListener("mouseenter", () => {
+          gsap.to(itemElement, {
+            x: 10,
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        itemElement.addEventListener("mouseleave", () => {
+          gsap.to(itemElement, {
+            x: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+
+      // Action buttons hover effect
+      const actionButtons2 =
+        actionsRef.current?.querySelectorAll(".action-button");
+      actionButtons2?.forEach((button) => {
+        const buttonElement = button as HTMLElement;
+        buttonElement.addEventListener("mouseenter", () => {
+          gsap.to(buttonElement, {
+            scale: 1.05,
+            y: -3,
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        });
+
+        buttonElement.addEventListener("mouseleave", () => {
+          gsap.to(buttonElement, {
+            scale: 1,
+            y: 0,
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        });
+      });
+
+      // Badge hover effect
+      const badges2 = achievementsRef.current?.querySelectorAll(".badge-item");
+      badges2?.forEach((badge) => {
+        const badgeElement = badge as HTMLElement;
+        badgeElement.addEventListener("mouseenter", () => {
+          gsap.to(badgeElement, {
+            scale: 1.05,
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        });
+
+        badgeElement.addEventListener("mouseleave", () => {
+          gsap.to(badgeElement, {
+            scale: 1,
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        });
+      });
+    },
+    { scope: containerRef }
+  );
+
   const userStats = {
     booksRead: 12,
     pagesRead: 2840,
@@ -97,9 +465,9 @@ const ReadingTracker: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div ref={containerRef} className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
+        <div ref={headerRef} className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">
             My Reading Journey
           </h1>
@@ -113,46 +481,46 @@ const ReadingTracker: React.FC = () => {
           {/* Stats Overview */}
           <div className="lg:col-span-2 space-y-6">
             {/* Key Metrics */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div ref={statsRef} className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 Reading Stats
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="text-center">
+                <div className="stat-card text-center">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <BookOpen className="w-8 h-8 text-blue-600" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-gray-900">
                     {userStats.booksRead}
                   </div>
                   <div className="text-sm text-gray-600">Books Read</div>
                 </div>
 
-                <div className="text-center">
+                <div className="stat-card text-center">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Target className="w-8 h-8 text-green-600" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-gray-900">
                     {userStats.pagesRead.toLocaleString()}
                   </div>
                   <div className="text-sm text-gray-600">Pages Read</div>
                 </div>
 
-                <div className="text-center">
+                <div className="stat-card text-center">
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Flame className="w-8 h-8 text-orange-600" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-gray-900">
                     {userStats.currentStreak}
                   </div>
                   <div className="text-sm text-gray-600">Day Streak</div>
                 </div>
 
-                <div className="text-center">
+                <div className="stat-card text-center">
                   <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Calendar className="w-8 h-8 text-purple-600" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-gray-900">
                     {userStats.readingHours}
                   </div>
                   <div className="text-sm text-gray-600">Hours Read</div>
@@ -161,7 +529,7 @@ const ReadingTracker: React.FC = () => {
             </div>
 
             {/* Goals Progress */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div ref={goalsRef} className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 Reading Goals
               </h2>
@@ -177,8 +545,8 @@ const ReadingTracker: React.FC = () => {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-blue-600 h-2 rounded-full transition-all"
-                      style={{ width: `${(1 / userStats.monthlyGoal) * 100}%` }}
+                      className="progress-bar bg-blue-600 h-2 rounded-full"
+                      data-width={`${(1 / userStats.monthlyGoal) * 100}%`}
                     ></div>
                   </div>
                 </div>
@@ -194,12 +562,10 @@ const ReadingTracker: React.FC = () => {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-green-600 h-2 rounded-full transition-all"
-                      style={{
-                        width: `${
-                          (userStats.booksRead / userStats.yearlyGoal) * 100
-                        }%`,
-                      }}
+                      className="progress-bar bg-green-600 h-2 rounded-full"
+                      data-width={`${
+                        (userStats.booksRead / userStats.yearlyGoal) * 100
+                      }%`}
                     ></div>
                   </div>
                 </div>
@@ -209,18 +575,18 @@ const ReadingTracker: React.FC = () => {
                 <div className="flex items-center space-x-2 mb-2">
                   <TrendingUp className="w-5 h-5 text-blue-600" />
                   <span className="font-medium text-blue-900">
-                    You&asop;re doing great!
+                    You&apos;re doing great!
                   </span>
                 </div>
                 <p className="text-blue-800 text-sm">
-                  You&asop;re 50% ahead of your yearly reading goal. Keep up the
+                  You&apos;re 50% ahead of your yearly reading goal. Keep up the
                   excellent work!
                 </p>
               </div>
             </div>
 
             {/* Monthly Progress Chart */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div ref={chartRef} className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 Monthly Progress
               </h2>
@@ -231,8 +597,8 @@ const ReadingTracker: React.FC = () => {
                     className="flex-1 flex flex-col items-center"
                   >
                     <div
-                      className="w-full bg-blue-500 rounded-t"
-                      style={{ height: `${(month.books / 4) * 100}%` }}
+                      className="chart-bar w-full bg-blue-500 rounded-t"
+                      data-height={`${(month.books / 4) * 100}%`}
                     ></div>
                     <div className="text-xs font-medium text-gray-600 mt-2">
                       {month.month}
@@ -246,7 +612,7 @@ const ReadingTracker: React.FC = () => {
             </div>
 
             {/* Recent Books */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div ref={booksRef} className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 Recently Completed
               </h2>
@@ -254,7 +620,7 @@ const ReadingTracker: React.FC = () => {
                 {recentBooks.map((book, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
+                    className="book-item flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
                   >
                     <div className="w-12 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded flex items-center justify-center">
                       <BookOpen className="w-6 h-6 text-white" />
@@ -291,7 +657,10 @@ const ReadingTracker: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Achievements */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div
+              ref={achievementsRef}
+              className="bg-white rounded-2xl shadow-lg p-6"
+            >
               <div className="flex items-center space-x-2 mb-6">
                 <Trophy className="w-6 h-6 text-yellow-500" />
                 <h2 className="text-xl font-bold text-gray-900">
@@ -303,7 +672,7 @@ const ReadingTracker: React.FC = () => {
                 {badges.map((badge, index) => (
                   <div
                     key={index}
-                    className={`flex items-center space-x-3 p-3 rounded-lg ${
+                    className={`badge-item flex items-center space-x-3 p-3 rounded-lg ${
                       badge.earned
                         ? "bg-yellow-50 border border-yellow-200"
                         : "bg-gray-50"
@@ -343,27 +712,33 @@ const ReadingTracker: React.FC = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div
+              ref={actionsRef}
+              className="bg-white rounded-2xl shadow-lg p-6"
+            >
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 Quick Actions
               </h2>
               <div className="space-y-3">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors">
+                <button className="action-button w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold">
                   Log New Book
                 </button>
-                <button className="w-full bg-green-100 hover:bg-green-200 text-green-800 py-3 px-4 rounded-lg font-semibold transition-colors">
+                <button className="action-button w-full bg-green-100 text-green-800 py-3 px-4 rounded-lg font-semibold">
                   Set New Goal
                 </button>
-                <button className="w-full bg-orange-100 hover:bg-orange-200 text-orange-800 py-3 px-4 rounded-lg font-semibold transition-colors">
+                <button className="action-button w-full bg-orange-100 text-orange-800 py-3 px-4 rounded-lg font-semibold">
                   Share Progress
                 </button>
               </div>
             </div>
 
             {/* Reading Streak */}
-            <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg p-6 text-white">
+            <div
+              ref={streakRef}
+              className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg p-6 text-white"
+            >
               <div className="text-center">
-                <Flame className="w-12 h-12 mx-auto mb-3 text-yellow-300" />
+                <Flame className="flame-icon w-12 h-12 mx-auto mb-3 text-yellow-300" />
                 <h2 className="text-2xl font-bold mb-2">Reading Streak</h2>
                 <div className="text-4xl font-bold mb-1">
                   {userStats.currentStreak}

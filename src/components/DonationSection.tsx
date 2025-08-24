@@ -409,7 +409,7 @@ const DonationSection = () => {
             Support Our Mission
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Every contribution makes a difference. Choose how you&asop;d like to
+            Every contribution makes a difference. Choose how you&apos;d like to
             support our community development efforts and create lasting impact.
           </p>
         </div>

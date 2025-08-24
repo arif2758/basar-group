@@ -31,7 +31,7 @@ export default function Home() {
       <Features language={language} />
       <SystemFlow />
       <ImpactSection />
-      <DepartmentHighlights language={language} />
+      <DepartmentHighlights language={language} /> 
       <Testimonials language={language} />
       <Timeline language={language} />
       <DonorWall language={language} />

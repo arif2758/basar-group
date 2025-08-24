@@ -136,7 +136,7 @@ const ImpactStats = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Every donation creates ripple effects of positive change.
-            Here&asop;s how your generosity has transformed lives across
+            Here&apos;s how your generosity has transformed lives across
             communities worldwide.
           </p>
         </div>
@@ -168,9 +168,9 @@ const ImpactStats = () => {
                   </p>
                 </div>
               </div>
-            ); 
+            );
           })}
-        </div> 
+        </div>
 
         {/* Call to Action */}
         <div className="mt-16 text-center">

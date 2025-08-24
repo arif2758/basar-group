@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Facebook, Instagram, Phone, Mail, MapPin, CreditCard } from 'lucide-react';
 
-export default function FooterShop() {
+export default function FooterShop() { 
   return (
     <footer className="bg-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">

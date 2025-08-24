@@ -7,7 +7,7 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  image: string;
+  image: string; 
 }
 
 interface CartContextType {
@@ -88,4 +88,4 @@ export function useCart() {
     throw new Error('useCart must be used within a CartProvider');
   }
   return context;
-}
+} 
