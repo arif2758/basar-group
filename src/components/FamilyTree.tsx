@@ -836,6 +836,7 @@ const treeData: TreeDataNode[] = [
       },
       {
         title: "কানাই বাছার",
+        
         key: "1-2",
         children: [
           {
@@ -860,7 +861,7 @@ const FamilyTree: React.FC = () => {
   return (
     <Tree
       showLine
-      defaultExpandedKeys={["0-0-0"]}
+      defaultExpandedKeys={["1", "1-1", "1-2", "1-1-1"]}
       onSelect={onSelect}
       treeData={treeData}
     />

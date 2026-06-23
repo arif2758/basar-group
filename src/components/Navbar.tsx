@@ -385,7 +385,7 @@ const SuperNavbar: React.FC = () => {
               />
 
               {/* Language Toggle */}
-              <div className="flex items-center gap-2 mr-8">
+              {/* <div className="flex items-center gap-2 mr-8">
                 <GlobalOutlined />
                 <Switch
                   checkedChildren="EN"
@@ -394,7 +394,7 @@ const SuperNavbar: React.FC = () => {
                   onChange={toggleLanguage}
                   size="small"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -444,7 +444,7 @@ const SuperNavbar: React.FC = () => {
         />
 
         {/* Language Toggle in Drawer */}
-        <div className="p-4 border-t">
+        {/* <div className="p-4 border-t">
           <div className="flex items-center justify-between">
             <Text>Language</Text>
             <Switch
@@ -455,7 +455,7 @@ const SuperNavbar: React.FC = () => {
               size="small"
             />
           </div>
-        </div>
+        </div> */}
       </Drawer>
     </>
   );

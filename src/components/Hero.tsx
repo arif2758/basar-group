@@ -108,6 +108,7 @@ export default function Hero({ language }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h1 className="text-gray-400 text-sm">Beacon Alliance Spark Authentic Rise (BASAR)</h1>
         <div className="max-w-5xl">
           {/* Headline */}
           <h1 className="hero-title font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
@@ -145,6 +146,7 @@ export default function Hero({ language }: HeroProps) {
               </>
             ) : (
               <>
+            
                 <p className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-4">
                   Building a future for the Basar family—education,
                   self-reliance & community development.

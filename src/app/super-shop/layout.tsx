@@ -8,10 +8,11 @@ function GranthagarLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section>
+    <section className="flex-grow flex flex-col">
       <CartProvider>
-     
-        {children}
+        <div className="flex-grow flex flex-col">
+          {children}
+        </div>
       </CartProvider>
       <FooterShop />
     </section>

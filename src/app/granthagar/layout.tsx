@@ -7,10 +7,12 @@ function GranthagarLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="flex-grow flex flex-col">
     
 
-      {children}
+      <div className="flex-grow flex flex-col">
+        {children}
+      </div>
       <FooterGranthagar />
     </div>
   );

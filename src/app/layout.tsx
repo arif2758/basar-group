@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../ui/globals.css";
+import "../styles/globals.css"
 import { LanguageProvider } from "@/context/LanguageContext";
 
 import FooterWraper from "@/wraper/FooterWraper";
@@ -51,13 +51,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <AntdRegistry>
           <LanguageProvider>
             <Navbar />
 
-            {children}
+            <main className="min-h-screen flex flex-col">
+              {children}
+            </main>
             <FooterWraper />
           </LanguageProvider>
         </AntdRegistry>

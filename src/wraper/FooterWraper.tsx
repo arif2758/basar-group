@@ -9,3 +9,4 @@ function FooterWraper() {
 }
 
 export default FooterWraper;
+ 

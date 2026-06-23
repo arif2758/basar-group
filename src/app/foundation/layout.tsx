@@ -7,10 +7,12 @@ function FoundationLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section>
+    <section className="flex-grow flex flex-col">
      
 
-      {children}
+      <div className="flex-grow flex flex-col">
+        {children}
+      </div>
       <FooterFoundation />
     </section>
   );
