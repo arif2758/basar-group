@@ -303,7 +303,7 @@ const treeData: TreeDataNode[] = [
                         ],
                       },
                       {
-                        title: " ইস্কান্দার বাছার",
+                        title: "ইস্কান্দার বাছার",
                         key: "1-1-1-2-2-2",
                         children: [
                           {
@@ -426,10 +426,6 @@ const treeData: TreeDataNode[] = [
                         title: "ফরিদা(স্বামী-ছমুরুদ্দিন)",
                         key: "1-1-1-2-3-5",
                       },
-                      {
-                        title: "পিয়ারি (১ম ঘরে)",
-                        key: "1-1-1-2-3-6",
-                      },
                     ],
                   },
                   {
@@ -437,11 +433,11 @@ const treeData: TreeDataNode[] = [
                     key: "1-1-1-2-4",
                     children: [
                       {
-                        title: " পিয়ারি (১ম ঘরে)",
+                        title: "পিয়ারি (১ম ঘরে)",
                         key: "1-1-1-2-4-1",
                       },
                       {
-                        title: " আলাউদ্দিন হাওলাদার",
+                        title: "আলাউদ্দিন হাওলাদার",
                         key: "1-1-1-2-4-2",
                         children: [
                           {
