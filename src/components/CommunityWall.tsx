@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import { useRef } from "react";
 import {
   FiHeart,
@@ -15,6 +16,7 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,6 +129,7 @@ const CommunityWall = () => {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header Animation
@@ -398,46 +401,46 @@ const CommunityWall = () => {
   return (
     <section
       ref={containerRef}
-      className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Enhanced Section Header */}
-        <div ref={headerRef} className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-6">
-            <FiUsers className="w-8 h-8 text-white" />
+        {/* Section Header */}
+        <div ref={headerRef} className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-4 border border-blue-100 dark:border-blue-800/50">
+            <FiUsers className="w-6 h-6" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             Community Wall
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Celebrating our amazing donors, volunteers, and community members
             who make our mission possible.
           </p>
         </div>
 
-        {/* Enhanced Toggle Buttons */}
-        <div ref={toggleRef} className="flex justify-center mb-16">
-          <div className="bg-white rounded-2xl p-2 flex shadow-xl border border-gray-100">
+        {/* AntD Segmented Toggle */}
+        <div ref={toggleRef} className="flex justify-center mb-10">
+          <div className="inline-flex p-1 bg-slate-200/70 dark:bg-[#1f1f1f] rounded-lg border border-slate-300/60 dark:border-[#303030]">
             <button
               onClick={() => handleToggle(false)}
-              className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
+              className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
                 !showTestimonials
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "bg-white dark:bg-[#141414] text-blue-600 dark:text-blue-400 shadow-sm font-semibold"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
-              <FiUsers className="w-5 h-5" />
+              <FiUsers className="w-4 h-4" />
               <span>Donor Recognition</span>
             </button>
             <button
               onClick={() => handleToggle(true)}
-              className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
+              className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
                 showTestimonials
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "bg-white dark:bg-[#141414] text-blue-600 dark:text-blue-400 shadow-sm font-semibold"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
-              <FiStar className="w-5 h-5" />
+              <FiStar className="w-4 h-4" />
               <span>Testimonials</span>
             </button>
           </div>
@@ -445,29 +448,30 @@ const CommunityWall = () => {
 
         {!showTestimonials ? (
           <>
-            {/* Enhanced Filter Bar */}
+            {/* Filter Bar */}
             <div
               ref={filtersRef}
-              className="flex flex-wrap justify-center gap-3 mb-16"
+              className="flex flex-wrap items-center justify-center gap-2 mb-10"
             >
-              <div className="flex items-center space-x-3 text-gray-600 mb-2">
-                <FiFilter className="w-5 h-5" />
-                <span className="font-medium">Filter by category:</span>
+              <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mr-2 text-xs font-semibold uppercase tracking-wider">
+                <FiFilter className="w-3.5 h-3.5" />
+                <span>Category:</span>
               </div>
               <div className="flex flex-wrap justify-center gap-2">
                 {filterOptions.map((option) => {
                   const IconComponent = option.icon;
+                  const isActive = filter === option.value;
                   return (
                     <button
                       key={option.value}
                       onClick={() => setFilter(option.value)}
-                      className={`filter-button px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                        filter === option.value
-                          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                          : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm"
+                      className={`filter-button px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center space-x-1.5 border ${
+                        isActive
+                          ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+                          : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-[#303030] hover:border-blue-400 dark:hover:border-blue-500"
                       }`}
                     >
-                      <IconComponent className="w-4 h-4" />
+                      <IconComponent className="w-3.5 h-3.5" />
                       <span>{option.label}</span>
                     </button>
                   );
@@ -475,44 +479,43 @@ const CommunityWall = () => {
               </div>
             </div>
 
-            {/* Enhanced Donors Grid */}
+            {/* Donors Grid */}
             <div
               ref={gridRef}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-20"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 mb-16"
             >
               {filteredDonors.map((donor) => (
                 <div
                   key={donor.id}
-                  className="donor-card group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center border border-gray-100"
+                  className="donor-card group bg-white dark:bg-[#141414] rounded-xl p-4 sm:p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 transition-all duration-200"
                 >
-                  <div className="relative mb-4">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                  <div className="relative mb-3 inline-block">
                     <Image
                       src={donor.image}
                       alt={donor.name}
-                      width={80}
-                      height={80}
-                      className="relative w-20 h-20 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
+                      width={64}
+                      height={64}
+                      className="w-16 h-16 rounded-full mx-auto object-cover border-2 border-slate-200 dark:border-[#303030] group-hover:border-blue-500 transition-colors"
                     />
                     {donor.featured && (
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                        <FiStar className="w-4 h-4 text-white" />
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center shadow">
+                        <FiStar className="w-3.5 h-3.5 fill-current" />
                       </div>
                     )}
                   </div>
 
-                  <h4 className="font-bold text-gray-800 mb-2 text-sm group-hover:text-blue-600 transition-colors duration-300">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
                     {donor.name}
                   </h4>
-                  <p className="text-xs text-gray-600 mb-3 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 line-clamp-2 min-h-[32px]">
                     {donor.contribution}
                   </p>
-                  <div className="flex items-center justify-center space-x-1 text-gray-500 text-xs mb-3">
+                  <div className="flex items-center justify-center space-x-1 text-slate-400 dark:text-slate-500 text-[11px] mb-3">
                     <FiClock className="w-3 h-3" />
                     <span>{new Date(donor.date).toLocaleDateString()}</span>
                   </div>
-                  <div className="mt-3">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 text-xs rounded-full capitalize font-medium border border-blue-100">
+                  <div>
+                    <span className="inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-[#1f1f1f] text-slate-600 dark:text-slate-300 text-[11px] rounded capitalize font-medium border border-slate-200 dark:border-[#303030]">
                       {donor.type}
                     </span>
                   </div>
@@ -520,67 +523,58 @@ const CommunityWall = () => {
               ))}
             </div>
 
-            {/* Enhanced CTA */}
-            <div className="text-center">
-              <div className="inline-flex flex-col items-center space-y-4 p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl border border-blue-100">
-                <p className="text-gray-700 text-lg font-medium">
+            {/* AntD Style CTA */}
+            <div className="text-center mb-16">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-sm">
+                <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base font-medium">
                   Join our community wall by making a contribution today
                 </p>
-                <button className="group inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                  <FiHeart className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <button className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium shadow-sm transition-colors">
+                  <FiHeart className="w-4 h-4 mr-2" />
                   <span>Become a Supporter</span>
-                  <FiArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <FiArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </div>
             </div>
           </>
         ) : (
-          /* Enhanced Testimonials Section */
+          /* Testimonials Grid */
           <div
             ref={testimonialsRef}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="testimonial-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl p-8 transition-all duration-300 border border-gray-100"
+                className="testimonial-card group bg-white dark:bg-[#141414] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 transition-all duration-200 flex flex-col justify-between"
               >
-                {/* Enhanced Stars */}
-                <div className="flex items-center space-x-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300"
-                      style={{ animationDelay: `${i * 100}ms` }}
-                    />
-                  ))}
+                <div>
+                  <div className="flex items-center space-x-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <FiStar
+                        key={i}
+                        className="w-4 h-4 text-amber-400 fill-current"
+                      />
+                    ))}
+                  </div>
+                  <blockquote className="text-slate-700 dark:text-slate-300 mb-6 text-sm leading-relaxed italic">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
                 </div>
 
-                {/* Enhanced Quote */}
-                <blockquote className="text-gray-700 mb-8 leading-relaxed text-lg relative">
-                  <span className="text-6xl text-blue-200 absolute -top-4 -left-2 font-serif">
-                    
-                  </span>
-                  <span className="relative z-10">{testimonial.quote}</span>
-                </blockquote>
-
-                {/* Enhanced Author */}
-                <div className="flex items-center space-x-4">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-md opacity-30"></div>
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={60}
-                      height={60}
-                      className="relative w-15 h-15 rounded-full object-cover border-4 border-white shadow-lg"
-                    />
-                  </div>
+                <div className="flex items-center space-x-3 pt-4 border-t border-slate-100 dark:border-[#252525]">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={44}
+                    height={44}
+                    className="w-11 h-11 rounded-full object-cover border border-slate-200 dark:border-[#303030]"
+                  />
                   <div>
-                    <div className="font-bold text-gray-800 text-lg">
+                    <div className="font-semibold text-slate-900 dark:text-white text-sm">
                       {testimonial.name}
                     </div>
-                    <div className="text-blue-600 font-medium">
+                    <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">
                       {testimonial.role}
                     </div>
                   </div>
@@ -590,84 +584,51 @@ const CommunityWall = () => {
           </div>
         )}
 
-        {/* Enhanced Newsletter Signup */}
+        {/* Newsletter Signup */}
         <div
           ref={newsletterRef}
-          className="relative rounded-3xl overflow-hidden shadow-2xl"
+          className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-[#303030] bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 text-white shadow-lg"
         >
-          {/* Enhanced Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800" />
-
-          <div className="absolute inset-0 opacity-10">
-            <div
-              className="w-full h-full"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                backgroundRepeat: "repeat",
-              }}
-            />
-          </div>
-
-          <div className="relative grid lg:grid-cols-2 gap-8 items-center">
-            {/* Enhanced Left Content */}
-            <div className="p-10 lg:p-16 text-white">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-6">
-                <FiMail className="w-8 h-8 text-white" />
+          <div className="relative grid lg:grid-cols-2 gap-8 items-center p-8 sm:p-12">
+            <div>
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl mb-4 text-white">
+                <FiMail className="w-6 h-6" />
               </div>
-              <h3 className="text-3xl lg:text-4xl font-bold mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">
                 Stay Connected with Us
               </h3>
-              <p className="text-lg text-blue-100 mb-10 max-w-lg leading-relaxed">
-                Be part of our global community 🌍 <br />
-                Get impact stories, project updates, and new opportunities
-                delivered straight to your inbox.
+              <p className="text-sm sm:text-base text-blue-100 mb-6 max-w-md leading-relaxed">
+                Be part of our global community. Get impact stories, project updates, and opportunities delivered straight to your inbox.
               </p>
 
-              {/* Enhanced Glass Form */}
-              <form className="flex flex-col sm:flex-row gap-4 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-2xl">
+              <form className="flex flex-col sm:flex-row gap-2 max-w-md">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 rounded-xl border-0 bg-white/20 backdrop-blur-sm
-                     text-white placeholder-blue-200 
-                     focus:ring-2 focus:ring-white/50 outline-none transition-all duration-300"
+                  className="flex-1 px-4 py-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-blue-200 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
                 />
                 <button
                   type="submit"
-                  className="group px-8 py-4 rounded-xl font-semibold 
-                     bg-white text-blue-600 shadow-xl hover:shadow-2xl 
-                     hover:scale-105 transform transition-all duration-300
-                     flex items-center justify-center space-x-2"
+                  className="px-5 py-2.5 rounded-lg font-medium text-sm bg-white text-blue-800 hover:bg-blue-50 transition-colors flex items-center justify-center space-x-1.5 shadow-sm shrink-0"
                 >
                   <span>Subscribe</span>
-                  <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <FiArrowRight className="w-4 h-4" />
                 </button>
               </form>
 
-              {/* Enhanced Subnote */}
-              <p className="mt-6 text-sm text-blue-200 flex items-center space-x-2">
-                <FiHeart className="w-4 h-4" />
+              <p className="mt-4 text-xs text-blue-200 flex items-center space-x-1.5">
+                <FiHeart className="w-3.5 h-3.5 text-pink-300" />
                 <span>No spam. Unsubscribe anytime with a single click.</span>
               </p>
             </div>
 
-            {/* Enhanced Right Image */}
-            <div className="hidden lg:block relative h-96">
+            <div className="hidden lg:block relative h-64">
               <Image
                 src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&h=700&fit=crop"
                 alt="Community gathering"
                 fill
-                className="object-cover rounded-l-3xl"
+                className="object-cover rounded-xl opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-purple-900/20 to-transparent rounded-l-3xl" />
-
-              {/* Floating elements */}
-              <div className="absolute top-8 right-8 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <FiUsers className="w-6 h-6 text-white" />
-              </div>
-              <div className="absolute bottom-8 right-8 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <FiHeart className="w-6 h-6 text-white" />
-              </div>
             </div>
           </div>
         </div>

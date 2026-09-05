@@ -1,15 +1,17 @@
 import { useRef } from 'react';
 import Image from 'next/image';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
+
+
 import { FaClock, FaGraduationCap, FaShieldAlt } from 'react-icons/fa';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function GuardianDashboard() {
   const containerRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     if (!containerRef.current) return;
 
@@ -86,15 +88,15 @@ function GuardianDashboard() {
   }, { scope: containerRef });
 
   return (
-    <section id="guardian" className="py-20 bg-emerald-50" ref={containerRef}>
+    <section id="guardian" className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           
           <div>
-            <h2 className="fade-left text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="fade-left text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
               Guardian Dashboard
             </h2>
-            <p className="fade-left text-xl text-gray-600 mb-8">
+            <p className="fade-left text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8">
               Stay connected with your child&apos;s learning journey through our secure guardian portal
             </p>
 
@@ -104,8 +106,8 @@ function GuardianDashboard() {
                   <FaShieldAlt className="text-white text-xl" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800">Live CCTV Access</h3>
-                  <p className="text-gray-600">Monitor your child&apos;s safety in real-time</p>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-base">Live CCTV Access</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">Monitor your child&apos;s safety in real-time</p>
                 </div>
               </div>
 
@@ -114,8 +116,8 @@ function GuardianDashboard() {
                   <FaClock className="text-white text-xl" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800">Attendance Tracking</h3>
-                  <p className="text-gray-600">Daily attendance and activity reports</p>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-base">Attendance Tracking</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">Daily attendance and activity reports</p>
                 </div>
               </div>
 
@@ -124,13 +126,13 @@ function GuardianDashboard() {
                   <FaGraduationCap className="text-white text-xl" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800">Progress Reports</h3>
-                  <p className="text-gray-600">Detailed learning progress and achievements</p>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-base">Progress Reports</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">Detailed learning progress and achievements</p>
                 </div>
               </div>
             </div>
 
-            <button className="fade-left btn-hover mt-8 bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold">
+            <button className="fade-left btn-hover mt-8 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium text-sm shadow-sm transition-all duration-200 active:scale-[0.98]">
               Access Dashboard
             </button>
           </div>
@@ -141,7 +143,7 @@ function GuardianDashboard() {
               alt="Guardian Dashboard"
               width={800}
               height={600}
-              className="rounded-lg shadow-xl"
+              className="rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
               priority
             />
           </div>

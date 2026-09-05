@@ -1,15 +1,16 @@
 import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Observer } from 'gsap/Observer';
+import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
+
+
 import { FaHandHoldingHeart, FaLaptopCode, FaWifi } from 'react-icons/fa';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
 
 function CoWorkingSpace() {
   const containerRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     if (!containerRef.current) return;
 
@@ -100,13 +101,13 @@ function CoWorkingSpace() {
   ];
 
   return (
-    <section className="py-20 bg-white" ref={containerRef}>
+    <section className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="header-animate text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="header-animate text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Co-Working Space
           </h2>
-          <p className="header-animate text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="header-animate text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             High-speed internet, collaborative workspace, and flexible
             contribution options
           </p>
@@ -116,17 +117,17 @@ function CoWorkingSpace() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="feature-card text-center group cursor-pointer"
+              className="feature-card text-center group cursor-pointer bg-white dark:bg-[#141414] p-8 rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300"
             >
               <div
-                className={`feature-icon w-20 h-20 ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-6`}
+                className={`feature-icon w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-5 shadow-sm`}
               >
-                <feature.icon className="text-white text-3xl" />
+                <feature.icon className="text-white text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

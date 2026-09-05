@@ -1,12 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import { donors } from "@/lib/data";
 import Image from "next/image";
 import { FiDownload, FiHeart, FiTrendingUp, FiUsers } from "react-icons/fi";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +22,7 @@ export default function DonorWall({ language }: DonorWallProps) {
   const reportCardRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       const tl = gsap.timeline({
@@ -260,12 +263,12 @@ export default function DonorWall({ language }: DonorWallProps) {
   return (
     <section
       ref={containerRef}
-      className="py-20 bg-gradient-to-br from-emerald-50 via-white to-blue-50 relative overflow-hidden"
+      className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300 relative overflow-hidden"
     >
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-200 to-blue-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-300 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -279,7 +282,7 @@ export default function DonorWall({ language }: DonorWallProps) {
               </h2>
             </div>
 
-            <p className="subtitle text-gray-600 text-lg leading-relaxed">
+            <p className="subtitle text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
               {language === "bn"
                 ? "যারা আমাদের কমিউনিটির উন্নয়নে অবদান রাখছেন এবং একসাথে একটি উন্নত ভবিষ্যৎ গড়ে তুলছেন"
                 : "Those who are contributing to our community development and building a better future together"}
@@ -292,7 +295,7 @@ export default function DonorWall({ language }: DonorWallProps) {
               {donors.map((donor, index) => (
                 <div
                   key={index}
-                  className="donor-card bg-white/80 backdrop-blur-sm rounded-2xl p-4 lg:p-6 shadow-lg border border-white/20 cursor-pointer group"
+                  className="donor-card bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl p-4 lg:p-6 shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] cursor-pointer group transition-all duration-200"
                 >
                   <div className="relative">
                     <Image
@@ -300,18 +303,18 @@ export default function DonorWall({ language }: DonorWallProps) {
                       alt={donor.name}
                       width={64}
                       height={64}
-                      className="donor-avatar rounded-full object-cover mx-auto mb-3 ring-2 ring-emerald-100 group-hover:ring-emerald-300 transition-all duration-300"
+                      className="donor-avatar rounded-full object-cover mx-auto mb-3 ring-2 ring-emerald-100 dark:ring-emerald-900/40 group-hover:ring-emerald-400 transition-all duration-300"
                     />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white"></div>
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-[#141414]"></div>
                   </div>
-                  <p className="donor-name text-sm text-center text-gray-600 font-medium truncate transition-colors duration-200">
+                  <p className="donor-name text-sm text-center text-slate-700 dark:text-slate-200 font-medium truncate transition-colors duration-200">
                     {donor.name}
                   </p>
                 </div>
               ))}
             </div>
 
-            <button className="view-all-btn animated-btn bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center group">
+            <button className="view-all-btn animated-btn bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-xs hover:shadow transition-all duration-300 flex items-center group cursor-pointer">
               <FiUsers className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-200" />
               {language === "bn" ? "সকল দাতা দেখুন" : "View All Donors"}
             </button>
@@ -319,17 +322,17 @@ export default function DonorWall({ language }: DonorWallProps) {
 
           {/* Monthly Report */}
           <div ref={reportCardRef} className="lg:pl-8">
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-10 border border-white/20">
+            <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-3xl shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] p-8 lg:p-10 transition-all duration-300">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
-                  <FiTrendingUp className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mr-4 text-white shadow-xs">
+                  <FiTrendingUp className="w-6 h-6" />
                 </div>
-                <h3 className="font-poppins text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                <h3 className="font-poppins text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
                   {language === "bn" ? "মাসিক প্রতিবেদন" : "Monthly Report"}
                 </h3>
               </div>
 
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm sm:text-base">
                 {language === "bn"
                   ? "আমাদের কার্যক্রমের সম্পূর্ণ বিবরণ এবং আর্থিক স্বচ্ছতার জন্য প্রতি মাসে প্রকাশিত প্রতিবেদন ডাউনলোড করুন।"
                   : "Download our monthly published report for complete details of our activities and financial transparency."}
@@ -340,31 +343,30 @@ export default function DonorWall({ language }: DonorWallProps) {
                 ref={statsRef}
                 className="grid grid-cols-2 gap-4 lg:gap-6 mb-8"
               >
-                <div className="stat-card bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 text-center border border-emerald-200">
-                  <div className="counter-number text-2xl lg:text-3xl font-bold text-emerald-600 mb-2">
+                <div className="stat-card bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-2xl p-6 text-center">
+                  <div className="counter-number text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                     Tk 2,45,000
                   </div>
-                  <div className="text-sm text-emerald-700 font-medium">
+                  <div className="text-sm text-emerald-700 dark:text-emerald-300 font-medium">
                     {language === "bn" ? "এ মাসে দান" : "This Month Donations"}
                   </div>
                 </div>
-                <div className="stat-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border border-blue-200">
-                  <div className="counter-number text-2xl lg:text-3xl font-bold text-blue-600 mb-2">
+                <div className="stat-card bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 rounded-2xl p-6 text-center">
+                  <div className="counter-number text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                     185
                   </div>
-                  <div className="text-sm text-blue-700 font-medium">
+                  <div className="text-sm text-blue-700 dark:text-blue-300 font-medium">
                     {language === "bn" ? "নতুন সদস্য" : "New Members"}
                   </div>
                 </div>
               </div>
 
-              <button className="download-btn animated-btn group w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                <FiDownload className="w-5 h-5 mr-3 group-hover:translate-y-1 transition-transform duration-200" />
+              <button className="download-btn animated-btn group w-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 px-6 rounded-xl font-semibold shadow-xs hover:shadow transition-all duration-300 flex items-center justify-center cursor-pointer">
+                <FiDownload className="w-5 h-5 mr-3 group-hover:translate-y-0.5 transition-transform duration-200" />
                 {language === "bn"
-                  ? "ডিসেম্বর ২০২৪ প্রতিবেদন ডাউনলোড"
-                  : "Download December 2024 Report"}
+                  ? "প্রতিবেদন ডাউনলোড করুন"
+                  : "Download Monthly Report"}
               </button>
-
               <p className="text-xs text-gray-500 text-center mt-4 opacity-75">
                 {language === "bn"
                   ? "PDF ফরম্যাট • ২.৩ MB • সর্বশেষ আপডেট"

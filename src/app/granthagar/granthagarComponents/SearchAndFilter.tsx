@@ -2,9 +2,8 @@
 
 import React, { useRef } from "react";
 import { Search, Filter, BookOpen, Sparkles } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,41 +39,20 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   ];
 
   const statusOptions = [
-    { value: "all", label: "All Books", color: "text-gray-600" },
-    { value: "available", label: "Available", color: "text-emerald-600" },
-    { value: "borrowed", label: "Currently Borrowed", color: "text-amber-600" },
+    { value: "all", label: "All Books" },
+    { value: "available", label: "Available" },
+    { value: "borrowed", label: "Currently Borrowed" },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Entrance animations
       gsap.fromTo(
         ".search-container",
-        { opacity: 0, y: 30, scale: 0.95 },
+        { opacity: 0, y: 30, scale: 0.98 },
         { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out" }
       );
-
-      // Hover effects
-      gsap.utils.toArray<HTMLElement>(".hover-lift").forEach((el) => {
-        const tl = gsap.timeline({ paused: true });
-        tl.to(el, { y: -2, scale: 1.02, duration: 0.3, ease: "power2.out" });
-
-        el.addEventListener("mouseenter", () => tl.play());
-        el.addEventListener("mouseleave", () => tl.reverse());
-      });
-
-      // Focus animations
-      gsap.utils.toArray<HTMLElement>(".focus-scale").forEach((el) => {
-        const tl = gsap.timeline({ paused: true });
-        tl.to(el, {
-          scale: 1.02,
-          boxShadow: "0 8px 25px rgba(59, 130, 246, 0.15)",
-          duration: 0.3,
-        });
-
-        el.addEventListener("focus", () => tl.play());
-        el.addEventListener("blur", () => tl.reverse());
-      });
     },
     { scope: containerRef }
   );
@@ -82,18 +60,18 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   return (
     <div
       ref={containerRef}
-      className="search-container bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 mb-8 border border-gray-100/50"
+      className="search-container bg-white dark:bg-[#141414] rounded-xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-4 sm:p-6 mb-8 border border-slate-200 dark:border-[#303030]"
     >
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-4">
         {/* Enhanced Search */}
         <div className="flex-1 relative group">
-          <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500 transition-colors duration-300" />
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors" />
           <input
             type="text"
             placeholder="Search by title, author, or donor..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="focus-scale w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-gray-50 focus:bg-white text-lg"
+            className="w-full pl-10 pr-4 py-2.5 border border-slate-300 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
           />
         </div>
 
@@ -102,7 +80,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="hover-lift focus-scale appearance-none bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-2xl px-6 py-4 pr-12 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 font-semibold text-gray-700 min-w-[200px]"
+            className="appearance-none bg-white dark:bg-[#1f1f1f] border border-slate-300 dark:border-[#303030] rounded-lg px-4 py-2.5 pr-10 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors min-w-[190px]"
           >
             {categories.map((category) => (
               <option key={category.value} value={category.value}>
@@ -110,8 +88,8 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
               </option>
             ))}
           </select>
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-            <BookOpen className="w-5 h-5 text-blue-500" />
+          <div className="absolute right-3.5 top-1/2 transform -translate-y-1/2 pointer-events-none text-slate-400">
+            <BookOpen className="w-4 h-4" />
           </div>
         </div>
 
@@ -120,7 +98,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="hover-lift focus-scale appearance-none bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl px-6 py-4 pr-12 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-300 font-semibold text-gray-700 min-w-[180px]"
+            className="appearance-none bg-white dark:bg-[#1f1f1f] border border-slate-300 dark:border-[#303030] rounded-lg px-4 py-2.5 pr-10 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors min-w-[170px]"
           >
             {statusOptions.map((status) => (
               <option key={status.value} value={status.value}>
@@ -128,16 +106,16 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
               </option>
             ))}
           </select>
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-            <Filter className="w-5 h-5 text-emerald-500" />
+          <div className="absolute right-3.5 top-1/2 transform -translate-y-1/2 pointer-events-none text-slate-400">
+            <Filter className="w-4 h-4" />
           </div>
         </div>
 
         {/* Enhanced Filter Button */}
-        <button className="hover-lift bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center space-x-3 shadow-lg border border-blue-500/20">
-          <Filter className="w-5 h-5" />
+        <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-center space-x-2 shadow-sm active:scale-[0.99]">
+          <Filter className="w-4 h-4" />
           <span>Apply Filters</span>
-          <Sparkles className="w-4 h-4" />
+          <Sparkles className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

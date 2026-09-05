@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+"use client";
+import React, { useState, useRef } from "react";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import {
   FiChevronLeft,
   FiChevronRight,
@@ -15,6 +13,7 @@ import {
   FiTarget,
 } from "react-icons/fi";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,6 +114,7 @@ const ImpactSection = () => {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header Animation
@@ -141,7 +141,7 @@ const ImpactSection = () => {
 
       // Stats Cards Animation
       const statCards = statsRef.current?.querySelectorAll(".stat-card");
-      statCards?.forEach((card, index) => {
+      statCards?.forEach((card: Element, index: number) => {
         gsap.fromTo(
           card,
           {
@@ -217,7 +217,7 @@ const ImpactSection = () => {
 
       // Hover animations for stat cards
       const statCards2 = statsRef.current?.querySelectorAll(".stat-card");
-      statCards2?.forEach((card) => {
+      statCards2?.forEach((card: Element) => {
         const cardElement = card as HTMLElement;
         cardElement.addEventListener("mouseenter", () => {
           gsap.to(cardElement, {
@@ -240,7 +240,7 @@ const ImpactSection = () => {
 
       // Story navigation buttons hover
       const navButtons = storiesRef.current?.querySelectorAll(".nav-button");
-      navButtons?.forEach((button) => {
+      navButtons?.forEach((button: Element) => {
         const buttonElement = button as HTMLElement;
         buttonElement.addEventListener("mouseenter", () => {
           gsap.to(buttonElement, {
@@ -320,91 +320,90 @@ const ImpactSection = () => {
     <section
       ref={containerRef}
       id="impact"
-      className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-6">
-            <FiTrendingUp className="w-8 h-8 text-white" />
+        <div ref={headerRef} className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-4 border border-blue-100 dark:border-blue-800/50">
+            <FiTrendingUp className="w-6 h-6" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             Our Impact & Achievements
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Real stories, measurable results, and lasting change in communities
             across Bangladesh.
           </p>
         </div>
 
-        {/* Enhanced Statistics Grid */}
+        {/* Statistics Grid */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-16"
         >
-          {stats.map((stat, ) => {
+          {stats.map((stat) => {
             const IconComponent = stat.icon;
             return (
               <div
                 key={stat.id}
-                className="stat-card group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center transition-all duration-300 border border-gray-100"
+                className="stat-card group bg-white dark:bg-[#141414] rounded-xl p-5 text-center transition-all duration-200 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                  <div
-                    className="stat-number text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2"
-                    data-suffix={stat.suffix}
-                  >
-                    {stat.value}
-                    {stat.suffix}
-                  </div>
-                  <p className="text-sm font-semibold text-gray-700 mb-1">
-                    {stat.label}
-                  </p>
-                  <p className="text-xs text-gray-500">{stat.description}</p>
+                <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3 border border-blue-100 dark:border-blue-800/40 group-hover:scale-105 transition-transform duration-200">
+                  <IconComponent className="w-5 h-5" />
                 </div>
+                <div
+                  className="stat-number text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight"
+                  data-suffix={stat.suffix}
+                >
+                  {stat.value}
+                  {stat.suffix}
+                </div>
+                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-0.5">
+                  {stat.label}
+                </p>
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">{stat.description}</p>
               </div>
             );
           })}
         </div>
 
-        {/* Enhanced Success Stories */}
+        {/* Success Stories */}
         <div
           ref={storiesRef}
-          className="bg-white rounded-3xl shadow-2xl overflow-hidden"
+          className="bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden"
         >
-          <div className="p-8 md:p-12">
-            <div className="flex items-center justify-between mb-8">
+          <div className="p-6 sm:p-10">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                   Success Stories
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                   Inspiring journeys of transformation
                 </p>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
                 <button
                   onClick={prevStory}
-                  className="nav-button w-12 h-12 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-blue-500 hover:to-purple-600 flex items-center justify-center transition-all duration-300 group"
+                  aria-label="Previous story"
+                  className="w-9 h-9 rounded-lg border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#1f1f1f] text-slate-600 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-center transition-colors shadow-sm"
                 >
-                  <FiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-white" />
+                  <FiChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextStory}
-                  className="nav-button w-12 h-12 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-blue-500 hover:to-purple-600 flex items-center justify-center transition-all duration-300 group"
+                  aria-label="Next story"
+                  className="w-9 h-9 rounded-lg border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#1f1f1f] text-slate-600 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-center transition-colors shadow-sm"
                 >
-                  <FiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-white" />
+                  <FiChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl">
+            <div className="relative overflow-hidden rounded-xl">
               <div
-                className="flex transition-transform duration-700 ease-out"
+                className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${currentStory * 100}%)` }}
               >
                 {successStories.map((story, index) => (
@@ -415,24 +414,21 @@ const ImpactSection = () => {
                     }`}
                   >
                     <div
-                      className={`bg-gradient-to-br ${story.bgGradient} rounded-2xl p-8`}
+                      className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-[#2a2a2a]"
                     >
-                      <div className="grid md:grid-cols-5 gap-8 items-center">
+                      <div className="grid md:grid-cols-5 gap-6 sm:gap-8 items-center">
                         <div className="md:col-span-2">
-                          <div className="relative group">
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                            <Image
-                              src={story.image}
-                              alt={story.name}
-                              width={400}
-                              height={400}
-                              className="relative w-full h-80 object-cover rounded-2xl shadow-xl"
-                            />
-                          </div>
+                          <Image
+                            src={story.image}
+                            alt={story.name}
+                            width={400}
+                            height={320}
+                            className="w-full h-64 sm:h-72 object-cover rounded-xl border border-slate-200 dark:border-[#303030] shadow-sm"
+                          />
                         </div>
                         <div className="md:col-span-3">
                           <div
-                            className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium mb-4"
+                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium mb-3 border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#252525]"
                             style={{ color: story.color }}
                           >
                             <div
@@ -441,27 +437,25 @@ const ImpactSection = () => {
                             ></div>
                             {story.department}
                           </div>
-                          <h4 className="text-3xl font-bold text-gray-900 mb-4">
+                          <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                             {story.name}
                           </h4>
-                          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                             {story.story}
                           </p>
-                          <div className="flex items-center justify-between">
+                          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200/60 dark:border-[#2a2a2a]">
                             <div className="flex items-center space-x-2">
                               <div
-                                className="w-3 h-3 rounded-full"
+                                className="w-2.5 h-2.5 rounded-full"
                                 style={{ backgroundColor: story.color }}
                               ></div>
-                              <p className="font-semibold text-gray-800">
+                              <p className="font-medium text-slate-800 dark:text-slate-200 text-sm">
                                 {story.impact}
                               </p>
                             </div>
-                            <button className="group inline-flex items-center space-x-2 px-6 py-3 bg-white hover:bg-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                              <span className="text-gray-700 font-medium">
-                                Read Full Story
-                              </span>
-                              <FiExternalLink className="w-4 h-4 text-gray-500 group-hover:text-blue-500 transition-colors duration-300" />
+                            <button className="inline-flex items-center space-x-2 px-4 py-2 bg-white dark:bg-[#252525] hover:bg-slate-50 dark:hover:bg-[#2d2d2d] rounded-lg shadow-sm transition-all duration-200 border border-slate-200 dark:border-[#303030] text-xs font-medium text-slate-700 dark:text-slate-200">
+                              <span>Read Full Story</span>
+                              <FiExternalLink className="w-3.5 h-3.5 text-slate-500" />
                             </button>
                           </div>
                         </div>
@@ -472,35 +466,30 @@ const ImpactSection = () => {
               </div>
             </div>
 
-            {/* Enhanced Story Indicators */}
-            <div className="flex justify-center mt-8 space-x-3">
-              {successStories.map((story, index) => (
+            {/* AntD style indicators */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {successStories.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentStory(index)}
-                  className={`relative w-12 h-3 rounded-full transition-all duration-300 ${
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-200 ${
                     index === currentStory
-                      ? "bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg"
-                      : "bg-gray-200 hover:bg-gray-300"
+                      ? "bg-blue-600 w-6"
+                      : "bg-slate-300 dark:bg-slate-700 w-3 hover:bg-slate-400"
                   }`}
-                >
-                  {index === currentStory && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
-                  )}
-                </button>
+                />
               ))}
             </div>
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center justify-center space-x-4 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer">
-            <span className="text-white font-semibold text-lg">
-              Join Our Impact Story
-            </span>
-            <FiExternalLink className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
-          </div>
+        <div className="mt-12 text-center">
+          <button className="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm transition-colors text-sm font-medium">
+            <span>Join Our Impact Story</span>
+            <FiExternalLink className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

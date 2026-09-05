@@ -1,11 +1,11 @@
 import React from "react";
 import {
   Heart,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
+  
+  MessageCircle,
+  
+  
+  PlayCircle,
   Mail,
   Phone,
   MapPin,
@@ -61,11 +61,11 @@ const FooterFoundation = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#", color: "hover:text-blue-600" },
-    { icon: Twitter, href: "#", color: "hover:text-sky-400" },
-    { icon: Instagram, href: "#", color: "hover:text-pink-600" },
-    { icon: Linkedin, href: "#", color: "hover:text-blue-700" },
-    { icon: Youtube, href: "#", color: "hover:text-red-600" },
+    { icon: Heart, href: "#", color: "hover:text-blue-600" },
+    { icon: MessageCircle, href: "#", color: "hover:text-sky-400" },
+    { icon: Heart, href: "#", color: "hover:text-pink-600" },
+    { icon: Heart, href: "#", color: "hover:text-blue-700" },
+    { icon: PlayCircle, href: "#", color: "hover:text-red-600" },
   ];
 
   return (

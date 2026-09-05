@@ -4,9 +4,8 @@ import Link from 'next/link';
 import { FiUsers, FiClock, FiAward, FiBriefcase } from 'react-icons/fi';
 import { features } from '@/lib/data';
 import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,8 +24,8 @@ export default function Features({ language }: FeaturesProps) {
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
-    // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
     
     ScrollTrigger.create({
@@ -43,7 +42,6 @@ export default function Features({ language }: FeaturesProps) {
       once: true
     });
 
-    // Feature cards animation
     const cards = cardsRef.current.filter(Boolean);
     gsap.set(cards, { y: 40, opacity: 0 });
     
@@ -62,7 +60,6 @@ export default function Features({ language }: FeaturesProps) {
       once: true
     });
 
-    // Hover animations
     cards.forEach((card) => {
       if (card) {
         card.addEventListener('mouseenter', () => {
@@ -87,13 +84,13 @@ export default function Features({ language }: FeaturesProps) {
   }, []);
 
   return (
-    <section className="py-20 marble-gradient">
+    <section className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-12">
-          <h2 className="font-poppins text-3xl sm:text-4xl font-bold text-neutral-dark mb-4">
+        <div ref={headerRef} className="text-center mb-16">
+          <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             {language === 'bn' ? 'বিশেষ সুবিধা' : 'Special Features'}
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             {language === 'bn' 
               ? 'আমাদের সদস্যদের জন্য বিশেষ সুবিধা ও সেবা'
               : 'Special facilities and services for our members'
@@ -112,12 +109,12 @@ export default function Features({ language }: FeaturesProps) {
                 ref={(el) => {
                   cardsRef.current[index] = el;
                 }}
-                className="group bg-white rounded-xl p-6 shadow-md transition-shadow duration-300"
+                className="group bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl p-6 shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-accent to-accent-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                   <IconComponent className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-dark mb-2">
+                <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {language === 'bn' 
                     ? feature.title
                       .replace('Membership', 'সদস্যপদ')
@@ -127,7 +124,7 @@ export default function Features({ language }: FeaturesProps) {
                     : feature.title
                   }
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   {language === 'bn' 
                     ? feature.description
                       .replace('100৳ Refundable membership fee', '১০০৳ ফেরতযোগ্য সদস্যপদ ফি')

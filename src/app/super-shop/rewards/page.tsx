@@ -14,9 +14,11 @@ import {
 } from "lucide-react";
 import { CartProvider } from "../contexts/CartContext";
 import FooterShop from "../shopComponents/FooterShop";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,6 +172,7 @@ export default function RewardsPage() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements

@@ -6,12 +6,15 @@ import CartItems from "../shopComponents/CartItems";
 import OrderSummary from "../shopComponents/OrderSummary";
 import { ShoppingBag, Sparkles, Star, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
 
 export default function CartPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements

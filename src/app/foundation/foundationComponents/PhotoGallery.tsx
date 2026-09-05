@@ -3,9 +3,11 @@
 import { useState, useRef } from "react";
 import { X, ZoomIn } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
  
@@ -131,6 +133,7 @@ const PhotoGallery = () => {
     setLightboxImage(null);
   };
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.from(".gallery-header", {
@@ -174,6 +177,7 @@ const PhotoGallery = () => {
   }, { scope: containerRef, dependencies: [activeFilter] });
 
   // Photo grid animation when filter changes
+  useScrollAnimation();
   useGSAP(() => {
     gsap.utils.toArray<HTMLElement>(".photo-card").forEach((card, index) => {
       gsap.fromTo(card, 
@@ -191,13 +195,13 @@ const PhotoGallery = () => {
   }, [activeFilter]);
 
   return (
-    <section ref={containerRef} className="py-20 marble-gradient">
+    <section ref={containerRef} className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="gallery-header text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Our Work in Pictures
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             A visual journey through our programs and the communities we serve.
             Every image tells a story of hope, progress, and positive change.
           </p>
@@ -205,15 +209,15 @@ const PhotoGallery = () => {
 
         {/* Filter Buttons */}
         <div className="filter-buttons flex flex-wrap justify-center mb-12">
-          <div className="bg-gray-100 rounded-full p-2">
+          <div className="bg-slate-100 dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-xl p-1.5 flex flex-wrap gap-1">
             {filters.map((filter) => (
               <button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-3 rounded-full m-1 transition-all duration-300 font-semibold ${
+                className={`px-5 py-2 rounded-lg transition-all duration-200 text-xs sm:text-sm font-medium ${
                   activeFilter === filter.key
-                    ? "bg-emerald-600 text-white shadow-lg transform scale-105"
-                    : "text-gray-700 hover:bg-white hover:shadow-md"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-[#1f1f1f]"
                 }`}
               >
                 {filter.label}
@@ -224,37 +228,37 @@ const PhotoGallery = () => {
 
         {/* Photo Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredPhotos.map((photo, ) => (
+          {filteredPhotos.map((photo) => (
             <div
               key={photo.id}
-              className="photo-card group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="photo-card group relative bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-300"
             >
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-square overflow-hidden relative">
                 <Image
                   src={photo.src}
                   alt={photo.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-bold text-lg mb-1">
+                    <h4 className="text-white font-bold text-base mb-1">
                       {photo.title}
                     </h4>
-                    <p className="text-white/90 text-sm">{photo.description}</p>
+                    <p className="text-white/80 text-xs leading-relaxed">{photo.description}</p>
                   </div>
                   <button
                     onClick={() => openLightbox(photo)}
-                    className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all duration-300 transform hover:scale-110"
+                    className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all duration-200"
                   >
-                    <ZoomIn className="w-5 h-5 text-white" />
+                    <ZoomIn className="w-4 h-4 text-white" />
                   </button>
                 </div>
               </div>
 
               {/* Category Badge */}
               <div className="absolute top-4 left-4">
-                <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold capitalize">
+                <span className="bg-emerald-600/90 backdrop-blur-xs text-white px-2.5 py-0.5 rounded-full text-xs font-medium capitalize">
                   {photo.category}
                 </span>
               </div>
@@ -264,7 +268,7 @@ const PhotoGallery = () => {
 
         {/* Load More Button */}
         <div className="load-more-btn text-center mt-12">
-          <button className="teal-slate-gradient text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-sky-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button className="bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#303030] px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200 shadow-sm active:scale-[0.98]">
             View More Photos
           </button>
         </div>

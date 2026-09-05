@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Observer } from 'gsap/Observer';
+import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
+
+
 import Link from "next/link";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FaEnvelope,
   FaFacebook,
@@ -22,6 +22,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
 function FooterIT() {
   const containerRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     if (!containerRef.current) return;
 

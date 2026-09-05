@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import { useRef } from "react";
 import { IconType } from "react-icons";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FiBook,
   FiHeart,
@@ -41,6 +43,7 @@ const SystemFlow = () => {
   const mobileFlowRef = useRef<HTMLDivElement>(null);
   const outcomesRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header Animation
@@ -372,15 +375,15 @@ const SystemFlow = () => {
     <section
       ref={containerRef}
       id="system-flow"
-      className="section-padding bg-soft-50"
+      className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
     >
-      <div className="max-w-7xl mx-auto container-padding">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             How It All Connects
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             A holistic ecosystem where education leads to empowerment, skills
             create opportunities, and commerce sustains community development.
           </p>
@@ -391,7 +394,7 @@ const SystemFlow = () => {
           {/* Desktop / Tablet Flow */}
           <div ref={flowRef} className="hidden md:block">
             {/* Step Circles */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-start relative mb-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-start relative mb-8">
               {flowSteps.map((step) => {
                 const IconComponent = step.icon;
                 const isActive = activeStep === step.id;
@@ -403,32 +406,29 @@ const SystemFlow = () => {
                   >
                     {/* Circle */}
                     <div
-                      className={`step-circle relative w-20 h-20 lg:w-24 lg:h-24 rounded-full border-4 flex items-center justify-center cursor-pointer transition-all duration-500 ${
+                      className={`step-circle relative w-20 h-20 lg:w-22 lg:h-22 rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-300 ${
                         isActive
-                          ? "bg-white shadow-2xl transform scale-110"
-                          : "bg-white shadow-lg hover:shadow-xl"
+                          ? "bg-white dark:bg-[#1f1f1f] shadow-lg scale-105"
+                          : "bg-slate-50 dark:bg-[#141414] shadow-sm hover:shadow-md"
                       }`}
                       style={{
                         borderColor: step.color,
-                        boxShadow: isActive
-                          ? `0 0 30px ${step.color}40`
-                          : undefined,
                       }}
                       onMouseEnter={() => setActiveStep(step.id)}
                       onMouseLeave={() => setActiveStep(null)}
                     >
                       <IconComponent
-                        className="floating-icon w-7 h-7 lg:w-8 lg:h-8 transition-colors duration-300"
+                        className="floating-icon w-7 h-7 lg:w-8 lg:h-8 transition-colors duration-200"
                         style={{ color: step.color }}
                       />
                     </div>
 
                     {/* Title + Desc */}
                     <div className="mt-4 text-center px-2">
-                      <h3 className="text-base lg:text-lg font-poppins font-semibold text-gray-900 mb-2">
+                      <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1.5">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -438,18 +438,14 @@ const SystemFlow = () => {
             </div>
 
             {/* Example Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               {flowSteps.map((step) => (
                 <div
                   key={step.id}
-                  className="example-card p-4 rounded-lg border-2 text-center transition-all duration-300"
-                  style={{
-                    borderColor: step.color,
-                    backgroundColor: `${step.color}10`,
-                  }}
+                  className="example-card p-4 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-center transition-all duration-200 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)]"
                 >
                   <p
-                    className="text-sm font-medium"
+                    className="text-xs sm:text-sm font-medium"
                     style={{ color: step.color }}
                   >
                     {step.example}
@@ -460,36 +456,32 @@ const SystemFlow = () => {
           </div>
 
           {/* Mobile Flow */}
-          <div ref={mobileFlowRef} className="md:hidden space-y-8">
+          <div ref={mobileFlowRef} className="md:hidden space-y-6">
             {flowSteps.map((step, index) => {
               const IconComponent = step.icon;
 
               return (
                 <div key={step.id} className="flex flex-col space-y-3">
-                  <div className="mobile-step flex items-start space-x-4">
+                  <div className="mobile-step flex items-start space-x-4 p-4 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#303030]">
                     <div
-                      className="w-14 h-14 rounded-full border-4 flex items-center justify-center bg-white shadow-lg"
+                      className="w-12 h-12 rounded-full border-2 flex items-center justify-center bg-white dark:bg-[#1f1f1f] shadow-sm shrink-0"
                       style={{ borderColor: step.color }}
                     >
                       <IconComponent
-                        className="floating-icon w-6 h-6"
+                        className="w-5 h-5"
                         style={{ color: step.color }}
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1">
+                      <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 mb-2">{step.description}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{step.description}</p>
                       <div
-                        className="p-3 rounded-lg border-2"
-                        style={{
-                          borderColor: step.color,
-                          backgroundColor: `${step.color}10`,
-                        }}
+                        className="p-2.5 rounded-lg border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#1f1f1f]"
                       >
                         <p
-                          className="text-sm font-medium"
+                          className="text-xs font-medium"
                           style={{ color: step.color }}
                         >
                           {step.example}
@@ -500,7 +492,7 @@ const SystemFlow = () => {
                   {index < flowSteps.length - 1 && (
                     <div className="flex justify-center">
                       <FiArrowRight
-                        className="mobile-arrow w-5 h-5 rotate-90"
+                        className="mobile-arrow w-4 h-4 rotate-90"
                         style={{ color: step.color }}
                       />
                     </div>
@@ -514,31 +506,30 @@ const SystemFlow = () => {
         {/* Outcomes */}
         <div
           ref={outcomesRef}
-          className="bg-white rounded-2xl shadow-lg p-6 sm:p-8"
+          className="bg-slate-50 dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8"
         >
-          <h3 className="text-2xl font-poppins font-semibold text-gray-900 text-center mb-8">
+          <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-6 tracking-tight">
             Collective Impact
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {outcomes.map((outcome, index) => {
               const IconComponent = outcome.icon;
 
               return (
                 <div
                   key={index}
-                  className="outcome-card text-center p-6 rounded-lg transition-shadow duration-300"
-                  style={{ backgroundColor: `${outcome.color}10` }}
+                  className="outcome-card text-center p-6 rounded-xl border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#1a1a1a] shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-3.5 shadow-sm"
                     style={{ backgroundColor: outcome.color }}
                   >
-                    <IconComponent className="floating-icon w-6 h-6 text-white" />
+                    <IconComponent className="floating-icon w-5 h-5 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h4 className="text-base font-semibold text-slate-900 dark:text-white mb-1.5">
                     {outcome.label}
                   </h4>
-                  <p className="text-gray-600">{outcome.description}</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{outcome.description}</p>
                 </div>
               );
             })}

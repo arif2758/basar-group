@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { FaTrophy } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -43,6 +45,7 @@ function AchievementsTimeline() {
   const achievementRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
@@ -114,11 +117,11 @@ function AchievementsTimeline() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-900 text-white">
+    <section ref={sectionRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Journey</h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Our Journey</h2>
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Milestones that mark our commitment to community development
           </p>
         </div>
@@ -139,20 +142,20 @@ function AchievementsTimeline() {
                 }`}
               >
                 <div
-                  className={`bg-gray-800 rounded-xl p-6 shadow-lg max-w-md ${
+                  className={`bg-white dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] max-w-md transition-all duration-300 ${
                     index % 2 === 0 ? "mr-4" : "ml-4"
                   }`}
                 >
-                  <div className="flex items-center mb-3">
-                    <FaTrophy className="text-emerald-400 mr-3" />
-                    <span className="text-emerald-400 font-bold">
+                  <div className="flex items-center mb-2">
+                    <FaTrophy className="text-amber-500 mr-2.5 text-base" />
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">
                       {achievement.year}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">
                     {achievement.title}
                   </h3>
-                  <p className="text-gray-300">{achievement.description}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{achievement.description}</p>
                 </div>
               </div>
               <div

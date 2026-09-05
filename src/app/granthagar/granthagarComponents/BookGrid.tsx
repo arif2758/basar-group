@@ -8,13 +8,12 @@ import {
   MapPin,
   Clock,
   Eye,
-  Sparkles,
   TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,6 +154,7 @@ const BookGrid: React.FC<BookGridProps> = ({
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Sort controls animation
@@ -167,74 +167,21 @@ const BookGrid: React.FC<BookGridProps> = ({
       // Book cards staggered entrance
       gsap.fromTo(
         ".book-card",
-        { opacity: 0, y: 60, scale: 0.9 },
+        { opacity: 0, y: 40, scale: 0.96 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          stagger: {
-            amount: 1,
-            grid: "auto",
-            from: "start",
-          },
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.08,
           scrollTrigger: {
             trigger: ".books-grid",
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse",
           },
         }
       );
-
-      // Setup hover effects
-      gsap.utils.toArray<HTMLElement>(".book-card").forEach((card) => {
-        const image = card.querySelector(".book-image");
-      
-        const buttons = card.querySelectorAll(".book-button");
-
-        const hoverTl = gsap.timeline({ paused: true });
-
-        hoverTl
-          .to(card, {
-            y: -8,
-            scale: 1.02,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)",
-            duration: 0.3,
-            ease: "power2.out",
-          })
-          .to(
-            image,
-            {
-              scale: 1.05,
-              duration: 0.4,
-              ease: "power2.out",
-            },
-            "-=0.3"
-          )
-          .to(
-            buttons,
-            {
-              y: -2,
-              duration: 0.2,
-              ease: "power2.out",
-              stagger: 0.05,
-            },
-            "-=0.2"
-          );
-
-        card.addEventListener("mouseenter", () => hoverTl.play());
-        card.addEventListener("mouseleave", () => hoverTl.reverse());
-      });
-
-      // Empty state animation
-      if (filteredBooks.length === 0) {
-        gsap.fromTo(
-          ".empty-state",
-          { opacity: 0, scale: 0.9, y: 30 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "power2.out" }
-        );
-      }
     },
     { scope: containerRef, dependencies: [filteredBooks.length] }
   );
@@ -242,179 +189,170 @@ const BookGrid: React.FC<BookGridProps> = ({
   return (
     <div ref={containerRef}>
       {/* Enhanced Sort Controls */}
-      <div className="sort-controls flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-        <div className="flex items-center space-x-3">
-          <TrendingUp className="w-5 h-5 text-blue-600" />
-          <p className="text-gray-700 font-semibold">
+      <div className="sort-controls flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+        <div className="flex items-center space-x-2">
+          <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <p className="text-slate-600 dark:text-slate-400 text-sm">
             Showing{" "}
-            <span className="text-blue-600 font-bold">
+            <span className="text-slate-900 dark:text-white font-semibold">
               {filteredBooks.length}
             </span>{" "}
-            of <span className="font-bold">{books.length}</span> books
+            of <span className="font-semibold">{books.length}</span> books
           </p>
         </div>
 
-        <select className="bg-white/80 backdrop-blur-sm border-2 border-gray-200 rounded-2xl px-4 py-3 text-sm font-semibold focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300">
-          <option>📅 Sort by: Recently Added</option>
-          <option>⭐ Sort by: Rating</option>
-          <option>🔤 Sort by: Title A-Z</option>
-          <option>👤 Sort by: Author A-Z</option>
+        <select className="bg-white dark:bg-[#141414] border border-slate-300 dark:border-[#303030] rounded-lg px-3 py-2 text-xs sm:text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors">
+          <option>Sort by: Recently Added</option>
+          <option>Sort by: Rating</option>
+          <option>Sort by: Title A-Z</option>
+          <option>Sort by: Author A-Z</option>
         </select>
       </div>
 
       {/* Enhanced Books Grid */}
-      <div className="books-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="books-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredBooks.map((book) => (
           <div
             key={book.id}
-            className="book-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border border-gray-100/50 group cursor-pointer"
+            className="book-card bg-white dark:bg-[#141414] rounded-xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] overflow-hidden border border-slate-200 dark:border-[#303030] flex flex-col justify-between transition-all duration-200"
           >
-            <div className="relative overflow-hidden">
-              <Image
-                src={book.cover}
-                alt={book.title}
-                width={500}
-                height={192}
-                className="book-image w-full h-48 object-cover transition-all duration-500"
-              />
+            <div>
+              <div className="relative overflow-hidden group">
+                <Image
+                  src={book.cover}
+                  alt={book.title}
+                  width={500}
+                  height={192}
+                  className="book-image w-full h-44 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
 
-              {/* Enhanced Status Badge */}
-              <div className="absolute top-3 right-3">
-                <span
-                  className={`px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm border ${
-                    book.status === "Available"
-                      ? "bg-emerald-50/90 text-emerald-700 border-emerald-200"
-                      : "bg-amber-50/90 text-amber-700 border-amber-200"
-                  }`}
-                >
-                  {book.status === "Available" ? "✅ Available" : "📚 Borrowed"}
-                </span>
-              </div>
-
-              {/* Enhanced Heart Button */}
-              <button className="absolute top-3 left-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg border border-white/50">
-                <Heart className="w-5 h-5 text-red-500" />
-              </button>
-
-              {/* Quick View Button */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                <button className="opacity-0 group-hover:opacity-100 bg-white/90 backdrop-blur-sm text-gray-800 px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
-                  <Eye className="w-4 h-4" />
-                  <span>Quick View</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="book-content p-6">
-              {/* Category Badge */}
-              <div className="mb-3">
-                <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                  📖 {book.category}
-                </span>
-              </div>
-
-              {/* Title & Author */}
-              <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-600 transition-colors duration-300">
-                {book.title}
-              </h3>
-
-              <p className="text-gray-600 text-sm mb-4 font-medium">
-                by {book.author}
-              </p>
-
-              {/* Rating & Donor */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-1">
-                  <Star className="w-4 h-4 text-amber-400 fill-current" />
-                  <span className="text-sm font-bold text-gray-700">
-                    {book.rating}
+                {/* Enhanced Status Badge */}
+                <div className="absolute top-2.5 right-2.5">
+                  <span
+                    className={`px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                      book.status === "Available"
+                        ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40"
+                        : "bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40"
+                    }`}
+                  >
+                    {book.status === "Available" ? "Available" : "Borrowed"}
                   </span>
                 </div>
 
-                <div className="flex items-center space-x-1 text-xs text-gray-500">
-                  <User className="w-3 h-3" />
-                  <span className="font-medium">{book.donor}</span>
+                {/* Heart Button */}
+                <button 
+                  aria-label="Add to favorites"
+                  className="absolute top-2.5 left-2.5 w-8 h-8 bg-white/90 dark:bg-[#141414]/90 rounded-full flex items-center justify-center text-slate-500 hover:text-rose-500 transition-colors shadow-sm border border-slate-200 dark:border-[#303030]"
+                >
+                  <Heart className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="book-content p-5">
+                {/* Category Badge */}
+                <div className="mb-2">
+                  <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-900/30">
+                    {book.category}
+                  </span>
                 </div>
-              </div>
 
-              {/* Location */}
-              <div className="flex items-center space-x-1 text-xs text-gray-500 mb-4">
-                <MapPin className="w-3 h-3" />
-                <span className="font-medium">{book.donorLocation}</span>
-              </div>
+                {/* Title & Author */}
+                <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1 line-clamp-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                  <Link href={`/granthagar/book-detail/${book.id}`}>
+                    {book.title}
+                  </Link>
+                </h3>
 
-              {/* Borrowed Status Info */}
-              {book.status === "Borrowed" && book.returnDate && (
-                <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-3 mb-4 border border-amber-200">
-                  <div className="flex items-center space-x-1 text-xs text-amber-800 mb-1">
-                    <Clock className="w-3 h-3" />
-                    <span className="font-semibold">
-                      Returns on {book.returnDate}
+                <p className="text-slate-500 dark:text-slate-400 text-xs mb-3 font-medium">
+                  by {book.author}
+                </p>
+
+                {/* Rating & Donor */}
+                <div className="flex items-center justify-between text-xs mb-3 text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-3.5 h-3.5 text-amber-400 fill-current" />
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">
+                      {book.rating}
                     </span>
                   </div>
-                  <div className="text-xs text-amber-700 font-medium">
-                    📚 Borrowed by {book.borrowedBy}
+
+                  <div className="flex items-center space-x-1 text-slate-500 dark:text-slate-400">
+                    <User className="w-3 h-3" />
+                    <span>{book.donor}</span>
                   </div>
                 </div>
-              )}
 
-              {/* Action Buttons */}
-              <div className="flex flex-col gap-3">
-                <button className="book-button flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 px-4 rounded-2xl text-sm font-bold transition-all duration-300 shadow-lg">
-                  View Details
-                </button>
-                <button
-                  className={`book-button flex-1 py-3 px-4 rounded-2xl text-sm font-bold transition-all duration-300 ${
-                    book.status === "Available"
-                      ? "bg-gradient-to-r from-emerald-100 to-green-100 hover:from-emerald-200 hover:to-green-200 text-emerald-800 border border-emerald-200"
-                      : "bg-gray-100 text-gray-500 cursor-not-allowed border border-gray-200"
-                  }`}
-                  disabled={book.status !== "Available"}
-                >
-                  {book.status === "Available"
-                    ? "📖 Request"
-                    : "❌ Unavailable"}
-                </button>
+                {/* Location */}
+                <div className="flex items-center space-x-1 text-xs text-slate-400 dark:text-slate-500 mb-3">
+                  <MapPin className="w-3 h-3" />
+                  <span>{book.donorLocation}</span>
+                </div>
+
+                {/* Borrowed Status Info */}
+                {book.status === "Borrowed" && book.returnDate && (
+                  <div className="bg-amber-50 dark:bg-amber-950/30 rounded-lg p-2.5 mb-3 border border-amber-200/60 dark:border-amber-900/30">
+                    <div className="flex items-center space-x-1 text-xs text-amber-800 dark:text-amber-300">
+                      <Clock className="w-3 h-3" />
+                      <span>Returns {book.returnDate}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Decorative Sparkle */}
-            <Sparkles className="absolute bottom-4 right-4 w-4 h-4 text-blue-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Action Buttons */}
+            <div className="p-5 pt-0 flex flex-col gap-2">
+              <Link 
+                href={`/granthagar/book-detail/${book.id}`}
+                className="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white py-2 px-3 rounded-lg text-xs font-medium transition-colors shadow-sm active:scale-[0.99]"
+              >
+                View Details
+              </Link>
+              <button
+                className={`w-full py-2 px-3 rounded-lg text-xs font-medium transition-colors ${
+                  book.status === "Available"
+                    ? "bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030]"
+                    : "bg-slate-50 dark:bg-[#141414] text-slate-400 dark:text-slate-600 cursor-not-allowed border border-slate-200 dark:border-[#262626]"
+                }`}
+                disabled={book.status !== "Available"}
+              >
+                {book.status === "Available" ? "Request Book" : "Currently Borrowed"}
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Enhanced Empty State */}
+      {/* Empty State */}
       {filteredBooks.length === 0 && (
-        <div className="empty-state text-center py-20">
-          <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-lg">
-            <div className="text-4xl">📚</div>
+        <div className="empty-state text-center py-16 bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] p-8 shadow-sm">
+          <div className="w-16 h-16 bg-slate-100 dark:bg-[#1f1f1f] rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-200 dark:border-[#303030]">
+            <span className="text-2xl">📚</span>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
             No books found
           </h3>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">
-            Try adjusting your search terms or filter criteria to find the
-            perfect book
+          <p className="text-slate-600 dark:text-slate-400 mb-5 max-w-sm mx-auto text-xs sm:text-sm">
+            Try adjusting your search terms or filter criteria to find what you need.
           </p>
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
+          <button 
+            onClick={() => {}}
+            className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm"
+          >
             Reset Filters
           </button>
         </div>
       )}
 
       {/* Trust Indicators */}
-      <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-gray-500">
+      <div className="mt-14 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-slate-500 dark:text-slate-400 text-xs sm:text-sm border-t border-slate-200 dark:border-[#303030] pt-8">
         {[
           "📚 Verified Books",
           "🤝 Trusted Community",
           "⚡ Quick Exchange",
-          "💯 Quality Guaranteed",
+          "💯 100% Free Service",
         ].map((indicator, index) => (
-          <div
-            key={index}
-            className="flex items-center space-x-2 text-sm font-medium"
-          >
+          <div key={index} className="flex items-center space-x-1.5 font-medium">
             <span>{indicator}</span>
           </div>
         ))}

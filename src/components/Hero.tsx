@@ -1,11 +1,13 @@
-// src/components/Hero.tsx
 "use client";
+// src/components/Hero.tsx
 
 import { useState, useEffect, useRef } from "react";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
 
 interface HeroProps {
   language: "bn" | "en";
@@ -29,6 +31,7 @@ export default function Hero({ language }: HeroProps) {
   }, [images.length]);
 
   // Single useGSAP for everything
+  useScrollAnimation();
   useGSAP(
     () => {
       const tl = gsap.timeline();

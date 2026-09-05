@@ -1,14 +1,11 @@
-// src/components/Mission.tsx
 "use client";
 
 import Image from "next/image";
 import { useState, useRef } from "react";
 import { FiPlay, FiX } from "react-icons/fi";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-// Register plugins properly
 gsap.registerPlugin(ScrollTrigger);
 
 interface MissionProps {
@@ -19,16 +16,15 @@ export default function Mission({ language }: MissionProps) {
   const [showModal, setShowModal] = useState(false);
   const missionRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
-      // Set initial states
       gsap.set(".mission-title", { y: 60, opacity: 0 });
       gsap.set(".mission-text", { y: 40, opacity: 0 });
       gsap.set(".mission-button", { y: 30, opacity: 0 });
       gsap.set(".mission-image", { x: 50, opacity: 0 });
       gsap.set(".mission-stats", { scale: 0.8, opacity: 0 });
 
-      // Simple scroll-triggered animations
       gsap.to(".mission-title", {
         y: 0,
         opacity: 1,
@@ -56,7 +52,7 @@ export default function Mission({ language }: MissionProps) {
         y: 0,
         opacity: 1,
         duration: 0.5,
-        ease: "back.out(1.4)",
+        ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".mission-button",
           start: "top 85%",
@@ -89,16 +85,19 @@ export default function Mission({ language }: MissionProps) {
   );
 
   return (
-    <section ref={missionRef} className="py-20 marble-gradient">
+    <section
+      ref={missionRef}
+      className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Story */}
           <div>
-            <h2 className="mission-title font-poppins text-3xl sm:text-4xl font-bold text-neutral-dark mb-6">
+            <h2 className="mission-title font-poppins text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
               {language === "bn" ? "আমাদের গল্প ও দর্শন" : "Our Story & Vision"}
             </h2>
 
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
               {language === "bn" ? (
                 <>
                   <p className="mission-text text-lg">
@@ -139,7 +138,7 @@ export default function Mission({ language }: MissionProps) {
 
             <button
               onClick={() => setShowModal(true)}
-              className="mission-button group mt-8 inline-flex items-center text-primary font-semibold"
+              className="mission-button group mt-8 inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer"
             >
               {language === "bn"
                 ? "সম্পূর্ণ গল্প পড়ুন"
@@ -150,7 +149,7 @@ export default function Mission({ language }: MissionProps) {
 
           {/* Right Column - Image/Video */}
           <div className="mission-image relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-200 dark:border-[#303030]">
               <Image
                 src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="BASAR Group Community"
@@ -164,22 +163,22 @@ export default function Mission({ language }: MissionProps) {
               {/* Play Button Overlay */}
               <button
                 onClick={() => setShowModal(true)}
-                className="absolute inset-0 flex items-center justify-center group/play"
+                className="absolute inset-0 flex items-center justify-center group/play cursor-pointer"
                 aria-label="Play video"
               >
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover/play:bg-white group-hover/play:scale-110 transition-all duration-300 shadow-lg">
-                  <FiPlay className="w-7 h-7 text-primary ml-1" />
+                <div className="w-16 h-16 bg-white/90 dark:bg-[#1f1f1f]/90 rounded-full flex items-center justify-center group-hover/play:bg-white dark:group-hover/play:bg-[#252525] group-hover/play:scale-110 transition-all duration-300 shadow-lg border border-slate-200 dark:border-slate-700">
+                  <FiPlay className="w-7 h-7 text-blue-600 dark:text-blue-400 ml-1" />
                 </div>
               </button>
             </div>
 
             {/* Floating Stats */}
-            <div className="mission-stats absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6">
+            <div className="mission-stats absolute -bottom-6 -right-6 bg-white dark:bg-[#141414] rounded-2xl shadow-xl p-6 border border-slate-200 dark:border-[#303030]">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary-green mb-1">
+                <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
                   2019
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-slate-500 dark:text-slate-400">
                   {language === "bn" ? "প্রতিষ্ঠিত" : "Established"}
                 </div>
               </div>
@@ -190,24 +189,28 @@ export default function Mission({ language }: MissionProps) {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-fade-in">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in">
-            <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="font-poppins text-xl font-bold">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl animate-scale-in">
+            <div className="flex justify-between items-center p-6 border-b border-slate-100 dark:border-[#2a2a2a]">
+              <h3 className="font-poppins text-xl font-bold text-slate-900 dark:text-white">
                 {language === "bn"
                   ? "আমাদের সম্পূর্ণ গল্প"
                   : "Our Complete Story"}
               </h3>
               <button
                 onClick={() => setShowModal(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                className="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
               >
                 <FiX className="w-5 h-5" />
               </button>
             </div>
             <div className="p-6">
-              <div className="space-y-4 text-gray-700">
-                {/* Modal content same as before */}
+              <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                <p>
+                  {language === "bn"
+                    ? "বাছার ফাউন্ডেশন, বাছার সুপার শপ, বাছার গ্রন্থাগার ও বাছার আইটি পার্ক—সবকিছু এক সুতোয় গাঁথা। আমাদের উদ্দেশ্য শিক্ষা, উদ্যোক্তা তৈরি ও পারস্পরিক সহযোগিতার মাধ্যমে একটি স্বাবলম্বী কমিউনিটি গঠন করা।"
+                    : "BASAR Foundation, Super Shop, Library, and IT Park are bound by one mission: creating a self-sustaining ecosystem powered by education, enterprise, and mutual solidarity."}
+                </p>
               </div>
             </div>
           </div>

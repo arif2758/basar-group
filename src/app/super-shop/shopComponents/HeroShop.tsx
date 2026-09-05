@@ -12,8 +12,10 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -62,6 +64,7 @@ export default function HeroSection() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Initialize first slide
@@ -221,12 +224,12 @@ export default function HeroSection() {
 
   const updateIndicators = (activeIndex: number) => {
     gsap.to(".slide-indicator", {
-      scale: (i) => (i === activeIndex ? 1.2 : 1),
-      backgroundColor: (i) =>
+      scale: (i: any) => (i === activeIndex ? 1.2 : 1),
+      backgroundColor: (i: any) =>
         i === activeIndex
           ? "rgba(255, 255, 255, 1)"
           : "rgba(255, 255, 255, 0.4)",
-      boxShadow: (i) =>
+      boxShadow: (i: any) =>
         i === activeIndex ? "0 0 20px rgba(255, 255, 255, 0.6)" : "none",
       duration: 0.4,
       ease: "power2.out",
@@ -446,42 +449,42 @@ export default function HeroSection() {
       </div>
 
       {/* Trust Badges */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-white/20 z-20">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 lg:space-x-16">
-            <div className="trust-badge flex items-center space-x-3 text-gray-700 cursor-pointer group">
-              <div className="trust-icon p-2 sm:p-3 bg-emerald-50 rounded-full border border-emerald-100 group-hover:bg-emerald-100 transition-colors duration-300">
-                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+      <div className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-[#141414]/95 backdrop-blur-sm border-t border-slate-200/80 dark:border-[#303030] z-20">
+        <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-8 lg:space-x-16">
+            <div className="trust-badge flex items-center space-x-3 text-slate-800 dark:text-slate-200 cursor-pointer group">
+              <div className="trust-icon p-2 sm:p-2.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-full border border-emerald-100 dark:border-emerald-800/40 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/40 transition-colors">
+                <Truck className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div className="text-left">
-                <span className="trust-text block text-sm sm:text-base font-semibold">
+                <span className="trust-text block text-xs sm:text-sm font-semibold">
                   Fast Delivery
                 </span>
-                <span className="text-xs text-gray-500">Within 2 hours</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">Within 2 hours</span>
               </div>
             </div>
 
-            <div className="trust-badge flex items-center space-x-3 text-gray-700 cursor-pointer group">
-              <div className="trust-icon p-2 sm:p-3 bg-blue-50 rounded-full border border-blue-100 group-hover:bg-blue-100 transition-colors duration-300">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+            <div className="trust-badge flex items-center space-x-3 text-slate-800 dark:text-slate-200 cursor-pointer group">
+              <div className="trust-icon p-2 sm:p-2.5 bg-blue-50 dark:bg-blue-950/40 rounded-full border border-blue-100 dark:border-blue-800/40 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 transition-colors">
+                <Clock className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="text-left">
-                <span className="trust-text block text-sm sm:text-base font-semibold">
+                <span className="trust-text block text-xs sm:text-sm font-semibold">
                   Same Day Service
                 </span>
-                <span className="text-xs text-gray-500">Order before 6 PM</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">Order before 6 PM</span>
               </div>
             </div>
 
-            <div className="trust-badge flex items-center space-x-3 text-gray-700 cursor-pointer group">
-              <div className="trust-icon p-2 sm:p-3 bg-purple-50 rounded-full border border-purple-100 group-hover:bg-purple-100 transition-colors duration-300">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+            <div className="trust-badge flex items-center space-x-3 text-slate-800 dark:text-slate-200 cursor-pointer group">
+              <div className="trust-icon p-2 sm:p-2.5 bg-purple-50 dark:bg-purple-950/40 rounded-full border border-purple-100 dark:border-purple-800/40 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/40 transition-colors">
+                <Shield className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-purple-600 dark:text-purple-400" />
               </div>
               <div className="text-left">
-                <span className="trust-text block text-sm sm:text-base font-semibold">
+                <span className="trust-text block text-xs sm:text-sm font-semibold">
                   Quality Guaranteed
                 </span>
-                <span className="text-xs text-gray-500">
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">
                   100% fresh products
                 </span>
               </div>

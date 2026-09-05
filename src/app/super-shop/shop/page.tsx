@@ -14,9 +14,11 @@ import {
 import { CartProvider } from "../contexts/CartContext";
 import FilterSidebar from "../shopComponents/FilterSidebar";
 import ProductGrid from "../shopComponents/ProductGrid";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +26,7 @@ export default function ShopPage() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements with more dynamic movement

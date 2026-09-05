@@ -2,8 +2,10 @@
 
 import { useState, useRef } from "react";
 import { FaGraduationCap, FaHandHoldingHeart, FaUsers } from "react-icons/fa";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP);
 
@@ -19,6 +21,7 @@ function ITHero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const backgroundRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial state
     gsap.set(".hero-text", { y: 30, opacity: 0 });
@@ -43,6 +46,7 @@ function ITHero() {
   }, []);
 
   // Handle slide changes
+  useScrollAnimation();
   useGSAP(() => {
     backgroundRefs.current.forEach((ref, index) => {
       if (ref) {

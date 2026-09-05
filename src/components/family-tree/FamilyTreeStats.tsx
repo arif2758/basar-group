@@ -1,5 +1,5 @@
-// src/components/family-tree/FamilyTreeStats.tsx
 "use client";
+// src/components/family-tree/FamilyTreeStats.tsx
 import React from "react";
 import { Users, GitBranch, User, UserCheck } from "lucide-react";
 import { familyTreeData } from "@/data/familyData";

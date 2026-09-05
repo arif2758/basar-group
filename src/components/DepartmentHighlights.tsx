@@ -5,9 +5,11 @@ import { FiArrowRight, FiUsers, FiTrendingUp } from "react-icons/fi";
 import departmentsData from "../data/departments.json";
 import Image from "next/image";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +21,7 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
   const { departments } = departmentsData;
   const sectionRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Set initial states
@@ -177,8 +180,6 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
         stagger: 1,
         delay: 2,
       });
-
-      // Subtle parallax removed for better performance
     },
     { scope: sectionRef }
   );
@@ -186,15 +187,15 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
   return (
     <section
       ref={sectionRef}
-      className="section-padding bg-gradient-to-br from-gray-50 to-white"
+      className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
     >
-      <div className="max-w-7xl mx-auto container-padding">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="highlights-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Department Highlights
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Dive deeper into each department&apos;s unique offerings and see how
             they create lasting impact.
           </p>
@@ -205,7 +206,7 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
           {departments.map((dept, index) => (
             <div
               key={dept.id}
-              className={`dept-section-${index} grid lg:grid-cols-2 gap-12 items-center ${
+              className={`dept-section-${index} grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${
                 index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
               }`}
             >
@@ -217,38 +218,38 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
               >
                 <div className="max-w-xl">
                   <h3
-                    className={`dept-title dept-title-${index} text-3xl font-poppins font-bold text-gray-900 mb-4`}
+                    className={`dept-title dept-title-${index} text-2xl sm:text-3xl font-poppins font-bold text-slate-900 dark:text-white mb-2 tracking-tight`}
                   >
                     {dept.name[language]}
                   </h3>
                   <p
-                    className={`dept-tagline dept-tagline-${index} text-lg font-medium mb-4`}
+                    className={`dept-tagline dept-tagline-${index} text-sm sm:text-base font-semibold mb-3`}
                     style={{ color: dept.color }}
                   >
                     {dept.tagline[language]}
                   </p>
                   <p
-                    className={`dept-description dept-description-${index} text-gray-600 mb-6 leading-relaxed`}
+                    className={`dept-description dept-description-${index} text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 leading-relaxed`}
                   >
                     {dept.description[language]}
                   </p>
 
                   {/* Key Features */}
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3">
                       Key Features:
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {dept.features[language].map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
-                          className={`feature-item feature-item-${index} flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors`}
+                          className={`feature-item feature-item-${index} flex items-center space-x-2.5 p-2 rounded-lg bg-slate-50/70 dark:bg-[#141414] border border-slate-200/60 dark:border-[#262626]`}
                         >
                           <div
-                            className="w-3 h-3 rounded-full flex-shrink-0 shadow-sm"
+                            className="w-2 h-2 rounded-full shrink-0"
                             style={{ backgroundColor: dept.color }}
                           />
-                          <span className="text-gray-700 text-sm">
+                          <span className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm">
                             {feature}
                           </span>
                         </div>
@@ -257,28 +258,26 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     <div
-                      className={`stat-card stat-card-${index} bg-white rounded-xl p-4 shadow-lg border-l-4 hover:shadow-xl transition-shadow`}
-                      style={{ borderColor: dept.color }}
+                      className={`stat-card stat-card-${index} bg-slate-50 dark:bg-[#141414] rounded-xl p-4 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]`}
                     >
-                      <div className="flex items-center space-x-2 text-gray-600 mb-1">
-                        <FiUsers className="w-4 h-4" />
-                        <span className="text-sm">Beneficiaries</span>
+                      <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mb-1">
+                        <FiUsers className="w-3.5 h-3.5" />
+                        <span className="text-xs">Beneficiaries</span>
                       </div>
-                      <div className="font-semibold text-gray-900">
+                      <div className="font-semibold text-slate-900 dark:text-white text-base">
                         {dept.beneficiaries[language]}
                       </div>
                     </div>
                     <div
-                      className={`stat-card stat-card-${index} bg-white rounded-xl p-4 shadow-lg border-l-4 hover:shadow-xl transition-shadow`}
-                      style={{ borderColor: dept.color }}
+                      className={`stat-card stat-card-${index} bg-slate-50 dark:bg-[#141414] rounded-xl p-4 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]`}
                     >
-                      <div className="flex items-center space-x-2 text-gray-600 mb-1">
-                        <FiTrendingUp className="w-4 h-4" />
-                        <span className="text-sm">Impact</span>
+                      <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mb-1">
+                        <FiTrendingUp className="w-3.5 h-3.5" />
+                        <span className="text-xs">Impact</span>
                       </div>
-                      <div className="font-semibold text-gray-900">
+                      <div className="font-semibold text-slate-900 dark:text-white text-base">
                         {dept.impact[language]}
                       </div>
                     </div>
@@ -286,23 +285,22 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
 
                   {/* CTAs */}
                   <div
-                    className={`dept-buttons dept-buttons-${index} flex flex-col sm:flex-row gap-4`}
+                    className={`dept-buttons dept-buttons-${index} flex flex-col sm:flex-row gap-3`}
                   >
                     <Link
                       href={`/${dept.slug}`}
-                      className="group btn-primary inline-flex items-center space-x-2 justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg"
+                      className="inline-flex items-center space-x-2 justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
                       style={{ backgroundColor: dept.color }}
                     >
                       <span>Explore {dept.name[language]}</span>
-                      <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <FiArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
                       href="#system-flow"
-                      className="group btn-outline inline-flex items-center space-x-2 justify-center px-6 py-3 rounded-xl font-semibold bg-white border-2 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
-                      style={{ borderColor: dept.color, color: dept.color }}
+                      className="inline-flex items-center space-x-2 justify-center px-5 py-2.5 rounded-lg text-sm font-medium bg-white dark:bg-[#141414] border border-slate-300 dark:border-[#303030] text-slate-700 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm transition-colors"
                     >
                       <span>See Connections</span>
-                      <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <FiArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -316,42 +314,30 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
               >
                 <div className="relative">
                   {/* Main Image */}
-                  <div className="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="relative h-72 sm:h-88 rounded-2xl overflow-hidden border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
                     <Image
                       src={dept.image}
                       alt={dept.name[language]}
                       width={600}
                       height={400}
-                      className={`main-image main-image-${index} w-full h-full object-cover hover:scale-105 transition-transform duration-500`}
+                      className={`main-image main-image-${index} w-full h-full object-cover transition-transform duration-500 hover:scale-105`}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                   </div>
 
                   {/* Floating Stats Card */}
                   <div
-                    className={`floating-stats floating-stats-${index} absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 border-l-4 backdrop-blur-sm`}
-                    style={{ borderColor: dept.color }}
+                    className={`floating-stats floating-stats-${index} absolute -bottom-4 -right-4 bg-white dark:bg-[#141414] rounded-xl shadow-lg p-3 sm:p-4 border border-slate-200 dark:border-[#303030]`}
                   >
                     <div className="text-center">
                       <div
-                        className="text-2xl font-bold font-poppins"
+                        className="text-xl sm:text-2xl font-bold font-poppins"
                         style={{ color: dept.color }}
                       >
                         95%
                       </div>
-                      <div className="text-sm text-gray-600">Success Rate</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">Success Rate</div>
                     </div>
-                  </div>
-
-                  {/* Small Gallery Thumbnails */}
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    {[1, 2, 3].map((thumb) => (
-                      <div
-                        key={thumb}
-                        className={`gallery-thumb gallery-thumb-${index} w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg border-2 border-white shadow-md hover:scale-110 transition-transform cursor-pointer`}
-                        style={{ borderColor: dept.color + "40" }}
-                      />
-                    ))}
                   </div>
                 </div>
               </div>

@@ -3,9 +3,8 @@
 import React, { useRef } from "react";
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,6 +41,7 @@ const Testimonials: React.FC = () => {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".testimonials-header", { y: 50, opacity: 0 });
@@ -142,13 +142,13 @@ const Testimonials: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
+    <section ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="testimonials-header text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
             What Our Community Says
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Real stories from students who transformed their learning journey
             with our community library.
           </p>
@@ -158,43 +158,45 @@ const Testimonials: React.FC = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card bg-gray-50 rounded-2xl p-8 relative hover:shadow-lg transition-shadow duration-300"
+              className="testimonial-card bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-xl p-6 sm:p-8 relative shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 flex flex-col justify-between"
             >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6">
-                <Quote className="quote-icon w-8 h-8 text-blue-200" />
-              </div>
+              <div>
+                {/* Quote Icon */}
+                <div className="absolute top-6 right-6">
+                  <Quote className="quote-icon w-8 h-8 text-slate-300 dark:text-[#303030]" />
+                </div>
 
-              {/* Rating */}
-              <div className="flex items-center space-x-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, index) => (
-                  <Star
-                    key={index}
-                    className="rating-star w-5 h-5 text-yellow-400 fill-current"
-                  />
-                ))}
-              </div>
+                {/* Rating */}
+                <div className="flex items-center space-x-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, index) => (
+                    <Star
+                      key={index}
+                      className="rating-star w-4 h-4 text-amber-400 fill-current"
+                    />
+                  ))}
+                </div>
 
-              {/* Testimonial Text */}
-              <p className="testimonial-text text-gray-700 mb-6 leading-relaxed">
-                {testimonial.text}
-              </p>
+                {/* Testimonial Text */}
+                <p className="testimonial-text text-slate-700 dark:text-slate-300 mb-6 leading-relaxed text-sm sm:text-base">
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
+              </div>
 
               {/* Author */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-4 pt-4 border-t border-slate-200/80 dark:border-[#262626]">
                 <Image
                   src={testimonial.photo}
                   alt={testimonial.name}
-                  width={48}
-                  height={48}
-                  className="author-photo w-12 h-12 rounded-full border-2 border-blue-200"
+                  width={44}
+                  height={44}
+                  className="author-photo w-11 h-11 rounded-full border border-slate-200 dark:border-[#303030] object-cover"
                 />
 
                 <div className="author-info">
-                  <h4 className="font-semibold text-gray-900">
+                  <h4 className="font-semibold text-slate-900 dark:text-white text-sm">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -202,29 +204,29 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="stats-section teal-slate-gradient rounded-2xl p-8 mt-16 text-white text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8">
+        <div className="stats-section bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 mt-16 text-white text-center shadow-sm">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">
             Join 200+ Students Who&apos;ve Transformed Their Reading Habits
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="stat-item">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">85%</div>
-              <div className="text-blue-100">Reduced Social Media Time</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
+              <div className="text-3xl font-bold text-amber-400 mb-1">85%</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Reduced Social Media Time</div>
             </div>
-            <div className="stat-item">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">3.2</div>
-              <div className="text-blue-100">Books Read Per Month</div>
+            <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
+              <div className="text-3xl font-bold text-amber-400 mb-1">3.2</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Books Read Per Month</div>
             </div>
-            <div className="stat-item">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">92%</div>
-              <div className="text-blue-100">Improved Academic Performance</div>
+            <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
+              <div className="text-3xl font-bold text-amber-400 mb-1">92%</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Improved Academic Performance</div>
             </div>
-            <div className="stat-item">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">
+            <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
+              <div className="text-3xl font-bold text-amber-400 mb-1">
                 4.9/5
               </div>
-              <div className="text-blue-100">Community Satisfaction</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Community Satisfaction</div>
             </div>
           </div>
         </div>

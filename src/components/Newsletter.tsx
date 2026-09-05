@@ -2,10 +2,12 @@
 
 import React from "react";
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FiMail,
   FiUser,
@@ -39,6 +41,7 @@ export default function Newsletter({ language }: NewsletterProps) {
   const formRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Main timeline
@@ -281,61 +284,55 @@ export default function Newsletter({ language }: NewsletterProps) {
     <section
       ref={containerRef}
       id="newsletter"
-      className="py-20 relative overflow-hidden"
+      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
     >
-      {/* Enhanced Dark Gradient Background */}
-      <div className="absolute inset-0 teal-slate-gradient" />
-
-      {/* Animated Decorative Blobs */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="blob-1 absolute -top-40 -left-40 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"></div>
-        <div className="blob-2 absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-30"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          {/* Enhanced Header */}
-          <div ref={headerRef} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-cyan-200 to-emerald-200 bg-clip-text text-transparent mb-6">
-              <span className="floating-icon inline-block mr-3">🌟</span>
+          {/* Header */}
+          <div ref={headerRef} className="text-center mb-14">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-4 border border-blue-100 dark:border-blue-800/50">
+              <FiMail className="w-6 h-6" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
               {language === "bn"
                 ? "আমাদের সাথে যুক্ত হন"
                 : "Join Our Community"}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
               {language === "bn"
                 ? "স্বেচ্ছাসেবক, দাতা বা পরামর্শদাতা হিসেবে আমাদের মিশনে অংশ নিন। আমরা স্প্যাম করি না—শুধু অর্থপূর্ণ আপডেট।"
                 : "Join our mission as a volunteer, donor or mentor. We won't spam—only meaningful updates that matter."}
             </p>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400">
-              <div className="flex items-center space-x-2">
-                <FiUsers className="w-4 h-4 text-emerald-400" />
+            <div className="flex flex-wrap justify-center gap-6 mt-6 text-xs font-medium text-slate-500 dark:text-slate-400">
+              <div className="flex items-center space-x-1.5">
+                <FiUsers className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>500+ Active Members</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <FiHeart className="w-4 h-4 text-pink-400" />
+              <span>•</span>
+              <div className="flex items-center space-x-1.5">
+                <FiHeart className="w-4 h-4 text-pink-500" />
                 <span>No Spam Policy</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <FiStar className="w-4 h-4 text-yellow-400" />
+              <span>•</span>
+              <div className="flex items-center space-x-1.5">
+                <FiStar className="w-4 h-4 text-amber-500" />
                 <span>Monthly Updates Only</span>
               </div>
             </div>
           </div>
 
-          {/* Enhanced Form */}
+          {/* Form Card */}
           <div
             ref={formRef}
-            className=" backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20"
+            className="bg-white dark:bg-[#141414] rounded-2xl p-6 sm:p-10 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] border border-slate-200 dark:border-[#303030]"
           >
             <form onSubmit={handleSubmit} className="grid lg:grid-cols-2 gap-8">
               {/* Left Column */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="form-input relative group">
-                  <FiUser className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-200" />
+                  <FiUser className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
                   <input
                     type="text"
                     name="name"
@@ -345,12 +342,12 @@ export default function Newsletter({ language }: NewsletterProps) {
                     placeholder={
                       language === "bn" ? "আপনার পূর্ণ নাম" : "Your Full Name"
                     }
-                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:bg-white/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/40 focus:outline-none transition-all duration-300"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   />
                 </div>
 
                 <div className="form-input relative group">
-                  <FiPhone className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-200" />
+                  <FiPhone className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
                   <input
                     type="text"
                     name="contact"
@@ -362,12 +359,12 @@ export default function Newsletter({ language }: NewsletterProps) {
                         ? "ফোন নম্বর বা ইমেইল ঠিকানা"
                         : "Phone Number or Email Address"
                     }
-                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:bg-white/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/40 focus:outline-none transition-all duration-300"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                   />
                 </div>
 
                 <div className="form-input relative group">
-                  <div className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-200">
+                  <div className="absolute left-3.5 top-3 w-4 h-4 text-slate-400">
                     {React.createElement(
                       interestIcons[
                         formData.interest as keyof typeof interestIcons
@@ -378,34 +375,42 @@ export default function Newsletter({ language }: NewsletterProps) {
                     name="interest"
                     value={formData.interest}
                     onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:bg-white/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/40 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full pl-10 pr-8 py-2.5 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none cursor-pointer transition-colors"
                   >
                     <option
                       value="volunteer"
-                      className="text-gray-800 bg-white"
+                      className="text-slate-900 dark:text-white dark:bg-[#141414]"
                     >
                       {language === "bn"
                         ? "স্বেচ্ছাসেবক হতে চাই"
                         : "I want to Volunteer"}
                     </option>
-                    <option value="donor" className="text-gray-800 bg-white">
+                    <option
+                      value="donor"
+                      className="text-slate-900 dark:text-white dark:bg-[#141414]"
+                    >
                       {language === "bn" ? "দাতা হতে চাই" : "I want to Donate"}
                     </option>
-                    <option value="mentor" className="text-gray-800 bg-white">
+                    <option
+                      value="mentor"
+                      className="text-slate-900 dark:text-white dark:bg-[#141414]"
+                    >
                       {language === "bn"
                         ? "পরামর্শদাতা হতে চাই"
                         : "I want to Mentor"}
                     </option>
-                    <option value="student" className="text-gray-800 bg-white">
+                    <option
+                      value="student"
+                      className="text-slate-900 dark:text-white dark:bg-[#141414]"
+                    >
                       {language === "bn"
                         ? "শিক্ষার্থী হিসেবে যুক্ত হতে চাই"
                         : "I want to Learn"}
                     </option>
                   </select>
-                  {/* Custom dropdown arrow */}
-                  <div className="absolute right-4 top-4 pointer-events-none">
+                  <div className="absolute right-3.5 top-3.5 pointer-events-none text-slate-400">
                     <svg
-                      className="w-5 h-5 text-gray-400"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -422,37 +427,37 @@ export default function Newsletter({ language }: NewsletterProps) {
               </div>
 
               {/* Right Column */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* Interest-based content */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-200 dark:border-[#2a2a2a]">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-2.5 flex items-center">
                     {React.createElement(
                       interestIcons[
                         formData.interest as keyof typeof interestIcons
                       ],
                       {
-                        className: "w-5 h-5 mr-2 text-cyan-400",
+                        className: "w-4 h-4 mr-1.5 text-blue-600 dark:text-blue-400",
                       }
                     )}
                     {language === "bn" ? "আপনি পাবেন:" : "What You'll Get:"}
                   </h3>
-                  <ul className="space-y-2 text-gray-300 text-sm">
+                  <ul className="space-y-1.5 text-slate-600 dark:text-slate-300 text-xs">
                     {formData.interest === "volunteer" && (
                       <>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "দক্ষতা উন্নয়নের সুযোগ"
                             : "Skill development opportunities"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "নেটওয়ার্কিং সুবিধা"
                             : "Networking opportunities"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "সার্টিফিকেট ও স্বীকৃতি"
                             : "Certificates & recognition"}
@@ -462,19 +467,19 @@ export default function Newsletter({ language }: NewsletterProps) {
                     {formData.interest === "donor" && (
                       <>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "মাসিক প্রভাব রিপোর্ট"
                             : "Monthly impact reports"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "ট্যাক্স ছাড়ের সুবিধা"
                             : "Tax deduction benefits"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "বিশেষ ইভেন্টে আমন্ত্রণ"
                             : "Exclusive event invitations"}
@@ -484,19 +489,19 @@ export default function Newsletter({ language }: NewsletterProps) {
                     {formData.interest === "mentor" && (
                       <>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "শিক্ষার্থীদের সাথে সংযোগ"
                             : "Connect with students"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "নেতৃত্ব দক্ষতা বৃদ্ধি"
                             : "Leadership skill development"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "পেশাদার নেটওয়ার্ক"
                             : "Professional network growth"}
@@ -506,19 +511,19 @@ export default function Newsletter({ language }: NewsletterProps) {
                     {formData.interest === "student" && (
                       <>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-pink-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "বিনামূল্যে কোর্স অ্যাক্সেস"
                             : "Free course access"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-pink-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "মেন্টরশিপ সুবিধা"
                             : "Mentorship opportunities"}
                         </li>
                         <li className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-pink-400 rounded-full mr-3"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
                           {language === "bn"
                             ? "ক্যারিয়ার গাইডেন্স"
                             : "Career guidance"}
@@ -532,82 +537,23 @@ export default function Newsletter({ language }: NewsletterProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="submit-btn group w-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 hover:from-emerald-400 hover:via-cyan-400 hover:to-blue-400 text-white py-5 px-8 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center relative overflow-hidden"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-4 rounded-lg font-medium text-sm transition-colors shadow-sm disabled:opacity-60 flex items-center justify-center space-x-2"
                 >
-                  {/* Button background animation */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
-                  <div className="relative flex items-center">
-                    {isLoading ? (
-                      <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    ) : (
-                      <>
+                  {isLoading ? (
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <span>
                         {language === "bn"
                           ? "এখনই যোগ দিন"
                           : "Join Our Mission"}
-                        <FiSend className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                      </>
-                    )}
-                  </div>
+                      </span>
+                      <FiSend className="w-3.5 h-3.5" />
+                    </>
+                  )}
                 </button>
-
-                {/* Additional CTA */}
-                <div className="text-center">
-                  <p className="text-gray-400 text-sm mb-3">
-                    {language === "bn"
-                      ? "অথবা সরাসরি যোগাযোগ করুন:"
-                      : "Or contact us directly:"}
-                  </p>
-                  <div className="flex justify-center space-x-4 text-sm">
-                    <a
-                      href="tel:+8801234567890"
-                      className="text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
-                    >
-                      📞 +880 123 456 7890
-                    </a>
-                    <a
-                      href="mailto:info@basargroup.org"
-                      className="text-emerald-400 hover:text-emerald-300 transition-colors duration-200"
-                    >
-                      ✉️ info@basargroup.org
-                    </a>
-                  </div>
-                </div>
               </div>
             </form>
-
-            {/* Trust Message & Social Proof */}
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <div className="grid md:grid-cols-2 gap-6 items-center">
-                <div className="text-center md:text-left">
-                  <p className="text-gray-400 text-sm flex items-center justify-center md:justify-start">
-                    <FiMail className="w-4 h-4 mr-2 text-cyan-400" />
-                    {language === "bn"
-                      ? "আমরা আপনার গোপনীয়তাকে সম্মান করি এবং কখনও স্প্যাম করি না"
-                      : "We respect your privacy and never spam"}
-                  </p>
-                </div>
-
-                <div className="flex justify-center md:justify-end space-x-6 text-xs text-gray-500">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-emerald-400">
-                      500+
-                    </div>
-                    <div>{language === "bn" ? "সদস্য" : "Members"}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-cyan-400">50+</div>
-                    <div>{language === "bn" ? "প্রকল্প" : "Projects"}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-blue-400">98%</div>
-                    <div>
-                      {language === "bn" ? "সন্তুষ্টি" : "Satisfaction"}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Bottom CTA Section */}

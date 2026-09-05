@@ -1,5 +1,5 @@
-// src/components/ImpactCounters.tsx
 "use client";
+// src/components/ImpactCounters.tsx
 
 import { useState, useEffect, useRef } from "react";
 import { impactCounters } from "@/lib/data";
@@ -43,13 +43,13 @@ function Counter({ target, suffix, isVisible }: CounterProps) {
   }, [target, isVisible]);
 
   return (
-    <span className="font-bold text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-r from-teal-300 via-emerald-300 to-sky-400 bg-clip-text text-transparent drop-shadow-lg">
+    <span className="font-bold text-3xl sm:text-4xl lg:text-5xl text-blue-600 dark:text-blue-400">
       {count.toLocaleString()}
       {suffix}
     </span>
   );
 }
- 
+
 interface ImpactCountersProps {
   language: "bn" | "en";
 }
@@ -78,26 +78,26 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
   const icons = [
     {
       id: "students",
-      icon: <FaUserGraduate size={42} className="text-teal-300" />,
+      icon: <FaUserGraduate size={36} className="text-blue-600 dark:text-blue-400" />,
     },
-    { id: "books", icon: <FaBook size={42} className="text-emerald-300" /> },
-    { id: "jobs", icon: <FaBriefcase size={42} className="text-sky-300" /> },
-    { id: "meals", icon: <FaUtensils size={42} className="text-yellow-300" /> },
+    { id: "books", icon: <FaBook size={36} className="text-emerald-600 dark:text-emerald-400" /> },
+    { id: "jobs", icon: <FaBriefcase size={36} className="text-indigo-600 dark:text-indigo-400" /> },
+    { id: "meals", icon: <FaUtensils size={36} className="text-amber-600 dark:text-amber-400" /> },
     {
       id: "mentor",
-      icon: <FaChalkboardTeacher size={42} className="text-pink-300" />,
+      icon: <FaChalkboardTeacher size={36} className="text-purple-600 dark:text-purple-400" />,
     },
   ];
 
   return (
-    <section className="relative py-20 teal-slate-gradient">
+    <section className="relative py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-14">
+          <h2 className="font-poppins text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             {language === "bn" ? "আমাদের প্রভাব" : "Our Impact"}
           </h2>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
             {language === "bn"
               ? "সংখ্যায় দেখুন আমরা কতটা পরিবর্তন এনেছি আমাদের কমিউনিটিতে"
               : "See in numbers how much change we have brought to our community"}
@@ -107,14 +107,14 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
         {/* Cards */}
         <div
           ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
         >
           {impactCounters.map((counter, index) => (
             <div
               key={counter.id}
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-lg rounded-2xl text-center shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 border border-white/10 group"
+              className="bg-slate-50 dark:bg-[#141414] rounded-xl text-center shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-0.5 p-6 border border-slate-200 dark:border-[#303030] group"
             >
-              <div className="flex justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
+              <div className="flex justify-center mb-4 transition-transform duration-200 group-hover:scale-110">
                 {icons[index].icon}
               </div>
               <Counter
@@ -122,7 +122,7 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
                 suffix={counter.suffix}
                 isVisible={isVisible}
               />
-              <p className="text-slate-200 font-medium mt-3">
+              <p className="text-slate-700 dark:text-slate-300 font-medium text-sm mt-3">
                 {language === "bn"
                   ? counter.label
                       .replace("Students Helped", "ছাত্রছাত্রী সাহায্য")

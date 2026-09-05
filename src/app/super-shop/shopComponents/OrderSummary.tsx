@@ -12,8 +12,10 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
 
 export default function OrderSummary() {
   const { cartItems, getTotalPrice } = useCart();
@@ -85,6 +87,7 @@ export default function OrderSummary() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       if (cartItems.length === 0) return;

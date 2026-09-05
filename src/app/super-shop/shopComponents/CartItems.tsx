@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { Minus, Plus, Trash2, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
 import { useCart } from "../contexts/CartContext";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function CartItems() {
   const { cartItems, updateQuantity, removeFromCart } = useCart();
@@ -14,6 +16,7 @@ export default function CartItems() {
   const emptyStateRef = useRef<HTMLDivElement>(null);
   const cartContentRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Empty State Animation
     if (cartItems.length === 0 && emptyStateRef.current) {

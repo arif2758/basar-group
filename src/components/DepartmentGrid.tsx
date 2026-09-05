@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useState, useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import departmentsData from "../data/departments.json";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,9 +19,9 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const ctaRef = useRef<HTMLDivElement>(null);
- 
+
+  useScrollAnimation();
   useGSAP(() => {
-    // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
 
     ScrollTrigger.create({
@@ -37,7 +38,6 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
       once: true,
     });
 
-    // Department cards animation
     const cards = cardsRef.current.filter(Boolean);
     gsap.set(cards, { y: 40, opacity: 0 });
 
@@ -56,24 +56,6 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
       once: true,
     });
 
-    // CTA animation
-    gsap.set(ctaRef.current, { y: 20, opacity: 0 });
-
-    ScrollTrigger.create({
-      trigger: ctaRef.current,
-      start: "top 80%",
-      onEnter: () => {
-        gsap.to(ctaRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        });
-      },
-      once: true,
-    });
-
-    // Hover animations
     cards.forEach((card) => {
       if (card) {
         card.addEventListener("mouseenter", () => {
@@ -98,14 +80,14 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
   }, []);
 
   return (
-    <section id="departments" className="section-padding bg-soft-50">
-      <div className="max-w-7xl mx-auto container-padding">
+    <section id="departments" className="section-padding bg-slate-50 dark:bg-[#070b14] transition-colors duration-300 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
             {language === "en" ? "Our Departments" : "আমাদের বিভাগসমূহ"}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {language === "en"
               ? "Four interconnected pillars working together to build stronger communities through education, empowerment, commerce, and technology."
               : "চারটি আন্তঃসংযুক্ত স্তম্ভ যা শিক্ষা, ক্ষমতায়ন, ব্যবসা এবং প্রযুক্তির মাধ্যমে শক্তিশালী সম্প্রদায় গড়ে তুলতে একসাথে কাজ করছে।"}
@@ -121,18 +103,18 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                 ref={(el) => {
                   cardsRef.current[index] = el;
                 }}
-                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                className="group relative bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] transition-all duration-300 overflow-hidden"
                 onMouseEnter={() => setHoveredDept(dept.id)}
                 onMouseLeave={() => setHoveredDept(null)}
               >
                 {/* Background Accent */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-2 transition-all duration-300"
+                  className="absolute top-0 left-0 right-0 h-1.5 transition-all duration-300"
                   style={{ backgroundColor: dept.color }}
                 />
 
                 {/* Image */}
-                <div className="relative w-full overflow-hidden">
+                <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-[#1a1a1a]">
                   <Image
                     src={dept.image}
                     alt={dept.name[language]}
@@ -140,12 +122,12 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                     height={75}
                     className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-poppins font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-2">
                     {dept.name[language]}
                   </h3>
                   <p
@@ -160,7 +142,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                     {dept.features[language].map((bullet, bulletIndex) => (
                       <li
                         key={bulletIndex}
-                        className="text-sm text-gray-600 flex items-start"
+                        className="text-sm text-slate-600 dark:text-slate-300 flex items-start"
                       >
                         <span
                           className="inline-block w-1.5 h-1.5 rounded-full mt-2 mr-2 flex-shrink-0"
@@ -173,7 +155,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
 
                   {/* CTA Button */}
                   <button
-                    className="group/btn inline-flex items-center justify-between w-full p-3 rounded-lg border transition-all duration-300 focus-ring"
+                    className="group/btn inline-flex items-center justify-between w-full p-3 rounded-lg border transition-all duration-300 focus-ring cursor-pointer"
                     style={{
                       borderColor: dept.color,
                       color: dept.color,
@@ -187,7 +169,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                       e.currentTarget.style.color = dept.color;
                     }}
                   >
-                    <span className="font-medium">
+                    <span className="font-medium text-sm">
                       {language === "en"
                         ? `Visit ${dept.name[language].split(" ")[1]}`
                         : `${dept.name[language].split(" ")[1]} দেখুন`}
@@ -216,7 +198,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
         <div ref={ctaRef} className="text-center mt-16">
           <a
             href="#system-flow"
-            className="btn-outline inline-flex items-center space-x-2 text-lg hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-[#303030] bg-white dark:bg-[#141414] text-slate-800 dark:text-slate-200 text-base font-medium hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 shadow-xs hover:shadow transition-all duration-300"
           >
             <span>
               {language === "en"

@@ -17,9 +17,11 @@ import {
   Zap,
 } from "lucide-react";
 import { CartProvider } from "../contexts/CartContext";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,6 +101,7 @@ export default function ContactPage() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements

@@ -7,9 +7,11 @@ import {
   FaLaptopCode,
   FaUsers,
 } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -18,6 +20,7 @@ const CountUp = ({ end, duration = 2 }: { end: number; duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     const element = ref.current;
     if (!element) return;
@@ -49,6 +52,7 @@ function States() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
     const cards = cardsRef.current.filter(Boolean);
 
@@ -91,7 +95,7 @@ function States() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-50">
+    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] border-b border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
@@ -102,12 +106,12 @@ function States() {
               }}
               className="group"
             >
-              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <stat.icon className="text-4xl text-emerald-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-gray-800 mb-2">
+              <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200">
+                <stat.icon className="text-3xl text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
+                <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
                   <CountUp end={stat.number} />
                 </div>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">{stat.label}</p>
               </div>
             </div>
           ))}

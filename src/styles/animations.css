@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Animations CSS - No GSAP Required
+   ========================================================================== */
+
+/* Initial states for elements that will be animated on scroll */
+.animate-on-scroll {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* 
+  When the IntersectionObserver adds the .is-visible class, 
+  we apply the animation. Default is fade-up.
+*/
+.animate-on-scroll.is-visible {
+  visibility: visible;
+  animation: fadeUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Fade Up --- */
+.fade-up {
+  transform: translateY(30px);
+}
+.fade-up.is-visible {
+  animation: fadeUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeUpAnim {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Fade In --- */
+.fade-in.is-visible {
+  animation: fadeInAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeInAnim {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* --- Slide Left (from Right) --- */
+.slide-left {
+  transform: translateX(30px);
+}
+.slide-left.is-visible {
+  animation: slideLeftAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes slideLeftAnim {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Slide Right (from Left) --- */
+.slide-right {
+  transform: translateX(-30px);
+}
+.slide-right.is-visible {
+  animation: slideRightAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes slideRightAnim {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Scale Up --- */
+.scale-up {
+  transform: scale(0.9);
+}
+.scale-up.is-visible {
+  animation: scaleUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes scaleUpAnim {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- Stagger Delays --- */
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* Ensure elements are visible if JS is disabled or during SSR */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

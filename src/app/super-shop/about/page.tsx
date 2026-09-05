@@ -16,9 +16,11 @@ import {
 import { CartProvider } from "../contexts/CartContext";
 import Image from "next/image";
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,6 +104,7 @@ export default function AboutPage() {
     { number: "98%", label: "Customer Satisfaction Rate", icon: "⭐" },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements

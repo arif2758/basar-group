@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Clock, Trophy, Gift, Users } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +47,7 @@ const MonthlyQuiz: React.FC = () => {
     { name: "Nadia Khan", prize: "Premium Membership", month: "September" },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".quiz-header", { y: 50, opacity: 0 });
@@ -149,16 +149,16 @@ const MonthlyQuiz: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 teal-slate-gradient text-white">
+    <section ref={sectionRef} className="py-20 bg-slate-900 dark:bg-[#070b14] text-white border-t border-slate-800 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="quiz-header text-center mb-12">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Trophy className="w-8 h-8 text-yellow-400" />
-            <h2 className="text-3xl md:text-4xl font-bold">
-              December Reading Quiz
-            </h2>
+          <div className="inline-flex items-center justify-center p-2 bg-amber-500/10 dark:bg-amber-500/20 rounded-xl mb-4 text-amber-400">
+            <Trophy className="w-8 h-8" />
           </div>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            December Reading Quiz
+          </h2>
+          <p className="text-slate-300 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Test your knowledge from this month&apos;s featured books and win
             amazing prizes!
           </p>
@@ -167,52 +167,52 @@ const MonthlyQuiz: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Quiz Info */}
           <div className="quiz-info space-y-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4 flex items-center space-x-2">
-                <Gift className="w-6 h-6 text-yellow-400" />
+            <div className="bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-xl p-6 sm:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+              <h3 className="text-xl font-bold mb-5 flex items-center space-x-2 text-white">
+                <Gift className="w-5 h-5 text-amber-400" />
                 <span>This Month&apos;s Prizes</span>
               </h3>
 
-              <div className="space-y-4">
-                <div className="prize-item flex items-center justify-between bg-white/20 rounded-lg p-4">
-                  <span className="font-medium">🏆 1st Place</span>
-                  <span className="text-yellow-400 font-bold">
+              <div className="space-y-3">
+                <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
+                  <span className="font-medium text-slate-200">🏆 1st Place</span>
+                  <span className="text-amber-400 font-semibold">
                     iPad Mini + Book Collection
                   </span>
                 </div>
-                <div className="prize-item flex items-center justify-between bg-white/20 rounded-lg p-4">
-                  <span className="font-medium">🥈 2nd Place</span>
-                  <span className="text-gray-200 font-bold">
+                <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
+                  <span className="font-medium text-slate-200">🥈 2nd Place</span>
+                  <span className="text-slate-300 font-semibold">
                     Book Voucher (৳1000)
                   </span>
                 </div>
-                <div className="prize-item flex items-center justify-between bg-white/20 rounded-lg p-4">
-                  <span className="font-medium">🥉 3rd Place</span>
-                  <span className="text-orange-300 font-bold">
+                <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
+                  <span className="font-medium text-slate-200">🥉 3rd Place</span>
+                  <span className="text-amber-300 font-semibold">
                     3 Months Premium
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h4 className="text-lg font-semibold mb-3 flex items-center space-x-2">
-                <Users className="w-5 h-5" />
+            <div className="bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-xl p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+              <h4 className="text-lg font-semibold mb-3 flex items-center space-x-2 text-white">
+                <Users className="w-5 h-5 text-emerald-400" />
                 <span>Previous Winners</span>
               </h4>
               <div className="space-y-3">
                 {previousWinners.map((winner, index) => (
                   <div
                     key={index}
-                    className="winner-item flex items-center justify-between"
+                    className="winner-item flex items-center justify-between text-sm py-2 border-b border-slate-700/40 dark:border-[#262626] last:border-b-0"
                   >
                     <div>
-                      <span className="font-medium">{winner.name}</span>
-                      <span className="text-blue-200 text-sm ml-2">
+                      <span className="font-medium text-slate-200">{winner.name}</span>
+                      <span className="text-slate-400 text-xs ml-2">
                         ({winner.month})
                       </span>
                     </div>
-                    <span className="text-yellow-400 text-sm">
+                    <span className="text-amber-400 font-medium text-xs">
                       {winner.prize}
                     </span>
                   </div>
@@ -223,63 +223,63 @@ const MonthlyQuiz: React.FC = () => {
 
           {/* Countdown Timer */}
           <div className="countdown-section text-center">
-            <div className="countdown-timer bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-2 flex items-center justify-center space-x-2">
-                <Clock className="w-6 h-6 text-yellow-400" />
+            <div className="countdown-timer bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-2xl p-6 sm:p-8 mb-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+              <h3 className="text-xl font-bold mb-2 flex items-center justify-center space-x-2 text-white">
+                <Clock className="w-5 h-5 text-amber-400" />
                 <span>Quiz Starts In</span>
               </h3>
 
-              <div className="grid grid-cols-4 gap-4 mt-6">
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-yellow-400">
+              <div className="grid grid-cols-4 gap-3 sm:gap-4 mt-6">
+                <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
+                  <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.days}
                   </div>
-                  <div className="text-sm text-blue-200">Days</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Days</div>
                 </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-yellow-400">
+                <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
+                  <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.hours}
                   </div>
-                  <div className="text-sm text-blue-200">Hours</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Hours</div>
                 </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-yellow-400">
+                <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
+                  <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.minutes}
                   </div>
-                  <div className="text-sm text-blue-200">Minutes</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Minutes</div>
                 </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-yellow-400">
+                <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
+                  <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.seconds}
                   </div>
-                  <div className="text-sm text-blue-200">Seconds</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Seconds</div>
                 </div>
               </div>
             </div>
 
-            <div className="quiz-topics bg-white rounded-xl p-6 text-gray-900 mb-6">
-              <h4 className="text-xl font-bold mb-3">Quiz Topics</h4>
+            <div className="quiz-topics bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-xl p-6 text-left mb-6 shadow-sm">
+              <h4 className="text-lg font-bold mb-3 text-slate-900 dark:text-white">Quiz Topics</h4>
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="topic-item bg-blue-50 rounded-lg p-3">
+                <div className="topic-item bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg p-3 text-slate-800 dark:text-slate-200">
                   <span className="font-medium">The Alchemist</span>
                 </div>
-                <div className="topic-item bg-green-50 rounded-lg p-3">
+                <div className="topic-item bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg p-3 text-slate-800 dark:text-slate-200">
                   <span className="font-medium">Sapiens</span>
                 </div>
-                <div className="topic-item bg-purple-50 rounded-lg p-3">
+                <div className="topic-item bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg p-3 text-slate-800 dark:text-slate-200">
                   <span className="font-medium">Atomic Habits</span>
                 </div>
-                <div className="topic-item bg-orange-50 rounded-lg p-3">
+                <div className="topic-item bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg p-3 text-slate-800 dark:text-slate-200">
                   <span className="font-medium">1984</span>
                 </div>
               </div>
             </div>
 
-            <button className="register-button bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+            <button className="register-button w-full sm:w-auto inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-medium text-base transition-colors shadow-sm active:scale-[0.99]">
               Register for Quiz
             </button>
 
-            <p className="quiz-note text-blue-200 text-sm mt-4">
+            <p className="quiz-note text-slate-400 text-sm mt-4">
               📚 Read the featured books to participate • 👥 Open to all members
             </p>
           </div>

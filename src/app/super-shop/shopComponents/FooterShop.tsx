@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Phone, Mail, MapPin, CreditCard } from 'lucide-react';
+import { Phone, Mail, MapPin, CreditCard, Heart } from 'lucide-react';
 
 export default function FooterShop() { 
   return (
@@ -21,8 +21,8 @@ export default function FooterShop() {
               Your local grocery store, digitally transformed to serve the community better while empowering local youth.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-emerald-400 cursor-pointer transition-colors" />
-              <Instagram className="w-5 h-5 text-gray-400 hover:text-emerald-400 cursor-pointer transition-colors" />
+              <Heart className="w-5 h-5 text-gray-400 hover:text-emerald-400 cursor-pointer transition-colors" />
+              <Heart className="w-5 h-5 text-gray-400 hover:text-emerald-400 cursor-pointer transition-colors" />
             </div>
           </div>
 

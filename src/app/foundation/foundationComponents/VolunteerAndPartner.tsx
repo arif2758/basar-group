@@ -1,9 +1,11 @@
 "use client";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
 import { useRef } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +21,7 @@ const partners = [
 function VolunteerAndPartner() {
   const containerRef = useRef(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Volunteer section - simple left slide
@@ -51,15 +54,15 @@ function VolunteerAndPartner() {
   );
 
   return (
-    <section ref={containerRef} className="py-20 bg-gray-50">
+    <section ref={containerRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Volunteer Form */}
-          <div className="volunteer-section">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <div className="volunteer-section bg-white dark:bg-[#141414] p-8 rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               Become a Volunteer
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
               Join our community of dedicated volunteers and make a direct
               impact in people&apos;s lives.
             </p>
@@ -68,26 +71,26 @@ function VolunteerAndPartner() {
               <input
                 type="text"
                 placeholder="Full Name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A86B] focus:border-transparent outline-none transition-all duration-300"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A86B] focus:border-transparent outline-none transition-all duration-300"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A86B] focus:border-transparent outline-none transition-all duration-300"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <textarea
                 placeholder="Why do you want to volunteer with us?"
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A86B] focus:border-transparent outline-none transition-all duration-300"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm resize-none"
               ></textarea>
               <button
                 type="submit"
-                className="w-full teal-slate-gradient text-white py-3 rounded-lg hover:bg-green-700 hover:scale-105 transition-all duration-300 font-semibold"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl transition-all duration-200 font-medium text-sm shadow-sm active:scale-[0.99]"
               >
                 Join Our Team
               </button>
@@ -95,23 +98,23 @@ function VolunteerAndPartner() {
           </div>
 
           {/* Partners */}
-          <div className="partners-section">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <div className="partners-section flex flex-col justify-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               Our Partners
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
               Working together with leading organizations to maximize our
               impact.
             </p>
 
-            <div className=" grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {partners.map((partner, index) => (
                 <div
                   key={index}
-                  className=" bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 text-center"
+                  className="bg-white dark:bg-[#141414] p-5 rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 text-center group"
                 >
-                  <div className="text-3xl mb-2">{partner.logo}</div>
-                  <h3 className="font-semibold text-gray-800">
+                  <div className="text-3xl mb-2 transition-transform duration-200 group-hover:scale-110">{partner.logo}</div>
+                  <h3 className="font-medium text-slate-900 dark:text-white text-xs sm:text-sm">
                     {partner.name}
                   </h3>
                 </div>

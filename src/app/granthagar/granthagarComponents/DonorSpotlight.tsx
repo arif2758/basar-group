@@ -3,9 +3,11 @@
 import React, { useRef } from "react";
 import { Heart, BookOpen, Award } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +31,7 @@ const DonorSpotlight: React.FC = () => {
     joinDate: "January 2023",
   };
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".donor-header", { y: 40, opacity: 0 });
@@ -111,19 +114,19 @@ const DonorSpotlight: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16">
+    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="donor-header text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Donor Spotlight
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Celebrating our amazing donors who make our community library
             possible through their generous contributions.
           </p>
         </div>
 
-        <div className="donor-card bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="donor-card bg-slate-50 dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden">
           <div className="md:flex">
             <div className="md:w-1/3 bg-gradient-to-br from-orange-400 to-pink-500 p-8 text-white flex items-center justify-center">
               <div className="donor-info text-center">

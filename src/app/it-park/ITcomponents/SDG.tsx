@@ -1,14 +1,15 @@
 import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Observer } from 'gsap/Observer';
+import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
+
+
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
 
 function SDG() {
   const containerRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     if (!containerRef.current) return;
 
@@ -95,7 +96,7 @@ function SDG() {
 
   return (
     <section 
-      className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white" 
+      className="py-20 bg-slate-900 dark:bg-[#070b14] text-white border-t border-slate-800 dark:border-[#303030] transition-colors duration-200" 
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +114,7 @@ function SDG() {
           {goals.map((goal, index) => (
             <div
               key={index}
-              className="sdg-card bg-white/10 backdrop-blur-sm rounded-xl p-8 cursor-pointer"
+              className="sdg-card bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-2xl p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:border-emerald-500/50 transition-all cursor-pointer"
             >
               <div className="text-6xl font-bold mb-4">#{goal.number}</div>
               <h3 className="text-xl font-bold mb-4">{goal.title}</h3>

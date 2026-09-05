@@ -2,9 +2,11 @@
 
 import React, { useRef } from "react";
 import { Crown, Award, Star, Heart } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,7 +73,8 @@ const DonorWall = () => {
     { name: "Carlos Rivera", amount: "$300", timeAgo: "12 hours ago" },
   ];
 
-useGSAP(() => {
+useScrollAnimation();
+  useGSAP(() => {
   // Header animation
   gsap.from(".donor-header", {
     scrollTrigger: {
@@ -191,13 +194,13 @@ useGSAP(() => {
 }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-20 to-white">
+    <section ref={containerRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="donor-header text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Wall of Generosity
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Honoring the compassionate hearts who make our mission possible.
             Every donor, regardless of contribution size, creates meaningful
             impact.
@@ -205,51 +208,51 @@ useGSAP(() => {
         </div>
 
         {/* Donor Tiers */}
-        <div className="space-y-12 max-w-6xl mx-auto">
+        <div className="space-y-10 max-w-6xl mx-auto">
           {donorTiers.map((tier, tierIndex) => {
             const TierIcon = tier.icon;
             return (
               <div
                 key={tierIndex}
-                className="donor-tier marble-gradient rounded-3xl shadow-xl p-8 border border-gray-100"
+                className="donor-tier bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 border border-slate-200 dark:border-[#303030]"
               >
                 <div className="flex items-center justify-center mb-8">
                   <div
-                    className={`bg-gradient-to-r ${tier.color} p-4 rounded-2xl mr-4`}
+                    className={`bg-gradient-to-r ${tier.color} p-3.5 rounded-xl mr-4 shadow-sm`}
                   >
-                    <TierIcon className="w-8 h-8 text-white" />
+                    <TierIcon className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-center">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-800">
+                  <div className="text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                       {tier.title}
                     </h3>
-                    <p className="text-gray-600 font-semibold">
+                    <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
                       {tier.minAmount}
                     </p>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {tier.donors.map((donor, donorIndex) => (
                     <div
                       key={donorIndex}
-                      className={`donor-card bg-gradient-to-br ${tier.color} p-6 rounded-2xl text-white relative overflow-hidden`}
+                      className={`donor-card bg-gradient-to-br ${tier.color} p-5 rounded-xl text-white relative overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
                     >
                       <div className="relative z-10">
-                        <h4 className="font-bold text-lg mb-2 line-clamp-2">
+                        <h4 className="font-bold text-base mb-2 line-clamp-1">
                           {donor.name}
                         </h4>
                         <div className="flex justify-between items-center">
-                          <span className="text-2xl font-bold">
+                          <span className="text-xl font-bold">
                             {donor.amount}
                           </span>
-                          <span className="text-sm opacity-90">
+                          <span className="text-xs opacity-80">
                             {donor.year}
                           </span>
                         </div>
                       </div>
                       <div className="absolute -bottom-2 -right-2 opacity-20">
-                        <TierIcon className="w-16 h-16" />
+                        <TierIcon className="w-14 h-14" />
                       </div>
                     </div>
                   ))}
@@ -261,33 +264,33 @@ useGSAP(() => {
 
         {/* Recent Donations */}
         <div className="recent-donations mt-16 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-emerald-50 to-sky-50 rounded-3xl p-8 border border-emerald-100">
-            <div className="text-center mb-8">
-              <Heart className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">
+          <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <div className="text-center mb-6">
+              <Heart className="w-8 h-8 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                 Recent Donations
               </h3>
-              <p className="text-lg text-gray-600">
+              <p className="text-sm text-slate-600 dark:text-slate-400">
                 Live updates from our community of generous supporters
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {recentDonors.map((donor, index) => (
                 <div
                   key={index}
-                  className="recent-donor-item bg-white rounded-2xl p-4 shadow-lg flex items-center justify-between hover:shadow-xl transition-all duration-300"
+                  className="recent-donor-item bg-slate-50 dark:bg-[#1f1f1f] rounded-xl p-3.5 border border-slate-200 dark:border-[#303030] flex items-center justify-between transition-colors"
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-emerald-400 to-emerald-600 w-12 h-12 rounded-full flex items-center justify-center">
-                      <Heart className="w-6 h-6 text-white" />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-200 dark:border-emerald-800/40">
+                      <Heart className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-800">{donor.name}</h4>
-                      <p className="text-gray-600 text-sm">{donor.timeAgo}</p>
+                      <h4 className="font-semibold text-slate-900 dark:text-white text-sm">{donor.name}</h4>
+                      <p className="text-slate-500 dark:text-slate-400 text-xs">{donor.timeAgo}</p>
                     </div>
                   </div>
-                  <div className="text-emerald-600 font-bold text-lg">
+                  <div className="text-emerald-600 dark:text-emerald-400 font-bold text-base">
                     {donor.amount}
                   </div>
                 </div>
@@ -298,16 +301,16 @@ useGSAP(() => {
 
         {/* Corporate Partners */}
         <div className="corporate-partners mt-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
               Corporate Partners
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="text-sm text-slate-600 dark:text-slate-400">
               Companies committed to social responsibility and community impact
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               "Global Tech Solutions",
               "Midwest Healthcare Group",
@@ -320,18 +323,18 @@ useGSAP(() => {
             ].map((company, index) => (
               <div
                 key={index}
-                className="partner-card bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
+                className="partner-card bg-white dark:bg-[#141414] rounded-xl p-5 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 border border-slate-200 dark:border-[#303030] text-center"
               >
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">
+                <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] mx-auto mb-3 flex items-center justify-center">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">
                     {company.charAt(0)}
                   </span>
                 </div>
-                <h4 className="font-bold text-gray-800 text-center">
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm">
                   {company}
                 </h4>
-                <p className="text-gray-600 text-sm text-center mt-2">
-                  Proud Partner Since 2023
+                <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                  Partner Since 2023
                 </p>
               </div>
             ))}
@@ -340,19 +343,19 @@ useGSAP(() => {
 
         {/* Join Wall CTA */}
         <div className="donor-cta text-center mt-16">
-          <div className="teal-slate-gradient rounded-3xl p-8 max-w-4xl mx-auto text-white">
-            <h3 className="text-3xl font-bold mb-4">
+          <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
               Join Our Wall of Generosity
             </h3>
-            <p className="text-lg mb-6 text-white/90">
+            <p className="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
               Every donation, no matter the size, makes a difference and earns
               recognition in our community of change-makers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-emerald-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl text-sm font-medium shadow-sm transition-all duration-200 active:scale-[0.98]">
                 Make a Donation
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-emerald-600 transition-all duration-300 transform hover:scale-105">
+              <button className="bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-800 dark:text-slate-200 px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200">
                 Corporate Partnerships
               </button>
             </div>

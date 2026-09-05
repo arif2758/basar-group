@@ -1,5 +1,5 @@
-// src/components/FamilyTree.tsx
 "use client";
+// src/components/FamilyTree.tsx
 
 import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { Search, X, ChevronDown, ChevronRight, Users, User } from "lucide-react";

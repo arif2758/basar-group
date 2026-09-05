@@ -12,9 +12,11 @@ import {
 } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,6 +121,7 @@ export default function FeaturedProducts() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Background floating elements

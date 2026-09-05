@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { FaCalendarAlt } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -45,6 +47,7 @@ function EventsAndRegistration() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
@@ -107,13 +110,13 @@ function EventsAndRegistration() {
   }, []);
 
   return (
-    <section id="events" ref={sectionRef} className="py-20 bg-white">
+    <section id="events" ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Upcoming Events
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Join our community events and workshops to grow together
           </p>
         </div>
@@ -123,30 +126,30 @@ function EventsAndRegistration() {
             <div
               key={index}
               ref={(el) => { eventCardsRef.current[index] = el; }}
-              className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="bg-slate-50 dark:bg-[#141414] rounded-2xl overflow-hidden border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer group"
             >
-              <div className="h-48 relative">
+              <div className="h-48 relative overflow-hidden">
                 <Image
                   src={event.image}
                   alt={event.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-800">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {event.title}
                   </h3>
-                  <FaCalendarAlt className="text-emerald-600" />
+                  <FaCalendarAlt className="text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <p className="text-gray-600 mb-4">{event.description}</p>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-sm text-gray-500">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">{event.description}</p>
+                <div className="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-[#252525]">
+                  <div className="text-xs text-slate-500 dark:text-slate-400">
                     <div>{event.date}</div>
                     <div>{event.time}</div>
                   </div>
-                  <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors duration-200">
+                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-medium shadow-sm transition-all duration-200 active:scale-[0.98]">
                     Register
                   </button>
                 </div>

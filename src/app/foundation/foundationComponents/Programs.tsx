@@ -11,9 +11,11 @@ import {
   LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -172,6 +174,7 @@ const Programs = () => {
   const activeProgram = programs[activeTab];
   const ActiveIcon = activeProgram.icon;
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.from(".programs-header", {
@@ -242,6 +245,7 @@ const Programs = () => {
   }, { scope: containerRef, dependencies: [activeTab] });
 
   // Initiative cards animation when tab changes
+  useScrollAnimation();
   useGSAP(() => {
     gsap.from(".initiative-card", {
       y: 30,
@@ -256,36 +260,36 @@ const Programs = () => {
     <section
       ref={containerRef}
       id="programs"
-      className="py-20 bg-gradient-to-br from-gray-50 to-white"
+      className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
     >
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="programs-header text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Our Impact Programs
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Comprehensive initiatives addressing the most pressing needs of
             underserved communities
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="programs-tabs flex flex-wrap justify-center mb-12">
+        <div className="programs-tabs flex flex-wrap justify-center mb-12 gap-2">
           {tabs.map((tab) => {
             const TabIcon = tab.icon;
             return (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full m-2 transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-5 py-2.5 rounded-xl transition-all duration-200 text-sm font-medium border ${
                   activeTab === tab.key
-                    ? "bg-gradient-to-r from-emerald-500 to-emerald-700 text-white shadow-lg transform scale-105"
-                    : "bg-white text-gray-700 border border-gray-200 hover:border-emerald-300 hover:text-emerald-600"
+                    ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
+                    : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-[#303030] hover:border-slate-300 dark:hover:border-slate-600"
                 }`}
               >
-                <TabIcon className="w-5 h-5" />
-                <span className="font-semibold">{tab.label}</span>
+                <TabIcon className="w-4 h-4" />
+                <span>{tab.label}</span>
               </button>
             );
           })}
@@ -295,42 +299,42 @@ const Programs = () => {
         <div className="max-w-6xl mx-auto">
           <div className="program-header text-center mb-12">
             <div
-              className={`bg-gradient-to-r ${activeProgram.color} w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6`}
+              className={`bg-gradient-to-r ${activeProgram.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-sm`}
             >
-              <ActiveIcon className="w-10 h-10 text-white" />
+              <ActiveIcon className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               {activeProgram.title}
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
               {activeProgram.description}
             </p>
           </div>
 
           {/* Initiatives */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
             {activeProgram.initiatives.map((initiative, index) => (
               <div
                 key={index}
-                className="initiative-card bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+                className="initiative-card bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden group"
               >
-                <div className="h-48 relative">
+                <div className="h-48 relative overflow-hidden">
                   <Image
                     src={initiative.image}
                     alt={initiative.name}
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-800 mb-3">
+                  <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                     {initiative.name}
                   </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                     {initiative.description}
                   </p>
                   <div
-                    className={`bg-gradient-to-r ${activeProgram.color} text-white px-4 py-2 rounded-full text-sm font-semibold inline-block`}
+                    className={`bg-gradient-to-r ${activeProgram.color} text-white px-3 py-1 rounded-full text-xs font-medium inline-block shadow-sm`}
                   >
                     {initiative.impact}
                   </div>
@@ -342,62 +346,62 @@ const Programs = () => {
 
        {/* Upcoming Projects */}
         <div className="upcoming-projects mt-20">
-          <div className="bg-gradient-to-r from-emerald-50 to-sky-50 rounded-3xl p-8 border border-emerald-100">
+          <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-8 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
             <div className="text-center mb-8">
-              <Calendar className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              <Calendar className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                 Upcoming Projects - 2024
               </h3>
-              <p className="text-lg text-gray-600">
+              <p className="text-base text-slate-600 dark:text-slate-400">
                 Exciting new initiatives launching soon to expand our impact
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="upcoming-card bg-white rounded-2xl p-6 shadow-lg">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-white" />
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
+                <div className="bg-gradient-to-r from-blue-500 to-blue-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+                  <BookOpen className="w-5 h-5 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-gray-800 mb-2">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                   Mobile Learning Labs
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   Technology-equipped vehicles bringing digital education to
                   remote areas
                 </p>
-                <div className="text-blue-600 font-semibold mt-2">
+                <div className="text-blue-600 dark:text-blue-400 font-semibold text-xs mt-3">
                   Q2 2024 Launch
                 </div>
               </div>
 
-              <div className="upcoming-card bg-white rounded-2xl p-6 shadow-lg">
-                <div className="bg-gradient-to-r from-green-500 to-green-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-white" />
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
+                <div className="bg-gradient-to-r from-green-500 to-green-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="w-5 h-5 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-gray-800 mb-2">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                   Women Empowerment Centers
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   Skill development and microfinance programs for women
                   entrepreneurs
                 </p>
-                <div className="text-green-600 font-semibold mt-2">
+                <div className="text-green-600 dark:text-green-400 font-semibold text-xs mt-3">
                   Q3 2024 Launch
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="bg-gradient-to-r from-amber-500 to-amber-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <Sprout className="w-6 h-6 text-white" />
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
+                <div className="bg-gradient-to-r from-amber-500 to-amber-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+                  <Sprout className="w-5 h-5 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-gray-800 mb-2">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                   Sustainable Farming Hub
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   Comprehensive agricultural support center with modern
                   techniques
                 </p>
-                <div className="text-amber-600 font-semibold mt-2">
+                <div className="text-amber-600 dark:text-amber-400 font-semibold text-xs mt-3">
                   Q4 2024 Launch
                 </div>
               </div>

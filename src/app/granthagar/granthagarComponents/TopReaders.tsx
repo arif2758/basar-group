@@ -3,9 +3,11 @@
 import React, { useRef } from "react";
 import { Trophy, BookOpen, Star, Flame } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +50,7 @@ const TopReaders: React.FC = () => {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".readers-header", { y: 50, opacity: 0 });
@@ -121,16 +124,16 @@ const TopReaders: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16">
+    <section ref={sectionRef} className="py-16 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="readers-header text-center mb-12">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Trophy className="w-8 h-8 text-yellow-500" />
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
+            <Trophy className="w-8 h-8 text-amber-500" />
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               Top Readers This Month
             </h2>
           </div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Celebrating our most dedicated readers who inspire the entire
             community with their love for learning.
           </p>
@@ -247,17 +250,17 @@ const TopReaders: React.FC = () => {
           ))}
         </div>
 
-        <div className=" challenge-cta text-center mt-12">
-          <div className="teal-slate-gradient text-gray-200  rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold  mb-4">
+        <div className="challenge-cta text-center mt-12">
+          <div className="bg-white dark:bg-[#141414] text-slate-900 dark:text-white rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-3 tracking-tight">
               Join the Leaderboard!
             </h3>
-            <p className=" mb-6">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
               Start your reading journey today and compete with fellow book
               lovers. Track your progress, earn badges, and climb the monthly
               rankings.
             </p>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105">
+            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
               Start Reading Challenge
             </button>
           </div>

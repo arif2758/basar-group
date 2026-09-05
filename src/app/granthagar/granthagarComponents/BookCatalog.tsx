@@ -1,16 +1,13 @@
 "use client";
 import React, { useRef, useState } from 'react';
-import {  BookOpen, Sparkles, Star, TrendingUp } from 'lucide-react';
+import { BookOpen, Sparkles, Star, TrendingUp } from 'lucide-react';
 import SearchAndFilter from './SearchAndFilter';
 import BookGrid from './BookGrid';
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
-
 
 const BookCatalog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +15,7 @@ const BookCatalog: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState('all');
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Floating background elements
     gsap.to(".float", {
@@ -52,49 +50,47 @@ const BookCatalog: React.FC = () => {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-200">
       
       {/* Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <Sparkles className="float absolute top-32 right-1/4 w-8 h-8 text-blue-300/20" />
-        <Star className="float absolute bottom-1/3 left-1/4 w-6 h-6 text-purple-300/15" />
-        <BookOpen className="float absolute top-2/3 right-1/3 w-7 h-7 text-emerald-300/20" />
-        <TrendingUp className="float absolute top-1/4 left-1/2 w-5 h-5 text-amber-300/15" />
+        <Sparkles className="float absolute top-32 right-1/4 w-8 h-8 text-emerald-400/10" />
+        <Star className="float absolute bottom-1/3 left-1/4 w-6 h-6 text-blue-400/10" />
+        <BookOpen className="float absolute top-2/3 right-1/3 w-7 h-7 text-emerald-400/10" />
+        <TrendingUp className="float absolute top-1/4 left-1/2 w-5 h-5 text-amber-400/10" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
         
         {/* Enhanced Header */}
         <div className="header-content mb-12 text-center">
-          <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 px-6 py-3 rounded-full text-sm font-bold mb-6 border border-blue-200/50 backdrop-blur-sm">
-            <BookOpen className="w-4 h-4 mr-2" />
+          <div className="inline-flex items-center bg-white dark:bg-[#141414] text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-5 border border-slate-200 dark:border-[#303030] shadow-sm">
+            <BookOpen className="w-3.5 h-3.5 mr-1.5" />
             Digital Library
-            <Sparkles className="w-4 h-4 ml-2" />
+            <Sparkles className="w-3.5 h-3.5 ml-1.5" />
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-              Book Catalog
-            </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+            Book Catalog
           </h1>
           
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium mb-8">
-            Explore our collection of over 
-            <span className="text-blue-600 font-bold"> 500+ books</span> donated by our amazing community
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8">
+            Explore our collection of over{" "}
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">500+ books</span> donated by our amazing community.
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
             {[
               { icon: "📚", number: "500+", label: "Total Books" },
               { icon: "👥", number: "150+", label: "Active Donors" },
               { icon: "⭐", number: "4.8", label: "Avg Rating" },
               { icon: "🔄", number: "200+", label: "Books Exchanged" }
             ].map((stat, index) => (
-              <div key={index} className="stat-item text-center bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-100/50 shadow-lg min-w-[120px]">
-                <div className="text-3xl mb-2">{stat.icon}</div>
-                <div className="text-2xl font-black text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              <div key={index} className="stat-item text-center bg-white dark:bg-[#141414] rounded-xl p-4 sm:p-5 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200">
+                <div className="text-2xl mb-1.5">{stat.icon}</div>
+                <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-0.5">{stat.number}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>

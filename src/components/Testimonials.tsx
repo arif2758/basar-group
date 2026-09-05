@@ -15,7 +15,7 @@ export default function Testimonials({ language }: TestimonialsProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,13 +30,13 @@ export default function Testimonials({ language }: TestimonialsProps) {
   };
 
   return (
-    <section className="py-20 teal-slate-gradient">
+    <section className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-poppins text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             {language === "bn" ? "সদস্যদের মতামত" : "Member Testimonials"}
           </h2>
-          <p className="text-primary-100 text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             {language === "bn"
               ? "আমাদের সদস্য ও সেবা গ্রহীতাদের কথা"
               : "Words from our members and beneficiaries"}
@@ -44,22 +44,22 @@ export default function Testimonials({ language }: TestimonialsProps) {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Main Testimonial */}
-          <div className="bg-soft-100 rounded-2xl shadow-2xl p-8 md:p-12 animate-fade-in">
+          {/* Main Testimonial Card */}
+          <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-3xl shadow-[0_6px_16px_0_rgba(0,0,0,0.06)] dark:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] p-8 md:p-12 transition-all duration-300">
             <div className="flex flex-col items-center text-center">
               {/* Stars */}
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-6 gap-1">
                 {[...Array(5)].map((_, i) => (
                   <FiStar
                     key={i}
-                    className="w-5 h-5 text-accent fill-current"
+                    className="w-5 h-5 text-amber-400 fill-current"
                   />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 italic">
-                {testimonials[currentIndex].quote}
+              <blockquote className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed mb-8 italic">
+                &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </blockquote>
 
               {/* Avatar and Details */}
@@ -69,14 +69,14 @@ export default function Testimonials({ language }: TestimonialsProps) {
                   alt={testimonials[currentIndex].name}
                   width={600}
                   height={400}
-                  className="w-16 h-16 rounded-full object-cover mb-4 shadow-lg"
+                  className="w-16 h-16 rounded-full object-cover mb-4 ring-2 ring-blue-500/20 shadow-md"
                 />
 
                 <div>
-                  <h4 className="font-semibold text-lg text-neutral-dark">
+                  <h4 className="font-semibold text-lg text-slate-900 dark:text-white">
                     {testimonials[currentIndex].name}
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">
                     {language === "bn"
                       ? testimonials[currentIndex].role
                           .replace("Library Member", "লাইব্রেরি সদস্য")
@@ -100,10 +100,10 @@ export default function Testimonials({ language }: TestimonialsProps) {
           <div className="flex items-center justify-center mt-8 space-x-4">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
+              className="w-10 h-10 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-100 dark:hover:bg-white/5 rounded-full flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
               aria-label="Previous testimonial"
             >
-              <FiChevronLeft className="w-6 h-6" />
+              <FiChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Dots */}
@@ -112,10 +112,10 @@ export default function Testimonials({ language }: TestimonialsProps) {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-200 cursor-pointer ${
                     index === currentIndex
-                      ? "bg-white scale-125"
-                      : "bg-white/40 hover:bg-white/60"
+                      ? "bg-blue-600 dark:bg-blue-400 w-6"
+                      : "bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -124,10 +124,10 @@ export default function Testimonials({ language }: TestimonialsProps) {
 
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
+              className="w-10 h-10 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-100 dark:hover:bg-white/5 rounded-full flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
               aria-label="Next testimonial"
             >
-              <FiChevronRight className="w-6 h-6" />
+              <FiChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>

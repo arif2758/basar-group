@@ -1,9 +1,7 @@
 "use client";
-import React from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   CheckCircle,
   Clock,
@@ -27,44 +25,29 @@ const Membership: React.FC = () => {
   const faqRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header Animation
       gsap.fromTo(
         headerRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
-        }
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
       );
 
       // Membership Plans Animation
       gsap.fromTo(
         plansRef.current?.children || [],
-        {
-          opacity: 0,
-          y: 80,
-          rotationX: 15,
-        },
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
-          rotationX: 0,
-          duration: 1,
-          stagger: 0.3,
+          duration: 0.8,
+          stagger: 0.2,
           ease: "power2.out",
           scrollTrigger: {
             trigger: plansRef.current,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
         }
@@ -73,17 +56,12 @@ const Membership: React.FC = () => {
       // Benefits Animation
       gsap.fromTo(
         benefitsRef.current,
-        {
-          opacity: 0,
-          scale: 0.8,
-          rotationY: 10,
-        },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
-          scale: 1,
-          rotationY: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: benefitsRef.current,
             start: "top 75%",
@@ -91,170 +69,6 @@ const Membership: React.FC = () => {
           },
         }
       );
-
-      // Rules Cards Animation
-      gsap.fromTo(
-        rulesRef.current?.querySelectorAll(".rule-card") || [],
-        {
-          opacity: 0,
-          y: 60,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: rulesRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Notice Animation
-      gsap.fromTo(
-        noticeRef.current,
-        {
-          opacity: 0,
-          x: -100,
-          rotationZ: -2,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotationZ: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: noticeRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // FAQ Animation
-      gsap.fromTo(
-        faqRef.current?.querySelectorAll(".faq-item") || [],
-        {
-          opacity: 0,
-          x: 50,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: faqRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // CTA Animation
-      gsap.fromTo(
-        ctaRef.current,
-        {
-          opacity: 0,
-          y: 100,
-          scale: 0.8,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ctaRef.current,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Hover animations for interactive elements
-      const planCards = plansRef.current?.querySelectorAll(".plan-card");
-      planCards?.forEach((card) => {
-        const button = card.querySelector(".plan-button");
-
-        card.addEventListener("mouseenter", () => {
-          gsap.to(card, {
-            y: -10,
-            scale: 1.02,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-          gsap.to(button, {
-            scale: 1.05,
-            duration: 0.2,
-          });
-        });
-
-        card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-          gsap.to(button, {
-            scale: 1,
-            duration: 0.2,
-          });
-        });
-      });
-
-      // Rule cards hover effect
-      const ruleCards = rulesRef.current?.querySelectorAll(".rule-card");
-      ruleCards?.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-          gsap.to(card, {
-            y: -8,
-            scale: 1.03,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // CTA buttons hover effect
-      const ctaButtons = ctaRef.current?.querySelectorAll(".cta-button");
-      ctaButtons?.forEach((button) => {
-        button.addEventListener("mouseenter", () => {
-          gsap.to(button, {
-            scale: 1.08,
-            y: -3,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-
-        button.addEventListener("mouseleave", () => {
-          gsap.to(button, {
-            scale: 1,
-            y: 0,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-      });
     },
     { scope: containerRef }
   );
@@ -265,35 +79,30 @@ const Membership: React.FC = () => {
       title: "One Book at a Time",
       description:
         "Members can borrow one book at a time. You must return your current book before requesting another.",
-      color: "blue",
     },
     {
       icon: Users,
       title: "Student Priority",
       description:
         "Students receive priority access to books, especially for academic and educational materials.",
-      color: "green",
     },
     {
       icon: Truck,
       title: "30-Minute Delivery",
       description:
         "Free delivery within 30 minutes for members in Dhaka city. We bring books directly to your doorstep.",
-      color: "orange",
     },
     {
       icon: Clock,
       title: "Return Policy",
       description:
         "Books should be returned within 14 days. Extensions available upon request if no one else is waiting.",
-      color: "purple",
     },
     {
       icon: Shield,
       title: "Book Care",
       description:
         "Handle books with care. Damaged or lost books may require replacement or repair fees.",
-      color: "red",
     },
   ];
 
@@ -322,7 +131,6 @@ const Membership: React.FC = () => {
         "Reading tracker access",
         "Monthly quiz participation",
       ],
-      color: "from-blue-500 to-blue-600",
       popular: true,
     },
     {
@@ -338,7 +146,6 @@ const Membership: React.FC = () => {
         "Reading tracker access",
         "Monthly quiz participation",
       ],
-      color: "from-green-500 to-green-600",
       popular: false,
     },
   ];
@@ -372,13 +179,13 @@ const Membership: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div ref={containerRef} className="min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-white transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div ref={headerRef} className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
             Join BASAR গ্রন্থাগার
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
             Become part of our reading community and transform your learning
             journey. Simple rules, great books, and amazing community support.
           </p>
@@ -392,40 +199,38 @@ const Membership: React.FC = () => {
           {membershipPlans.map((plan, index) => (
             <div
               key={index}
-              className={`plan-card relative bg-white rounded-2xl shadow-xl overflow-hidden ${
-                plan.popular ? "ring-2 ring-blue-500" : ""
+              className={`plan-card relative bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-200 ${
+                plan.popular ? "ring-2 ring-emerald-500/80" : ""
               }`}
             >
               {plan.popular && (
-                <div className="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 text-sm font-semibold rounded-bl-lg">
+                <div className="absolute top-0 right-0 bg-emerald-600 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg">
                   Most Popular
                 </div>
               )}
 
-              <div
-                className={`bg-gradient-to-r ${plan.color} p-8 text-white text-center`}
-              >
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <div className="text-4xl font-bold mb-2">{plan.price}</div>
-                <div className="text-sm opacity-90">{plan.period}</div>
-                <p className="text-sm mt-3 opacity-90">{plan.description}</p>
+              <div className="p-8 text-center border-b border-slate-100 dark:border-[#262626] bg-slate-50/50 dark:bg-[#1a1a1a]/50">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
+                <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">{plan.price}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{plan.period}</div>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">{plan.description}</p>
               </div>
 
               <div className="p-8">
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className="flex items-center space-x-3"
+                      className="flex items-center space-x-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      <span>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
-                  className={`plan-button w-full mt-8 bg-gradient-to-r ${plan.color} text-white py-3 px-6 rounded-lg font-semibold`}
+                  className="w-full mt-8 bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
                 >
                   Join Now
                 </button>
@@ -437,21 +242,21 @@ const Membership: React.FC = () => {
         {/* Benefits */}
         <div
           ref={benefitsRef}
-          className="bg-white rounded-2xl shadow-xl p-8 mb-16"
+          className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 mb-12"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center space-x-2">
-            <Star className="w-6 h-6 text-yellow-500" />
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center flex items-center justify-center space-x-2">
+            <Star className="w-5 h-5 text-amber-400 fill-current" />
             <span>Membership Benefits</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-3 p-3 rounded-lg"
+                className="flex items-center space-x-3 p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-100 dark:border-[#262626] text-xs sm:text-sm text-slate-700 dark:text-slate-300"
               >
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">{benefit}</span>
+                <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <span>{benefit}</span>
               </div>
             ))}
           </div>
@@ -460,27 +265,25 @@ const Membership: React.FC = () => {
         {/* Rules and Policies */}
         <div
           ref={rulesRef}
-          className="bg-white rounded-2xl shadow-xl p-8 mb-16"
+          className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 mb-12"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
             Simple Rules for a Great Experience
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {rules.map((rule, index) => (
               <div
                 key={index}
-                className="rule-card bg-gray-50 rounded-xl p-6 shadow-md"
+                className="rule-card bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-200 dark:border-[#262626] shadow-sm"
               >
-                <div
-                  className={`w-12 h-12 bg-${rule.color}-100 rounded-full flex items-center justify-center mb-4`}
-                >
-                  <rule.icon className={`w-6 h-6 text-${rule.color}-600`} />
+                <div className="w-10 h-10 bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-3">
+                  <rule.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1.5">
                   {rule.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{rule.description}</p>
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{rule.description}</p>
               </div>
             ))}
           </div>
@@ -489,52 +292,40 @@ const Membership: React.FC = () => {
         {/* Important Notice */}
         <div
           ref={noticeRef}
-          className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6 mb-16"
+          className="bg-amber-500/10 dark:bg-amber-500/10 border border-amber-500/30 rounded-xl p-5 mb-12 text-slate-800 dark:text-slate-200"
         >
           <div className="flex items-start space-x-3">
-            <AlertCircle className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
+            <AlertCircle className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
             <div>
-              <h3 className="text-lg font-semibold text-orange-900 mb-2">
+              <h3 className="text-base font-semibold text-amber-700 dark:text-amber-400 mb-2">
                 Important Notice
               </h3>
-              <div className="text-orange-800 space-y-2">
-                <p>
-                  • Your membership deposit is 100% refundable when you cancel
-                  your membership.
-                </p>
-                <p>
-                  • Student ID verification required for student membership
-                  rates.
-                </p>
-                <p>
-                  • Delivery service available in Dhaka city from 9 AM to 9 PM,
-                  7 days a week.
-                </p>
-                <p>
-                  • Books must be returned in good condition to maintain
-                  membership benefits.
-                </p>
+              <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                <p>• Your membership deposit is 100% refundable when you cancel your membership.</p>
+                <p>• Student ID verification required for student membership rates.</p>
+                <p>• Delivery service available in Dhaka city from 9 AM to 9 PM, 7 days a week.</p>
+                <p>• Books must be returned in good condition to maintain membership benefits.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* FAQ */}
-        <div ref={faqRef} className="bg-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <div ref={faqRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faq.map((item, index) => (
               <div
                 key={index}
-                className="faq-item border-b border-gray-200 pb-6 last:border-b-0"
+                className="faq-item border-b border-slate-100 dark:border-[#262626] pb-4 last:border-b-0"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-1.5">
                   {item.question}
                 </h3>
-                <p className="text-gray-700">{item.answer}</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
@@ -543,20 +334,20 @@ const Membership: React.FC = () => {
         {/* CTA */}
         <div
           ref={ctaRef}
-          className="bg-gradient-to-br from-blue-600 via-purple-600 to-orange-600 rounded-2xl shadow-xl p-8 mt-16 text-white text-center"
+          className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl shadow-sm p-8 sm:p-12 text-white text-center"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
             Ready to Start Your Reading Journey?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+          <p className="text-slate-300 dark:text-slate-400 mb-8 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Join hundreds of students and readers who&apos;ve already
             transformed their lives through our community library.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="cta-button bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]">
               Join as Student (৳100)
             </button>
-            <button className="cta-button border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg">
+            <button className="border border-slate-600 dark:border-[#303030] bg-transparent hover:bg-slate-800 text-slate-300 px-7 py-3 rounded-xl font-medium text-sm transition-colors">
               General Membership (৳200)
             </button>
           </div>

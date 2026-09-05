@@ -1,4 +1,4 @@
-import FamilyTree from "@/components/FamilyTree";
+import FamilyTree from "@/components/family-tree/FamilyTree";
 
 function DesendantPage() {
   return <FamilyTree />;

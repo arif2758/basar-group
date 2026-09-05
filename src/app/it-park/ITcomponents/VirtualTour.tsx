@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -15,6 +17,7 @@ function VirtualTour() {
   const imageRef = useRef<HTMLDivElement>(null);
   const playButtonRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });

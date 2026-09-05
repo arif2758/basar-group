@@ -2,9 +2,11 @@
 
 import React, { useRef } from 'react';
 import { Calendar, Clock, User } from 'lucide-react';
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +40,7 @@ const ComingSoon: React.FC = () => {
     }
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".coming-header", { y: 50, opacity: 0 });
@@ -79,29 +82,29 @@ const ComingSoon: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 bg-gradient-to-r from-green-50 to-blue-50">
+    <section ref={sectionRef} className="py-16 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="coming-header text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Books Coming Soon
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Exciting new books are on their way! Reserve your spot and be the first to read these amazing titles.
           </p>
         </div>
 
         <div className="coming-cards grid grid-cols-1 md:grid-cols-3 gap-8">
           {comingBooks.map((book) => (
-            <div key={book.id} className="coming-card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border-l-4 border-green-500">
+            <div key={book.id} className="coming-card bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] border-l-4 border-l-emerald-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">
                     {book.category}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-900 mt-2 mb-1">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white mt-2 mb-1">
                     {book.title}
                   </h3>
-                  <p className="text-gray-600">by {book.author}</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">by {book.author}</p>
                 </div>
                 
                 <div className="text-right">
@@ -129,15 +132,15 @@ const ComingSoon: React.FC = () => {
           ))}
         </div>
 
-        <div className="calendar-cta marble-gradient text-gray-800 rounded-xl shadow-lg p-8 mt-12 text-center">
-          <Calendar className="w-16 h-16 text-green-500 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+        <div className="calendar-cta bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 mt-12 text-center max-w-2xl mx-auto">
+          <Calendar className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
             Want to see more arrivals?
           </h3>
-          <p className="mb-6">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
             Check our complete arrival calendar and reserve books up to 30 days in advance.
           </p>
-          <button className="teal-slate-gradient hover:teal-slate-gradient-hover text-gray-200 hover:text-gray-50 px-6 py-3 rounded-lg font-semibold transition-colors">
+          <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
             View Full Calendar
           </button>
         </div>

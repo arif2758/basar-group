@@ -128,13 +128,13 @@ const ImpactStats = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white">
+    <section ref={sectionRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Our Impact in Numbers
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Every donation creates ripple effects of positive change.
             Here&apos;s how your generosity has transformed lives across
             communities worldwide.
@@ -142,28 +142,28 @@ const ImpactStats = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+                className="bg-white dark:bg-[#141414] rounded-2xl p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-slate-200 dark:border-[#303030]"
               >
                 <div
-                  className={`bg-gradient-to-r ${stat.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto`}
+                  className={`bg-gradient-to-r ${stat.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-sm`}
                 >
-                  <Icon className="w-8 h-8 text-white" />
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
 
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
+                  <div className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                     {stat.count.toLocaleString()}+
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                     {stat.label}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {stat.description}
                   </p>
                 </div>
@@ -174,16 +174,16 @@ const ImpactStats = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="marble-gradient rounded-3xl p-8 max-w-4xl mx-auto border border-emerald-100">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+          <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               Be Part of Our Growing Impact
             </h3>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
               Join thousands of compassionate donors who are making a difference
               every day. Your contribution, no matter the size, creates lasting
               change.
             </p>
-            <button className="teal-slate-gradient text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-emerald-600 hover:to-emerald-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl text-base font-medium transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]">
               Start Making Impact Today
             </button>
           </div>

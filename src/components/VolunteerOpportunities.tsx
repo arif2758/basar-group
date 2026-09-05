@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import React, { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FiBook,
   FiMonitor,
@@ -123,6 +125,7 @@ export default function VolunteerOpportunities() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Main timeline
@@ -451,23 +454,18 @@ export default function VolunteerOpportunities() {
     <section
       ref={containerRef}
       id="volunteer"
-      className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden"
+      className="relative py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] overflow-hidden transition-colors duration-200"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-emerald-200 to-cyan-200 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-pink-200 to-yellow-200 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mb-6">
-            <span className="floating-icon inline-block mr-3">🤝</span>
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-4 border border-blue-100 dark:border-blue-800/50">
+            <FiUsers className="w-6 h-6" />
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             Volunteer Opportunities
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Be part of BASAR Group — contribute your time, skills, and passion
             to empower the community and create lasting change.
           </p>
@@ -476,20 +474,20 @@ export default function VolunteerOpportunities() {
         {/* Stats Section */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16"
         >
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="stat-card text-center">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-6 h-6 text-white" />
+                <div className="bg-slate-50 dark:bg-[#141414] rounded-xl p-5 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3 border border-blue-100 dark:border-blue-800/40">
+                    <IconComponent className="w-5 h-5" />
                   </div>
-                  <div className="stat-number text-2xl lg:text-3xl font-bold text-gray-800 mb-1">
+                  <div className="stat-number text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-600 font-medium">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -501,71 +499,74 @@ export default function VolunteerOpportunities() {
         {/* Opportunities */}
         <div
           ref={opportunitiesRef}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-20"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-20"
         >
           {opportunities.map((op) => {
             const Icon = op.icon;
             return (
               <div
                 key={op.id}
-                className="opportunity-card group bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl 
-                           transition-all duration-300 border border-white/20 cursor-pointer"
+                className="opportunity-card group bg-white dark:bg-[#141414] rounded-2xl p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] 
+                           transition-all duration-200 border border-slate-200 dark:border-[#303030] hover:border-blue-400 dark:hover:border-blue-500/50 flex flex-col justify-between"
               >
-                <div
-                  className={`opportunity-icon w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${op.color} 
-                              flex items-center justify-center shadow-lg mb-6`}
-                >
-                  <Icon className="text-white w-8 h-8" />
-                </div>
+                <div>
+                  <div
+                    className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 
+                                flex items-center justify-center border border-blue-100 dark:border-blue-800/40 mb-4"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </div>
 
-                <h3 className="text-xl font-bold text-gray-900 text-center mb-4">
-                  {op.title}
-                </h3>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    {op.title}
+                  </h3>
 
-                <p className="text-gray-600 text-sm text-center leading-relaxed mb-6">
-                  {op.description}
-                </p>
+                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+                    {op.description}
+                  </p>
 
-                {/* Requirements */}
-                <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                    Requirements:
-                  </h4>
-                  <ul className="space-y-1">
-                    {op.requirements.map((req, index) => (
-                      <li
-                        key={index}
-                        className="text-xs text-gray-600 flex items-center"
-                      >
-                        <span className="w-1 h-1 bg-emerald-400 rounded-full mr-2"></span>
-                        {req}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Requirements */}
+                  <div className="mb-4">
+                    <h4 className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
+                      Requirements:
+                    </h4>
+                    <ul className="space-y-1">
+                      {op.requirements.map((req, index) => (
+                        <li
+                          key={index}
+                          className="text-xs text-slate-600 dark:text-slate-300 flex items-center"
+                        >
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 shrink-0"></span>
+                          {req}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                {/* Time Commitment */}
-                <div className="mb-6 p-3 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-xl border border-blue-100">
-                  <div className="flex items-center justify-center text-xs text-blue-700">
-                    <FiClock className="w-3 h-3 mr-1" />
-                    <span className="font-medium">{op.timeCommitment}</span>
+                  {/* Time Commitment & Impact */}
+                  <div className="space-y-2 mb-6">
+                    <div className="p-2.5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#2a2a2a]">
+                      <div className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                        <FiClock className="w-3.5 h-3.5 mr-1.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                        <span className="font-medium">{op.timeCommitment}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-2.5 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-lg border border-emerald-200/60 dark:border-emerald-800/40">
+                      <div className="text-xs text-emerald-700 dark:text-emerald-300 font-medium flex items-center">
+                        <FiTarget className="w-3.5 h-3.5 mr-1.5 shrink-0" />
+                        <span>{op.impact}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Impact */}
-                <div className="mb-6 p-3 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
-                  <div className="text-xs text-emerald-700 text-center font-medium">
-                    <FiTarget className="w-3 h-3 inline mr-1" />
-                    {op.impact}
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
+                <div>
                   <button
                     onClick={() => openModal(op)}
-                    className="apply-btn animated-btn px-6 py-3 rounded-xl text-sm font-bold 
-                               bg-gradient-to-r from-emerald-500 to-blue-600 text-white
-                               shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                    className="w-full py-2.5 rounded-lg text-xs sm:text-sm font-medium 
+                               bg-blue-600 hover:bg-blue-700 text-white
+                               shadow-sm transition-colors flex items-center justify-center gap-1.5"
                   >
                     <FiUsers className="w-4 h-4" />
                     Apply Now
@@ -579,35 +580,34 @@ export default function VolunteerOpportunities() {
         {/* Benefits */}
         <div ref={benefitsRef} className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              <span className="floating-icon inline-block mr-2">🌟</span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               Why Become a Volunteer?
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
               Being a volunteer at BASAR Group means more than giving your time
               — it&apos;s about learning, growing, and making a meaningful
               difference in people&apos;s lives.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {benefits.map((b, idx) => {
               const Icon = b.icon;
               return (
                 <div
                   key={idx}
-                  className="benefit-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl 
-                             transition-all duration-300 border border-white/20"
+                  className="benefit-card bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 
+                             transition-all duration-200 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
                 >
                   <div
-                    className={`w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-r ${b.color} mb-6 mx-auto`}
+                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4 border border-blue-100 dark:border-blue-800/40"
                   >
-                    <Icon className={`w-8 h-8 ${b.iconColor}`} />
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                     {b.title}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed text-center">
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
                     {b.desc}
                   </p>
                 </div>
@@ -618,31 +618,20 @@ export default function VolunteerOpportunities() {
 
         {/* Testimonial Section */}
         <div className="mb-20">
-          <div className="teal-slate-gradient rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-8 h-8 border-2 border-white rounded-full"></div>
-              <div className="absolute top-8 right-8 w-6 h-6 border-2 border-white rounded-full"></div>
-              <div className="absolute bottom-4 left-8 w-4 h-4 border-2 border-white rounded-full"></div>
-              <div className="absolute bottom-8 right-4 w-10 h-10 border-2 border-white rounded-full"></div>
-            </div>
-
-            <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl">💬</span>
-              </div>
-              <blockquote className="text-xl lg:text-2xl font-medium mb-6 max-w-4xl mx-auto leading-relaxed">
-                Volunteering with BASAR Group has been life-changing. I&apos;ve
+          <div className="rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 border border-slate-200 dark:border-[#303030] shadow-lg">
+            <div className="relative z-10 text-center max-w-3xl mx-auto">
+              <blockquote className="text-lg sm:text-xl font-normal mb-6 leading-relaxed italic">
+                &ldquo;Volunteering with BASAR Group has been life-changing. I&apos;ve
                 gained valuable skills, made lifelong friends, and most
-                importantly, contributed to meaningful change in my community.
+                importantly, contributed to meaningful change in my community.&rdquo;
               </blockquote>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold">AS</span>
+              <div className="flex items-center justify-center space-x-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">
+                  AS
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold">Ayesha Sultana</div>
-                  <div className="text-emerald-200 text-sm">
+                  <div className="font-semibold text-sm">Ayesha Sultana</div>
+                  <div className="text-blue-200 text-xs">
                     IT Mentor Volunteer
                   </div>
                 </div>
@@ -653,38 +642,36 @@ export default function VolunteerOpportunities() {
 
         {/* Final CTA */}
         <div ref={ctaRef} className="text-center">
-          <div className="marbale-gradient  rounded-3xl p-8 lg:p-12 shadow-2xl border ">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              <span className="floating-icon inline-block mr-2">🚀</span>
+          <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-8 sm:p-10 shadow-sm border border-slate-200 dark:border-[#303030]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
               Ready to Make a Difference?
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto leading-relaxed">
               Join our community of passionate volunteers and help us create
               positive change. Your skills and dedication can transform lives.
             </p>
             <button
               onClick={() => openModal(opportunities[0])}
-              className="animated-btn inline-flex items-center px-10 py-5 rounded-2xl text-lg font-bold text-white
-                         bg-gradient-to-r from-emerald-500 to-blue-600
-                         shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium text-white
+                         bg-blue-600 hover:bg-blue-700 shadow-sm transition-colors"
             >
-              <FiUsers className="w-6 h-6 mr-3" />
+              <FiUsers className="w-4 h-4 mr-2" />
               Join as a Volunteer
             </button>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-gray-500">
-              <div className="flex items-center space-x-2">
-                <FiClock className="w-4 h-4" />
+            <div className="mt-6 flex flex-wrap gap-4 justify-center items-center text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex items-center space-x-1.5">
+                <FiClock className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Flexible Hours</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="flex items-center space-x-2">
-                <FiAward className="w-4 h-4" />
+              <span>•</span>
+              <div className="flex items-center space-x-1.5">
+                <FiAward className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Certificate Provided</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="flex items-center space-x-2">
-                <FiHeart className="w-4 h-4" />
+              <span>•</span>
+              <div className="flex items-center space-x-1.5">
+                <FiHeart className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Make Real Impact</span>
               </div>
             </div>
@@ -692,176 +679,141 @@ export default function VolunteerOpportunities() {
         </div>
       </div>
 
-      {/* Enhanced Modal */}
+      {/* Modal */}
       {isModalOpen && selectedRole && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div
             ref={modalRef}
-            className="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-screen overflow-y-auto border border-white/20"
+            className="modal-content bg-white dark:bg-[#141414] rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto border border-slate-200 dark:border-[#303030]"
           >
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               {/* Modal Header */}
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-[#252525]">
                 <div className="flex items-center">
                   <div
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${selectedRole.color} flex items-center justify-center mr-4`}
+                    className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3 border border-blue-100 dark:border-blue-800/40"
                   >
-                    <selectedRole.icon className="w-6 h-6 text-white" />
+                    <selectedRole.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                       Apply for {selectedRole.title}
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-slate-500 dark:text-slate-400 text-xs">
                       {selectedRole.description}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                  aria-label="Close modal"
+                  className="p-1.5 hover:bg-slate-100 dark:hover:bg-[#202020] rounded-lg transition-colors text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
                 >
-                  <FiX className="w-6 h-6 text-gray-400" />
+                  <FiX className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Role Details */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="p-4 bg-blue-50 rounded-xl border border-blue-100">
-                  <h4 className="font-semibold text-blue-900 mb-2 flex items-center">
-                    <FiClock className="w-4 h-4 mr-2" />
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                <div className="p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
+                  <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-1 flex items-center text-xs">
+                    <FiClock className="w-3.5 h-3.5 mr-1.5 text-blue-600 dark:text-blue-400" />
                     Time Commitment
                   </h4>
-                  <p className="text-blue-700 text-sm">
+                  <p className="text-slate-600 dark:text-slate-400 text-xs">
                     {selectedRole.timeCommitment}
                   </p>
                 </div>
-                <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-                  <h4 className="font-semibold text-emerald-900 mb-2 flex items-center">
-                    <FiTarget className="w-4 h-4 mr-2" />
+                <div className="p-3 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-lg border border-emerald-200/60 dark:border-emerald-800/40">
+                  <h4 className="font-semibold text-emerald-800 dark:text-emerald-300 mb-1 flex items-center text-xs">
+                    <FiTarget className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-emerald-400" />
                     Your Impact
                   </h4>
-                  <p className="text-emerald-700 text-sm">
+                  <p className="text-emerald-700 dark:text-emerald-300 text-xs">
                     {selectedRole.impact}
                   </p>
                 </div>
               </div>
 
               {/* Application Form */}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       required
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       required
                       placeholder="Your phone number"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     required
                     placeholder="your.email@example.com"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                     Why do you want to volunteer with us? *
                   </label>
                   <textarea
                     required
-                    placeholder="Tell us about your motivation, relevant experience, and what you hope to achieve..."
-                    rows={4}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 resize-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Relevant Skills & Experience
-                  </label>
-                  <textarea
-                    placeholder="List any relevant skills, experience, or qualifications that make you suitable for this role..."
+                    placeholder="Tell us about your motivation..."
                     rows={3}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 resize-none"
+                    className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Availability
-                  </label>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {["Weekdays", "Weekends", "Mornings", "Evenings"].map(
-                      (time) => (
-                        <label
-                          key={time}
-                          className="flex items-center space-x-2 cursor-pointer"
-                        >
-                          <input
-                            type="checkbox"
-                            className="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
-                          />
-                          <span className="text-sm text-gray-700">{time}</span>
-                        </label>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl">
+                <div className="flex items-center space-x-2.5 p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
                   <input
                     type="checkbox"
                     id="terms"
                     required
-                    className="w-5 h-5 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
+                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
                   <label
                     htmlFor="terms"
-                    className="text-sm text-gray-700 cursor-pointer"
+                    className="text-xs text-slate-700 dark:text-slate-300 cursor-pointer"
                   >
-                    I agree to the terms and conditions and commit to the
-                    volunteer responsibilities
+                    I agree to the volunteer responsibilities and guidelines
                   </label>
                 </div>
 
-                <div className="border-t-2 border-gray-100 pt-6">
+                <div className="border-t border-slate-100 dark:border-[#252525] pt-4 mt-6">
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-2xl font-bold text-white text-lg
-                               bg-gradient-to-r from-emerald-500 to-blue-600
-                               hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl
+                    className="w-full py-2.5 rounded-lg font-medium text-white text-sm
+                               bg-blue-600 hover:bg-blue-700 transition-colors shadow-sm
                                flex items-center justify-center"
                   >
-                    <FiHeart className="w-5 h-5 mr-2" />
+                    <FiHeart className="w-4 h-4 mr-2" />
                     Submit Application
                   </button>
 
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    We&apos;ll review your application and get back to you
-                    within 3-5 business days.
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 text-center mt-3">
+                    We&apos;ll review your application and get back to you within 3-5 business days.
                   </p>
                 </div>
               </form>

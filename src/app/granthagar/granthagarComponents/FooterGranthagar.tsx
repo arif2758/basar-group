@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { BookOpen, Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, ArrowRight, Star } from 'lucide-react';
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BookOpen, Heart, Mail, Phone, MapPin, MessageCircle, ArrowRight, Star } from 'lucide-react';
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FooterGranthagar: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".footer-logo", { y: 40, opacity: 0 });
@@ -108,74 +108,66 @@ const FooterGranthagar: React.FC = () => {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="relative overflow-hidden">
-      {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500"></div>
-      <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-xl"></div>
-
+    <footer ref={footerRef} className="relative bg-slate-900 dark:bg-[#070b14] border-t border-slate-800 dark:border-[#303030] transition-colors duration-200">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Mission */}
           <div className="md:col-span-2">
             <div className="footer-logo flex items-center space-x-3 mb-6">
-              <div className="footer-logo-icon w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
-                <BookOpen className="w-7 h-7 text-white" />
+              <div className="footer-logo-icon w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                <BookOpen className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white">BASAR গ্রন্থাগার</h3>
-                <p className="text-sm text-emerald-300 font-medium">Community Library</p>
+                <h3 className="text-xl font-bold text-white">BASAR গ্রন্থাগার</h3>
+                <p className="text-xs text-emerald-400 font-medium">Community Library</p>
               </div>
             </div>
             
-            <p className="footer-mission text-gray-300 mb-6 max-w-md leading-relaxed">
+            <p className="footer-mission text-slate-300 dark:text-slate-400 mb-6 max-w-md leading-relaxed text-sm">
               Inspiring students to read more, gain knowledge beyond textbooks, and reduce unproductive time on social media. 
               Reading may not bring instant rewards, but in the long run, it transforms lives.
             </p>
             
             <div className="footer-love flex items-center space-x-2 text-sm">
-              <Heart className="footer-heart w-5 h-5 text-red-400" />
-              <span className="text-gray-400">Built with love for our community</span>
+              <Heart className="footer-heart w-4 h-4 text-rose-400" />
+              <span className="text-slate-400 text-xs">Built with love for our community</span>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-8 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+            <div className="grid grid-cols-3 gap-3 mt-8 p-4 bg-slate-800/80 dark:bg-[#141414] rounded-xl border border-slate-700/60 dark:border-[#303030]">
               <div className="text-center">
                 <div className="text-xl font-bold text-emerald-400">500+</div>
-                <div className="text-xs text-gray-400">Books</div>
+                <div className="text-xs text-slate-400">Books</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold text-teal-400">200+</div>
-                <div className="text-xs text-gray-400">Members</div>
+                <div className="text-xs text-slate-400">Members</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold text-cyan-400">50+</div>
-                <div className="text-xs text-gray-400">Donors</div>
+                <div className="text-xs text-slate-400">Donors</div>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="footer-section">
-            <h4 className="text-lg font-semibold mb-6 text-white flex items-center">
-              <Star className="w-5 h-5 text-emerald-400 mr-2" />
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 dark:text-slate-300 mb-5 flex items-center">
+              <Star className="w-4 h-4 text-emerald-400 mr-2" />
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {[
-                'Browse Books',
-                'Join Library', 
-                'Donate Books',
-                'Reading Tracker',
-                'Monthly Quiz'
+                { name: 'Browse Books', href: '/granthagar/books-catalog' },
+                { name: 'Join Library', href: '/granthagar/membership' }, 
+                { name: 'Donate Books', href: '/granthagar/donors' },
+                { name: 'Reading Tracker', href: '/granthagar/reading-tracker' },
+                { name: 'Events', href: '/granthagar/events' }
               ].map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-link group flex items-center text-gray-300 hover:text-emerald-400 transition-all duration-300">
+                  <a href={link.href} className="footer-link group flex items-center text-sm text-slate-400 hover:text-emerald-400 transition-colors">
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link}</span>
+                    <span>{link.name}</span>
                   </a>
                 </li>
               ))}
@@ -184,59 +176,56 @@ const FooterGranthagar: React.FC = () => {
 
           {/* Contact Info */}
           <div className="footer-section">
-            <h4 className="text-lg font-semibold mb-6 text-white flex items-center">
-              <Mail className="w-5 h-5 text-emerald-400 mr-2" />
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 dark:text-slate-300 mb-5 flex items-center">
+              <Mail className="w-4 h-4 text-emerald-400 mr-2" />
               Contact Us
             </h4>
             
-            <div className="space-y-4">
-              <div className="contact-item flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                  <Phone className="w-4 h-4 text-emerald-400" />
+            <div className="space-y-3">
+              <div className="contact-item flex items-center space-x-3 p-3 bg-slate-800/60 dark:bg-[#141414] rounded-lg border border-slate-700/60 dark:border-[#303030]">
+                <div className="w-7 h-7 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-gray-300">+880 1234-567890</span>
+                <span className="text-xs sm:text-sm text-slate-300">+880 1234-567890</span>
               </div>
               
-              <div className="contact-item flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-8 h-8 bg-teal-500/20 rounded-lg flex items-center justify-center">
-                  <Mail className="w-4 h-4 text-teal-400" />
+              <div className="contact-item flex items-center space-x-3 p-3 bg-slate-800/60 dark:bg-[#141414] rounded-lg border border-slate-700/60 dark:border-[#303030]">
+                <div className="w-7 h-7 bg-teal-500/10 rounded-lg flex items-center justify-center text-teal-400">
+                  <Mail className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-gray-300">info@basarlibrary.com</span>
+                <span className="text-xs sm:text-sm text-slate-300">info@basarlibrary.com</span>
               </div>
               
-              <div className="contact-item flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center">
-                  <MapPin className="w-4 h-4 text-cyan-400" />
+              <div className="contact-item flex items-center space-x-3 p-3 bg-slate-800/60 dark:bg-[#141414] rounded-lg border border-slate-700/60 dark:border-[#303030]">
+                <div className="w-7 h-7 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-400">
+                  <MapPin className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-gray-300">Dhaka, Bangladesh</span>
+                <span className="text-xs sm:text-sm text-slate-300">Dhaka, Bangladesh</span>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-3 mt-6">
-              <a href="#" className="social-icon w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center hover:from-blue-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Facebook className="w-5 h-5 text-white" />
+            <div className="flex space-x-2.5 mt-5">
+              <a href="#" className="social-icon w-8 h-8 bg-slate-800 dark:bg-[#141414] border border-slate-700 dark:border-[#303030] rounded-lg flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500 transition-colors">
+                <Heart className="w-4 h-4" />
               </a>
-              <a href="#" className="social-icon w-10 h-10 bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl flex items-center justify-center hover:from-sky-400 hover:to-sky-500 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
-              <a href="#" className="social-icon w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center hover:from-pink-400 hover:to-rose-500 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Instagram className="w-5 h-5 text-white" />
+              <a href="#" className="social-icon w-8 h-8 bg-slate-800 dark:bg-[#141414] border border-slate-700 dark:border-[#303030] rounded-lg flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500 transition-colors">
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="footer-bottom border-t border-white/10 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-center md:text-left">
-              &copy; 2024 BASAR গ্রন্থাগার. All rights reserved. Made with love for book lovers.
+        <div className="footer-bottom border-t border-slate-800 dark:border-[#303030] mt-12 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-center md:text-left">
+              &copy; {new Date().getFullYear()} BASAR গ্রন্থাগার. All rights reserved.
             </p>
-            <div className="flex items-center space-x-4 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Privacy Policy</a>
-              <span className="text-gray-600">•</span>
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Terms of Service</a>
+            <div className="flex items-center space-x-4 mt-3 md:mt-0">
+              <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+              <span>•</span>
+              <a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

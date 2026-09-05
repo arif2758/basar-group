@@ -4,9 +4,11 @@ import { useState, useRef } from "react";
 import { Zap, Timer, ShoppingCart } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,6 +79,7 @@ export default function FlashSale() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Countdown timer animation

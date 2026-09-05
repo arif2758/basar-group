@@ -17,9 +17,12 @@ import {
   Eye,
 } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +81,7 @@ const BookDetail: React.FC = () => {
     ],
   };
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Complex nested floating background animations
@@ -789,119 +793,108 @@ const BookDetail: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden"
+      className="min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-200"
     >
-      {/* Enhanced Floating Background Elements with Multiple Layers */}
+      {/* Subtle Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="book-bg-element absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-blue-200/20 to-cyan-200/20 rounded-full blur-2xl"></div>
-        <div className="book-bg-element absolute bottom-40 right-20 w-32 h-32 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-2xl"></div>
-        <div className="book-bg-element absolute top-1/2 left-1/3 w-28 h-28 bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-2xl"></div>
-
-        <Sparkles className="sparkle-layer-1 absolute top-32 right-1/4 w-6 h-6 text-blue-300/30" />
-        <Star className="sparkle-layer-1 absolute bottom-1/3 left-1/4 w-5 h-5 text-purple-300/25" />
-        <BookOpen className="sparkle-layer-2 absolute top-2/3 right-1/3 w-5 h-5 text-emerald-300/35" />
-        <Award className="sparkle-layer-2 absolute top-1/4 left-1/2 w-4 h-4 text-amber-300/30" />
-        <Eye className="sparkle-layer-1 absolute bottom-1/4 right-1/2 w-4 h-4 text-cyan-300/25" />
+        <Sparkles className="sparkle-layer-1 absolute top-32 right-1/4 w-6 h-6 text-emerald-400/10" />
+        <Star className="sparkle-layer-1 absolute bottom-1/3 left-1/4 w-5 h-5 text-blue-400/10" />
+        <BookOpen className="sparkle-layer-2 absolute top-2/3 right-1/3 w-5 h-5 text-emerald-400/10" />
+        <Award className="sparkle-layer-2 absolute top-1/4 left-1/2 w-4 h-4 text-amber-400/10" />
+        <Eye className="sparkle-layer-1 absolute bottom-1/4 right-1/2 w-4 h-4 text-cyan-400/10" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        {/* Enhanced Back Button with Nested Elements */}
-        <button className="back-button flex items-center space-x-3 text-blue-600 hover:text-blue-800 mb-8 bg-white/60 backdrop-blur-sm px-6 py-3 rounded-2xl border border-blue-200/50 shadow-lg transition-all duration-300">
-          <ArrowLeft className="back-icon w-5 h-5" />
-          <span className="back-text font-semibold">Back to Catalog</span>
-        </button>
+        {/* Back Button */}
+        <Link 
+          href="/granthagar/books-catalog" 
+          className="back-button inline-flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 mb-8 bg-white dark:bg-[#141414] px-4 py-2 rounded-xl border border-slate-200 dark:border-[#303030] shadow-sm text-sm font-medium transition-colors"
+        >
+          <ArrowLeft className="back-icon w-4 h-4" />
+          <span className="back-text">Back to Catalog</span>
+        </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Enhanced Book Cover with Complex Nested Animations */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+          {/* Book Cover & Details Sidebar */}
           <div className="lg:col-span-1">
-            <div className="book-cover-container bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8  top-8 border border-gray-100/50 relative overflow-hidden">
-              {/* Background Glow Effect */}
-              <div className="book-cover-glow absolute -inset-4 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl blur-xl"></div>
-
-              <div className="relative mb-8">
+            <div className="book-cover-container bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 border border-slate-200 dark:border-[#303030] relative overflow-hidden">
+              <div className="relative mb-6">
                 <Image
                   src={book.cover}
                   alt={book.title}
                   width={400}
                   height={600}
-                  className="book-cover-image w-full max-w-sm mx-auto rounded-2xl shadow-2xl relative z-10"
+                  className="book-cover-image w-full max-w-sm mx-auto rounded-xl shadow-md relative z-10"
                 />
 
-                {/* Floating badge with nested animation */}
-                <div className="bestseller-badge absolute -top-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                  <Award className="w-4 h-4 inline mr-1" />
+                {/* Floating badge */}
+                <div className="bestseller-badge absolute -top-2.5 -right-2.5 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm z-20">
+                  <Award className="w-3.5 h-3.5 inline mr-1" />
                   Bestseller
                 </div>
               </div>
 
-              <div className="book-info text-center mb-8 relative z-10">
-                <h1 className="book-title text-3xl font-black text-gray-900 mb-3 leading-tight">
+              <div className="book-info text-center mb-6 relative z-10">
+                <h1 className="book-title text-2xl font-bold text-slate-900 dark:text-white mb-1.5 leading-tight">
                   {book.title}
                 </h1>
-                <p className="book-author text-xl text-gray-600 mb-4 font-medium">
+                <p className="book-author text-sm text-slate-500 dark:text-slate-400 mb-3 font-medium">
                   by {book.author}
                 </p>
 
-                <div className="rating-stars flex items-center justify-center space-x-2 mb-6">
-                  <div className="flex items-center space-x-1">
+                <div className="rating-stars flex items-center justify-center space-x-2 mb-4">
+                  <div className="flex items-center space-x-0.5">
                     {[...Array(5)].map((_, index) => (
                       <Star
                         key={index}
-                        className={`star w-6 h-6 ${
+                        className={`star w-4 h-4 ${
                           index < Math.floor(book.rating)
                             ? "text-amber-400 fill-current"
-                            : "text-gray-300"
+                            : "text-slate-300 dark:text-slate-600"
                         }`}
                       />
                     ))}
                   </div>
-                  <span className="rating-text text-lg font-semibold text-gray-700">
+                  <span className="rating-text text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {book.rating}
                   </span>
-                  <span className="text-gray-500">
+                  <span className="text-xs text-slate-400">
                     ({book.totalReviews} reviews)
                   </span>
                 </div>
 
-                <div className="status-badge inline-flex items-center bg-gradient-to-r from-emerald-50 to-green-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold border border-emerald-200">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                <div className="status-badge inline-flex items-center bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
+                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></div>
                   {book.status}
                 </div>
               </div>
 
-              {/* Enhanced Action Buttons with Nested Elements */}
-              <div className="space-y-4 mb-8 relative z-10">
-                <button className="action-btn primary-action-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl border border-blue-500/20 relative overflow-hidden">
-                  <div className="btn-glow absolute -inset-1 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl opacity-0 blur-sm"></div>
-                  <span className="btn-text relative z-10">
-                    Request This Book
-                  </span>
+              {/* Action Buttons */}
+              <div className="space-y-3 mb-6 relative z-10">
+                <button className="action-btn primary-action-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]">
+                  <span className="btn-text">Request This Book</span>
                 </button>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <button className="action-btn secondary-action-btn bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 py-3 px-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 border border-gray-200 shadow-lg relative overflow-hidden">
-                    <div className="btn-glow absolute -inset-1 bg-gradient-to-r from-gray-200/20 to-blue-200/20 rounded-2xl opacity-0 blur-sm"></div>
-                    <Heart className="btn-icon w-5 h-5 relative z-10" />
-                    <span className="btn-text relative z-10">Save</span>
+                  <button className="action-btn secondary-action-btn bg-slate-50 dark:bg-[#1a1a1a] hover:bg-slate-100 dark:hover:bg-[#262626] text-slate-700 dark:text-slate-300 py-2.5 px-4 rounded-xl font-medium text-xs transition-colors flex items-center justify-center space-x-2 border border-slate-200 dark:border-[#303030]">
+                    <Heart className="btn-icon w-4 h-4 text-rose-500" />
+                    <span className="btn-text">Save</span>
                   </button>
-                  <button className="action-btn secondary-action-btn bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 py-3 px-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 border border-gray-200 shadow-lg relative overflow-hidden">
-                    <div className="btn-glow absolute -inset-1 bg-gradient-to-r from-gray-200/20 to-blue-200/20 rounded-2xl opacity-0 blur-sm"></div>
-                    <Share2 className="btn-icon w-5 h-5 relative z-10" />
-                    <span className="btn-text relative z-10">Share</span>
+                  <button className="action-btn secondary-action-btn bg-slate-50 dark:bg-[#1a1a1a] hover:bg-slate-100 dark:hover:bg-[#262626] text-slate-700 dark:text-slate-300 py-2.5 px-4 rounded-xl font-medium text-xs transition-colors flex items-center justify-center space-x-2 border border-slate-200 dark:border-[#303030]">
+                    <Share2 className="btn-icon w-4 h-4" />
+                    <span className="btn-text">Share</span>
                   </button>
                 </div>
               </div>
 
-              {/* Enhanced Book Details with Nested Animations */}
-              <div className="border-t border-gray-200 pt-8 relative z-10">
-                <h3 className="details-header text-xl font-bold text-gray-900 mb-6 flex items-center">
-                  <div className="header-icon w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mr-3">
-                    <BookOpen className="w-4 h-4 text-white" />
-                  </div>
+              {/* Book Details */}
+              <div className="border-t border-slate-100 dark:border-[#262626] pt-6 relative z-10">
+                <h3 className="details-header text-sm font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                  <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
                   Book Details
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {[
                     { label: "Pages", value: book.pages, icon: "📖" },
                     { label: "Language", value: book.language, icon: "🌐" },
@@ -911,17 +904,13 @@ const BookDetail: React.FC = () => {
                   ].map((detail, index) => (
                     <div
                       key={index}
-                      className="detail-item flex items-center justify-between p-3 bg-gray-50 rounded-xl"
+                      className="detail-item flex items-center justify-between p-2.5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-100 dark:border-[#262626] text-xs"
                     >
-                      <div className="flex items-center space-x-3">
-                        <span className="detail-icon text-lg">
-                          {detail.icon}
-                        </span>
-                        <span className="text-gray-600 font-medium">
-                          {detail.label}:
-                        </span>
+                      <div className="flex items-center space-x-2">
+                        <span>{detail.icon}</span>
+                        <span className="text-slate-500 dark:text-slate-400">{detail.label}:</span>
                       </div>
-                      <span className="font-bold text-gray-900">
+                      <span className="font-semibold text-slate-800 dark:text-slate-200">
                         {detail.value}
                       </span>
                     </div>
@@ -931,100 +920,83 @@ const BookDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Enhanced Main Content with Complex Nested Animations */}
-          <div className="main-content lg:col-span-2 space-y-8">
-            {/* Enhanced Donor Info with Nested Elements */}
-            <div className="content-section bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 border border-gray-100/50">
-              <h2 className="section-header text-2xl font-black text-gray-900 mb-6 flex items-center">
-                <div className="header-icon w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mr-3">
-                  <User className="w-4 h-4 text-white" />
-                </div>
+          {/* Main Content */}
+          <div className="main-content lg:col-span-2 space-y-6">
+            {/* Donor Info */}
+            <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <User className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 Donated By
               </h2>
 
               <div className="section-content">
-                <div className="donor-section flex items-center space-x-6 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200/50 cursor-pointer">
-                  <div className="relative">
+                <div className="donor-section flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-slate-50 dark:bg-[#1a1a1a] rounded-xl border border-slate-200 dark:border-[#262626]">
+                  <div className="flex items-center space-x-4">
                     <Image
                       src={book.donorPhoto}
                       alt={book.donor}
-                      width={80}
-                      height={80}
-                      className="donor-avatar w-20 h-20 rounded-full border-4 border-white shadow-lg"
+                      width={64}
+                      height={64}
+                      className="donor-avatar w-14 h-14 rounded-full border border-slate-200 dark:border-[#303030] shadow-sm object-cover"
                     />
-                    <div className="donor-badge absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div className="flex-1">
-                    <h3 className="donor-name text-xl font-bold text-gray-900 mb-2">
-                      {book.donor}
-                    </h3>
-                    <div className="donor-location flex items-center space-x-2 text-gray-600 mb-2">
-                      <MapPin className="w-4 h-4" />
-                      <span className="font-medium">{book.donorLocation}</span>
-                    </div>
-                    <div className="donor-stats flex items-center space-x-4 text-sm">
-                      <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-semibold">
-                        Active donor
-                      </span>
-                      <span className="text-gray-500">
-                        12 books contributed
+                    <div>
+                      <h3 className="donor-name text-base font-semibold text-slate-900 dark:text-white">
+                        {book.donor}
+                      </h3>
+                      <div className="donor-location flex items-center space-x-1 text-slate-500 dark:text-slate-400 text-xs mb-1">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>{book.donorLocation}</span>
+                      </div>
+                      <span className="inline-block bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded text-[11px] font-medium border border-emerald-200 dark:border-emerald-800/40">
+                        Active donor • 12 books contributed
                       </span>
                     </div>
                   </div>
 
-                  <button className="donor-button bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 shadow-lg">
+                  <button className="donor-button bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm">
                     View Profile
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Enhanced Description with Nested Learning Items */}
-            <div className="content-section bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 border border-gray-100/50">
-              <h2 className="section-header text-2xl font-black text-gray-900 mb-6 flex items-center">
-                <div className="header-icon w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mr-3">
-                  <BookOpen className="w-4 h-4 text-white" />
-                </div>
+            {/* Description & Key Learnings */}
+            <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 About This Book
               </h2>
 
               <div className="section-content">
-                <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-sm">
                   {book.description}
                 </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-200/50">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
-                      <TrendingUp className="w-5 h-5 text-blue-600" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-200 dark:border-[#262626]">
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center space-x-1.5">
+                      <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                       <span>Key Learnings</span>
                     </h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2">
                       {book.keyLearnings.map((learning, index) => (
                         <li
                           key={index}
-                          className="learning-item flex items-start space-x-3 cursor-pointer"
+                          className="learning-item flex items-start space-x-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed"
                         >
-                          <div className="learning-dot w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                          <span className="learning-text text-gray-700 font-medium leading-relaxed">
-                            {learning}
-                          </span>
+                          <span className="text-emerald-500 font-bold">•</span>
+                          <span className="learning-text">{learning}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-200/50">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
-                      <Sparkles className="w-5 h-5 text-emerald-600" />
+                  <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-200 dark:border-[#262626]">
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center space-x-1.5">
+                      <Sparkles className="w-4 h-4 text-amber-500" />
                       <span>Why You Should Read This</span>
                     </h3>
-                    <p className="text-gray-700 leading-relaxed font-medium">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                       {book.whyRead}
                     </p>
                   </div>
@@ -1032,55 +1004,52 @@ const BookDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Enhanced Reviews with Nested Elements */}
-            <div className="content-section bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 border border-gray-100/50">
-              <div className="section-header flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-black text-gray-900 flex items-center">
-                  <div className="header-icon w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mr-3">
-                    <Star className="w-4 h-4 text-white" />
-                  </div>
+            {/* Reader Reviews */}
+            <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <div className="section-header flex items-center justify-between mb-6">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
+                  <Star className="w-5 h-5 text-amber-400 mr-2 fill-current" />
                   Reader Reviews
                 </h2>
-                <button className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 shadow-lg">
+                <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm">
                   Write Review
                 </button>
               </div>
 
-              <div className="section-content space-y-6">
+              <div className="section-content space-y-4">
                 {book.reviews.map((review) => (
                   <div
                     key={review.id}
-                    className="review-card bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-200/50 cursor-pointer"
+                    className="review-card bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-200 dark:border-[#262626]"
                   >
-                    <div className="flex items-start space-x-4">
-                      <div className="review-avatar w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <User className="w-6 h-6 text-white" />
+                    <div className="flex items-start space-x-3">
+                      <div className="w-9 h-9 bg-slate-200 dark:bg-[#262626] rounded-full flex items-center justify-center flex-shrink-0 text-slate-600 dark:text-slate-300">
+                        <User className="w-4 h-4" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-3">
-                          <h4 className="review-user font-bold text-gray-900 text-lg">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <h4 className="review-user font-semibold text-slate-900 dark:text-white text-xs sm:text-sm">
                             {review.user}
                           </h4>
-                          <div className="flex items-center space-x-2">
-                            <div className="flex items-center space-x-1">
+                          <div className="flex items-center space-x-2 text-xs">
+                            <div className="flex items-center space-x-0.5">
                               {[...Array(5)].map((_, index) => (
                                 <Star
                                   key={index}
-                                  className={`review-star w-4 h-4 ${
+                                  className={`w-3 h-3 ${
                                     index < review.rating
                                       ? "text-amber-400 fill-current"
-                                      : "text-gray-300"
+                                      : "text-slate-300 dark:text-slate-600"
                                   }`}
                                 />
                               ))}
                             </div>
-                            <span className="text-sm text-gray-500 flex items-center">
-                              <Clock className="w-3 h-3 mr-1" />
+                            <span className="text-[11px] text-slate-400">
                               {review.date}
                             </span>
                           </div>
                         </div>
-                        <p className="review-text text-gray-700 leading-relaxed font-medium">
+                        <p className="review-text text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
                           {review.text}
                         </p>
                       </div>
@@ -1090,31 +1059,26 @@ const BookDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Enhanced Similar Books with Nested Elements */}
-            <div className="content-section bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 border border-gray-100/50">
-              <h2 className="section-header text-2xl font-black text-gray-900 mb-6 flex items-center">
-                <div className="header-icon w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-3">
-                  <Eye className="w-4 h-4 text-white" />
-                </div>
+            {/* Similar Books */}
+            <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <Eye className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 Similar Books You Might Like
               </h2>
 
-              <div className="section-content grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="section-content grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {book.similarBooks.map((similarBook, index) => (
                   <div
                     key={index}
-                    className="similar-book bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200/50 cursor-pointer group"
+                    className="similar-book bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-200 dark:border-[#262626] hover:border-emerald-500/50 transition-colors cursor-pointer"
                   >
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="similar-icon w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                        <BookOpen className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="similar-dot w-2 h-2 bg-purple-400 rounded-full transition-all duration-300"></div>
+                    <div className="w-8 h-8 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-2">
+                      <BookOpen className="w-4 h-4" />
                     </div>
-                    <h4 className="similar-title font-bold text-gray-900 mb-2 transition-all duration-300">
+                    <h4 className="similar-title font-semibold text-slate-900 dark:text-white text-xs mb-1 truncate">
                       {similarBook.title}
                     </h4>
-                    <p className="similar-author text-gray-600 font-medium transition-all duration-300">
+                    <p className="similar-author text-[11px] text-slate-500 dark:text-slate-400">
                       by {similarBook.author}
                     </p>
                   </div>
@@ -1122,56 +1086,34 @@ const BookDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Enhanced Discussion Section */}
-            <div className="content-section bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 border border-gray-100/50">
-              <div className="section-header flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-black text-gray-900 flex items-center">
-                  <div className="header-icon w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mr-3">
-                    <MessageCircle className="w-4 h-4 text-white" />
-                  </div>
+            {/* Discussion Section */}
+            <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <div className="section-header flex items-center justify-between mb-4">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
+                  <MessageCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                   Book Discussion
                 </h2>
-                <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-bold">
+                <span className="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
                   3 comments
                 </span>
               </div>
 
-              <div className="section-content bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200/50">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MessageCircle className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Join the Conversation!
-                  </h3>
-                  <p className="text-green-800 mb-6 font-medium">
-                    Share your thoughts about this book with the community and
-                    discover new perspectives.
-                  </p>
-                  <button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl">
-                    Join Discussion
-                  </button>
+              <div className="section-content bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-6 border border-slate-200 dark:border-[#262626] text-center">
+                <div className="w-10 h-10 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
+                <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
+                  Join the Conversation!
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-xs mb-4 max-w-md mx-auto">
+                  Share your thoughts about this book with the community and discover new perspectives.
+                </p>
+                <button className="bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-6 rounded-xl font-medium text-xs shadow-sm transition-colors active:scale-[0.99]">
+                  Join Discussion
+                </button>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-gray-500">
-          {[
-            "📚 Verified Books",
-            "🤝 Trusted Community",
-            "⚡ Quick Exchange",
-            "💯 Quality Guaranteed",
-          ].map((indicator, index) => (
-            <div
-              key={index}
-              className="flex items-center space-x-2 text-sm font-medium"
-            >
-              <span>{indicator}</span>
-            </div>
-          ))}
         </div>
       </div>
     </div>

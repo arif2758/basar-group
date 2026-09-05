@@ -47,7 +47,7 @@ export function searchMembers(
   if (!query.trim()) return [];
   const q = query.toLowerCase();
   return flattenMembers(members).filter((m) =>
-    m.name.toLowerCase().includes(q)
+    m.title.toLowerCase().includes(q)
   );
 }
 
@@ -74,4 +74,18 @@ export function getAncestorKeys(key: string): string[] {
     keys.push(parts.slice(0, i).join("-"));
   }
   return keys;
+}
+
+export function getGenerationColor(gen: number): string {
+  const colors = [
+    "#ef4444",
+    "#f97316",
+    "#f59e0b",
+    "#10b981",
+    "#06b6d4",
+    "#3b82f6",
+    "#8b5cf6",
+    "#ec4899",
+  ];
+  return colors[gen % colors.length];
 }

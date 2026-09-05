@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -36,6 +38,7 @@ function StudentHelpDesk() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
@@ -98,13 +101,13 @@ function StudentHelpDesk() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-emerald-50">
+    <section ref={sectionRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Student Support System
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Our mentoring system ensures every learner gets personalized
             attention and guidance
           </p>
@@ -117,14 +120,14 @@ function StudentHelpDesk() {
               ref={(el) => {
                 cardsRef.current[index] = el;
               }}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-white dark:bg-[#141414] rounded-2xl p-7 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 group"
             >
-              <div className="text-4xl mb-4">{program.icon}</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <div className="text-3xl mb-3">{program.icon}</div>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 {program.title}
               </h3>
-              <p className="text-gray-600 mb-4">{program.description}</p>
-              <div className="text-sm text-emerald-600 font-semibold">
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">{program.description}</p>
+              <div className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                 {program.time}
               </div>
             </div>

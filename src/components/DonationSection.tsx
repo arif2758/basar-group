@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+
+
+
 import React, { useState } from "react";
 import { IconType } from "react-icons";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FiHeart,
   FiBook,
@@ -110,6 +112,7 @@ const DonationSection = () => {
     donationOptions.find((opt) => opt.id === selectedOption) ||
     donationOptions[0];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Main timeline
@@ -392,23 +395,18 @@ const DonationSection = () => {
     <section
       ref={containerRef}
       id="donate"
-      className="py-20 bg-gradient-to-br from-blue-50 via-white to-emerald-50 relative overflow-hidden"
+      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-emerald-200 to-blue-200 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-pink-200 to-yellow-200 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mb-6">
-            <span className="floating-icon inline-block mr-3">💝</span>
+        <div ref={headerRef} className="text-center mb-14">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl mb-4 border border-blue-100 dark:border-blue-800/50">
+            <FiHeart className="w-6 h-6" />
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             Support Our Mission
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Every contribution makes a difference. Choose how you&apos;d like to
             support our community development efforts and create lasting impact.
           </p>
@@ -417,47 +415,38 @@ const DonationSection = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Donation Options */}
           <div className="lg:col-span-2">
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-                <FiGift className="floating-icon w-7 h-7 mr-3 text-emerald-500" />
+            <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
+                <FiGift className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                 Choose Your Impact
               </h3>
 
               {/* Option Tabs */}
               <div
                 ref={optionsRef}
-                className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8"
+                className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-6"
               >
                 {donationOptions.map((option) => {
                   const IconComponent = option.icon;
+                  const isSelected = selectedOption === option.id;
                   return (
                     <button
                       key={option.id}
                       onClick={() => handleOptionChange(option.id)}
-                      className={`donation-option p-6 rounded-2xl border-2 transition-all duration-300 text-left group ${
-                        selectedOption === option.id
-                          ? "shadow-xl border-transparent"
-                          : "border-gray-200 hover:border-gray-300 bg-white/50"
+                      className={`donation-option p-4 rounded-xl border text-left transition-all duration-200 group ${
+                        isSelected
+                          ? "border-blue-500 bg-blue-50/50 dark:bg-blue-950/20 ring-1 ring-blue-500 shadow-sm"
+                          : "border-slate-200 dark:border-[#303030] hover:border-slate-300 dark:hover:border-[#444] bg-slate-50/50 dark:bg-[#1a1a1a]"
                       }`}
-                      style={{
-                        background:
-                          selectedOption === option.id
-                            ? `linear-gradient(135deg, ${option.color}15, ${option.color}25)`
-                            : undefined,
-                        borderColor:
-                          selectedOption === option.id
-                            ? option.color
-                            : undefined,
-                      }}
                     >
                       <IconComponent
-                        className="option-icon w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-200"
-                        style={{ color: option.color }}
+                        className="option-icon w-6 h-6 mb-2.5 transition-transform duration-200 group-hover:scale-105"
+                        style={{ color: isSelected ? "#2563EB" : option.color }}
                       />
-                      <div className="text-sm font-bold text-gray-900 mb-1">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white mb-1 line-clamp-1">
                         {option.title}
                       </div>
-                      <div className="text-xs text-gray-600 leading-tight">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                         {option.description}
                       </div>
                     </button>
@@ -466,68 +455,61 @@ const DonationSection = () => {
               </div>
 
               {/* Selected Option Details */}
-              <div className="option-content mb-8">
-                <div className="flex items-center mb-4">
+              <div className="option-content mb-6 p-4 rounded-xl bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#2a2a2a]">
+                <div className="flex items-center">
                   <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mr-4"
-                    style={{ backgroundColor: `${currentOption.color}20` }}
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mr-3 shrink-0"
+                    style={{ backgroundColor: `${currentOption.color}15` }}
                   >
                     <currentOption.icon
-                      className="w-6 h-6"
+                      className="w-5 h-5"
                       style={{ color: currentOption.color }}
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">
+                    <h4 className="text-base font-semibold text-slate-900 dark:text-white">
                       {currentOption.title}
                     </h4>
-                    <p className="text-gray-600">{currentOption.description}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{currentOption.description}</p>
                   </div>
                 </div>
               </div>
 
               {/* Amount Selection */}
-              <div ref={amountRef} className="mb-8">
-                <h4 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
-                  <FiDollarSign className="w-5 h-5 mr-2 text-emerald-500" />
+              <div ref={amountRef} className="mb-6">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                  <FiDollarSign className="w-4 h-4 mr-1 text-emerald-500" />
                   Select Amount
                 </h4>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                  {currentOption.amounts.map((amount) => (
-                    <button
-                      key={amount}
-                      onClick={() => {
-                        setSelectedAmount(amount);
-                        setCustomAmount("");
-                      }}
-                      className={`amount-btn p-4 rounded-xl border-2 font-bold transition-all duration-300 ${
-                        selectedAmount === amount
-                          ? "text-white shadow-lg selected transform scale-105"
-                          : "border-gray-200 text-gray-700 hover:border-gray-300 bg-white/70"
-                      }`}
-                      style={{
-                        background:
-                          selectedAmount === amount
-                            ? `linear-gradient(135deg, ${currentOption.color}, ${currentOption.color}dd)`
-                            : undefined,
-                        borderColor:
-                          selectedAmount === amount
-                            ? currentOption.color
-                            : undefined,
-                      }}
-                    >
-                      ${amount}
-                    </button>
-                  ))}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+                  {currentOption.amounts.map((amount) => {
+                    const isSelected = selectedAmount === amount;
+                    return (
+                      <button
+                        key={amount}
+                        onClick={() => {
+                          setSelectedAmount(amount);
+                          setCustomAmount("");
+                        }}
+                        className={`amount-btn p-3 rounded-lg border font-semibold text-sm transition-all duration-200 ${
+                          isSelected
+                            ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+                            : "border-slate-200 dark:border-[#303030] text-slate-700 dark:text-slate-300 hover:border-blue-400 bg-white dark:bg-[#1a1a1a]"
+                        }`}
+                      >
+                        ${amount}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 {/* Custom Amount */}
                 <div className="flex items-center space-x-3">
-                  <span className="text-gray-600 font-medium">
-                    or enter custom amount:
+                  <span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
+                    Or custom amount:
                   </span>
-                  <div className="flex-1 relative">
-                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">
+                  <div className="flex-1 relative max-w-xs">
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 font-medium text-sm">
                       $
                     </span>
                     <input
@@ -538,12 +520,7 @@ const DonationSection = () => {
                         setCustomAmount(e.target.value);
                         setSelectedAmount(0);
                       }}
-                      className={`w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm ${currentOption.focusRing}`}
-                      style={{
-                        borderColor: customAmount
-                          ? currentOption.color
-                          : undefined,
-                      }}
+                      className="w-full pl-7 pr-3 py-2 border border-slate-200 dark:border-[#303030] rounded-lg text-sm bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -553,23 +530,23 @@ const DonationSection = () => {
               <button
                 onClick={handleDonate}
                 disabled={!selectedAmount && !customAmount}
-                className={`main-donate-btn w-full text-lg font-bold text-white py-5 rounded-2xl shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${currentOption.gradient} bg-gradient-to-r`}
+                className="main-donate-btn w-full text-base font-medium text-white py-3 rounded-lg shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700"
               >
                 <span className="flex items-center justify-center">
-                  <FiHeart className="w-5 h-5 mr-2" />
+                  <FiHeart className="w-4 h-4 mr-2" />
                   Donate ${totalAmount || 0} Now
                 </span>
               </button>
 
               {/* Security Badges */}
-              <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
-                <div className="flex items-center space-x-2">
-                  <FiShield className="w-4 h-4 text-emerald-500" />
+              <div className="flex flex-wrap items-center justify-center gap-4 mt-5 text-xs text-slate-400 dark:text-slate-500">
+                <div className="flex items-center space-x-1.5">
+                  <FiShield className="w-3.5 h-3.5 text-emerald-500" />
                   <span>Secure Payment</span>
                 </div>
-                <div className="w-1 h-1 bg-gray-300 rounded-full" />
+                <span>•</span>
                 <span>SSL Encrypted</span>
-                <div className="w-1 h-1 bg-gray-300 rounded-full" />
+                <span>•</span>
                 <span>Tax Deductible</span>
               </div>
             </div>
@@ -578,70 +555,70 @@ const DonationSection = () => {
           {/* Impact Calculator & Sidebar */}
           <div ref={sidebarRef} className="space-y-6">
             {/* Impact Calculator */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <FiTrendingUp className="floating-icon w-6 h-6 mr-2 text-blue-500" />
+            <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 border border-slate-200 dark:border-[#303030]">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <FiTrendingUp className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
                 Your Impact
               </h3>
               {totalAmount > 0 ? (
                 <div className="space-y-4">
                   {currentOption.id === "education" && (
-                    <div className="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl border border-emerald-200">
-                      <div className="impact-counter text-3xl font-bold text-emerald-700 mb-2">
+                    <div className="text-center p-5 bg-emerald-50 dark:bg-emerald-950/20 rounded-xl border border-emerald-200 dark:border-emerald-800/40">
+                      <div className="impact-counter text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
                         {Math.floor(totalAmount / 250)}
                       </div>
-                      <div className="text-sm text-emerald-600 font-medium">
+                      <div className="text-xs text-emerald-700 dark:text-emerald-300 font-medium">
                         Students sponsored for 1 year
                       </div>
                     </div>
                   )}
                   {currentOption.id === "books" && (
-                    <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-xl border border-amber-200">
-                      <div className="impact-counter text-3xl font-bold text-amber-700 mb-2">
+                    <div className="text-center p-5 bg-amber-50 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-800/40">
+                      <div className="impact-counter text-3xl font-bold text-amber-600 dark:text-amber-400 mb-1">
                         {Math.floor(totalAmount / 15)}
                       </div>
-                      <div className="text-sm text-amber-600 font-medium">
+                      <div className="text-xs text-amber-700 dark:text-amber-300 font-medium">
                         Books added to library
                       </div>
                     </div>
                   )}
                   {currentOption.id === "general" && (
-                    <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl border border-blue-200">
-                      <div className="impact-counter text-3xl font-bold text-blue-700 mb-2">
+                    <div className="text-center p-5 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-800/40">
+                      <div className="impact-counter text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
                         {Math.floor(totalAmount / 10)}
                       </div>
-                      <div className="text-sm text-blue-600 font-medium">
+                      <div className="text-xs text-blue-700 dark:text-blue-300 font-medium">
                         Families supported this month
                       </div>
                     </div>
                   )}
                   {currentOption.id === "technology" && (
-                    <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-100 rounded-xl border border-cyan-200">
-                      <div className="impact-counter text-3xl font-bold text-cyan-700 mb-2">
+                    <div className="text-center p-5 bg-cyan-50 dark:bg-cyan-950/20 rounded-xl border border-cyan-200 dark:border-cyan-800/40">
+                      <div className="impact-counter text-3xl font-bold text-cyan-600 dark:text-cyan-400 mb-1">
                         {Math.floor(totalAmount / 500)}
                       </div>
-                      <div className="text-sm text-cyan-600 font-medium">
+                      <div className="text-xs text-cyan-700 dark:text-cyan-300 font-medium">
                         Computers provided
                       </div>
                     </div>
                   )}
                   {currentOption.id === "healthcare" && (
-                    <div className="text-center p-6 bg-gradient-to-br from-red-50 to-pink-100 rounded-xl border border-red-200">
-                      <div className="impact-counter text-3xl font-bold text-red-700 mb-2">
+                    <div className="text-center p-5 bg-red-50 dark:bg-red-950/20 rounded-xl border border-red-200 dark:border-red-800/40">
+                      <div className="impact-counter text-3xl font-bold text-red-600 dark:text-red-400 mb-1">
                         {Math.floor(totalAmount / 50)}
                       </div>
-                      <div className="text-sm text-red-600 font-medium">
+                      <div className="text-xs text-red-700 dark:text-red-300 font-medium">
                         Medical checkups funded
                       </div>
                     </div>
                   )}
                 </div>
               ) : (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FiHeart className="w-8 h-8 text-gray-400" />
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-slate-100 dark:bg-[#1a1a1a] rounded-full flex items-center justify-center mx-auto mb-3 text-slate-400">
+                    <FiHeart className="w-6 h-6" />
                   </div>
-                  <p className="text-gray-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     Select an amount to see your impact
                   </p>
                 </div>
@@ -649,12 +626,12 @@ const DonationSection = () => {
             </div>
 
             {/* Recent Donors */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <span className="floating-icon mr-2">👥</span>
+            <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 border border-slate-200 dark:border-[#303030]">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <FiUsers className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
                 Recent Supporters
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[
                   {
                     name: "Ahmed R.",
@@ -677,35 +654,33 @@ const DonationSection = () => {
                 ].map((donor, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                    className="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-100 dark:border-[#252525]"
                   >
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs">
                         {donor.name.charAt(0)}
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900 text-sm">
+                        <div className="font-semibold text-slate-900 dark:text-white text-xs">
                           {donor.name}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-[11px] text-slate-400">
                           {donor.time} • {donor.type}
                         </div>
                       </div>
                     </div>
-                    <div className="font-bold text-emerald-600">
+                    <div className="font-semibold text-emerald-600 dark:text-emerald-400 text-xs">
                       ${donor.amount}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 p-4 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl border border-emerald-100">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">
-                    $12,450
-                  </div>
-                  <div className="text-sm text-gray-600">Raised this month</div>
+              <div className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg border border-emerald-100 dark:border-emerald-800/40 text-center">
+                <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
+                  $12,450
                 </div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">Raised this month</div>
               </div>
             </div>
           </div>
@@ -716,33 +691,26 @@ const DonationSection = () => {
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
             <div
               ref={modalRef}
-              className="modal-content bg-white rounded-3xl max-w-md w-full max-h-screen overflow-y-auto shadow-2xl border border-white/20"
+              className="modal-content bg-white dark:bg-[#141414] rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-[#303030]"
             >
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                    <div
-                      className="w-10 h-10 rounded-2xl flex items-center justify-center mr-3"
-                      style={{ backgroundColor: `${currentOption.color}20` }}
-                    >
-                      <currentOption.icon
-                        className="w-5 h-5"
-                        style={{ color: currentOption.color }}
-                      />
-                    </div>
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-[#252525]">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
+                    <FiHeart className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                     Complete Donation
                   </h3>
                   <button
                     onClick={() => setShowModal(false)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                    aria-label="Close modal"
+                    className="p-1.5 hover:bg-slate-100 dark:hover:bg-[#202020] rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                   >
-                    <FiX className="w-6 h-6" />
+                    <FiX className="w-5 h-5" />
                   </button>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Full Name *
                     </label>
                     <input
@@ -752,12 +720,12 @@ const DonationSection = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className={`w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-50 ${currentOption.focusRing}`}
+                      className="w-full px-3.5 py-2 text-sm border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Email Address *
                     </label>
                     <input
@@ -767,12 +735,12 @@ const DonationSection = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className={`w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-50 ${currentOption.focusRing}`}
+                      className="w-full px-3.5 py-2 text-sm border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Phone (Optional)
                     </label>
                     <input
@@ -781,11 +749,11 @@ const DonationSection = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      className={`w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-50 ${currentOption.focusRing}`}
+                      className="w-full px-3.5 py-2 text-sm border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
 
-                  <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center space-x-2.5 p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
                     <input
                       type="checkbox"
                       id="recurring"
@@ -796,19 +764,18 @@ const DonationSection = () => {
                           isRecurring: e.target.checked,
                         })
                       }
-                      className="w-5 h-5 rounded border-gray-300 focus:ring-2"
-                      style={{ accentColor: currentOption.color }}
+                      className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                     />
                     <label
                       htmlFor="recurring"
-                      className="text-sm font-medium text-gray-700 cursor-pointer"
+                      className="text-xs font-medium text-slate-700 dark:text-slate-300 cursor-pointer"
                     >
-                      Make this a monthly donation
+                      Make this a monthly recurring donation
                     </label>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Message (Optional)
                     </label>
                     <textarea
@@ -817,34 +784,32 @@ const DonationSection = () => {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       rows={3}
-                      className={`w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-50 resize-none ${currentOption.focusRing}`}
+                      className="w-full px-3.5 py-2 text-sm border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                       placeholder="Any message for the team..."
                     />
                   </div>
 
-                  <div className="border-t-2 border-gray-100 pt-6">
-                    <div className="flex items-center justify-between text-xl font-bold mb-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl">
-                      <span className="text-gray-700">Total Amount:</span>
-                      <span style={{ color: currentOption.color }}>
+                  <div className="border-t border-slate-100 dark:border-[#252525] pt-4 mt-6">
+                    <div className="flex items-center justify-between text-base font-bold mb-4 p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
+                      <span className="text-slate-700 dark:text-slate-300 text-sm">Total Amount:</span>
+                      <span className="text-blue-600 dark:text-blue-400">
                         ${totalAmount}
                       </span>
                     </div>
                     <button
                       type="submit"
-                      className={`w-full text-lg font-bold text-white py-5 rounded-2xl shadow-lg transition-all duration-300 ${currentOption.gradient} bg-gradient-to-r hover:shadow-xl transform hover:scale-105`}
+                      className="w-full text-sm font-medium text-white py-3 rounded-lg shadow-sm transition-colors bg-blue-600 hover:bg-blue-700 flex items-center justify-center space-x-2"
                     >
-                      <span className="flex items-center justify-center">
-                        <FiHeart className="w-5 h-5 mr-2" />
-                        Complete Donation
-                      </span>
+                      <FiHeart className="w-4 h-4" />
+                      <span>Complete Donation</span>
                     </button>
                   </div>
                 </form>
 
                 {/* Security note */}
-                <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
-                  <div className="flex items-center text-sm text-green-700">
-                    <FiShield className="w-4 h-4 mr-2" />
+                <div className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg border border-emerald-200 dark:border-emerald-800/40">
+                  <div className="flex items-center text-xs text-emerald-700 dark:text-emerald-300">
+                    <FiShield className="w-3.5 h-3.5 mr-1.5 shrink-0" />
                     <span>
                       Your payment is secured with 256-bit SSL encryption
                     </span>

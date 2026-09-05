@@ -1,5 +1,5 @@
-// src/components/family-tree/FamilyTreeSearch.tsx
 "use client";
+// src/components/family-tree/FamilyTreeSearch.tsx
 import React, { useState, useMemo } from "react";
 import { Search, X, MapPin } from "lucide-react";
 import { familyTreeData, FamilyMember } from "@/data/familyData";

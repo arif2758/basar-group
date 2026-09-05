@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { Search, Heart, BookOpen, Award, MapPin, Star } from "lucide-react";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,6 +115,7 @@ const Donors: React.FC = () => {
       )
   );
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animations
     const headerTl = gsap.timeline();
@@ -141,9 +141,9 @@ const Donors: React.FC = () => {
         toggleActions: "play none none reverse",
       },
       opacity: 0,
-      scale: 0.95,
-      y: 50,
-      duration: 1,
+      scale: 0.98,
+      y: 40,
+      duration: 0.9,
       ease: "power3.out",
     });
 
@@ -169,9 +169,8 @@ const Donors: React.FC = () => {
       },
       opacity: 0,
       y: 30,
-      scale: 0.98,
       duration: 0.7,
-      ease: "back.out(1.7)",
+      ease: "power2.out",
     });
 
     // Donors grid animation
@@ -183,9 +182,8 @@ const Donors: React.FC = () => {
       },
       opacity: 0,
       y: 40,
-      scale: 0.95,
       duration: 0.6,
-      stagger: 0.1,
+      stagger: 0.08,
       ease: "power2.out",
     });
 
@@ -200,64 +198,6 @@ const Donors: React.FC = () => {
       y: 50,
       duration: 0.8,
       ease: "power3.out",
-    });
-
-    gsap.from("[data-cta-stats] > *", {
-      scrollTrigger: {
-        trigger: ctaRef.current,
-        start: "top 70%",
-        toggleActions: "play none none reverse",
-      },
-      opacity: 0,
-      y: 20,
-      scale: 0.9,
-      duration: 0.5,
-      stagger: 0.1,
-      ease: "back.out(1.7)",
-    });
-
-    // Interactive hover animations
-    const donorCards = document.querySelectorAll<HTMLElement>("[data-donor-card]");
-    donorCards.forEach((cardElement: HTMLElement) => {
-      cardElement.addEventListener("mouseenter", () => {
-        gsap.to(cardElement, {
-          y: -8,
-          scale: 1.02,
-          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-      
-      cardElement.addEventListener("mouseleave", () => {
-        gsap.to(cardElement, {
-          y: 0,
-          scale: 1,
-          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-    });
-
-    // Button hover animations
-    const buttons = document.querySelectorAll<HTMLElement>("[data-animated-btn]");
-    buttons.forEach((btnElement: HTMLElement) => {
-      btnElement.addEventListener("mouseenter", () => {
-        gsap.to(btnElement, {
-          scale: 1.05,
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      });
-      
-      btnElement.addEventListener("mouseleave", () => {
-        gsap.to(btnElement, {
-          scale: 1,
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      });
     });
 
     // Number counter animation for top donor
@@ -279,26 +219,26 @@ const Donors: React.FC = () => {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div ref={containerRef} className="min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-white transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
         {/* Header */}
-        <div ref={headerRef} className="mb-8">
-          <h1 data-header-title className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+        <div ref={headerRef} className="mb-10 text-center sm:text-left">
+          <h1 data-header-title className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
             Our Amazing Donors
           </h1>
-          <p data-header-desc className="text-slate-600 text-lg">
+          <p data-header-desc className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Meet the generous people who make our community library possible
             through their book donations.
           </p>
         </div>
 
         {/* Top Donor Spotlight */}
-        <div ref={topDonorRef} data-top-donor className="bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-3xl shadow-2xl mb-12 overflow-hidden">
-          <div data-top-donor-content className="p-8 text-white">
-            <div className="flex items-center space-x-2 mb-6">
-              <Award className="w-8 h-8 text-yellow-200" />
-              <h2 className="text-2xl md:text-3xl font-bold">
+        <div ref={topDonorRef} data-top-donor className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl shadow-sm mb-12 overflow-hidden">
+          <div data-top-donor-content className="p-6 sm:p-8 text-white">
+            <div className="flex items-center space-x-2.5 mb-6">
+              <Award className="w-6 h-6 text-amber-400" />
+              <h2 className="text-xl sm:text-2xl font-bold text-white">
                 Top Donor of the Month
               </h2>
             </div>
@@ -308,40 +248,40 @@ const Donors: React.FC = () => {
                 <Image
                   src={topDonor.photo}
                   alt={topDonor.name}
-                  width={128}
-                  height={128}
-                  className="rounded-full mx-auto lg:mx-0 mb-4 border-4 border-white shadow-lg"
+                  width={110}
+                  height={110}
+                  className="rounded-full mx-auto lg:mx-0 mb-4 border border-slate-700 dark:border-[#303030] shadow-sm object-cover"
                 />
-                <h3 className="text-2xl font-bold mb-2">{topDonor.name}</h3>
-                <div className="flex items-center justify-center lg:justify-start space-x-1 text-orange-100 mb-2">
-                  <MapPin className="w-4 h-4" />
+                <h3 className="text-xl font-bold mb-1 text-white">{topDonor.name}</h3>
+                <div className="flex items-center justify-center lg:justify-start space-x-1 text-slate-400 mb-1.5 text-xs">
+                  <MapPin className="w-3.5 h-3.5" />
                   <span>{topDonor.location}</span>
                 </div>
-                <div className="text-orange-100">
+                <div className="text-slate-400 text-xs mb-3">
                   Member since {topDonor.joinDate}
                 </div>
-                <div className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold mt-3 inline-block">
+                <div className="bg-amber-500/10 dark:bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-medium inline-block">
                   {topDonor.badge}
                 </div>
               </div>
 
               <div className="lg:col-span-2">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center border border-white/10">
-                    <BookOpen className="w-12 h-12 text-yellow-200 mx-auto mb-3" />
-                    <div data-counter className="text-4xl font-bold mb-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-slate-800/70 dark:bg-[#1a1a1a] rounded-xl p-5 text-center border border-slate-700/60 dark:border-[#303030]">
+                    <BookOpen className="w-8 h-8 text-amber-400 mx-auto mb-2" />
+                    <div data-counter className="text-3xl font-bold text-white mb-1">
                       {topDonor.totalDonations}
                     </div>
-                    <div className="text-orange-100">Books Donated</div>
+                    <div className="text-slate-400 text-xs">Books Donated</div>
                   </div>
 
-                  <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/10">
-                    <h4 className="font-semibold mb-3 text-yellow-200">
+                  <div className="bg-slate-800/70 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-700/60 dark:border-[#303030]">
+                    <h4 className="font-semibold mb-3 text-amber-400 text-xs uppercase tracking-wider">
                       Recent Contributions
                     </h4>
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       {topDonor.recentBooks.slice(0, 4).map((book, index) => (
-                        <div key={index} className="text-sm text-orange-100 truncate">
+                        <div key={index} className="text-xs text-slate-300 dark:text-slate-400 truncate">
                           • {book}
                         </div>
                       ))}
@@ -349,11 +289,11 @@ const Donors: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                  <p className="text-orange-100 italic">
-                    Knowledge grows when shared. I donate books to help students
+                <div className="mt-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-700/60 dark:border-[#303030]">
+                  <p className="text-slate-300 dark:text-slate-400 italic text-xs sm:text-sm">
+                    &ldquo;Knowledge grows when shared. I donate books to help students
                     discover new worlds and perspectives that can transform
-                    their lives.
+                    their lives.&rdquo;
                   </p>
                 </div>
               </div>
@@ -362,69 +302,67 @@ const Donors: React.FC = () => {
         </div>
 
         {/* Search */}
-        <div ref={searchRef} data-search-box className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 p-6 mb-8">
+        <div ref={searchRef} data-search-box className="bg-white dark:bg-[#141414] rounded-xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] border border-slate-200 dark:border-[#303030] p-4 sm:p-5 mb-8">
           <div className="relative">
-            <Search className="w-5 h-5 absolute left-3 top-3 text-slate-400" />
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Search donors by name or donated books..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm"
+              className="w-full pl-10 pr-4 py-2.5 border border-slate-300 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
             />
           </div>
         </div>
 
         {/* Donors Grid */}
-        <div ref={donorsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={donorsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredDonors.map((donor) => (
             <div
               key={donor.id}
               data-donor-card
-              className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-lg border border-white/20 overflow-hidden cursor-pointer"
+              className="bg-white dark:bg-[#141414] rounded-xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] border border-slate-200 dark:border-[#303030] overflow-hidden transition-all duration-200"
             >
               <div className="p-6">
                 <div className="text-center mb-4">
                   <Image
                     src={donor.photo}
                     alt={donor.name}
-                    width={80}
-                    height={80}
-                    className="rounded-full mx-auto mb-3 border-2 border-blue-200 shadow-md"
+                    width={72}
+                    height={72}
+                    className="rounded-full mx-auto mb-3 border border-slate-200 dark:border-[#303030] shadow-sm object-cover"
                   />
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">
+                  <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-0.5">
                     {donor.name}
                   </h3>
-                  <div className="flex items-center justify-center space-x-1 text-slate-600 mb-2">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">{donor.location}</span>
+                  <div className="flex items-center justify-center space-x-1 text-slate-500 dark:text-slate-400 mb-2 text-xs">
+                    <MapPin className="w-3 h-3" />
+                    <span>{donor.location}</span>
                   </div>
-                  <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="inline-block bg-slate-100 dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#303030] px-2.5 py-0.5 rounded-full text-xs font-medium">
                     {donor.badge}
                   </span>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 mb-4 text-center border border-blue-100">
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <Heart className="w-5 h-5 text-red-500" />
-                    <span className="text-sm font-medium text-slate-700">
-                      Books Donated
-                    </span>
+                <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-lg p-3 mb-4 text-center border border-slate-200 dark:border-[#303030]">
+                  <div className="flex items-center justify-center space-x-1.5 mb-1 text-xs font-medium text-slate-600 dark:text-slate-400">
+                    <Heart className="w-3.5 h-3.5 text-rose-500" />
+                    <span>Books Donated</span>
                   </div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold text-slate-900 dark:text-white">
                     {donor.totalDonations}
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <h4 className="font-semibold text-slate-900 mb-2 text-sm">
+                  <h4 className="font-medium text-slate-900 dark:text-white mb-2 text-xs">
                     Recent Donations:
                   </h4>
                   <div className="space-y-1">
                     {donor.recentBooks.map((book, index) => (
                       <div
                         key={index}
-                        className="text-xs text-slate-600 bg-slate-50 px-3 py-2 rounded-lg truncate border border-slate-100"
+                        className="text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-[#1a1a1a] px-2.5 py-1.5 rounded-md truncate border border-slate-200 dark:border-[#262626]"
                       >
                         {book}
                       </div>
@@ -432,15 +370,15 @@ const Donors: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-4 pt-3 border-t border-slate-100 dark:border-[#262626]">
                   <span>Joined {donor.joinDate}</span>
                   <div className="flex items-center space-x-1">
-                    <Star className="w-3 h-3 text-yellow-400" />
+                    <Star className="w-3 h-3 text-amber-400 fill-current" />
                     <span>Active Donor</span>
                   </div>
                 </div>
 
-                <button data-animated-btn className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-medium shadow-lg">
+                <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg text-xs font-medium transition-colors shadow-sm active:scale-[0.99]">
                   View All Donations
                 </button>
               </div>
@@ -449,45 +387,46 @@ const Donors: React.FC = () => {
         </div>
 
         {/* Become a Donor CTA */}
-        <div ref={ctaRef} data-cta-content className="bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-3xl shadow-2xl p-8 mt-16 text-white text-center overflow-hidden relative">
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
-          <div className="relative z-10">
-            <Heart className="w-16 h-16 mx-auto mb-6 text-emerald-200" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <div ref={ctaRef} data-cta-content className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl shadow-sm p-8 sm:p-12 mt-16 text-white text-center">
+          <div>
+            <div className="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-rose-400">
+              <Heart className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-white">
               Join Our Amazing Community of Donors
             </h2>
-            <p className="text-emerald-100 mb-8 max-w-2xl mx-auto text-lg">
+            <p className="text-slate-300 dark:text-slate-400 mb-8 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
               Have books sitting on your shelf collecting dust? Share them with
               students who will love and learn from them. Every donated book
               creates ripples of knowledge in our community.
             </p>
-            <div data-cta-stats className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                <div className="text-2xl font-bold text-emerald-200">500+</div>
-                <div className="text-sm text-emerald-100">Books Needed</div>
+            <div data-cta-stats className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+              <div className="bg-slate-800/70 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-700/60 dark:border-[#303030]">
+                <div className="text-2xl font-bold text-emerald-400 mb-0.5">500+</div>
+                <div className="text-xs text-slate-400">Books Needed</div>
               </div>
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                <div className="text-2xl font-bold text-emerald-200">Free</div>
-                <div className="text-sm text-emerald-100">Pickup Service</div>
+              <div className="bg-slate-800/70 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-700/60 dark:border-[#303030]">
+                <div className="text-2xl font-bold text-emerald-400 mb-0.5">Free</div>
+                <div className="text-xs text-slate-400">Pickup Service</div>
               </div>
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                <div className="text-2xl font-bold text-emerald-200">∞</div>
-                <div className="text-sm text-emerald-100">Impact Created</div>
+              <div className="bg-slate-800/70 dark:bg-[#1a1a1a] rounded-xl p-4 border border-slate-700/60 dark:border-[#303030]">
+                <div className="text-2xl font-bold text-emerald-400 mb-0.5">100%</div>
+                <div className="text-xs text-slate-400">Community Impact</div>
               </div>
             </div>
-            <button data-animated-btn className="bg-white text-emerald-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl">
+            <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-medium text-base transition-colors shadow-sm active:scale-[0.99]">
               Donate Your Books
             </button>
           </div>
         </div>
 
         {filteredDonors.length === 0 && searchTerm && (
-          <div className="text-center py-16">
-            <Search className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-slate-900 mb-2">
+          <div className="text-center py-16 bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] p-8 shadow-sm">
+            <Search className="w-8 h-8 text-slate-400 mx-auto mb-3" />
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
               No donors found
             </h3>
-            <p className="text-slate-600">Try adjusting your search criteria</p>
+            <p className="text-slate-500 dark:text-slate-400 text-xs">Try adjusting your search criteria</p>
           </div>
         )}
       </div>

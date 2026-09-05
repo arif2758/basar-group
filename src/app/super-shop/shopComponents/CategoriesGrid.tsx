@@ -15,9 +15,11 @@ import {
   ArrowRight,
   Star,
 } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,6 +95,7 @@ export default function CategoriesGrid() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header animation on scroll
@@ -311,7 +314,6 @@ export default function CategoriesGrid() {
         duration: 20,
         ease: "none",
         repeat: -1,
-      });
     },
     { scope: containerRef }
   );
@@ -319,167 +321,111 @@ export default function CategoriesGrid() {
   return (
     <section
       ref={containerRef}
-      className="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+      className="py-16 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="bg-decoration absolute top-20 left-10 w-32 h-32 bg-emerald-100/30 rounded-full blur-xl"></div>
-        <div className="bg-decoration absolute bottom-40 right-20 w-40 h-40 bg-blue-100/30 rounded-full blur-xl"></div>
-        <div className="bg-decoration absolute top-1/2 left-1/3 w-24 h-24 bg-purple-100/30 rounded-full blur-xl"></div>
-
-        <Star className="floating-star absolute top-32 right-1/4 w-6 h-6 text-yellow-300/40" />
-        <Star className="floating-star absolute bottom-1/3 left-1/4 w-4 h-4 text-pink-300/40" />
-        <Star className="floating-star absolute top-2/3 right-1/3 w-5 h-5 text-blue-300/40" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headerRef} className="text-center mb-12">
-          <div className="inline-block mb-4">
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent text-sm font-bold uppercase tracking-wider">
+          <div className="inline-block mb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
               Explore Categories
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
             Shop by Category
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Find everything you need from fresh produce to daily essentials, all
-            sourced locally with love and care
+            sourced locally with love and care.
           </p>
         </div>
 
         <div
           ref={gridRef}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6"
         >
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/shop?category=${category.name
+              href={`/super-shop/shop?category=${category.name
                 .toLowerCase()
                 .replace(/ /g, "-")}`}
               className="group"
             >
-              <div className="category-card bg-white rounded-2xl p-6 text-center border border-gray-100 relative overflow-hidden cursor-pointer">
-                {/* Hidden sparkle for hover effect */}
-                <Sparkles className="card-sparkle absolute top-3 right-3 w-4 h-4 text-yellow-400 opacity-0 scale-0" />
-
-                {/* Gradient background on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                ></div>
-
-                <div className="relative z-10">
-                  <div
-                    className={`icon-bg w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden`}
-                  >
-                    <category.icon className="category-icon w-8 h-8 relative z-10" />
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  </div>
-
-                  <h3 className="category-title font-semibold text-gray-800 mb-2 transition-all duration-300">
-                    {category.name}
-                  </h3>
-
-                  <p className="category-count text-sm text-gray-500 transition-all duration-300">
-                    {category.count}
-                  </p>
+              <div className="category-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-200 cursor-pointer flex flex-col items-center">
+                <div className="w-12 h-12 bg-slate-50 dark:bg-[#1f1f1f] rounded-xl flex items-center justify-center mb-3 border border-slate-200 dark:border-[#303030] group-hover:scale-105 transition-transform">
+                  <category.icon className="category-icon w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
 
-                {/* Border glow effect */}
-                <div
-                  className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ padding: "1px" }}
-                >
-                  <div className="w-full h-full bg-white rounded-2xl"></div>
-                </div>
+                <h3 className="category-title text-sm font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  {category.name}
+                </h3>
+
+                <p className="category-count text-xs text-slate-500 dark:text-slate-400">
+                  {category.count}
+                </p>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Enhanced special offers banner */}
-        <div ref={bannerRef} className="mt-16 relative overflow-hidden">
-          <div className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 rounded-2xl p-8 text-center text-white relative">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-8 w-16 h-16 border-2 border-white/30 rounded-full"></div>
-              <div className="absolute bottom-6 right-12 w-12 h-12 border-2 border-white/20 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/4 w-8 h-8 border border-white/20 rounded-full"></div>
-              <Sparkles className="absolute top-8 right-1/4 w-6 h-6 text-white/30" />
-              <Sparkles className="absolute bottom-8 left-1/3 w-4 h-4 text-white/20" />
-            </div>
-
+        {/* Special offers banner */}
+        <div ref={bannerRef} className="mt-14 relative overflow-hidden">
+          <div className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 sm:p-10 text-center text-white relative shadow-sm">
             <div className="relative z-10">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-4">
-                <Star className="w-4 h-4 text-yellow-300 mr-2" />
-                <span className="text-sm font-semibold">
-                  Limited Time Offer
-                </span>
+              <div className="inline-flex items-center bg-amber-500/10 rounded-full px-3 py-1 mb-3 text-amber-400 text-xs font-medium border border-amber-500/20">
+                <Star className="w-3.5 h-3.5 mr-1.5 fill-current" />
+                <span>Limited Time Offer</span>
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">
+              <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
                 Special Weekend Offers!
               </h3>
 
-              <p className="text-emerald-100 mb-6 text-lg">
-                Get up to 20% off on all fresh produce and daily essentials
+              <p className="text-slate-300 dark:text-slate-400 mb-6 text-sm sm:text-base max-w-xl mx-auto">
+                Get up to 20% off on all fresh produce and daily essentials.
               </p>
 
               <Link
-                href="/shop?offer=weekend"
-                className="banner-button bg-white text-emerald-600 px-8 py-4 rounded-xl font-bold shadow-lg backdrop-blur-sm border border-white/20 inline-flex items-center group"
+                href="/super-shop/shop?offer=weekend"
+                className="banner-button inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
               >
-                Shop Weekend Deals
-                <ArrowRight className="button-arrow w-5 h-5 ml-2 transition-transform duration-300" />
+                <span>Shop Weekend Deals</span>
+                <ArrowRight className="button-arrow w-4 h-4 ml-2" />
               </Link>
             </div>
-
-            {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full">
-                <div className="floating-star absolute top-12 left-16 w-3 h-3 bg-white/20 rounded-full"></div>
-                <div className="floating-star absolute bottom-16 right-20 w-2 h-2 bg-white/30 rounded-full"></div>
-                <div className="floating-star absolute top-1/3 right-1/4 w-4 h-4 bg-white/15 rounded-full"></div>
-              </div>
-            </div>
           </div>
-
-          {/* Banner shadow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-500/20 rounded-2xl blur-xl transform translate-y-2 -z-10"></div>
         </div>
 
         {/* Additional promotional section */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="promo-card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 text-center border border-blue-100">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Sparkles className="w-6 h-6 text-blue-600" />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <div className="w-10 h-10 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Sparkles className="w-5 h-5" />
             </div>
-            <h4 className="font-semibold text-gray-800 mb-2">Fresh Daily</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">Fresh Daily</h4>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               New stock arrives every morning
             </p>
           </div>
 
-          <div className="promo-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 text-center border border-green-100">
-            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Home className="w-6 h-6 text-green-600" />
+          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <div className="w-10 h-10 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Home className="w-5 h-5" />
             </div>
-            <h4 className="font-semibold text-gray-800 mb-2">Local Sourced</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">Local Sourced</h4>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               Supporting local farmers & vendors
             </p>
           </div>
 
-          <div className="promo-card bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center border border-purple-100">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Star className="w-6 h-6 text-purple-600" />
+          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
+            <div className="w-10 h-10 bg-amber-500/10 text-amber-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Star className="w-5 h-5 fill-current" />
             </div>
-            <h4 className="font-semibold text-gray-800 mb-2">
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">
               Quality Promise
             </h4>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               100% satisfaction guaranteed
             </p>
           </div>

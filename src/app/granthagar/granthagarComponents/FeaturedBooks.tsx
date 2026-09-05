@@ -3,9 +3,11 @@
 import React, { useRef } from "react";
 import { Star, Heart, User } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,6 +61,7 @@ const FeaturedBooks: React.FC = () => {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Set initial states
     gsap.set(".books-header", { y: 50, opacity: 1 });
@@ -99,13 +102,13 @@ const FeaturedBooks: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
+    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="books-header text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Featured Books
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Discover our most loved books, carefully curated by our amazing
             community of donors and readers.
           </p>
@@ -115,7 +118,7 @@ const FeaturedBooks: React.FC = () => {
           {featuredBooks.map((book) => (
             <div
               key={book.id}
-              className="book-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+              className="book-card bg-slate-50 dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden"
             >
               <div className="relative">
                 <Image
@@ -148,11 +151,11 @@ const FeaturedBooks: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-1 line-clamp-2">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">
                   {book.title}
                 </h3>
 
-                <p className="text-gray-600 mb-3">by {book.author}</p>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3">by {book.author}</p>
 
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-1">
@@ -188,7 +191,7 @@ const FeaturedBooks: React.FC = () => {
         </div>
 
         <div className="view-all-btn text-center mt-12">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105">
+          <button className="bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#303030] px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
             View All Books
           </button>
         </div>

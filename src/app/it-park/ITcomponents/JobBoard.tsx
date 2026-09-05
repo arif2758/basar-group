@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -57,6 +59,7 @@ function JobBoard() {
     },
   ];
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
@@ -119,13 +122,13 @@ function JobBoard() {
   }, []);
 
   return (
-    <section id="jobs" ref={sectionRef} className="py-20 bg-white">
+    <section id="jobs" ref={sectionRef} className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Job Opportunities
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Connect with local and remote opportunities tailored for our
             community
           </p>
@@ -136,23 +139,23 @@ function JobBoard() {
             <div
               key={index}
               ref={(el) => { jobCardsRef.current[index] = el; }}
-              className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-300 border border-gray-200 cursor-pointer"
+              className="bg-white dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer"
             >
-              <h3 className="text-lg font-bold text-gray-800 mb-2">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">
                 {job.title}
               </h3>
-              <p className="text-gray-600 mb-2">{job.company}</p>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3">{job.company}</p>
               <div className="flex items-center justify-between mb-4">
-                <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm">
+                <span className="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 px-2 py-0.5 rounded-md text-xs font-medium">
                   {job.type}
                 </span>
-                <span className="text-gray-500 text-sm">{job.location}</span>
+                <span className="text-slate-500 dark:text-slate-400 text-xs">{job.location}</span>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-gray-800">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-[#252525]">
+                <span className="font-bold text-slate-900 dark:text-white text-sm">
                   {job.salary}
                 </span>
-                <button className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors duration-200">
+                <button className="text-emerald-600 dark:text-emerald-400 hover:underline text-xs font-medium transition-colors duration-200">
                   Apply →
                 </button>
               </div>

@@ -1,4 +1,5 @@
 "use client";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import Hero from "@/components/Hero";
 import Mission from "@/components/Mission";
@@ -22,7 +23,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Home() {
   const { language } = useLanguage();
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-[#070b14] transition-colors duration-300 overflow-x-hidden w-full">
       <Hero language={language} />
       <Mission language={language} />
       <ImpactCounters language={language} />

@@ -1,9 +1,7 @@
 "use client";
-import React from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   BookOpen,
   Trophy,
@@ -27,352 +25,35 @@ const ReadingTracker: React.FC = () => {
   const actionsRef = useRef<HTMLDivElement>(null);
   const streakRef = useRef<HTMLDivElement>(null);
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Header Animation
       gsap.fromTo(
         headerRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
-        }
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
       );
 
-      // Stats Cards Animation with Counter Effect
+      // Stats Cards Animation
       const statCards = statsRef.current?.querySelectorAll(".stat-card");
       statCards?.forEach((card, index) => {
         gsap.fromTo(
           card,
-          {
-            opacity: 0,
-            y: 60,
-            scale: 0.8,
-            rotationY: 15,
-          },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            rotationY: 0,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: statsRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-
-        // Counter animation for numbers
-        const numberElement = card.querySelector(".stat-number") as HTMLElement;
-        if (numberElement) {
-          const finalValue = parseInt(
-            numberElement.textContent?.replace(/,/g, "") || "0"
-          );
-          const counterObj = { value: 0 };
-
-          gsap.to(counterObj, {
-            value: finalValue,
-            duration: 2,
-            delay: index * 0.1 + 0.5,
-            ease: "power2.out",
-            onUpdate: function () {
-              const currentValue = Math.round(counterObj.value);
-              numberElement.textContent = currentValue.toLocaleString();
-            },
-            scrollTrigger: {
-              trigger: statsRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          });
-        }
-      });
-
-      // Goals Section Animation
-      gsap.fromTo(
-        goalsRef.current,
-        {
-          opacity: 0,
-          x: -100,
-          rotationX: 10,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotationX: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: goalsRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Progress bars animation
-      const progressBars = goalsRef.current?.querySelectorAll(
-        ".progress-bar"
-      ) as NodeListOf<HTMLElement>;
-      progressBars?.forEach((bar, index) => {
-        const targetWidth = bar.getAttribute("data-width") || "0%";
-        gsap.fromTo(
-          bar,
-          { width: "0%" },
-          {
-            width: targetWidth,
-            duration: 1.5,
-            delay: index * 0.3 + 0.5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: goalsRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      // Chart Animation
-      const chartBars = chartRef.current?.querySelectorAll(
-        ".chart-bar"
-      ) as NodeListOf<HTMLElement>;
-      chartBars?.forEach((bar, index) => {
-        const targetHeight = bar.getAttribute("data-height") || "0%";
-        gsap.fromTo(
-          bar,
-          {
-            height: "0%",
-            opacity: 0,
-          },
-          {
-            height: targetHeight,
-            opacity: 1,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: "bounce.out",
-            scrollTrigger: {
-              trigger: chartRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      // Recent Books Animation
-      const bookItems = booksRef.current?.querySelectorAll(".book-item");
-      bookItems?.forEach((item, index) => {
-        gsap.fromTo(
-          item,
-          {
-            opacity: 0,
-            x: 100,
-            rotationY: 15,
-          },
-          {
-            opacity: 1,
-            x: 0,
-            rotationY: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: booksRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      // Achievements Animation
-      const badges = achievementsRef.current?.querySelectorAll(".badge-item");
-      badges?.forEach((badge, index) => {
-        gsap.fromTo(
-          badge,
-          {
-            opacity: 0,
-            scale: 0.5,
-            rotation: 10,
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 0.6,
-            delay: index * 0.1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: achievementsRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      // Quick Actions Animation
-      const actionButtons =
-        actionsRef.current?.querySelectorAll(".action-button");
-      actionButtons?.forEach((button, index) => {
-        gsap.fromTo(
-          button,
-          {
-            opacity: 0,
-            y: 30,
-            scale: 0.9,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
             duration: 0.6,
             delay: index * 0.1,
             ease: "power2.out",
             scrollTrigger: {
-              trigger: actionsRef.current,
+              trigger: statsRef.current,
               start: "top 85%",
               toggleActions: "play none none reverse",
             },
           }
         );
-      });
-
-      // Streak Card Animation
-      gsap.fromTo(
-        streakRef.current,
-        {
-          opacity: 0,
-          scale: 0.8,
-          rotationZ: 5,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          rotationZ: 0,
-          duration: 1.2,
-          ease: "elastic.out(1, 0.5)",
-          scrollTrigger: {
-            trigger: streakRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Flame icon pulsing animation
-      const flameIcon = streakRef.current?.querySelector(".flame-icon");
-      if (flameIcon) {
-        gsap.to(flameIcon, {
-          scale: 1.1,
-          duration: 1,
-          repeat: -1,
-          yoyo: true,
-          ease: "power2.inOut",
-        });
-      }
-
-      // Hover animations for interactive elements
-      const statCards2 = statsRef.current?.querySelectorAll(".stat-card");
-      statCards2?.forEach((card) => {
-        const cardElement = card as HTMLElement;
-        cardElement.addEventListener("mouseenter", () => {
-          gsap.to(cardElement, {
-            y: -8,
-            scale: 1.02,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        cardElement.addEventListener("mouseleave", () => {
-          gsap.to(cardElement, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Book items hover effect
-      const bookItems2 = booksRef.current?.querySelectorAll(".book-item");
-      bookItems2?.forEach((item) => {
-        const itemElement = item as HTMLElement;
-        itemElement.addEventListener("mouseenter", () => {
-          gsap.to(itemElement, {
-            x: 10,
-            scale: 1.02,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        itemElement.addEventListener("mouseleave", () => {
-          gsap.to(itemElement, {
-            x: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Action buttons hover effect
-      const actionButtons2 =
-        actionsRef.current?.querySelectorAll(".action-button");
-      actionButtons2?.forEach((button) => {
-        const buttonElement = button as HTMLElement;
-        buttonElement.addEventListener("mouseenter", () => {
-          gsap.to(buttonElement, {
-            scale: 1.05,
-            y: -3,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-
-        buttonElement.addEventListener("mouseleave", () => {
-          gsap.to(buttonElement, {
-            scale: 1,
-            y: 0,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Badge hover effect
-      const badges2 = achievementsRef.current?.querySelectorAll(".badge-item");
-      badges2?.forEach((badge) => {
-        const badgeElement = badge as HTMLElement;
-        badgeElement.addEventListener("mouseenter", () => {
-          gsap.to(badgeElement, {
-            scale: 1.05,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-
-        badgeElement.addEventListener("mouseleave", () => {
-          gsap.to(badgeElement, {
-            scale: 1,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
       });
     },
     { scope: containerRef }
@@ -465,13 +146,13 @@ const ReadingTracker: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div ref={containerRef} className="min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-white transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div ref={headerRef} className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
             My Reading Journey
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Track your progress, celebrate achievements, and stay motivated on
             your reading adventure.
           </p>
@@ -481,129 +162,121 @@ const ReadingTracker: React.FC = () => {
           {/* Stats Overview */}
           <div className="lg:col-span-2 space-y-6">
             {/* Key Metrics */}
-            <div ref={statsRef} className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div ref={statsRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
                 Reading Stats
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="stat-card text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <BookOpen className="w-8 h-8 text-blue-600" />
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
+                  <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mx-auto mb-2 text-emerald-600 dark:text-emerald-400">
+                    <BookOpen className="w-5 h-5" />
                   </div>
-                  <div className="stat-number text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.booksRead}
                   </div>
-                  <div className="text-sm text-gray-600">Books Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Books Read</div>
                 </div>
 
-                <div className="stat-card text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Target className="w-8 h-8 text-green-600" />
+                <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
+                  <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-2 text-blue-600 dark:text-blue-400">
+                    <Target className="w-5 h-5" />
                   </div>
-                  <div className="stat-number text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.pagesRead.toLocaleString()}
                   </div>
-                  <div className="text-sm text-gray-600">Pages Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Pages Read</div>
                 </div>
 
-                <div className="stat-card text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Flame className="w-8 h-8 text-orange-600" />
+                <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
+                  <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mx-auto mb-2 text-amber-500">
+                    <Flame className="w-5 h-5" />
                   </div>
-                  <div className="stat-number text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.currentStreak}
                   </div>
-                  <div className="text-sm text-gray-600">Day Streak</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Day Streak</div>
                 </div>
 
-                <div className="stat-card text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Calendar className="w-8 h-8 text-purple-600" />
+                <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
+                  <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-2 text-purple-600 dark:text-purple-400">
+                    <Calendar className="w-5 h-5" />
                   </div>
-                  <div className="stat-number text-2xl font-bold text-gray-900">
+                  <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.readingHours}
                   </div>
-                  <div className="text-sm text-gray-600">Hours Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Hours Read</div>
                 </div>
               </div>
             </div>
 
             {/* Goals Progress */}
-            <div ref={goalsRef} className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div ref={goalsRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
                 Reading Goals
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-gray-700">
+                  <div className="flex items-center justify-between mb-1.5 text-xs">
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
                       Monthly Goal
                     </span>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-slate-500 dark:text-slate-400">
                       1 of {userStats.monthlyGoal} books
                     </span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-slate-100 dark:bg-[#262626] rounded-full h-2">
                     <div
-                      className="progress-bar bg-blue-600 h-2 rounded-full"
-                      data-width={`${(1 / userStats.monthlyGoal) * 100}%`}
+                      className="bg-emerald-600 h-2 rounded-full"
+                      style={{ width: `${(1 / userStats.monthlyGoal) * 100}%` }}
                     ></div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-gray-700">
+                  <div className="flex items-center justify-between mb-1.5 text-xs">
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
                       Yearly Goal
                     </span>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-slate-500 dark:text-slate-400">
                       {userStats.booksRead} of {userStats.yearlyGoal} books
                     </span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-slate-100 dark:bg-[#262626] rounded-full h-2">
                     <div
-                      className="progress-bar bg-green-600 h-2 rounded-full"
-                      data-width={`${
-                        (userStats.booksRead / userStats.yearlyGoal) * 100
-                      }%`}
+                      className="bg-blue-600 h-2 rounded-full"
+                      style={{ width: `${(userStats.booksRead / userStats.yearlyGoal) * 100}%` }}
                     ></div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 bg-blue-50 rounded-lg p-4">
-                <div className="flex items-center space-x-2 mb-2">
-                  <TrendingUp className="w-5 h-5 text-blue-600" />
-                  <span className="font-medium text-blue-900">
-                    You&apos;re doing great!
-                  </span>
-                </div>
-                <p className="text-blue-800 text-sm">
-                  You&apos;re 50% ahead of your yearly reading goal. Keep up the
-                  excellent work!
+              <div className="mt-5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg p-3.5 border border-slate-200 dark:border-[#262626] flex items-center space-x-2.5">
+                <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <p className="text-xs text-slate-600 dark:text-slate-300">
+                  You&apos;re 50% ahead of your yearly reading goal. Keep up the excellent work!
                 </p>
               </div>
             </div>
 
             {/* Monthly Progress Chart */}
-            <div ref={chartRef} className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div ref={chartRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
                 Monthly Progress
               </h2>
-              <div className="flex items-end space-x-4 h-40">
+              <div className="flex items-end space-x-3 sm:space-x-4 h-36 pt-4 border-b border-slate-100 dark:border-[#262626]">
                 {monthlyProgress.map((month, index) => (
                   <div
                     key={index}
-                    className="flex-1 flex flex-col items-center"
+                    className="flex-1 flex flex-col items-center h-full justify-end"
                   >
                     <div
-                      className="chart-bar w-full bg-blue-500 rounded-t"
-                      data-height={`${(month.books / 4) * 100}%`}
+                      className="w-full max-w-[36px] bg-emerald-600/80 hover:bg-emerald-500 rounded-t transition-all"
+                      style={{ height: `${(month.books / 4) * 100}%` }}
                     ></div>
-                    <div className="text-xs font-medium text-gray-600 mt-2">
+                    <div className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-2">
                       {month.month}
                     </div>
-                    <div className="text-sm font-bold text-gray-900">
+                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200">
                       {month.books}
                     </div>
                   </div>
@@ -612,38 +285,38 @@ const ReadingTracker: React.FC = () => {
             </div>
 
             {/* Recent Books */}
-            <div ref={booksRef} className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div ref={booksRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-4">
                 Recently Completed
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {recentBooks.map((book, index) => (
                   <div
                     key={index}
-                    className="book-item flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
+                    className="book-item flex items-center space-x-3.5 p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]"
                   >
-                    <div className="w-12 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded flex items-center justify-center">
-                      <BookOpen className="w-6 h-6 text-white" />
+                    <div className="w-10 h-12 bg-emerald-600 rounded flex items-center justify-center flex-shrink-0 text-white">
+                      <BookOpen className="w-5 h-5" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-slate-900 dark:text-white text-xs sm:text-sm truncate">
                         {book.title}
                       </h3>
-                      <p className="text-gray-600 text-sm">by {book.author}</p>
-                      <div className="flex items-center space-x-4 mt-1 text-xs text-gray-500">
+                      <p className="text-slate-500 dark:text-slate-400 text-xs">by {book.author}</p>
+                      <div className="flex items-center space-x-3 mt-1 text-[11px] text-slate-400">
                         <span>{book.pages} pages</span>
+                        <span>•</span>
                         <span>{book.timeSpent}</span>
-                        <span>Completed {book.completedDate}</span>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-0.5">
                       {[...Array(5)].map((_, starIndex) => (
                         <Star
                           key={starIndex}
-                          className={`w-4 h-4 ${
+                          className={`w-3.5 h-3.5 ${
                             starIndex < book.rating
-                              ? "text-yellow-400 fill-current"
-                              : "text-gray-300"
+                              ? "text-amber-400 fill-current"
+                              : "text-slate-300 dark:text-slate-600"
                           }`}
                         />
                       ))}
@@ -659,51 +332,47 @@ const ReadingTracker: React.FC = () => {
             {/* Achievements */}
             <div
               ref={achievementsRef}
-              className="bg-white rounded-2xl shadow-lg p-6"
+              className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6"
             >
-              <div className="flex items-center space-x-2 mb-6">
-                <Trophy className="w-6 h-6 text-yellow-500" />
-                <h2 className="text-xl font-bold text-gray-900">
+              <div className="flex items-center space-x-2 mb-4">
+                <Trophy className="w-5 h-5 text-amber-500" />
+                <h2 className="text-base font-semibold text-slate-900 dark:text-white">
                   Achievements
                 </h2>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {badges.map((badge, index) => (
                   <div
                     key={index}
-                    className={`badge-item flex items-center space-x-3 p-3 rounded-lg ${
+                    className={`badge-item flex items-center space-x-3 p-2.5 rounded-lg border ${
                       badge.earned
-                        ? "bg-yellow-50 border border-yellow-200"
-                        : "bg-gray-50"
+                        ? "bg-amber-50/40 dark:bg-amber-950/20 border-amber-200/60 dark:border-amber-900/30"
+                        : "bg-slate-50 dark:bg-[#1a1a1a] border-slate-200 dark:border-[#262626]"
                     }`}
                   >
                     <div
-                      className={`text-2xl ${
-                        badge.earned ? "" : "grayscale opacity-50"
+                      className={`text-xl ${
+                        badge.earned ? "" : "grayscale opacity-40"
                       }`}
                     >
                       {badge.icon}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h3
-                        className={`font-semibold ${
-                          badge.earned ? "text-yellow-800" : "text-gray-500"
+                        className={`font-semibold text-xs truncate ${
+                          badge.earned ? "text-amber-900 dark:text-amber-300" : "text-slate-500"
                         }`}
                       >
                         {badge.name}
                       </h3>
-                      <p
-                        className={`text-xs ${
-                          badge.earned ? "text-yellow-600" : "text-gray-400"
-                        }`}
-                      >
+                      <p className="text-[11px] text-slate-400 truncate">
                         {badge.description}
                       </p>
                     </div>
                     {badge.earned && (
-                      <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs">✓</span>
+                      <div className="w-4 h-4 bg-emerald-600 rounded-full flex items-center justify-center text-white text-[10px]">
+                        ✓
                       </div>
                     )}
                   </div>
@@ -714,19 +383,19 @@ const ReadingTracker: React.FC = () => {
             {/* Quick Actions */}
             <div
               ref={actionsRef}
-              className="bg-white rounded-2xl shadow-lg p-6"
+              className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-4">
                 Quick Actions
               </h2>
-              <div className="space-y-3">
-                <button className="action-button w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold">
+              <div className="space-y-2.5">
+                <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg font-medium text-xs shadow-sm transition-colors active:scale-[0.99]">
                   Log New Book
                 </button>
-                <button className="action-button w-full bg-green-100 text-green-800 py-3 px-4 rounded-lg font-semibold">
+                <button className="w-full bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors">
                   Set New Goal
                 </button>
-                <button className="action-button w-full bg-orange-100 text-orange-800 py-3 px-4 rounded-lg font-semibold">
+                <button className="w-full bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors">
                   Share Progress
                 </button>
               </div>
@@ -735,18 +404,16 @@ const ReadingTracker: React.FC = () => {
             {/* Reading Streak */}
             <div
               ref={streakRef}
-              className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg p-6 text-white"
+              className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-xl shadow-sm p-6 text-white text-center"
             >
-              <div className="text-center">
-                <Flame className="flame-icon w-12 h-12 mx-auto mb-3 text-yellow-300" />
-                <h2 className="text-2xl font-bold mb-2">Reading Streak</h2>
-                <div className="text-4xl font-bold mb-1">
-                  {userStats.currentStreak}
-                </div>
-                <div className="text-orange-100 mb-4">Days in a row</div>
-                <div className="text-sm text-orange-100">
-                  Personal best: {userStats.longestStreak} days
-                </div>
+              <Flame className="w-8 h-8 mx-auto mb-2 text-amber-400" />
+              <h2 className="text-base font-semibold mb-1 text-white">Reading Streak</h2>
+              <div className="text-3xl font-bold text-amber-400 mb-0.5">
+                {userStats.currentStreak}
+              </div>
+              <div className="text-xs text-slate-400 mb-3">Days in a row</div>
+              <div className="text-xs text-slate-400 pt-3 border-t border-slate-800 dark:border-[#262626]">
+                Personal best: {userStats.longestStreak} days
               </div>
             </div>
           </div>

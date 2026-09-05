@@ -11,7 +11,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import { FloatButton } from "antd";
+import { ArrowUp } from "lucide-react";
 
 interface FooterProps {
   language: "bn" | "en";
@@ -238,8 +238,17 @@ export default function Footer({ language }: FooterProps) {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      {showScrollTop && <FloatButton.BackTop />}
+      {/* AntD-style Scroll to Top FloatButton */}
+      {showScrollTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Scroll to top"
+          className="fixed bottom-8 right-8 z-50 w-10 h-10 rounded-full bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#303030] shadow-[0_6px_16px_0_rgba(0,0,0,0.12)] dark:shadow-[0_6px_16px_0_rgba(0,0,0,0.5)] flex items-center justify-center hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-400 dark:hover:border-blue-500 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
+        >
+          <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-200" />
+        </button>
+      )}
     </footer>
   );
 }

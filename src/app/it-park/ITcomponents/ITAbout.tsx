@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { FaClock, FaGlobe, FaShieldAlt } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -16,6 +18,7 @@ function ITAbout() {
   const rightContentRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 40, opacity: 0 });
@@ -90,13 +93,13 @@ function ITAbout() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 bg-white">
+    <section id="about" ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             About BASAR IT Park
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             A revolutionary concept that merges IT education with community
             space, creating a safe, inspiring environment where learning leads
             to earning.
@@ -105,10 +108,10 @@ function ITAbout() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div ref={leftContentRef}>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
               Our Vision
             </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
               BASAR IT Park combines the structured learning environment of
               BASAR IT Center with the open, nature-filled atmosphere of BASAR
               Park. This unique approach creates a holistic learning experience
@@ -126,7 +129,7 @@ function ITAbout() {
                   className="flex items-center space-x-3"
                 >
                   <feature.icon className="text-emerald-600 text-xl" />
-                  <span className="text-gray-700">{feature.text}</span>
+                  <span className="text-slate-700 dark:text-slate-300 text-sm font-medium">{feature.text}</span>
                 </div>
               ))}
             </div>
@@ -138,7 +141,7 @@ function ITAbout() {
               alt="BASAR IT Park"
               width={800}
               height={500}
-              className="rounded-lg shadow-xl"
+              className="rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
             />
             <div className="absolute inset-0 bg-emerald-600/20 rounded-lg"></div>
           </div>

@@ -12,9 +12,11 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +65,7 @@ export default function CommunityImpact() {
     "Customer Support & Social Media",
   ];
 
+  useScrollAnimation();
   useGSAP(
     () => {
       // Floating background elements

@@ -1,45 +1,59 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/globals.css"
+import type { Metadata, Viewport } from "next";
+import { Noto_Sans_Bengali, Inter } from "next/font/google";
+import "../styles/globals.css";
+import "../styles/animations.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-
+import { ThemeProvider } from "@/context/ThemeContext";
 import FooterWraper from "@/wraper/FooterWraper";
 import Navbar from "@/components/Navbar";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import "@ant-design/v5-patch-for-react-19";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const notoBengali = Noto_Sans_Bengali({
+  variable: "--font-noto-bengali",
+  subsets: ["bengali"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#090d16" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: {
-    default: "BASAR Group",
+    default: "BASAR Group | বাছার গ্রুপ - মানবসেবা ও সমাজকল্যাণ",
     template: "%s | BASAR Group",
   },
   description:
-    "BASAR Group - A trusted name in retail, technology, and innovation. From BASAR Super Shop to BASAR IT Park, we are shaping the future with quality, integrity, and customer-first approach.",
+    "বাছার গ্রুপ (BASAR Group) একটি অলাভজনক সামাজিক ও মানবিক সংস্থা। শিক্ষা সহায়তা, ডিজিটাল আইটি পার্ক, কমিউনিটি গ্রন্থাগার ও ত্রাণ কার্যক্রমে নিবেদিত।",
   keywords: [
+    "বাছার গ্রুপ",
     "BASAR Group",
-    "BASAR Super Shop",
+    "বাছার ফাউন্ডেশন",
+    "BASAR Foundation",
+    "বাছার গ্রন্থাগার",
+    "BASAR Library",
+    "বাছার আইটি পার্ক",
     "BASAR IT Park",
-    "Retail",
-    "Technology",
-    "Grocery Shop",
-    "Bangladesh Business",
-    "Innovation",
-    "Super Shop",
-    "Digital Solutions",
-    "Customer First",
+    "বাছার সুপার শপ",
+    "BASAR Super Shop",
+    "বংশলতিকা",
+    "Family Tree Bangladesh",
+    "Social NGO Bangladesh",
   ],
   icons: {
-    icon: "/basar-group-logo.png",
+    icon: "/favicon.ico",
   },
 };
 
@@ -49,20 +63,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="bn"
+      className={`${notoBengali.variable} ${inter.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#070b14] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-[100vw]"
       >
-        <AntdRegistry>
+        <ThemeProvider>
           <LanguageProvider>
             <Navbar />
-
-            <main className="min-h-screen flex flex-col">
+            <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
               {children}
-            </main>
+            </div>
             <FooterWraper />
           </LanguageProvider>
-        </AntdRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

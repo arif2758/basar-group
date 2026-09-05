@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { FaBullhorn, FaCamera, FaLaptopCode, FaPalette } from "react-icons/fa";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+
+
+import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -41,6 +43,7 @@ function SkillAndCourses() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const iconsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  useScrollAnimation();
   useGSAP(() => {
     // Header animation
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
@@ -123,13 +126,13 @@ function SkillAndCourses() {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 bg-white">
+    <section id="skills" ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
             Skills & Courses
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Comprehensive programs designed to prepare you for the digital
             economy
           </p>
@@ -142,18 +145,18 @@ function SkillAndCourses() {
               ref={(el) => { cardsRef.current[index] = el; }}
               className="group cursor-pointer"
             >
-              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group-hover:border-emerald-200">
+              <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300">
                 <div
                   ref={(el) => { iconsRef.current[index] = el; }}
-                  className={`w-16 h-16 ${skill.color} rounded-lg flex items-center justify-center mb-4 transition-transform duration-300`}
+                  className={`w-12 h-12 ${skill.color} rounded-xl flex items-center justify-center mb-4 shadow-sm transition-transform duration-300`}
                 >
-                  <skill.icon className="text-white text-2xl" />
+                  <skill.icon className="text-white text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                   {skill.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{skill.description}</p>
-                <button className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors duration-200">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">{skill.description}</p>
+                <button className="text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:underline transition-colors duration-200">
                   Enroll Now →
                 </button>
               </div>
