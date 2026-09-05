@@ -260,7 +260,7 @@ const Programs = () => {
     <section
       ref={containerRef}
       id="programs"
-      className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200"
     >
       <div className="container mx-auto px-4">
         {/* Title */}

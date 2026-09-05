@@ -375,7 +375,7 @@ const SystemFlow = () => {
     <section
       ref={containerRef}
       id="system-flow"
-      className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

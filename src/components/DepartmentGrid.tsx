@@ -80,7 +80,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
   }, []);
 
   return (
-    <section id="departments" className="section-padding bg-slate-50 dark:bg-[#070b14] transition-colors duration-300 py-20">
+    <section id="departments" className="section-padding bg-white dark:bg-[#070b14] transition-colors duration-300 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">

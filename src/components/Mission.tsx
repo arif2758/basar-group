@@ -87,7 +87,7 @@ export default function Mission({ language }: MissionProps) {
   return (
     <section
       ref={missionRef}
-      className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300"
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -191,7 +191,7 @@ export default function Mission({ language }: MissionProps) {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
           <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl animate-scale-in">
-            <div className="flex justify-between items-center p-6 border-b border-slate-100 dark:border-[#2a2a2a]">
+            <div className="flex justify-between items-center p-6">
               <h3 className="font-poppins text-xl font-bold text-slate-900 dark:text-white">
                 {language === "bn"
                   ? "আমাদের সম্পূর্ণ গল্প"

@@ -1,60 +1,129 @@
 // src/data/familyData.ts
 
 export interface FamilyMember {
-  key: string;
+  key: string; // অর্থবোধক হায়ারার্কিক্যাল আইডি (Semantic ID, e.g. "1-1-1-1-1-3")
   title: string;
   gender?: "male" | "female";
   generation: number;
   children?: FamilyMember[];
+  birthYear?: string;
+  deathYear?: string;
+  isAlive?: boolean;
+  phone?: string;
+  address?: string;
+  profession?: string;
+  spouse?: string;
+  bio?: string;
 }
+
+export interface FlatFamilyMember {
+  key: string;
+  title: string;
+  gender?: "male" | "female";
+  generation: number;
+  parentKey?: string | null;
+  birthYear?: string;
+  deathYear?: string;
+  isAlive?: boolean;
+  phone?: string;
+  address?: string;
+  profession?: string;
+  spouse?: string;
+  bio?: string;
+}
+
 
 export const familyTreeData: FamilyMember[] = [
   {
     title: "বাছার বংশ",
     key: "1",
     generation: 0,
+    bio: "বাছার বংশের মূল আদি শিকড় ও ঐতিহ্যবাহী পারিবারিক মহীরূহ।",
     children: [
       {
         title: "ইজ্জত আলী বাছার",
         key: "1-1",
         gender: "male",
         generation: 1,
+        birthYear: "১৮৮০",
+        deathYear: "১৯৫২",
+        isAlive: false,
+        profession: "সমাজসেবক ও গৃহস্থালী প্রধান",
+        address: "পূর্বপুরুষের আদি ভিটা",
+        spouse: "মরহুমা রহিমা খাতুন",
+        bio: "বাছার বংশের ১ম প্রজন্মের অন্যতম প্রবীণ আদি পুরুষ।",
         children: [
           {
             title: "হাজ্বী দাগু বাছার",
             key: "1-1-1",
             gender: "male",
             generation: 2,
+            birthYear: "১৯০৫",
+            deathYear: "১৯৭৮",
+            isAlive: false,
+            profession: "বিশিষ্ট সমাজসেবক ও ধর্মপ্রাণ ব্যক্তি",
+            address: "বাছার পাড়া",
+            spouse: "মরহুমা জোবেদা খাতুন",
+            bio: "এলাকার সামাজিক বিচার ও উন্নয়নে গুরুত্বপূর্ণ ভূমিকা রেখেছিলেন।",
             children: [
               {
                 title: "ধনাই বাছার/ দিল মোহাম্মদ বাছার",
                 key: "1-1-1-1",
                 gender: "male",
                 generation: 3,
+                birthYear: "১৯৩০",
+                deathYear: "১৯৯৮",
+                isAlive: false,
+                profession: "কৃষিবিদ ও ব্যবসায়ী",
+                address: "বাছার বাড়ি",
+                spouse: "মরহুমা খাদিজা বেগম",
                 children: [
                   {
                     title: "মালেক বাছার",
                     key: "1-1-1-1-1",
                     gender: "male",
                     generation: 4,
+                    birthYear: "১৯৫২",
+                    deathYear: "২০১৮",
+                    isAlive: false,
+                    profession: "ব্যবসায়ী ও শিক্ষানুরাগী",
+                    address: "বাছার ভবন",
+                    spouse: "মরহুমা ফিরোজা বেগম",
                     children: [
                       {
                         title: "সেলিনা",
                         key: "1-1-1-1-1-1",
                         gender: "female",
                         generation: 5,
+                        birthYear: "১৯৭৫",
+                        isAlive: true,
+                        profession: "গৃহিণী",
+                        address: "ঢাকা",
+                        spouse: "মোঃ রফিকুল ইসলাম",
                       },
                       {
                         title: "নাছিমা",
                         key: "1-1-1-1-1-2",
                         gender: "female",
                         generation: 5,
+                        birthYear: "১৯৭৮",
+                        isAlive: true,
+                        profession: "শিক্ষিকা",
+                        address: "খুলনা",
+                        spouse: "মোঃ আনোয়ার হোসেন",
                       },
                       {
                         title: "জাকির হোসেন",
                         key: "1-1-1-1-1-3",
                         gender: "male",
                         generation: 5,
+                        birthYear: "১৯৮২",
+                        isAlive: true,
+                        profession: "সফটওয়্যার প্রকৌশলী ও উদ্যোক্তা",
+                        phone: "০১৭১২-৩৪৫৬৭৮",
+                        address: "মিরপুর, ঢাকা",
+                        spouse: "ফাহমিদা আক্তার",
+                        bio: "বাছার গ্রুপের ডিজিটাল রূপান্তর ও সমাজসেবায় নিবেদিত।",
                       },
                       {
                         title: "আলী হোসেন",

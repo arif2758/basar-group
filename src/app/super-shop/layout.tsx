@@ -2,7 +2,7 @@ import { CartProvider } from "./contexts/CartContext";
 import FooterShop from "./shopComponents/FooterShop";
 
 
-function GranthagarLayout({
+function SuperShopLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -19,4 +19,4 @@ function GranthagarLayout({
   );
 }
 
-export default GranthagarLayout;
+export default SuperShopLayout;

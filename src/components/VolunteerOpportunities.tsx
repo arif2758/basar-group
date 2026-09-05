@@ -454,7 +454,7 @@ export default function VolunteerOpportunities() {
     <section
       ref={containerRef}
       id="volunteer"
-      className="relative py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] overflow-hidden transition-colors duration-200"
+      className="relative py-20 bg-white dark:bg-[#070b14] overflow-hidden transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -688,7 +688,7 @@ export default function VolunteerOpportunities() {
           >
             <div className="p-6 sm:p-8">
               {/* Modal Header */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-[#252525]">
+              <div className="flex items-center justify-between mb-6 pb-4">
                 <div className="flex items-center">
                   <div
                     className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3 border border-blue-100 dark:border-blue-800/40"

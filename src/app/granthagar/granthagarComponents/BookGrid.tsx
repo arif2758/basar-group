@@ -345,7 +345,7 @@ const BookGrid: React.FC<BookGridProps> = ({
       )}
 
       {/* Trust Indicators */}
-      <div className="mt-14 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-slate-500 dark:text-slate-400 text-xs sm:text-sm border-t border-slate-200 dark:border-[#303030] pt-8">
+      <div className="mt-14 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-slate-500 dark:text-slate-400 text-xs sm:text-sm pt-8">
         {[
           "📚 Verified Books",
           "🤝 Trusted Community",

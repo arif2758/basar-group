@@ -88,7 +88,7 @@ function GuardianDashboard() {
   }, { scope: containerRef });
 
   return (
-    <section id="guardian" className="py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200" ref={containerRef}>
+    <section id="guardian" className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           

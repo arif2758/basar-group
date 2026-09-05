@@ -1,9 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  RotateCcw,
+  Sparkles,
+  Tag,
+  Check,
+} from "lucide-react";
 
-export default function FilterSidebar() {
+interface FilterSidebarProps {
+  categories: { name: string; slug: string; count: number }[];
+  selectedCategory: string;
+  onSelectCategory: (categorySlug: string) => void;
+  selectedPriceRange: string;
+  onSelectPriceRange: (range: string) => void;
+  inStockOnly: boolean;
+  onToggleInStock: () => void;
+  minRating: number;
+  onSelectRating: (rating: number) => void;
+  onResetFilters: () => void;
+  isFiltered: boolean;
+}
+
+export default function FilterSidebar({
+  categories,
+  selectedCategory,
+  onSelectCategory,
+  selectedPriceRange,
+  onSelectPriceRange,
+  inStockOnly,
+  onToggleInStock,
+  minRating,
+  onSelectRating,
+  onResetFilters,
+  isFiltered,
+}: FilterSidebarProps) {
   const [openSections, setOpenSections] = useState({
     category: true,
     price: true,
@@ -11,195 +44,206 @@ export default function FilterSidebar() {
     availability: true,
   });
 
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: keyof typeof openSections) => {
     setOpenSections((prev) => ({
       ...prev,
-      [section]: !prev[section as keyof typeof prev],
+      [section]: !prev[section],
     }));
   };
 
-  const categories = [
-    "Vegetables",
-    "Fruits",
-    "Dairy",
-    "Meat & Fish",
-    "Rice & Grains",
-    "Snacks",
-    "Beverages",
-    "Personal Care",
-    "Household",
+  const priceRanges = [
+    { id: "all", label: "All Prices" },
+    { id: "under-50", label: "Under ৳50" },
+    { id: "50-100", label: "৳50 - ৳100" },
+    { id: "100-250", label: "৳100 - ৳250" },
+    { id: "over-250", label: "Over ৳250" },
+  ];
+
+  const ratingOptions = [
+    { value: 0, label: "All Ratings" },
+    { value: 4.8, label: "4.8★ & Above" },
+    { value: 4.5, label: "4.5★ & Above" },
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">Filters</h2>
+    <div className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] rounded-2xl p-5 sm:p-6 shadow-sm transition-colors duration-200">
+      {/* Header */}
+      <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-[#262626] mb-5">
+        <div className="flex items-center gap-2">
+          <Tag className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <h2 className="text-base font-bold text-slate-900 dark:text-white">
+            Filter Products
+          </h2>
+        </div>
+
+        {isFiltered && (
+          <button
+            onClick={onResetFilters}
+            className="flex items-center gap-1 text-xs font-semibold text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset</span>
+          </button>
+        )}
+      </div>
 
       {/* Categories */}
-      <div className="mb-6">
+      <div className="mb-6 pb-6 border-b border-slate-100 dark:border-[#262626]">
         <button
           onClick={() => toggleSection("category")}
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800 mb-3"
+          className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
           <span>Categories</span>
           {openSections.category ? (
-            <ChevronUp className="w-4 h-4" />
+            <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-4 h-4 text-slate-400" />
           )}
         </button>
+
         {openSections.category && (
-          <div className="space-y-2">
-            {categories.map((category, index) => (
-              <label
-                key={index}
-                className="flex items-center space-x-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-                />
-                <span className="text-gray-600 hover:text-emerald-600 transition-colors">
-                  {category}
-                </span>
-              </label>
-            ))}
+          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+            <button
+              onClick={() => onSelectCategory("all")}
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                selectedCategory === "all" || !selectedCategory
+                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                  : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
+              }`}
+            >
+              <span>All Categories</span>
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-200/60 dark:bg-[#262626]">
+                {categories.reduce((acc, curr) => acc + curr.count, 0)}
+              </span>
+            </button>
+
+            {categories.map((cat) => {
+              const isSelected = selectedCategory.toLowerCase() === cat.slug.toLowerCase();
+              return (
+                <button
+                  key={cat.slug}
+                  onClick={() => onSelectCategory(cat.slug)}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                    isSelected
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <span className="truncate">{cat.name}</span>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-200/60 dark:bg-[#262626] ml-2">
+                    {cat.count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
 
       {/* Price Range */}
-      <div className="mb-6">
+      <div className="mb-6 pb-6 border-b border-slate-100 dark:border-[#262626]">
         <button
           onClick={() => toggleSection("price")}
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800 mb-3"
+          className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
           <span>Price Range</span>
           {openSections.price ? (
-            <ChevronUp className="w-4 h-4" />
+            <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-4 h-4 text-slate-400" />
           )}
         </button>
-        {openSections.price && (
-          <div className="space-y-2">
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">Under ৳50</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">৳50 - ৳100</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">৳100 - ৳200</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">৳200 - ৳500</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">Over ৳500</span>
-            </label>
-          </div>
-        )}
-      </div>
 
-      {/* Rating */}
-      <div className="mb-6">
-        <button
-          onClick={() => toggleSection("rating")}
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800 mb-3"
-        >
-          <span>Customer Rating</span>
-          {openSections.rating ? (
-            <ChevronUp className="w-4 h-4" />
-          ) : (
-            <ChevronDown className="w-4 h-4" />
-          )}
-        </button>
-        {openSections.rating && (
-          <div className="space-y-2">
-            {[4, 3, 2, 1].map((rating) => (
-              <label
-                key={rating}
-                className="flex items-center space-x-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-                />
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      key={i}
-                      className={`text-sm ${
-                        i < rating ? "text-yellow-400" : "text-gray-300"
-                      }`}
-                    >
-                      ★
-                    </span>
-                  ))}
-                  <span className="text-gray-600 ml-2">& above</span>
-                </div>
-              </label>
-            ))}
+        {openSections.price && (
+          <div className="space-y-1.5">
+            {priceRanges.map((range) => {
+              const isSelected = selectedPriceRange === range.id;
+              return (
+                <button
+                  key={range.id}
+                  onClick={() => onSelectPriceRange(range.id)}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                    isSelected
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <span>{range.label}</span>
+                  {isSelected && <Check className="w-3.5 h-3.5 text-emerald-500" />}
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
 
       {/* Availability */}
-      <div className="mb-6">
+      <div className="mb-6 pb-6 border-b border-slate-100 dark:border-[#262626]">
         <button
           onClick={() => toggleSection("availability")}
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800 mb-3"
+          className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
           <span>Availability</span>
           {openSections.availability ? (
-            <ChevronUp className="w-4 h-4" />
+            <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-4 h-4 text-slate-400" />
           )}
         </button>
+
         {openSections.availability && (
           <div className="space-y-2">
-            <label className="flex items-center space-x-2 cursor-pointer">
+            <label className="flex items-center gap-3 cursor-pointer select-none">
               <input
                 type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+                checked={inStockOnly}
+                onChange={onToggleInStock}
+                className="w-4 h-4 rounded text-emerald-600 border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-emerald-500"
               />
-              <span className="text-gray-600">In Stock</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-              />
-              <span className="text-gray-600">On Sale</span>
+              <span className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                In Stock Only
+              </span>
             </label>
           </div>
         )}
       </div>
 
-      <button className="w-full bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors">
-        Apply Filters
-      </button>
+      {/* Customer Rating */}
+      <div>
+        <button
+          onClick={() => toggleSection("rating")}
+          className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+        >
+          <span>Minimum Rating</span>
+          {openSections.rating ? (
+            <ChevronUp className="w-4 h-4 text-slate-400" />
+          ) : (
+            <ChevronDown className="w-4 h-4 text-slate-400" />
+          )}
+        </button>
+
+        {openSections.rating && (
+          <div className="space-y-1.5">
+            {ratingOptions.map((opt) => {
+              const isSelected = minRating === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  onClick={() => onSelectRating(opt.value)}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
+                    isSelected
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <span>{opt.label}</span>
+                  {isSelected && <Check className="w-3.5 h-3.5 text-emerald-500" />}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

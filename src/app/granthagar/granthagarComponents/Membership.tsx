@@ -209,7 +209,7 @@ const Membership: React.FC = () => {
                 </div>
               )}
 
-              <div className="p-8 text-center border-b border-slate-100 dark:border-[#262626] bg-slate-50/50 dark:bg-[#1a1a1a]/50">
+              <div className="p-8 text-center bg-slate-50/50 dark:bg-[#1a1a1a]/50">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                 <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">{plan.price}</div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">{plan.period}</div>

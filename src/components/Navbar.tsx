@@ -608,7 +608,7 @@ export default function Navbar() {
           <div className="relative z-10 w-[300px] sm:w-[340px] max-w-[85vw] h-full bg-white dark:bg-[#141414] border-l border-slate-200 dark:border-[#303030] shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300">
             
             {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100 dark:border-[#2a2a2a] shrink-0">
+            <div className="flex items-center justify-between px-5 h-16 shrink-0">
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}

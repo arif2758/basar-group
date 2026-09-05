@@ -320,7 +320,7 @@ const ImpactSection = () => {
     <section
       ref={containerRef}
       id="impact"
-      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -443,7 +443,7 @@ const ImpactSection = () => {
                           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                             {story.story}
                           </p>
-                          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200/60 dark:border-[#2a2a2a]">
+                          <div className="flex flex-wrap items-center justify-between gap-4 pt-4">
                             <div className="flex items-center space-x-2">
                               <div
                                 className="w-2.5 h-2.5 rounded-full"

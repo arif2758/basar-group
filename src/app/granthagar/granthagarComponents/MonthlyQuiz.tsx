@@ -149,7 +149,7 @@ const MonthlyQuiz: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-slate-900 dark:bg-[#070b14] text-white border-t border-slate-800 dark:border-[#303030] transition-colors duration-200">
+    <section ref={sectionRef} className="py-20 bg-slate-900 dark:bg-[#070b14] text-white transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="quiz-header text-center mb-12">
           <div className="inline-flex items-center justify-center p-2 bg-amber-500/10 dark:bg-amber-500/20 rounded-xl mb-4 text-amber-400">

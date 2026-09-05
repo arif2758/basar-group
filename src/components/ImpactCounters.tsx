@@ -90,7 +90,7 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
   ];
 
   return (
-    <section className="relative py-20 bg-white dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] transition-colors duration-200">
+    <section className="relative py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14">

@@ -284,7 +284,7 @@ export default function Newsletter({ language }: NewsletterProps) {
     <section
       ref={containerRef}
       id="newsletter"
-      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#070b14] relative overflow-hidden transition-colors duration-200"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">

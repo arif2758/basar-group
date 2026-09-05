@@ -86,7 +86,7 @@ const ContactUS: React.FC = () => {
       {/* Hero Section */}
       <div
         ref={heroRef}
-        className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-slate-800/80"
+        className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900/0 to-transparent pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -396,7 +396,7 @@ const ContactUS: React.FC = () => {
 
             {/* Google Map */}
             <div className="animate-on-scroll bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden border border-slate-200 dark:border-[#303030]">
-              <div className="p-5 border-b border-slate-200 dark:border-[#303030]">
+              <div className="p-5">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                   Find Us
                 </h3>

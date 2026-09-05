@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import {
   Apple,
@@ -14,420 +14,312 @@ import {
   Home,
   ArrowRight,
   Star,
+  Copy,
+  Check,
+  Percent,
+  Clock,
+  ShieldCheck,
+  Truck,
 } from "lucide-react";
-import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
+import { gsap, useGSAP } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function CategoriesGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const bannerRef = useRef<HTMLDivElement>(null);
+  const [copiedCode, setCopiedCode] = useState(false);
 
   const categories = [
     {
-      name: "Fresh Vegetables",
-      icon: Carrot,
-      color: "bg-green-100 text-green-600",
-      count: "150+ items",
-      gradient: "from-green-400 to-emerald-500",
-    },
-    {
-      name: "Fresh Fruits",
+      name: "Fresh Produce",
+      slug: "fresh-produce",
       icon: Apple,
-      color: "bg-red-100 text-red-600",
-      count: "80+ items",
-      gradient: "from-red-400 to-pink-500",
+      count: "120+ items",
+      color: "from-emerald-500/20 to-teal-500/20",
+      textColor: "text-emerald-500 dark:text-emerald-400",
+      borderColor: "border-emerald-500/30",
     },
     {
-      name: "Dairy Products",
+      name: "Vegetables",
+      slug: "vegetables",
+      icon: Carrot,
+      count: "85+ items",
+      color: "from-orange-500/20 to-amber-500/20",
+      textColor: "text-orange-500 dark:text-orange-400",
+      borderColor: "border-orange-500/30",
+    },
+    {
+      name: "Dairy & Eggs",
+      slug: "dairy",
       icon: Milk,
-      color: "bg-blue-100 text-blue-600",
       count: "45+ items",
-      gradient: "from-blue-400 to-cyan-500",
+      color: "from-sky-500/20 to-blue-500/20",
+      textColor: "text-sky-500 dark:text-sky-400",
+      borderColor: "border-sky-500/30",
     },
     {
-      name: "Meat & Fish",
+      name: "Fish & Seafood",
+      slug: "seafood",
       icon: Fish,
-      color: "bg-orange-100 text-orange-600",
-      count: "35+ items",
-      gradient: "from-orange-400 to-red-500",
+      count: "60+ items",
+      color: "from-cyan-500/20 to-teal-500/20",
+      textColor: "text-cyan-500 dark:text-cyan-400",
+      borderColor: "border-cyan-500/30",
     },
     {
       name: "Rice & Grains",
+      slug: "grains-&-rice",
       icon: Rice,
-      color: "bg-yellow-100 text-yellow-600",
-      count: "25+ items",
-      gradient: "from-yellow-400 to-orange-500",
+      count: "35+ items",
+      color: "from-amber-500/20 to-yellow-500/20",
+      textColor: "text-amber-500 dark:text-amber-400",
+      borderColor: "border-amber-500/30",
     },
     {
-      name: "Snacks & Treats",
+      name: "Snacks & Bakery",
+      slug: "snacks",
       icon: Cookie,
-      color: "bg-purple-100 text-purple-600",
-      count: "120+ items",
-      gradient: "from-purple-400 to-pink-500",
+      count: "100+ items",
+      color: "from-rose-500/20 to-pink-500/20",
+      textColor: "text-rose-500 dark:text-rose-400",
+      borderColor: "border-rose-500/30",
     },
     {
       name: "Beverages",
+      slug: "beverages",
       icon: Coffee,
-      color: "bg-indigo-100 text-indigo-600",
-      count: "60+ items",
-      gradient: "from-indigo-400 to-purple-500",
+      count: "55+ items",
+      color: "from-violet-500/20 to-purple-500/20",
+      textColor: "text-violet-500 dark:text-violet-400",
+      borderColor: "border-violet-500/30",
     },
     {
       name: "Personal Care",
+      slug: "personal-care",
       icon: Sparkles,
-      color: "bg-pink-100 text-pink-600",
       count: "90+ items",
-      gradient: "from-pink-400 to-rose-500",
+      color: "from-pink-500/20 to-rose-500/20",
+      textColor: "text-pink-500 dark:text-pink-400",
+      borderColor: "border-pink-500/30",
     },
     {
       name: "Household",
+      slug: "household",
       icon: Home,
-      color: "bg-gray-100 text-gray-600",
       count: "75+ items",
-      gradient: "from-gray-400 to-slate-500",
+      color: "from-slate-500/20 to-zinc-500/20",
+      textColor: "text-slate-600 dark:text-slate-300",
+      borderColor: "border-slate-500/30",
     },
   ];
 
   useScrollAnimation();
+
   useGSAP(
     () => {
-      // Header animation on scroll
       gsap.fromTo(
         headerRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-        },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 1,
+          duration: 0.8,
           ease: "power2.out",
           scrollTrigger: {
             trigger: headerRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Category cards staggered animation
-      gsap.fromTo(
-        ".category-card",
-        {
-          opacity: 0,
-          y: 60,
-          scale: 0.8,
-          rotationX: -15,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          rotationX: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          stagger: {
-            amount: 1.2,
-            grid: "auto",
-            from: "start",
-          },
-          scrollTrigger: {
-            trigger: gridRef.current,
             start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
           },
         }
       );
 
-      // Banner animation
       gsap.fromTo(
-        bannerRef.current,
-        {
-          opacity: 0,
-          y: 80,
-          scale: 0.9,
-          rotationX: -10,
-        },
+        ".cat-card-anim",
+        { opacity: 0, y: 30, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          rotationX: 0,
-          duration: 1,
+          duration: 0.6,
+          stagger: 0.06,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: bannerRef.current,
-            start: "top 90%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
+            trigger: ".cat-grid-anim",
+            start: "top 85%",
           },
         }
       );
-
-      // Enhanced hover effects for category cards
-      const categoryCards = gsap.utils.toArray<HTMLElement>(".category-card");
-      categoryCards.forEach((card: HTMLElement, ) => {
-        const icon = card.querySelector(".category-icon");
-        const iconBg = card.querySelector(".icon-bg");
-        const title = card.querySelector(".category-title");
-        const count = card.querySelector(".category-count");
-        const sparkle = card.querySelector(".card-sparkle");
-
-        const hoverTl = gsap.timeline({ paused: true });
-
-        hoverTl
-          .to(card, {
-            y: -8,
-            scale: 1.02,
-            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
-            duration: 0.4,
-            ease: "power2.out",
-          })
-          .to(
-            iconBg,
-            {
-              scale: 1.15,
-              rotation: 5,
-              duration: 0.4,
-              ease: "back.out(1.7)",
-            },
-            "-=0.4"
-          )
-          .to(
-            icon,
-            {
-              scale: 1.2,
-              rotation: -5,
-              duration: 0.4,
-              ease: "back.out(1.7)",
-            },
-            "-=0.4"
-          )
-          .to(
-            title,
-            {
-              color: "#059669",
-              scale: 1.05,
-              duration: 0.3,
-              ease: "power2.out",
-            },
-            "-=0.3"
-          )
-          .to(
-            count,
-            {
-              y: -2,
-              color: "#6b7280",
-              duration: 0.3,
-              ease: "power2.out",
-            },
-            "-=0.3"
-          )
-          .to(
-            sparkle,
-            {
-              opacity: 1,
-              scale: 1,
-              rotation: 180,
-              duration: 0.4,
-              ease: "back.out(1.7)",
-            },
-            "-=0.4"
-          );
-
-        card.addEventListener("mouseenter", () => hoverTl.play());
-        card.addEventListener("mouseleave", () => hoverTl.reverse());
-
-        // Click animation
-        card.addEventListener("mousedown", () => {
-          gsap.to(card, {
-            scale: 0.98,
-            duration: 0.1,
-            ease: "power2.out",
-          });
-        });
-
-        card.addEventListener("mouseup", () => {
-          gsap.to(card, {
-            scale: 1.02,
-            duration: 0.1,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Banner hover effect
-      const bannerButton = bannerRef.current?.querySelector(".banner-button");
-      if (bannerButton) {
-        const bannerHoverTl = gsap.timeline({ paused: true });
-        bannerHoverTl
-          .to(bannerButton, {
-            scale: 1.05,
-            y: -3,
-            boxShadow: "0 10px 25px rgba(255, 255, 255, 0.3)",
-            duration: 0.3,
-            ease: "power2.out",
-          })
-          .to(
-            bannerButton.querySelector(".button-arrow"),
-            {
-              x: 5,
-              duration: 0.3,
-              ease: "power2.out",
-            },
-            "-=0.3"
-          );
-
-        bannerButton.addEventListener("mouseenter", () => bannerHoverTl.play());
-        bannerButton.addEventListener("mouseleave", () =>
-          bannerHoverTl.reverse()
-        );
-      }
-
-      // Floating animation for decorative elements
-      gsap.to(".floating-star", {
-        y: -10,
-        rotation: 180,
-        duration: 3,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.5,
-      });
-
-      // Parallax effect for background elements
-      gsap.to(".bg-decoration", {
-        y: -30,
-        rotation: 360,
-        duration: 20,
-        ease: "none",
-        repeat: -1,
     },
     { scope: containerRef }
   );
 
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText("WEEKEND25");
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2500);
+  };
+
   return (
     <section
       ref={containerRef}
-      className="py-16 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
+      className="py-16 sm:py-20 bg-white dark:bg-[#070b14] relative transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={headerRef} className="text-center mb-12">
-          <div className="inline-block mb-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-              Explore Categories
-            </span>
+        {/* Section Header */}
+        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Curated Grocery Departments</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
             Shop by Category
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Find everything you need from fresh produce to daily essentials, all
-            sourced locally with love and care.
+
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+            Hand-inspected fresh vegetables, organic staples, and daily household needs — all sourced directly from local producers with transparent pricing.
           </p>
         </div>
 
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6"
-        >
-          {categories.map((category, index) => (
-            <Link
-              key={index}
-              href={`/super-shop/shop?category=${category.name
-                .toLowerCase()
-                .replace(/ /g, "-")}`}
-              className="group"
-            >
-              <div className="category-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-200 cursor-pointer flex flex-col items-center">
-                <div className="w-12 h-12 bg-slate-50 dark:bg-[#1f1f1f] rounded-xl flex items-center justify-center mb-3 border border-slate-200 dark:border-[#303030] group-hover:scale-105 transition-transform">
-                  <category.icon className="category-icon w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+        {/* Category Cards Grid */}
+        <div className="cat-grid-anim grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          {categories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <Link
+                key={index}
+                href={`/super-shop/shop?category=${category.slug}`}
+                className="cat-card-anim group block"
+              >
+                <div className="h-full bg-slate-50 dark:bg-[#141414] hover:bg-white dark:hover:bg-[#1a1a1a] border border-slate-200/80 dark:border-[#303030] hover:border-emerald-500/40 dark:hover:border-emerald-500/40 rounded-2xl p-5 sm:p-6 text-center transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-emerald-950/5 dark:hover:shadow-emerald-950/20 hover:-translate-y-1 relative overflow-hidden flex flex-col items-center justify-between">
+                  {/* Subtle Background Glow on Hover */}
+                  <div
+                    className={`absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br ${category.color} blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
+                  />
+
+                  {/* Icon Container */}
+                  <div
+                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} border ${category.borderColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon className={`w-7 h-7 ${category.textColor}`} />
+                  </div>
+
+                  {/* Title & Count */}
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1.5">
+                      {category.name}
+                    </h3>
+                    <span className="inline-block text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-200/60 dark:bg-[#202020] px-2.5 py-0.5 rounded-full">
+                      {category.count}
+                    </span>
+                  </div>
+
+                  {/* Hover Micro-link */}
+                  <div className="mt-4 flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 gap-1">
+                    <span>Browse</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Premium Weekend Offers Banner */}
+        <div className="mt-14 sm:mt-18 relative rounded-3xl overflow-hidden shadow-2xl border border-emerald-500/20 dark:border-emerald-500/30">
+          {/* Background Mesh Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/80 to-slate-900" />
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none" />
+          <div className="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-teal-500/15 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 px-6 py-10 sm:px-12 sm:py-14 text-white">
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Offer Details */}
+              <div className="lg:col-span-8">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-bold mb-4 backdrop-blur-md">
+                  <Percent className="w-4 h-4" />
+                  <span>Limited Weekend Mega Sale</span>
+                  <span className="text-white/40">•</span>
+                  <span>Save Up to 25% Off</span>
                 </div>
 
-                <h3 className="category-title text-sm font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                  {category.name}
+                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4">
+                  Organic Grocery Bundles at Special Member Prices!
                 </h3>
 
-                <p className="category-count text-xs text-slate-500 dark:text-slate-400">
-                  {category.count}
+                <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-6">
+                  Get seasonal vegetable packs, premium aromatic rice, farm eggs, and fresh cold-pressed mustard oil with guaranteed same-day delivery.
                 </p>
+
+                {/* Perk Pills */}
+                <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300 mb-8">
+                  <span className="flex items-center gap-1.5">
+                    <Truck className="w-4 h-4 text-emerald-400" /> Free delivery over ৳500
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-emerald-400" /> 2-Hour Express available
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" /> 100% satisfaction guarantee
+                  </span>
+                </div>
+
+                {/* Action Buttons & Code Copy */}
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/super-shop/shop"
+                    className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
+                  >
+                    <span>Shop Weekend Deals</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
+                  {/* Promo Code Box */}
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all">
+                    <span className="text-xs text-slate-300 uppercase tracking-wider font-semibold">
+                      Coupon:
+                    </span>
+                    <code className="text-sm font-mono font-bold text-amber-300">
+                      WEEKEND25
+                    </code>
+                    <button
+                      onClick={handleCopyCode}
+                      className="ml-1 p-1 rounded hover:bg-white/20 text-white transition-colors"
+                      title="Copy Coupon Code"
+                    >
+                      {copiedCode ? (
+                        <Check className="w-4 h-4 text-emerald-400" />
+                      ) : (
+                        <Copy className="w-4 h-4 text-slate-300 hover:text-white" />
+                      )}
+                    </button>
+                    {copiedCode && (
+                      <span className="text-xs text-emerald-400 font-semibold ml-1">
+                        Copied!
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
-            </Link>
-          ))}
-        </div>
 
-        {/* Special offers banner */}
-        <div ref={bannerRef} className="mt-14 relative overflow-hidden">
-          <div className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 sm:p-10 text-center text-white relative shadow-sm">
-            <div className="relative z-10">
-              <div className="inline-flex items-center bg-amber-500/10 rounded-full px-3 py-1 mb-3 text-amber-400 text-xs font-medium border border-amber-500/20">
-                <Star className="w-3.5 h-3.5 mr-1.5 fill-current" />
-                <span>Limited Time Offer</span>
+              {/* Right Column: Decorative Badge / Feature Card */}
+              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                <div className="w-full max-w-sm bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center shadow-xl">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-500/30 text-slate-950 font-black text-2xl">
+                    25%
+                  </div>
+                  <h4 className="text-lg font-bold text-white mb-2">
+                    Weekend Special Pack
+                  </h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                    Includes 5kg Premium Rice, 2kg Potatoes, 1kg Onions, 1 Dozen Eggs & 1 Liter Mustard Oil.
+                  </p>
+                  <div className="text-center py-2 px-4 rounded-xl bg-black/20 border border-white/10">
+                    <span className="text-xs text-slate-400 line-through mr-2">৳980</span>
+                    <span className="text-xl font-black text-emerald-400">৳735</span>
+                  </div>
+                </div>
               </div>
-
-              <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-                Special Weekend Offers!
-              </h3>
-
-              <p className="text-slate-300 dark:text-slate-400 mb-6 text-sm sm:text-base max-w-xl mx-auto">
-                Get up to 20% off on all fresh produce and daily essentials.
-              </p>
-
-              <Link
-                href="/super-shop/shop?offer=weekend"
-                className="banner-button inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
-              >
-                <span>Shop Weekend Deals</span>
-                <ArrowRight className="button-arrow w-4 h-4 ml-2" />
-              </Link>
             </div>
-          </div>
-        </div>
-
-        {/* Additional promotional section */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
-            <div className="w-10 h-10 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">Fresh Daily</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              New stock arrives every morning
-            </p>
-          </div>
-
-          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
-            <div className="w-10 h-10 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Home className="w-5 h-5" />
-            </div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">Local Sourced</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Supporting local farmers & vendors
-            </p>
-          </div>
-
-          <div className="promo-card bg-white dark:bg-[#141414] rounded-xl p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
-            <div className="w-10 h-10 bg-amber-500/10 text-amber-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Star className="w-5 h-5 fill-current" />
-            </div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-1 text-sm">
-              Quality Promise
-            </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              100% satisfaction guaranteed
-            </p>
           </div>
         </div>
       </div>

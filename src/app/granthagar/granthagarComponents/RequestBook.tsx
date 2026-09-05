@@ -95,7 +95,7 @@ const RequestBook: React.FC = () => {
 
         {/* Tabs */}
         <div ref={tabsRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] mb-8 overflow-hidden">
-          <div className="flex border-b border-slate-200 dark:border-[#303030] bg-slate-50/50 dark:bg-[#1a1a1a]/50">
+          <div className="flex bg-slate-50/50 dark:bg-[#1a1a1a]/50">
             <button
               onClick={() => handleTabChange("request")}
               className={`flex-1 py-3.5 px-6 font-medium text-xs sm:text-sm transition-colors border-b-2 ${

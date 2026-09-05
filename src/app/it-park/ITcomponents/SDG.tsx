@@ -96,7 +96,7 @@ function SDG() {
 
   return (
     <section 
-      className="py-20 bg-slate-900 dark:bg-[#070b14] text-white border-t border-slate-800 dark:border-[#303030] transition-colors duration-200" 
+      className="py-20 bg-slate-900 dark:bg-[#070b14] text-white transition-colors duration-200" 
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

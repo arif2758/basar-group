@@ -95,7 +95,7 @@ function States() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] border-b border-slate-200 dark:border-[#303030] transition-colors duration-200">
+    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (

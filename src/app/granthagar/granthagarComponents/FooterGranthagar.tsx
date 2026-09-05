@@ -108,7 +108,7 @@ const FooterGranthagar: React.FC = () => {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="relative bg-slate-900 dark:bg-[#070b14] border-t border-slate-800 dark:border-[#303030] transition-colors duration-200">
+    <footer ref={footerRef} className="relative bg-slate-900 dark:bg-[#070b14] transition-colors duration-200">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Mission */}

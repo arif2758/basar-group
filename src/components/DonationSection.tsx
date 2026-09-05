@@ -395,7 +395,7 @@ const DonationSection = () => {
     <section
       ref={containerRef}
       id="donate"
-      className="py-20 bg-slate-50 dark:bg-[#070b14] border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#070b14] relative overflow-hidden transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -694,7 +694,7 @@ const DonationSection = () => {
               className="modal-content bg-white dark:bg-[#141414] rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-[#303030]"
             >
               <div className="p-6 sm:p-8">
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-[#252525]">
+                <div className="flex items-center justify-between mb-6 pb-4">
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
                     <FiHeart className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                     Complete Donation

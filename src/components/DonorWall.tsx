@@ -263,7 +263,7 @@ export default function DonorWall({ language }: DonorWallProps) {
   return (
     <section
       ref={containerRef}
-      className="py-20 bg-slate-50 dark:bg-[#070b14] transition-colors duration-300 relative overflow-hidden"
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-300 relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
