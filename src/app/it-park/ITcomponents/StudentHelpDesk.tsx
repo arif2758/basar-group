@@ -119,7 +119,7 @@ function StudentHelpDesk() {
               ref={(el) => {
                 cardsRef.current[index] = el;
               }}
-              className="bg-white dark:bg-[#141414] rounded-2xl p-7 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 group"
+              className="bg-white dark:bg-[#141414] rounded-2xl p-7 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col items-center text-center"
             >
               <div className="text-3xl mb-3">{program.icon}</div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

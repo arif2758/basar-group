@@ -1,6 +1,3 @@
-import FooterIT from "./ITcomponents/FooterIT";
-
-
 function ITParkLayout({
   children,
 }: Readonly<{
@@ -8,12 +5,9 @@ function ITParkLayout({
 }>) {
   return (
     <section className="flex-grow flex flex-col">
-   
-
       <div className="flex-grow flex flex-col">
         {children}
       </div>
-      <FooterIT />
     </section>
   );
 }

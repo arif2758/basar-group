@@ -321,27 +321,17 @@ const DonationSection = () => {
     { scope: containerRef }
   );
 
-  // Handle option change with animation
   const handleOptionChange = (optionId: string) => {
-    // Animate out current content
-    gsap.to(".option-content", {
-      opacity: 0,
-      y: 20,
-      duration: 0.2,
-      ease: "power2.in",
-      onComplete: () => {
-        setSelectedOption(optionId);
-        setSelectedAmount(0);
-        setCustomAmount("");
+    setSelectedOption(optionId);
+    setSelectedAmount(0);
+    setCustomAmount("");
 
-        // Animate in new content
-        gsap.fromTo(
-          ".option-content",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
-        );
-      },
-    });
+    // Animate in new content
+    gsap.fromTo(
+      ".option-content",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
+    );
   };
 
   const handleDonate = () => {

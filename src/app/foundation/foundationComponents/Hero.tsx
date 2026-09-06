@@ -54,7 +54,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section id="home" className="relative h-[calc(100svh-4rem)] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -69,29 +69,29 @@ const Hero = () => {
               backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${slide.image})`
             }}
           >
-            <div className="container mx-auto px-4 h-full flex items-center">
-              <div className="text-white max-w-3xl">
-                <div className="inline-flex items-center gap-2 bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-md animate-pulse">
+            <div className="container mx-auto px-4 h-full flex flex-col items-center justify-start sm:justify-center pt-16 sm:pt-0">
+              <div className="text-white max-w-3xl flex flex-col items-center text-center mt-4 sm:mt-0">
+                <div className="inline-flex items-center gap-2 bg-amber-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-6 shadow-md animate-pulse">
                   <span>{slide.stats}</span>
-                  <span className="text-xs bg-black/20 px-2 py-0.5 rounded-full font-mono">Learn. Earn. Empower.</span>
+                  <span className="text-[10px] sm:text-xs bg-black/20 px-2 py-0.5 rounded-full font-mono whitespace-nowrap">Learn. Earn. Empower.</span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
                   {slide.title}
                 </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed font-light">
+                <p className="text-base sm:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 leading-relaxed font-light">
                   {slide.subtitle}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
                   <Link 
                     href="#contact"
-                    className="bg-gradient-to-r from-amber-400 to-amber-600 text-white px-8 py-4 rounded-full text-base sm:text-lg font-semibold hover:from-amber-500 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
+                    className="bg-gradient-to-r from-amber-400 to-amber-600 text-white px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:from-amber-500 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
                   >
                     <span>{slide.cta}</span>
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link 
                     href="#about"
-                    className="border-2 border-white text-white px-8 py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 text-center flex items-center justify-center"
+                    className="border-2 border-white text-white px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 text-center flex items-center justify-center"
                   >
                     আরও জানুন
                   </Link>

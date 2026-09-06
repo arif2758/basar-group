@@ -120,9 +120,9 @@ const DepartmentGrid: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col items-center text-center">
                   <h3 className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-2">
-                    {dept.name["bn"]}
+                    {dept.name["bn"].replace("বাসার", "BASAR")}
                   </h3>
                   <p
                     className="text-sm font-medium mb-3 transition-colors duration-300"
@@ -132,14 +132,14 @@ const DepartmentGrid: React.FC = () => {
                   </p>
 
                   {/* Features List */}
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-6 w-full text-left">
                     {dept.features["bn"].map((bullet, bulletIndex) => (
                       <li
                         key={bulletIndex}
                         className="text-sm text-slate-600 dark:text-slate-300 flex items-start"
                       >
                         <span
-                          className="inline-block w-1.5 h-1.5 rounded-full mt-2 mr-2 flex-shrink-0"
+                          className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 mr-2 flex-shrink-0"
                           style={{ backgroundColor: dept.color }}
                         />
                         {bullet}
@@ -164,7 +164,7 @@ const DepartmentGrid: React.FC = () => {
                     }}
                   >
                     <span className="font-medium text-sm">
-                      {dept.name["bn"]} দেখুন
+                      {dept.name["bn"].replace("বাসার", "BASAR")} দেখুন
                     </span>
                     <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>

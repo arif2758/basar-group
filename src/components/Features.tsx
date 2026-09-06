@@ -91,7 +91,7 @@ export default function Features() {
                 ref={(el) => {
                   cardsRef.current[index] = el;
                 }}
-                className="group bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl p-6 shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] transition-all duration-300"
+                className="group bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl p-6 shadow-sm hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col items-center text-center"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200 shadow-sm">
                   <IconComponent className="w-6 h-6 text-white" />

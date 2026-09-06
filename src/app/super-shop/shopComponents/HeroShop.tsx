@@ -112,9 +112,9 @@ export default function HeroShop() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden bg-slate-950">
+    <div ref={containerRef} className="relative overflow-hidden bg-slate-50 dark:bg-[#070b14] transition-colors duration-200">
       {/* Slide Images with Rich Moody Cinematic Overlays */}
-      <div className="relative h-[680px] sm:h-[720px] lg:h-[760px] w-full">
+      <div className="relative overflow-hidden h-[calc(100svh-4rem)] sm:h-[720px] lg:h-[760px] w-full">
         {slides.map((slide, index) => {
           const isActive = index === currentSlide;
           return (
@@ -144,9 +144,9 @@ export default function HeroShop() {
               </div>
 
               {/* Slide Content */}
-              <div className="absolute inset-0 z-20 flex items-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 pb-20">
-                  <div className="max-w-3xl">
+              <div className="absolute inset-0 z-20 flex flex-col justify-start sm:justify-center pt-8 sm:pt-0">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center mt-2 sm:-mt-12">
+                  <div className="max-w-3xl flex flex-col items-center">
                     {/* Glowing Badge */}
                     <div className="hero-content-anim inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold backdrop-blur-md mb-5 shadow-lg shadow-emerald-950/30">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -169,8 +169,8 @@ export default function HeroShop() {
                     </p>
 
                     {/* Search & Quick Action Bar */}
-                    <div className="hero-content-anim mb-8 max-w-xl">
-                      <form onSubmit={handleSearch} className="relative flex items-center">
+                    <div className="hero-content-anim mb-8 max-w-xl w-full">
+                      <form onSubmit={handleSearch} className="relative flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-0 w-full">
                         <div className="relative flex-grow">
                           <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
@@ -183,7 +183,7 @@ export default function HeroShop() {
                         </div>
                         <button
                           type="submit"
-                          className="ml-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-semibold text-sm sm:text-base shadow-lg shadow-emerald-500/25 transition-all duration-200 flex items-center gap-2"
+                          className="sm:ml-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-semibold text-sm sm:text-base shadow-lg shadow-emerald-500/25 transition-all duration-200 flex items-center justify-center gap-2"
                         >
                           <span>Search</span>
                           <ArrowRight className="w-4 h-4 hidden sm:inline" />
@@ -191,7 +191,7 @@ export default function HeroShop() {
                       </form>
 
                       {/* Quick Suggestion Pills */}
-                      <div className="flex flex-wrap items-center gap-2 mt-3 pt-1">
+                      <div className="flex flex-wrap justify-center items-center gap-2 mt-4 sm:mt-3 pt-1">
                         <span className="text-xs text-slate-400 font-medium">জনপ্রিয় সার্চ:</span>
                         {quickTags.map((tag, idx) => (
                           <button
@@ -207,10 +207,10 @@ export default function HeroShop() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="hero-content-anim flex flex-wrap items-center gap-4">
+                    <div className="hero-content-anim flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                       <Link
                         href={slide.link}
-                        className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
+                        className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <span>{slide.cta}</span>
                         <ArrowRight className="w-4 h-4" />
@@ -218,7 +218,7 @@ export default function HeroShop() {
 
                       <Link
                         href="/super-shop/shop"
-                        className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
+                        className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <Zap className="w-4 h-4 text-amber-400" />
                         <span>সকল পণ্যসমূহ</span>
@@ -231,26 +231,24 @@ export default function HeroShop() {
           );
         })}
 
-        {/* Carousel Navigation Arrows */}
-        <div className="absolute right-6 bottom-28 sm:bottom-24 z-30 flex items-center gap-3">
-          <button
-            onClick={prevSlide}
-            aria-label="পূর্ববর্তী স্লাইড"
-            className="p-3 rounded-full bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-lg"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="পরবর্তী স্লাইড"
-            className="p-3 rounded-full bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-lg"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        {/* Carousel Navigation Arrows (Left/Right Edges, Hidden on Mobile) */}
+        <button
+          onClick={prevSlide}
+          aria-label="পূর্ববর্তী স্লাইড"
+          className="absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/40 hover:bg-slate-900/70 border border-white/10 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 shadow-xl hidden sm:flex items-center justify-center group"
+        >
+          <ChevronLeft className="w-6 h-6 text-white/90 group-hover:text-white transition-colors" />
+        </button>
+        <button
+          onClick={nextSlide}
+          aria-label="পরবর্তী স্লাইড"
+          className="absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/40 hover:bg-slate-900/70 border border-white/10 text-white backdrop-blur-md transition-all hover:scale-110 active:scale-95 shadow-xl hidden sm:flex items-center justify-center group"
+        >
+          <ChevronRight className="w-6 h-6 text-white/90 group-hover:text-white transition-colors" />
+        </button>
 
         {/* Slide Progress Pill Indicators */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-28 sm:bottom-24 z-30 flex items-center gap-2.5">
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-20 sm:bottom-16 z-30 flex items-center gap-2.5">
           {slides.map((_, idx) => (
             <button
               key={idx}

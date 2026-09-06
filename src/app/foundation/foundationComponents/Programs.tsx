@@ -354,8 +354,8 @@ const Programs = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 shadow-sm flex flex-col items-center text-center">
+                <div className="bg-gradient-to-r from-blue-500 to-blue-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <BookOpen className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -369,8 +369,8 @@ const Programs = () => {
                 </div>
               </div>
 
-              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
-                <div className="bg-gradient-to-r from-green-500 to-green-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 shadow-sm flex flex-col items-center text-center">
+                <div className="bg-gradient-to-r from-green-500 to-green-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Users className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -384,8 +384,8 @@ const Programs = () => {
                 </div>
               </div>
 
-              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-sm">
-                <div className="bg-gradient-to-r from-amber-500 to-amber-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4">
+              <div className="upcoming-card bg-white dark:bg-[#1f1f1f] rounded-xl p-6 shadow-sm flex flex-col items-center text-center">
+                <div className="bg-gradient-to-r from-amber-500 to-amber-700 w-11 h-11 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Sprout className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">

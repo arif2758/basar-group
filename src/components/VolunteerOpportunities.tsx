@@ -404,15 +404,15 @@ export default function VolunteerOpportunities() {
                 className="opportunity-card group bg-white dark:bg-[#141414] rounded-2xl p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] 
                            transition-all duration-200 border border-slate-200 dark:border-[#303030] hover:border-blue-400 dark:hover:border-blue-500/50 flex flex-col justify-between"
               >
-                <div>
+                <div className="flex flex-col items-center text-center">
                   <div
                     className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 
-                                flex items-center justify-center border border-blue-100 dark:border-blue-800/40 mb-4"
+                                flex items-center justify-center border border-blue-100 dark:border-blue-800/40 mb-4 mx-auto"
                   >
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 text-center">
                     {op.title}
                   </h3>
 
@@ -421,7 +421,7 @@ export default function VolunteerOpportunities() {
                   </p>
 
                   {/* Requirements */}
-                  <div className="mb-4">
+                  <div className="mb-4 w-full text-left">
                     <h4 className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
                       প্রয়োজনীয় যোগ্যতা:
                     </h4>
@@ -439,7 +439,7 @@ export default function VolunteerOpportunities() {
                   </div>
 
                   {/* Time Commitment & Impact */}
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 w-full text-left">
                     <div className="p-2.5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#2a2a2a]">
                       <div className="flex items-center text-xs text-slate-700 dark:text-slate-300">
                         <FiClock className="w-3.5 h-3.5 mr-1.5 text-blue-600 dark:text-blue-400 shrink-0" />
@@ -490,14 +490,14 @@ export default function VolunteerOpportunities() {
                 <div
                   key={idx}
                   className="benefit-card bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 
-                             transition-all duration-200 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
+                             transition-all duration-200 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] flex flex-col items-center text-center"
                 >
                   <div
-                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4 border border-blue-100 dark:border-blue-800/40"
+                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4 border border-blue-100 dark:border-blue-800/40 mx-auto"
                   >
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 text-center">
                     {b.title}
                   </h4>
                   <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">

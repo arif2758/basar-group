@@ -128,7 +128,7 @@ export default function CommunityImpact() {
             return (
               <div
                 key={index}
-                className="impact-card-anim bg-slate-50 dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:border-emerald-500/40 dark:hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1"
+                className="impact-card-anim bg-slate-50 dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:border-emerald-500/40 dark:hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center"
               >
                 <div
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${stat.badgeColor}`}

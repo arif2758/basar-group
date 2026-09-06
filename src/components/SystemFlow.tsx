@@ -513,7 +513,7 @@ const SystemFlow = () => {
               return (
                 <div
                   key={index}
-                  className="outcome-card text-center p-6 rounded-xl border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#1a1a1a] shadow-sm hover:shadow-md transition-all duration-200"
+                  className="outcome-card text-center p-6 rounded-xl bg-white dark:bg-[#1a1a1a] shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <div
                     className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-3.5 shadow-sm"

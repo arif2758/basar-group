@@ -140,7 +140,7 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop & Mobile Top Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#141414]/95 backdrop-blur-md border-b border-slate-100 dark:border-[#202020] transition-colors duration-200">
+      <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#141414]/95 backdrop-blur-md transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between gap-2 xl:gap-4">
             

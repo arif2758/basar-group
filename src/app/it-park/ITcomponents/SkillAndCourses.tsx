@@ -144,7 +144,7 @@ function SkillAndCourses() {
               ref={(el) => { cardsRef.current[index] = el; }}
               className="group cursor-pointer"
             >
-              <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300">
+              <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center text-center">
                 <div
                   ref={(el) => { iconsRef.current[index] = el; }}
                   className={`w-12 h-12 ${skill.color} rounded-xl flex items-center justify-center mb-4 shadow-sm transition-transform duration-300`}

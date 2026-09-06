@@ -412,7 +412,7 @@ const ImpactSection = () => {
                     }`}
                   >
                     <div
-                      className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-[#2a2a2a]"
+                      className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-6 sm:p-8"
                     >
                       <div className="grid md:grid-cols-5 gap-6 sm:gap-8 items-center">
                         <div className="md:col-span-2">
