@@ -46,7 +46,7 @@ export default function FeaturedProducts() {
   const products: Product[] = [
     {
       id: 1,
-      name: "Farm Fresh Tomatoes",
+      name: "তাজা খামারের লাল টমেটো",
       price: 80,
       originalPrice: 100,
       rating: 4.8,
@@ -61,7 +61,7 @@ export default function FeaturedProducts() {
     },
     {
       id: 2,
-      name: "Premium Kalijira Aromatic Rice",
+      name: "প্রিমিয়াম সুগন্ধি কালোজিরা চাল",
       price: 150,
       originalPrice: 180,
       rating: 4.9,
@@ -76,7 +76,7 @@ export default function FeaturedProducts() {
     },
     {
       id: 3,
-      name: "Pure Farm Fresh Cow Milk",
+      name: "খাঁটি দেশি গাভীর তাজা দুধ",
       price: 85,
       originalPrice: 95,
       rating: 4.9,
@@ -91,7 +91,7 @@ export default function FeaturedProducts() {
     },
     {
       id: 4,
-      name: "Sweet Local Bananas (Sagor Kola)",
+      name: "মিষ্টি সুস্বাদু সাগর কলা",
       price: 45,
       originalPrice: 55,
       rating: 4.7,
@@ -99,13 +99,13 @@ export default function FeaturedProducts() {
       image:
         "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=600",
       category: "Fruits",
-      unit: "per dozen",
+      unit: "প্রতি ডজন",
       inStock: true,
       stockLevel: "low",
     },
     {
       id: 5,
-      name: "Organic Farm Broiler Chicken",
+      name: "ফার্মের তাজা ব্রয়লার মুরগি",
       price: 260,
       originalPrice: 290,
       rating: 4.8,
@@ -113,14 +113,14 @@ export default function FeaturedProducts() {
       image:
         "https://images.pexels.com/photos/616838/pexels-photo-616838.jpeg?auto=compress&cs=tinysrgb&w=600",
       category: "Meat & Poultry",
-      unit: "1 kg (Dressed)",
+      unit: "1 kg (ড্রেসড)",
       inStock: true,
       stockLevel: "medium",
       badge: "Halal Certified",
     },
     {
       id: 6,
-      name: "Fresh Red Apples (Royal Gala)",
+      name: "তাজা রয়্যাল গালা লাল আপেল",
       price: 240,
       originalPrice: 280,
       rating: 4.9,
@@ -134,7 +134,7 @@ export default function FeaturedProducts() {
     },
     {
       id: 7,
-      name: "Country Brown Eggs (Deshi Dim)",
+      name: "দেশি মুরগির লাল ডিম",
       price: 155,
       originalPrice: 175,
       rating: 4.9,
@@ -142,14 +142,14 @@ export default function FeaturedProducts() {
       image:
         "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600",
       category: "Dairy & Eggs",
-      unit: "12 pcs",
+      unit: "12 টি",
       inStock: true,
       stockLevel: "high",
       badge: "Pure Deshi",
     },
     {
       id: 8,
-      name: "Cold-Pressed Mustard Oil (Sorisha)",
+      name: "ঘানিভাঙা খাঁটি সরিষার তেল",
       price: 280,
       originalPrice: 320,
       rating: 4.8,
@@ -165,12 +165,12 @@ export default function FeaturedProducts() {
   ];
 
   const categories = [
-    "All",
-    "Vegetables",
-    "Dairy & Eggs",
-    "Fruits",
-    "Rice & Grains",
-    "Meat & Poultry",
+    { key: "All", label: "সকল পণ্য" },
+    { key: "Vegetables", label: "শাকসবজি" },
+    { key: "Dairy & Eggs", label: "দুগ্ধজাত ও ডিম" },
+    { key: "Fruits", label: "ফলমূল" },
+    { key: "Rice & Grains", label: "চাল ও শস্য" },
+    { key: "Meat & Poultry", label: "মাংস ও পোল্ট্রি" },
   ];
 
   const filteredProducts = useMemo(() => {
@@ -223,19 +223,19 @@ export default function FeaturedProducts() {
     switch (level) {
       case "high":
         return {
-          label: "In Stock",
+          label: "স্টকে আছে",
           dotColor: "bg-emerald-500",
           textColor: "text-emerald-600 dark:text-emerald-400",
         };
       case "medium":
         return {
-          label: "Few Left",
+          label: "সীমিত স্টক",
           dotColor: "bg-amber-500",
           textColor: "text-amber-600 dark:text-amber-400",
         };
       case "low":
         return {
-          label: "Low Stock",
+          label: "শেষের দিকে",
           dotColor: "bg-rose-500",
           textColor: "text-rose-600 dark:text-rose-400",
         };
@@ -253,15 +253,15 @@ export default function FeaturedProducts() {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold mb-3">
               <TrendingUp className="w-3.5 h-3.5" />
-              <span>Handpicked Daily Quality</span>
+              <span>দৈনিক সেরা মানসম্পন্ন পণ্য</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-              Featured Products
+              ফিচার্ড পণ্যসমূহ
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2 max-w-xl font-normal">
-              Direct from verified community farmers and suppliers at honest wholesale prices.
+              যাচাইকৃত স্থানীয় কৃষক ও বিশ্বস্ত সরবরাহকারীদের কাছ থেকে সরাসরি সাশ্রয়ী মূল্যে।
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export default function FeaturedProducts() {
             href="/super-shop/shop"
             className="mt-4 md:mt-0 inline-flex items-center gap-2 text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors group"
           >
-            <span>View All Products</span>
+            <span>সকল পণ্য দেখুন</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -278,18 +278,18 @@ export default function FeaturedProducts() {
         {/* Interactive Category Filter Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
           {categories.map((cat) => {
-            const isActive = selectedCategory === cat;
+            const isActive = selectedCategory === cat.key;
             return (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                key={cat.key}
+                onClick={() => setSelectedCategory(cat.key)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                   isActive
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25"
                     : "bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] text-slate-700 dark:text-slate-300 hover:border-emerald-500/40 hover:text-emerald-600 dark:hover:text-emerald-400"
                 }`}
               >
-                {cat}
+                {cat.label}
               </button>
             );
           })}
@@ -338,7 +338,7 @@ export default function FeaturedProducts() {
                     {/* Wishlist Button */}
                     <button
                       onClick={() => toggleWishlist(product.id)}
-                      aria-label="Save to Wishlist"
+                      aria-label="উইশলিস্টে সংরক্ষণ করুন"
                       className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-200 z-10 ${
                         isWishlisted
                           ? "bg-rose-500 text-white shadow-md shadow-rose-500/30 scale-110"
@@ -371,7 +371,7 @@ export default function FeaturedProducts() {
 
                     {/* Unit & Rating */}
                     <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mt-2">
-                      <span>Unit: {product.unit}</span>
+                      <span>একক: {product.unit}</span>
                       <div className="flex items-center gap-1 font-semibold text-amber-500">
                         <Star className="w-3.5 h-3.5 fill-current" />
                         <span>{product.rating}</span>
@@ -407,12 +407,12 @@ export default function FeaturedProducts() {
                     {isAdded ? (
                       <>
                         <Check className="w-4 h-4" />
-                        <span>Added</span>
+                        <span>যুক্ত হয়েছে</span>
                       </>
                     ) : (
                       <>
                         <Plus className="w-4 h-4" />
-                        <span>Add</span>
+                        <span>যোগ করুন</span>
                       </>
                     )}
                   </button>

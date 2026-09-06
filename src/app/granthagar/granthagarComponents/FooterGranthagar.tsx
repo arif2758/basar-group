@@ -118,34 +118,33 @@ const FooterGranthagar: React.FC = () => {
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">BASAR গ্রন্থাগার</h3>
+                <h3 className="text-xl font-bold text-white">BASAR লাইব্রেরি</h3>
                 <p className="text-xs text-emerald-400 font-medium">Community Library</p>
               </div>
             </div>
             
             <p className="footer-mission text-slate-300 dark:text-slate-400 mb-6 max-w-md leading-relaxed text-sm">
-              Inspiring students to read more, gain knowledge beyond textbooks, and reduce unproductive time on social media. 
-              Reading may not bring instant rewards, but in the long run, it transforms lives.
+              শিক্ষার্থীদের বেশি বই পড়তে উৎসাহিত করা, পাঠ্যবইয়ের বাইরে জ্ঞানের বিস্তার ঘটানো এবং সোশ্যাল মিডিয়ায় অনুৎপাদনশীল সময় কমিয়ে আনা। বই পড়া হয়তো তাৎক্ষণিক পুরস্কার এনে দেয় না, কিন্তু দীর্ঘমেয়াদে এটি জীবনকে বদলে দেয়।
             </p>
             
             <div className="footer-love flex items-center space-x-2 text-sm">
               <Heart className="footer-heart w-4 h-4 text-rose-400" />
-              <span className="text-slate-400 text-xs">Built with love for our community</span>
+              <span className="text-slate-400 text-xs">আমাদের কমিউনিটির প্রতি ভালোবাসায় নির্মিত</span>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 mt-8 p-4 bg-slate-800/80 dark:bg-[#141414] rounded-xl border border-slate-700/60 dark:border-[#303030]">
               <div className="text-center">
                 <div className="text-xl font-bold text-emerald-400">500+</div>
-                <div className="text-xs text-slate-400">Books</div>
+                <div className="text-xs text-slate-400">বই</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold text-teal-400">200+</div>
-                <div className="text-xs text-slate-400">Members</div>
+                <div className="text-xs text-slate-400">সদস্য</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold text-cyan-400">50+</div>
-                <div className="text-xs text-slate-400">Donors</div>
+                <div className="text-xs text-slate-400">দাতা</div>
               </div>
             </div>
           </div>
@@ -154,15 +153,15 @@ const FooterGranthagar: React.FC = () => {
           <div className="footer-section">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 dark:text-slate-300 mb-5 flex items-center">
               <Star className="w-4 h-4 text-emerald-400 mr-2" />
-              Quick Links
+              প্রয়োজনীয় লিংক
             </h4>
             <ul className="space-y-2.5">
               {[
-                { name: 'Browse Books', href: '/granthagar/books-catalog' },
-                { name: 'Join Library', href: '/granthagar/membership' }, 
-                { name: 'Donate Books', href: '/granthagar/donors' },
-                { name: 'Reading Tracker', href: '/granthagar/reading-tracker' },
-                { name: 'Events', href: '/granthagar/events' }
+                { name: 'বই কালেকশন ব্রাউজ করুন', href: '/granthagar/books-catalog' },
+                { name: 'লাইব্রেরিতে যুক্ত হোন', href: '/granthagar/membership' }, 
+                { name: 'বই দান করুন', href: '/granthagar/donors' },
+                { name: 'রিডিং ট্র্যাকার', href: '/granthagar/reading-tracker' },
+                { name: 'ইভেন্টসমূহ', href: '/granthagar/events' }
               ].map((link, index) => (
                 <li key={index}>
                   <a href={link.href} className="footer-link group flex items-center text-sm text-slate-400 hover:text-emerald-400 transition-colors">
@@ -178,7 +177,7 @@ const FooterGranthagar: React.FC = () => {
           <div className="footer-section">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 dark:text-slate-300 mb-5 flex items-center">
               <Mail className="w-4 h-4 text-emerald-400 mr-2" />
-              Contact Us
+              যোগাযোগ
             </h4>
             
             <div className="space-y-3">
@@ -200,7 +199,7 @@ const FooterGranthagar: React.FC = () => {
                 <div className="w-7 h-7 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-400">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-xs sm:text-sm text-slate-300">Dhaka, Bangladesh</span>
+                <span className="text-xs sm:text-sm text-slate-300">ঢাকা, বাংলাদেশ</span>
               </div>
             </div>
 
@@ -220,12 +219,12 @@ const FooterGranthagar: React.FC = () => {
         <div className="footer-bottom border-t border-slate-800 dark:border-[#303030] mt-12 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-400">
             <p className="text-center md:text-left">
-              &copy; {new Date().getFullYear()} BASAR গ্রন্থাগার. All rights reserved.
+              &copy; {new Date().getFullYear()} BASAR লাইব্রেরি। সর্বস্বত্ব সংরক্ষিত।
             </p>
             <div className="flex items-center space-x-4 mt-3 md:mt-0">
-              <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-emerald-400 transition-colors">গোপনীয়তা নীতি</a>
               <span>•</span>
-              <a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-emerald-400 transition-colors">ব্যবহারের শর্তাবলী</a>
             </div>
           </div>
         </div>

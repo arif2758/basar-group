@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
-
-
-
-import React, { useState } from "react";
+import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   FiBook,
@@ -38,67 +35,67 @@ interface Opportunity {
 const opportunities: Opportunity[] = [
   {
     id: "library",
-    title: "Library Assistant",
+    title: "লাইব্রেরি সহকারী (Library Assistant)",
     icon: FiBook,
     description:
-      "Organize books, assist visitors, and support reading programs.",
+      "বই ব্যবস্থাপনা, পাঠকদের সহায়তা ও নিয়মিত পাঠচক্র পরিচালনায় সার্বিক সহায়তা করা।",
     color: "from-indigo-500 to-cyan-500",
-    requirements: ["Love for books", "Good communication", "2-3 hours/week"],
-    timeCommitment: "6-10 hours/week",
-    impact: "Help 50+ students access quality education materials",
+    requirements: ["বইয়ের প্রতি আগ্রহ", "উত্তম যোগাযোগ দক্ষতা", "সপ্তাহে 2-3 ঘণ্টা সময়"],
+    timeCommitment: "সপ্তাহে 6-10 ঘণ্টা",
+    impact: "50+ শিক্ষার্থীর মানসম্মত শিক্ষা উপকরণ প্রাপ্তিতে সহায়তা",
   },
   {
     id: "it-mentor",
-    title: "IT Mentor",
+    title: "IT মেন্টর (IT Mentor)",
     icon: FiMonitor,
     description:
-      "Teach programming, web design, or digital skills to students.",
+      "শিক্ষার্থীদের প্রোগ্রামিং, ওয়েব ডিজাইন বা আধুনিক ডিজিটাল দক্ষতা শেখানো।",
     color: "from-emerald-500 to-teal-500",
-    requirements: ["Programming knowledge", "Teaching passion", "Tech skills"],
-    timeCommitment: "8-12 hours/week",
-    impact: "Train 20+ students in valuable digital skills",
+    requirements: ["Programming জ্ঞান", "শেখানোর আগ্রহ", "Tech দক্ষতা"],
+    timeCommitment: "সপ্তাহে 8-12 ঘণ্টা",
+    impact: "20+ শিক্ষার্থীকে কাজের উপযোগী ডিজিটাল দক্ষতায় প্রশিক্ষণ",
   },
   {
     id: "delivery",
-    title: "Delivery Volunteer",
+    title: "ডেলিভারি ভলান্টিয়ার (Delivery Volunteer)",
     icon: FiShoppingBag,
-    description: "Help with Super Shop deliveries and logistics coordination.",
+    description: "Super Shop-এর পণ্য পৌঁছানো ও স্থানীয় লজিস্টিকস সমন্বয়ে সহায়তা করা।",
     color: "from-orange-500 to-pink-500",
-    requirements: ["Own transport", "Local area knowledge", "Physical fitness"],
-    timeCommitment: "4-6 hours/week",
-    impact: "Serve 100+ families with essential goods",
+    requirements: ["নিজস্ব বাহন", "স্থানীয় এলাকা পরিচিতি", "কর্মে উদ্যমী মনোভাব"],
+    timeCommitment: "সপ্তাহে 4-6 ঘণ্টা",
+    impact: "100+ পরিবারের কাছে জরুরি পণ্য ও সেবা পৌঁছানো",
   },
   {
     id: "outreach",
-    title: "Community Outreach",
+    title: "কমিউনিটি আউটরিচ (Community Outreach)",
     icon: FiHeart,
     description:
-      "Organize events, visit families, and coordinate Foundation programs.",
+      "সামাজিক ইভেন্ট আয়োজন, পরিবারের খোঁজখবর নেওয়া ও Foundation-এর কর্মসূচি বাস্তবায়ন।",
     color: "from-blue-500 to-purple-500",
-    requirements: ["Social skills", "Event planning", "Community connection"],
-    timeCommitment: "10-15 hours/week",
-    impact: "Reach 200+ community members monthly",
+    requirements: ["সামাজিক যোগাযোগ দক্ষতা", "Event পরিকল্পনা", "কমিউনিটির সাথে সুসম্পর্ক"],
+    timeCommitment: "সপ্তাহে 10-15 ঘণ্টা",
+    impact: "প্রতি মাসে 200+ মানুষের কাছে উন্নয়ন সেবা পৌঁছানো",
   },
 ];
 
 const benefits = [
   {
-    title: "Skill Development",
-    desc: "Learn leadership, communication, teamwork & project management through hands-on experience.",
+    title: "দক্ষতা উন্নয়ন (Skill Development)",
+    desc: "বাস্তব অভিজ্ঞতার মাধ্যমে নেতৃত্ব, যোগাযোগ, দলগত কাজ ও Project Management শেখার সুযোগ।",
     icon: FiTrendingUp,
     color: "from-blue-100 to-indigo-100",
     iconColor: "text-blue-600",
   },
   {
-    title: "Global Networking",
-    desc: "Connect with mentors, professionals & like-minded volunteers from diverse backgrounds.",
+    title: "গ্লোবাল নেটওয়ার্কিং (Networking)",
+    desc: "অভিজ্ঞ মেন্টর, পেশাজীবী ও সমমনা স্বেচ্ছাসেবকদের সাথে শক্তিশালী যোগাযোগ তৈরি।",
     icon: FiGlobe,
     color: "from-emerald-100 to-green-100",
     iconColor: "text-emerald-600",
   },
   {
-    title: "Recognition & Awards",
-    desc: "Get certificates, appreciation letters & showcase your volunteer work in your portfolio.",
+    title: "স্বীকৃতি ও সার্টিফিকেট (Recognition)",
+    desc: "Certificate, প্রশংসা পত্র ও নিজের Portfolio সমৃদ্ধ করার আকর্ষণীয় সুযোগ।",
     icon: FiStar,
     color: "from-amber-100 to-yellow-100",
     iconColor: "text-amber-600",
@@ -106,10 +103,10 @@ const benefits = [
 ];
 
 const stats = [
-  { number: "500+", label: "Active Volunteers", icon: FiUsers },
-  { number: "2,000+", label: "Hours Contributed", icon: FiClock },
-  { number: "50+", label: "Projects Completed", icon: FiTarget },
-  { number: "95%", label: "Satisfaction Rate", icon: FiAward },
+  { number: "500+", label: "সক্রিয় স্বেচ্ছাসেবক", icon: FiUsers },
+  { number: "2,000+", label: "কাজের ঘণ্টা অবদান", icon: FiClock },
+  { number: "50+", label: "সম্পন্ন প্রকল্প", icon: FiTarget },
+  { number: "95%", label: "সন্তুষ্টির হার", icon: FiAward },
 ];
 
 export default function VolunteerOpportunities() {
@@ -154,7 +151,6 @@ export default function VolunteerOpportunities() {
           ease: "back.out(1.7)",
         }
       )
-
         // Opportunities cards animation
         .fromTo(
           ".opportunity-card",
@@ -175,7 +171,6 @@ export default function VolunteerOpportunities() {
           },
           "-=0.5"
         )
-
         // Benefits section animation
         .fromTo(
           benefitsRef.current,
@@ -191,7 +186,6 @@ export default function VolunteerOpportunities() {
           },
           "-=0.3"
         )
-
         // Benefits cards animation
         .fromTo(
           ".benefit-card",
@@ -204,124 +198,53 @@ export default function VolunteerOpportunities() {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.5,
-            stagger: 0.2,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        // Stats animation
+        .fromTo(
+          statsRef.current,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        )
+        // CTA animation
+        .fromTo(
+          ctaRef.current,
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
             ease: "back.out(1.7)",
           },
-          "-=0.4"
+          "-=0.2"
         );
 
-      // Stats animation
-      gsap.fromTo(
-        ".stat-card",
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.8,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // CTA animation
-      gsap.fromTo(
-        ctaRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.95,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ctaRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Hover animations for opportunity cards
-      const opportunityCards =
-        gsap.utils.toArray<HTMLElement>(".opportunity-card");
-      opportunityCards.forEach((card) => {
-        const icon = card.querySelector<HTMLElement>(".opportunity-icon");
-        const button = card.querySelector<HTMLElement>(".apply-btn");
-
+      // Card hover animations
+      const cards = gsap.utils.toArray<HTMLElement>(".opportunity-card");
+      cards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
           gsap.to(card, {
-            y: -12,
-            scale: 1.03,
-            boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-            duration: 0.4,
-            ease: "power2.out",
-          });
-          if (icon) {
-            gsap.to(icon, {
-              scale: 1.2,
-              rotation: 10,
-              duration: 0.3,
-              ease: "back.out(1.7)",
-            });
-          }
-          if (button) {
-            gsap.to(button, {
-              scale: 1.05,
-              duration: 0.2,
-              ease: "power2.out",
-            });
-          }
-        });
-
-        card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-            duration: 0.4,
-            ease: "power2.out",
-          });
-          if (icon) {
-            gsap.to(icon, {
-              scale: 1,
-              rotation: 0,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          }
-          if (button) {
-            gsap.to(button, {
-              scale: 1,
-              duration: 0.2,
-              ease: "power2.out",
-            });
-          }
-        });
-      });
-
-      // Benefit cards hover animation
-      const benefitCards = gsap.utils.toArray<HTMLElement>(".benefit-card");
-      benefitCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-          gsap.to(card, {
-            y: -8,
+            y: -10,
             scale: 1.02,
-            boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             duration: 0.3,
             ease: "power2.out",
           });
@@ -331,31 +254,7 @@ export default function VolunteerOpportunities() {
           gsap.to(card, {
             y: 0,
             scale: 1,
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Button hover animations
-      const buttons = gsap.utils.toArray<HTMLElement>(".animated-btn");
-      buttons.forEach((btn) => {
-        btn.addEventListener("mouseenter", () => {
-          gsap.to(btn, {
-            scale: 1.05,
-            y: -3,
-            boxShadow: "0 15px 30px rgba(0,0,0,0.2)",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-
-        btn.addEventListener("mouseleave", () => {
-          gsap.to(btn, {
-            scale: 1,
-            y: 0,
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
             duration: 0.3,
             ease: "power2.out",
           });
@@ -364,39 +263,36 @@ export default function VolunteerOpportunities() {
 
       // Floating animation for icons
       gsap.to(".floating-icon", {
-        y: -5,
-        duration: 2,
+        y: -6,
+        duration: 2.5,
         ease: "power2.inOut",
         yoyo: true,
         repeat: -1,
-        stagger: 0.5,
+        stagger: 0.2,
       });
 
-      // Number counter animation
-      const counters = gsap.utils.toArray<HTMLElement>(".stat-number");
-      counters.forEach((counter) => {
+      // Stat counters animation
+      const statNumbers = gsap.utils.toArray<HTMLElement>(".stat-number");
+      statNumbers.forEach((stat) => {
         ScrollTrigger.create({
-          trigger: counter,
-          start: "top 80%",
+          trigger: stat,
+          start: "top 85%",
           onEnter: () => {
-            const target = parseInt(
-              counter.textContent?.replace(/[^\d]/g, "") || "0"
-            );
+            const originalText = stat.textContent || "";
+            const num = parseInt(originalText.replace(/[^0-9]/g, "")) || 0;
+            const hasPlus = originalText.includes("+");
+            const hasPercent = originalText.includes("%");
             const obj = { value: 0 };
 
             gsap.to(obj, {
-              value: target,
+              value: num,
               duration: 2,
               ease: "power2.out",
               onUpdate: () => {
-                const currentValue = Math.round(obj.value);
-                if (counter.textContent?.includes("+")) {
-                  counter.textContent = `${currentValue}+`;
-                } else if (counter.textContent?.includes("%")) {
-                  counter.textContent = `${currentValue}%`;
-                } else {
-                  counter.textContent = currentValue.toString();
-                }
+                let formatted = Math.round(obj.value).toLocaleString();
+                if (hasPlus) formatted += "+";
+                if (hasPercent) formatted += "%";
+                stat.textContent = formatted;
               },
             });
           },
@@ -444,7 +340,7 @@ export default function VolunteerOpportunities() {
       repeat: 1,
       ease: "power2.inOut",
       onComplete: () => {
-        alert("Thank you for your application! We will contact you soon.");
+        alert("আপনার আবেদনের জন্য ধন্যবাদ! আমরা শীঘ্রই যোগাযোগ করব।");
         closeModal();
       },
     });
@@ -463,11 +359,10 @@ export default function VolunteerOpportunities() {
             <FiUsers className="w-6 h-6" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-            Volunteer Opportunities
+            স্বেচ্ছাসেবক হিসেবে যোগ দিন
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Be part of BASAR Group — contribute your time, skills, and passion
-            to empower the community and create lasting change.
+            BASAR Group-এর অংশ হোন — আপনার সময়, মেধা ও দক্ষতাকে কাজে লাগিয়ে সমাজকে ক্ষমতায়িত করুন এবং স্থায়ী ইতিবাচক পরিবর্তন আনুন।
           </p>
         </div>
 
@@ -528,7 +423,7 @@ export default function VolunteerOpportunities() {
                   {/* Requirements */}
                   <div className="mb-4">
                     <h4 className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
-                      Requirements:
+                      প্রয়োজনীয় যোগ্যতা:
                     </h4>
                     <ul className="space-y-1">
                       {op.requirements.map((req, index) => (
@@ -569,7 +464,7 @@ export default function VolunteerOpportunities() {
                                shadow-sm transition-colors flex items-center justify-center gap-1.5"
                   >
                     <FiUsers className="w-4 h-4" />
-                    Apply Now
+                    আবেদন করুন
                   </button>
                 </div>
               </div>
@@ -581,12 +476,10 @@ export default function VolunteerOpportunities() {
         <div ref={benefitsRef} className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
-              Why Become a Volunteer?
+              কেন স্বেচ্ছাসেবী হবেন?
             </h3>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Being a volunteer at BASAR Group means more than giving your time
-              — it&apos;s about learning, growing, and making a meaningful
-              difference in people&apos;s lives.
+              BASAR Group-এ স্বেচ্ছাসেবী হওয়া কেবল সময় দেওয়ার বিষয় নয় — এটি শেখা, নিজেকে বিকশিত করা এবং মানুষের জীবনে বাস্তব ইতিবাচক অবদান রাখার সুবর্ণ সুযোগ।
             </p>
           </div>
 
@@ -621,18 +514,16 @@ export default function VolunteerOpportunities() {
           <div className="rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 border border-slate-200 dark:border-[#303030] shadow-lg">
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <blockquote className="text-lg sm:text-xl font-normal mb-6 leading-relaxed italic">
-                &ldquo;Volunteering with BASAR Group has been life-changing. I&apos;ve
-                gained valuable skills, made lifelong friends, and most
-                importantly, contributed to meaningful change in my community.&rdquo;
+                &ldquo;BASAR Group-এর সাথে স্বেচ্ছাসেবা আমার দৃষ্টিভঙ্গি বদলে দিয়েছে। আমি কাজের বাস্তব দক্ষতা অর্জন করেছি, অসাধারণ সহকর্মীদের সাথে সংযোগ তৈরি হয়েছে এবং নিজের এলাকার মানুষের কল্যাণে সরাসরি অবদান রাখতে পেরেছি।&rdquo;
               </blockquote>
               <div className="flex items-center justify-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">
                   AS
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold text-sm">Ayesha Sultana</div>
+                  <div className="font-semibold text-sm">আয়েশা সুলতানা</div>
                   <div className="text-blue-200 text-xs">
-                    IT Mentor Volunteer
+                    IT Mentor স্বেচ্ছাসেবক
                   </div>
                 </div>
               </div>
@@ -644,11 +535,10 @@ export default function VolunteerOpportunities() {
         <div ref={ctaRef} className="text-center">
           <div className="bg-slate-50 dark:bg-[#141414] rounded-2xl p-8 sm:p-10 shadow-sm border border-slate-200 dark:border-[#303030]">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
-              Ready to Make a Difference?
+              পরিবর্তন আনতে প্রস্তুত?
             </h3>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto leading-relaxed">
-              Join our community of passionate volunteers and help us create
-              positive change. Your skills and dedication can transform lives.
+              আমাদের নিবেদিত স্বেচ্ছাসেবক পরিবারে যুক্ত হোন এবং ইতিবাচক পরিবর্তনে ভূমিকা রাখুন। আপনার মেধা ও একাগ্রতা মানুষের জীবনকে বদলে দিতে পারে।
             </p>
             <button
               onClick={() => openModal(opportunities[0])}
@@ -656,23 +546,23 @@ export default function VolunteerOpportunities() {
                          bg-blue-600 hover:bg-blue-700 shadow-sm transition-colors"
             >
               <FiUsers className="w-4 h-4 mr-2" />
-              Join as a Volunteer
+              স্বেচ্ছাসেবক হিসেবে যোগ দিন
             </button>
 
             <div className="mt-6 flex flex-wrap gap-4 justify-center items-center text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center space-x-1.5">
                 <FiClock className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                <span>Flexible Hours</span>
+                <span>নমনীয় সময়সূচি</span>
               </div>
               <span>•</span>
               <div className="flex items-center space-x-1.5">
                 <FiAward className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                <span>Certificate Provided</span>
+                <span>Certificate প্রদান</span>
               </div>
               <span>•</span>
               <div className="flex items-center space-x-1.5">
                 <FiHeart className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                <span>Make Real Impact</span>
+                <span>বাস্তব ইতিবাচক প্রভাব</span>
               </div>
             </div>
           </div>
@@ -697,7 +587,7 @@ export default function VolunteerOpportunities() {
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Apply for {selectedRole.title}
+                      {selectedRole.title}-এর জন্য আবেদন
                     </h3>
                     <p className="text-slate-500 dark:text-slate-400 text-xs">
                       {selectedRole.description}
@@ -718,7 +608,7 @@ export default function VolunteerOpportunities() {
                 <div className="p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
                   <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-1 flex items-center text-xs">
                     <FiClock className="w-3.5 h-3.5 mr-1.5 text-blue-600 dark:text-blue-400" />
-                    Time Commitment
+                    প্রয়োজনীয় সময়
                   </h4>
                   <p className="text-slate-600 dark:text-slate-400 text-xs">
                     {selectedRole.timeCommitment}
@@ -727,7 +617,7 @@ export default function VolunteerOpportunities() {
                 <div className="p-3 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-lg border border-emerald-200/60 dark:border-emerald-800/40">
                   <h4 className="font-semibold text-emerald-800 dark:text-emerald-300 mb-1 flex items-center text-xs">
                     <FiTarget className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-emerald-400" />
-                    Your Impact
+                    আপনার অবদান
                   </h4>
                   <p className="text-emerald-700 dark:text-emerald-300 text-xs">
                     {selectedRole.impact}
@@ -740,23 +630,23 @@ export default function VolunteerOpportunities() {
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Full Name *
+                      পূর্ণ নাম *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Enter your full name"
+                      placeholder="আপনার পূর্ণ নাম লিখুন"
                       className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Phone Number *
+                      ফোন নম্বর *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="Your phone number"
+                      placeholder="আপনার ফোন নম্বর"
                       className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
@@ -764,7 +654,7 @@ export default function VolunteerOpportunities() {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Email Address *
+                    Email ঠিকানা *
                   </label>
                   <input
                     type="email"
@@ -776,11 +666,11 @@ export default function VolunteerOpportunities() {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Why do you want to volunteer with us? *
+                    কেন আমাদের সাথে স্বেচ্ছাসেবী হতে চান? *
                   </label>
                   <textarea
                     required
-                    placeholder="Tell us about your motivation..."
+                    placeholder="আপনার আগ্রহ ও অনুপ্রেরণা সম্পর্কে লিখুন..."
                     rows={3}
                     className="w-full px-3.5 py-2 border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                   />
@@ -797,7 +687,7 @@ export default function VolunteerOpportunities() {
                     htmlFor="terms"
                     className="text-xs text-slate-700 dark:text-slate-300 cursor-pointer"
                   >
-                    I agree to the volunteer responsibilities and guidelines
+                    আমি স্বেচ্ছাসেবকের দায়িত্ব ও নীতিমালা মেনে চলতে সম্মত
                   </label>
                 </div>
 
@@ -809,11 +699,11 @@ export default function VolunteerOpportunities() {
                                flex items-center justify-center"
                   >
                     <FiHeart className="w-4 h-4 mr-2" />
-                    Submit Application
+                    আবেদন জমা দিন
                   </button>
 
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 text-center mt-3">
-                    We&apos;ll review your application and get back to you within 3-5 business days.
+                    আমরা আপনার আবেদনটি পর্যালোচনা করে 3-5 কার্যদিবসের মধ্যে যোগাযোগ করব।
                   </p>
                 </div>
               </form>

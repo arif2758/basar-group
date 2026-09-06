@@ -50,11 +50,7 @@ function Counter({ target, suffix, isVisible }: CounterProps) {
   );
 }
 
-interface ImpactCountersProps {
-  language: "bn" | "en";
-}
-
-export default function ImpactCounters({ language }: ImpactCountersProps) {
+export default function ImpactCounters() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -92,19 +88,15 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
   return (
     <section className="relative py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="font-poppins text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
-            {language === "bn" ? "আমাদের প্রভাব" : "Our Impact"}
+            আমাদের প্রভাব
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
-            {language === "bn"
-              ? "সংখ্যায় দেখুন আমরা কতটা পরিবর্তন এনেছি আমাদের কমিউনিটিতে"
-              : "See in numbers how much change we have brought to our community"}
+            সংখ্যায় দেখুন আমরা কতটা পরিবর্তন এনেছি আমাদের কমিউনিটিতে
           </p>
         </div>
 
-        {/* Cards */}
         <div
           ref={ref}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
@@ -123,14 +115,7 @@ export default function ImpactCounters({ language }: ImpactCountersProps) {
                 isVisible={isVisible}
               />
               <p className="text-slate-700 dark:text-slate-300 font-medium text-sm mt-3">
-                {language === "bn"
-                  ? counter.label
-                      .replace("Students Helped", "ছাত্রছাত্রী সাহায্য")
-                      .replace("Books Donated", "বই দান")
-                      .replace("Local Jobs Created", "স্থানীয় চাকরি সৃষ্টি")
-                      .replace("Meals Served", "খাবার পরিবেশন")
-                      .replace("Hours Mentored", "ঘন্টা পরামর্শ")
-                  : counter.label}
+                {counter.label}
               </p>
             </div>
           ))}

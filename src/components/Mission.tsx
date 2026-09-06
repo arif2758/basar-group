@@ -8,11 +8,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface MissionProps {
-  language: "bn" | "en";
-}
-
-export default function Mission({ language }: MissionProps) {
+export default function Mission() {
   const [showModal, setShowModal] = useState(false);
   const missionRef = useRef<HTMLElement>(null);
 
@@ -30,10 +26,7 @@ export default function Mission({ language }: MissionProps) {
         opacity: 1,
         duration: 0.8,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".mission-title",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".mission-title", start: "top 85%" },
       });
 
       gsap.to(".mission-text", {
@@ -42,10 +35,7 @@ export default function Mission({ language }: MissionProps) {
         duration: 0.6,
         ease: "expo.out",
         stagger: 0.1,
-        scrollTrigger: {
-          trigger: ".mission-text",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".mission-text", start: "top 85%" },
       });
 
       gsap.to(".mission-button", {
@@ -53,10 +43,7 @@ export default function Mission({ language }: MissionProps) {
         opacity: 1,
         duration: 0.5,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".mission-button",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".mission-button", start: "top 85%" },
       });
 
       gsap.to(".mission-image", {
@@ -64,10 +51,7 @@ export default function Mission({ language }: MissionProps) {
         opacity: 1,
         duration: 0.8,
         ease: "expo.out",
-        scrollTrigger: {
-          trigger: ".mission-image",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".mission-image", start: "top 85%" },
       });
 
       gsap.to(".mission-stats", {
@@ -75,10 +59,7 @@ export default function Mission({ language }: MissionProps) {
         opacity: 1,
         duration: 0.5,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".mission-stats",
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: ".mission-stats", start: "top 85%" },
       });
     },
     { scope: missionRef }
@@ -91,63 +72,40 @@ export default function Mission({ language }: MissionProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Story */}
+          {/* Left Column */}
           <div>
             <h2 className="mission-title font-poppins text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              {language === "bn" ? "আমাদের গল্প ও দর্শন" : "Our Story & Vision"}
+              আমাদের গল্প ও দর্শন
             </h2>
 
             <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
-              {language === "bn" ? (
-                <>
-                  <p className="mission-text text-lg">
-                    বাছার পরিবারের একটি স্বপ্ন থেকে শুরু। আমরা বিশ্বাস করি যে
-                    শিক্ষা, দক্ষতা এবং পারস্পরিক সহায়তার মাধ্যমে আমাদের
-                    কমিউনিটির প্রতিটি মানুষ সফল হতে পারে।
-                  </p>
-                  <p className="mission-text">
-                    BASAR Group শুধু একটি প্রতিষ্ঠান নয়, এটি একটি আন্দোলন।
-                    আমাদের লক্ষ্য হল এমন একটি ব্যবস্থা গড়ে তোলা যেখানে প্রতিটি
-                    ব্যক্তি তার সম্ভাবনা বাস্তবায়ন করতে পারে।
-                  </p>
-                  <p className="mission-text">
-                    গ্রন্থাগার থেকে শুরু করে আইটি পার্ক পর্যন্ত - আমাদের প্রতিটি
-                    বিভাগ একে অপরের সাথে সংযুক্ত এবং একটি সাধারণ উদ্দেশ্যে কাজ
-                    করছে।
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="mission-text text-lg">
-                    It started with a dream from the Basar family. We believe
-                    that through education, skills, and mutual support, every
-                    person in our community can succeed.
-                  </p>
-                  <p className="mission-text">
-                    BASAR Group is not just an institution, it&apos;s a
-                    movement. Our goal is to build a system where every
-                    individual can realize their potential.
-                  </p>
-                  <p className="mission-text">
-                    From the library to the IT park - each of our departments is
-                    connected and working towards a common purpose.
-                  </p>
-                </>
-              )}
+              <p className="mission-text text-lg">
+                বাছার পরিবারের একটি স্বপ্ন থেকে শুরু। আমরা বিশ্বাস করি যে
+                শিক্ষা, দক্ষতা এবং পারস্পরিক সহায়তার মাধ্যমে আমাদের
+                কমিউনিটির প্রতিটি মানুষ সফল হতে পারে।
+              </p>
+              <p className="mission-text">
+                BASAR Group শুধু একটি প্রতিষ্ঠান নয়, এটি একটি আন্দোলন।
+                আমাদের লক্ষ্য হল এমন একটি ব্যবস্থা গড়ে তোলা যেখানে প্রতিটি
+                ব্যক্তি তার সম্ভাবনা বাস্তবায়ন করতে পারে।
+              </p>
+              <p className="mission-text">
+                গ্রন্থাগার থেকে শুরু করে IT Park পর্যন্ত — আমাদের প্রতিটি
+                বিভাগ একে অপরের সাথে সংযুক্ত এবং একটি সাধারণ উদ্দেশ্যে কাজ
+                করছে।
+              </p>
             </div>
 
             <button
               onClick={() => setShowModal(true)}
               className="mission-button group mt-8 inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer"
             >
-              {language === "bn"
-                ? "সম্পূর্ণ গল্প পড়ুন"
-                : "Read our full story"}
+              সম্পূর্ণ গল্প পড়ুন
               <FiPlay className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 ease-out" />
             </button>
           </div>
 
-          {/* Right Column - Image/Video */}
+          {/* Right Column */}
           <div className="mission-image relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-200 dark:border-[#303030]">
               <Image
@@ -160,11 +118,10 @@ export default function Mission({ language }: MissionProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-              {/* Play Button Overlay */}
               <button
                 onClick={() => setShowModal(true)}
                 className="absolute inset-0 flex items-center justify-center group/play cursor-pointer"
-                aria-label="Play video"
+                aria-label="ভিডিও দেখুন"
               >
                 <div className="w-16 h-16 bg-white/90 dark:bg-[#1f1f1f]/90 rounded-full flex items-center justify-center group-hover/play:bg-white dark:group-hover/play:bg-[#252525] group-hover/play:scale-110 transition-all duration-300 shadow-lg border border-slate-200 dark:border-slate-700">
                   <FiPlay className="w-7 h-7 text-blue-600 dark:text-blue-400 ml-1" />
@@ -179,7 +136,7 @@ export default function Mission({ language }: MissionProps) {
                   2019
                 </div>
                 <div className="text-sm text-slate-500 dark:text-slate-400">
-                  {language === "bn" ? "প্রতিষ্ঠিত" : "Established"}
+                  প্রতিষ্ঠিত
                 </div>
               </div>
             </div>
@@ -193,9 +150,7 @@ export default function Mission({ language }: MissionProps) {
           <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl animate-scale-in">
             <div className="flex justify-between items-center p-6">
               <h3 className="font-poppins text-xl font-bold text-slate-900 dark:text-white">
-                {language === "bn"
-                  ? "আমাদের সম্পূর্ণ গল্প"
-                  : "Our Complete Story"}
+                আমাদের সম্পূর্ণ গল্প
               </h3>
               <button
                 onClick={() => setShowModal(false)}
@@ -207,9 +162,9 @@ export default function Mission({ language }: MissionProps) {
             <div className="p-6">
               <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
                 <p>
-                  {language === "bn"
-                    ? "বাছার ফাউন্ডেশন, বাছার সুপার শপ, বাছার গ্রন্থাগার ও বাছার আইটি পার্ক—সবকিছু এক সুতোয় গাঁথা। আমাদের উদ্দেশ্য শিক্ষা, উদ্যোক্তা তৈরি ও পারস্পরিক সহযোগিতার মাধ্যমে একটি স্বাবলম্বী কমিউনিটি গঠন করা।"
-                    : "BASAR Foundation, Super Shop, Library, and IT Park are bound by one mission: creating a self-sustaining ecosystem powered by education, enterprise, and mutual solidarity."}
+                  বাছার Foundation, বাছার Super Shop, বাছার গ্রন্থাগার ও বাছার IT Park—
+                  সবকিছু এক সুতোয় গাঁথা। আমাদের উদ্দেশ্য শিক্ষা, উদ্যোক্তা তৈরি
+                  ও পারস্পরিক সহযোগিতার মাধ্যমে একটি স্বাবলম্বী কমিউনিটি গঠন করা।
                 </p>
               </div>
             </div>

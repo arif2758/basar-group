@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
-
-
-
-import React, { useState } from "react";
+import React from "react";
 import { IconType } from "react-icons";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
@@ -30,7 +27,7 @@ interface DonationOption {
   amounts: number[];
   color: string;
   gradient: string;
-  focusRing: string; // Add this for focus ring colors
+  focusRing: string;
 }
 
 const DonationSection = () => {
@@ -57,9 +54,9 @@ const DonationSection = () => {
   const donationOptions: DonationOption[] = [
     {
       id: "general",
-      title: "General Support",
+      title: "সার্বিক সহায়তা (General Support)",
       description:
-        "Support all our programs and let us use funds where needed most",
+        "আমাদের সকল কার্যক্রমে সহায়তা করুন যাতে জরুরি প্রয়োজনে তহবিল ব্যবহার করা যায়",
       icon: FiHeart,
       amounts: [25, 50, 100, 250],
       color: "#1E3A8A",
@@ -68,8 +65,8 @@ const DonationSection = () => {
     },
     {
       id: "education",
-      title: "Student Sponsorship",
-      description: "Sponsor a student's complete education for one year",
+      title: "শিক্ষার্থী স্পনসরশিপ (Student Sponsorship)",
+      description: "1 বছরের জন্য একজন শিক্ষার্থীর সম্পূর্ণ শিক্ষার খরচ বহন করুন",
       icon: FiBook,
       amounts: [120, 250, 500, 1000],
       color: "#059669",
@@ -78,8 +75,8 @@ const DonationSection = () => {
     },
     {
       id: "books",
-      title: "Book Donation",
-      description: "Buy books for our library and mobile library services",
+      title: "বই অনুদান (Book Donation)",
+      description: "আমাদের লাইব্রেরি ও ভ্রাম্যমাণ পাঠাগারের জন্য বই সংগ্রহে অনুদান দিন",
       icon: FiUsers,
       amounts: [15, 30, 75, 150],
       color: "#F59E0B",
@@ -88,8 +85,8 @@ const DonationSection = () => {
     },
     {
       id: "technology",
-      title: "Tech Equipment",
-      description: "Provide computers and technology for IT training programs",
+      title: "প্রযুক্তি সরঞ্জাম (Tech Equipment)",
+      description: "IT প্রশিক্ষণ কর্মসূচির জন্য কম্পিউটার ও প্রযুক্তি সরঞ্জাম প্রদান করুন",
       icon: FiHome,
       amounts: [200, 500, 1000, 2000],
       color: "#2563EB",
@@ -98,8 +95,8 @@ const DonationSection = () => {
     },
     {
       id: "healthcare",
-      title: "Healthcare Support",
-      description: "Fund medical camps and healthcare assistance",
+      title: "স্বাস্থ্যসেবা সহায়তা (Healthcare Support)",
+      description: "ফ্রি মেডিকেল ক্যাম্প ও স্বাস্থ্য সুরক্ষা কার্যক্রমে আর্থিক সহায়তা দিন",
       icon: FiShield,
       amounts: [50, 100, 200, 500],
       color: "#DC2626",
@@ -141,7 +138,6 @@ const DonationSection = () => {
           ease: "back.out(1.7)",
         }
       )
-
         // Options animation
         .fromTo(
           ".donation-option",
@@ -162,7 +158,6 @@ const DonationSection = () => {
           },
           "-=0.5"
         )
-
         // Amount buttons animation
         .fromTo(
           ".amount-btn",
@@ -181,7 +176,6 @@ const DonationSection = () => {
           },
           "-=0.3"
         )
-
         // Sidebar animation
         .fromTo(
           sidebarRef.current,
@@ -374,7 +368,7 @@ const DonationSection = () => {
       repeat: 1,
       ease: "power2.inOut",
       onComplete: () => {
-        alert("Thank you for your donation! (Demo)");
+        alert("আপনার অনুদানের জন্য ধন্যবাদ! (Demo)");
         setShowModal(false);
         setSelectedAmount(0);
         setCustomAmount("");
@@ -404,11 +398,10 @@ const DonationSection = () => {
             <FiHeart className="w-6 h-6" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-            Support Our Mission
+            আমাদের মিশনে সহায়তা করুন
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Every contribution makes a difference. Choose how you&apos;d like to
-            support our community development efforts and create lasting impact.
+            প্রতিটি অবদানই অত্যন্ত গুরুত্বপূর্ণ। আমাদের কমিউনিটি উন্নয়ন কার্যক্রমে সহায়তা করতে আপনার পছন্দের খাত বেছে নিন এবং টেকসই পরিবর্তন আনুন।
           </p>
         </div>
 
@@ -418,7 +411,7 @@ const DonationSection = () => {
             <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
                 <FiGift className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
-                Choose Your Impact
+                সহায়তার খাত বেছে নিন
               </h3>
 
               {/* Option Tabs */}
@@ -479,7 +472,7 @@ const DonationSection = () => {
               <div ref={amountRef} className="mb-6">
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
                   <FiDollarSign className="w-4 h-4 mr-1 text-emerald-500" />
-                  Select Amount
+                  পরিমাণ নির্বাচন করুন
                 </h4>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
                   {currentOption.amounts.map((amount) => {
@@ -506,7 +499,7 @@ const DonationSection = () => {
                 {/* Custom Amount */}
                 <div className="flex items-center space-x-3">
                   <span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                    Or custom amount:
+                    অথবা কাস্টম পরিমাণ:
                   </span>
                   <div className="flex-1 relative max-w-xs">
                     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 font-medium text-sm">
@@ -534,7 +527,7 @@ const DonationSection = () => {
               >
                 <span className="flex items-center justify-center">
                   <FiHeart className="w-4 h-4 mr-2" />
-                  Donate ${totalAmount || 0} Now
+                  এখনই ${totalAmount || 0} অনুদান দিন
                 </span>
               </button>
 
@@ -542,12 +535,12 @@ const DonationSection = () => {
               <div className="flex flex-wrap items-center justify-center gap-4 mt-5 text-xs text-slate-400 dark:text-slate-500">
                 <div className="flex items-center space-x-1.5">
                   <FiShield className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Secure Payment</span>
+                  <span>নিরাপদ Payment</span>
                 </div>
                 <span>•</span>
-                <span>SSL Encrypted</span>
+                <span>SSL এনক্রিপ্টেড</span>
                 <span>•</span>
-                <span>Tax Deductible</span>
+                <span>Tax ছাড়ের সুবিধা</span>
               </div>
             </div>
           </div>
@@ -558,7 +551,7 @@ const DonationSection = () => {
             <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 border border-slate-200 dark:border-[#303030]">
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
                 <FiTrendingUp className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
-                Your Impact
+                আপনার অনুদানের প্রভাব
               </h3>
               {totalAmount > 0 ? (
                 <div className="space-y-4">
@@ -568,7 +561,7 @@ const DonationSection = () => {
                         {Math.floor(totalAmount / 250)}
                       </div>
                       <div className="text-xs text-emerald-700 dark:text-emerald-300 font-medium">
-                        Students sponsored for 1 year
+                        শিক্ষার্থীর 1 বছরের শিক্ষা স্পনসর
                       </div>
                     </div>
                   )}
@@ -578,7 +571,7 @@ const DonationSection = () => {
                         {Math.floor(totalAmount / 15)}
                       </div>
                       <div className="text-xs text-amber-700 dark:text-amber-300 font-medium">
-                        Books added to library
+                        বই লাইব্রেরিতে সংযোজন
                       </div>
                     </div>
                   )}
@@ -588,7 +581,7 @@ const DonationSection = () => {
                         {Math.floor(totalAmount / 10)}
                       </div>
                       <div className="text-xs text-blue-700 dark:text-blue-300 font-medium">
-                        Families supported this month
+                        পরিবারকে এই মাসে সহায়তা
                       </div>
                     </div>
                   )}
@@ -598,7 +591,7 @@ const DonationSection = () => {
                         {Math.floor(totalAmount / 500)}
                       </div>
                       <div className="text-xs text-cyan-700 dark:text-cyan-300 font-medium">
-                        Computers provided
+                        কম্পিউটার প্রদান
                       </div>
                     </div>
                   )}
@@ -608,7 +601,7 @@ const DonationSection = () => {
                         {Math.floor(totalAmount / 50)}
                       </div>
                       <div className="text-xs text-red-700 dark:text-red-300 font-medium">
-                        Medical checkups funded
+                        স্বাস্থ্য পরীক্ষা ও চিকিৎসা সহায়তা
                       </div>
                     </div>
                   )}
@@ -619,7 +612,7 @@ const DonationSection = () => {
                     <FiHeart className="w-6 h-6" />
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Select an amount to see your impact
+                    আপনার অনুদানের প্রভাব দেখতে একটি পরিমাণ নির্বাচন করুন
                   </p>
                 </div>
               )}
@@ -629,26 +622,26 @@ const DonationSection = () => {
             <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 border border-slate-200 dark:border-[#303030]">
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
                 <FiUsers className="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" />
-                Recent Supporters
+                সাম্প্রতিক দাতাগণ
               </h3>
               <div className="space-y-3">
                 {[
                   {
-                    name: "Ahmed R.",
+                    name: "আহমেদ আর.",
                     amount: 100,
-                    time: "2 hours ago",
+                    time: "2 ঘণ্টা আগে",
                     type: "education",
                   },
                   {
-                    name: "Fatima K.",
+                    name: "ফাতিমা কে.",
                     amount: 50,
-                    time: "5 hours ago",
+                    time: "5 ঘণ্টা আগে",
                     type: "books",
                   },
                   {
-                    name: "Anonymous",
+                    name: "বেনামী দাতা",
                     amount: 250,
-                    time: "1 day ago",
+                    time: "1 দিন আগে",
                     type: "general",
                   },
                 ].map((donor, index) => (
@@ -680,7 +673,7 @@ const DonationSection = () => {
                 <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
                   $12,450
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Raised this month</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">এই মাসে সংগৃহীত</div>
               </div>
             </div>
           </div>
@@ -697,7 +690,7 @@ const DonationSection = () => {
                 <div className="flex items-center justify-between mb-6 pb-4">
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
                     <FiHeart className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
-                    Complete Donation
+                    অনুদান সম্পন্ন করুন
                   </h3>
                   <button
                     onClick={() => setShowModal(false)}
@@ -711,7 +704,7 @@ const DonationSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Full Name *
+                      পূর্ণ নাম *
                     </label>
                     <input
                       type="text"
@@ -726,7 +719,7 @@ const DonationSection = () => {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Email Address *
+                      Email ঠিকানা *
                     </label>
                     <input
                       type="email"
@@ -741,7 +734,7 @@ const DonationSection = () => {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Phone (Optional)
+                      ফোন নম্বর (ঐচ্ছিক)
                     </label>
                     <input
                       type="tel"
@@ -770,13 +763,13 @@ const DonationSection = () => {
                       htmlFor="recurring"
                       className="text-xs font-medium text-slate-700 dark:text-slate-300 cursor-pointer"
                     >
-                      Make this a monthly recurring donation
+                      এটি একটি মাসিক নিয়মিত অনুদান করুন
                     </label>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                      Message (Optional)
+                      বার্তা (ঐচ্ছিক)
                     </label>
                     <textarea
                       value={formData.message}
@@ -785,13 +778,13 @@ const DonationSection = () => {
                       }
                       rows={3}
                       className="w-full px-3.5 py-2 text-sm border border-slate-200 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1a1a1a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                      placeholder="Any message for the team..."
+                      placeholder="আমাদের টিমের জন্য কোনো বার্তা থাকলে লিখুন..."
                     />
                   </div>
 
                   <div className="border-t border-slate-100 dark:border-[#252525] pt-4 mt-6">
                     <div className="flex items-center justify-between text-base font-bold mb-4 p-3 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg border border-slate-200 dark:border-[#252525]">
-                      <span className="text-slate-700 dark:text-slate-300 text-sm">Total Amount:</span>
+                      <span className="text-slate-700 dark:text-slate-300 text-sm">মোট পরিমাণ:</span>
                       <span className="text-blue-600 dark:text-blue-400">
                         ${totalAmount}
                       </span>
@@ -801,7 +794,7 @@ const DonationSection = () => {
                       className="w-full text-sm font-medium text-white py-3 rounded-lg shadow-sm transition-colors bg-blue-600 hover:bg-blue-700 flex items-center justify-center space-x-2"
                     >
                       <FiHeart className="w-4 h-4" />
-                      <span>Complete Donation</span>
+                      <span>অনুদান নিশ্চিত করুন</span>
                     </button>
                   </div>
                 </form>
@@ -811,7 +804,7 @@ const DonationSection = () => {
                   <div className="flex items-center text-xs text-emerald-700 dark:text-emerald-300">
                     <FiShield className="w-3.5 h-3.5 mr-1.5 shrink-0" />
                     <span>
-                      Your payment is secured with 256-bit SSL encryption
+                      আপনার Payment সম্পূর্ণ 256-bit SSL এনক্রিপশন দ্বারা সুরক্ষিত
                     </span>
                   </div>
                 </div>
@@ -824,50 +817,50 @@ const DonationSection = () => {
         <div className="mt-16 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-100 to-green-100 rounded-2xl flex items-center justify-center">
-                <FiShield className="w-8 h-8 text-emerald-600" />
+              <div className="w-16 h-16 bg-gradient-to-r from-emerald-100 to-green-100 dark:from-emerald-950/30 dark:to-green-950/30 rounded-2xl flex items-center justify-center">
+                <FiShield className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
               </div>
-              <div className="text-sm font-semibold text-gray-700">
-                Secure & Safe
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                নিরাপদ ও সুরক্ষিত
               </div>
-              <div className="text-xs text-gray-500">SSL Protected</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">SSL Protected</div>
             </div>
 
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl flex items-center justify-center">
                 <span className="text-2xl">🏆</span>
               </div>
-              <div className="text-sm font-semibold text-gray-700">
-                Trusted NGO
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                বিশ্বস্ত সংস্থা
               </div>
-              <div className="text-xs text-gray-500">5+ Years</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">5+ বছর সক্রিয়</div>
             </div>
 
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-950/30 dark:to-pink-950/30 rounded-2xl flex items-center justify-center">
                 <span className="text-2xl">📊</span>
               </div>
-              <div className="text-sm font-semibold text-gray-700">
-                Transparent
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                স্বচ্ছতা
               </div>
-              <div className="text-xs text-gray-500">Monthly Reports</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">মাসিক রিপোর্ট</div>
             </div>
 
             <div className="flex flex-col items-center space-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl flex items-center justify-center">
                 <span className="text-2xl">💝</span>
               </div>
-              <div className="text-sm font-semibold text-gray-700">
-                Tax Deductible
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                Tax ছাড় সুবিধা
               </div>
-              <div className="text-xs text-gray-500">80G Certified</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">স্বীকৃত ও প্রত্যয়িত</div>
             </div>
           </div>
         </div>
 
         {/* Call to Action Footer */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-emerald-500 to-blue-600 rounded-3xl p-8 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-3xl p-8 text-white relative overflow-hidden shadow-lg">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-4 left-4 w-8 h-8 border-2 border-white rounded-full"></div>
@@ -879,26 +872,25 @@ const DonationSection = () => {
             <div className="relative z-10">
               <h3 className="text-2xl lg:text-3xl font-bold mb-4">
                 <span className="floating-icon inline-block mr-2">🌟</span>
-                Every Donation Creates Ripples of Change
+                প্রতিটি অনুদান পরিবর্তনের নতুন জোয়ার সৃষ্টি করে
               </h3>
               <p className="text-lg text-emerald-100 mb-6 max-w-2xl mx-auto">
-                Join thousands of supporters who are making a real difference in
-                communities across Bangladesh.
+                হাজার হাজার শুভাকাঙ্ক্ষীর সাথে যুক্ত হোন যারা বাংলাদেশ জুড়ে সাধারণ মানুষের জীবনে বাস্তব ইতিবাচক পরিবর্তন আনছেন।
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <div className="flex items-center space-x-2 text-emerald-100">
                   <span className="text-2xl font-bold">1,250+</span>
-                  <span>Lives Impacted</span>
+                  <span>প্রভাবিত জীবন</span>
                 </div>
                 <div className="hidden sm:block w-1 h-1 bg-emerald-200 rounded-full"></div>
                 <div className="flex items-center space-x-2 text-emerald-100">
                   <span className="text-2xl font-bold">$45,000+</span>
-                  <span>Raised This Year</span>
+                  <span>এ বছর সংগৃহীত</span>
                 </div>
                 <div className="hidden sm:block w-1 h-1 bg-emerald-200 rounded-full"></div>
                 <div className="flex items-center space-x-2 text-emerald-100">
                   <span className="text-2xl font-bold">98%</span>
-                  <span>Goes to Programs</span>
+                  <span>সরাসরি কার্যক্রমে ব্যয়িত</span>
                 </div>
               </div>
             </div>

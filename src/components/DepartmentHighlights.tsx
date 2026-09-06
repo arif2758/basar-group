@@ -13,11 +13,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface DepartmentGridProps {
-  language: "en" | "bn";
-}
-
-const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
+const DepartmentHighlights: React.FC = () => {
   const { departments } = departmentsData;
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -193,11 +189,10 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
         {/* Section Header */}
         <div className="highlights-header text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Department Highlights
+            বিভাগ বিস্তারিত
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Dive deeper into each department&apos;s unique offerings and see how
-            they create lasting impact.
+            প্রতিটি বিভাগের অনন্য সেবা ও দীর্ঘমেয়াদী প্রভাব সম্পর্কে আরও জানুন।
           </p>
         </div>
 
@@ -220,27 +215,27 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                   <h3
                     className={`dept-title dept-title-${index} text-2xl sm:text-3xl font-poppins font-bold text-slate-900 dark:text-white mb-2 tracking-tight`}
                   >
-                    {dept.name[language]}
+                    {dept.name["bn"]}
                   </h3>
                   <p
                     className={`dept-tagline dept-tagline-${index} text-sm sm:text-base font-semibold mb-3`}
                     style={{ color: dept.color }}
                   >
-                    {dept.tagline[language]}
+                    {dept.tagline["bn"]}
                   </p>
                   <p
                     className={`dept-description dept-description-${index} text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 leading-relaxed`}
                   >
-                    {dept.description[language]}
+                    {dept.description["bn"]}
                   </p>
 
                   {/* Key Features */}
                   <div className="mb-6">
                     <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3">
-                      Key Features:
+                      মূল সুবিধাসমূহ:
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {dept.features[language].map((feature, featureIndex) => (
+                      {dept.features["bn"].map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
                           className={`feature-item feature-item-${index} flex items-center space-x-2.5 p-2 rounded-lg bg-slate-50/70 dark:bg-[#141414] border border-slate-200/60 dark:border-[#262626]`}
@@ -264,10 +259,10 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                     >
                       <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mb-1">
                         <FiUsers className="w-3.5 h-3.5" />
-                        <span className="text-xs">Beneficiaries</span>
+                        <span className="text-xs">সুবিধাভোগী</span>
                       </div>
                       <div className="font-semibold text-slate-900 dark:text-white text-base">
-                        {dept.beneficiaries[language]}
+                        {dept.beneficiaries["bn"]}
                       </div>
                     </div>
                     <div
@@ -275,10 +270,10 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                     >
                       <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mb-1">
                         <FiTrendingUp className="w-3.5 h-3.5" />
-                        <span className="text-xs">Impact</span>
+                        <span className="text-xs">প্রভাব</span>
                       </div>
                       <div className="font-semibold text-slate-900 dark:text-white text-base">
-                        {dept.impact[language]}
+                        {dept.impact["bn"]}
                       </div>
                     </div>
                   </div>
@@ -292,14 +287,14 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                       className="inline-flex items-center space-x-2 justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
                       style={{ backgroundColor: dept.color }}
                     >
-                      <span>Explore {dept.name[language]}</span>
+                      <span>{dept.name["bn"]} দেখুন</span>
                       <FiArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
                       href="#system-flow"
                       className="inline-flex items-center space-x-2 justify-center px-5 py-2.5 rounded-lg text-sm font-medium bg-white dark:bg-[#141414] border border-slate-300 dark:border-[#303030] text-slate-700 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm transition-colors"
                     >
-                      <span>See Connections</span>
+                      <span>সংযোগ দেখুন</span>
                       <FiArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -317,7 +312,7 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                   <div className="relative h-72 sm:h-88 rounded-2xl overflow-hidden border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
                     <Image
                       src={dept.image}
-                      alt={dept.name[language]}
+                      alt={dept.name["bn"]}
                       width={600}
                       height={400}
                       className={`main-image main-image-${index} w-full h-full object-cover transition-transform duration-500 hover:scale-105`}
@@ -336,7 +331,7 @@ const DepartmentHighlights: React.FC<DepartmentGridProps> = ({ language }) => {
                       >
                         95%
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">Success Rate</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">সাফল্যের হার</div>
                     </div>
                   </div>
                 </div>

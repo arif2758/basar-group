@@ -14,25 +14,25 @@ const skills = [
   {
     icon: FaLaptopCode,
     title: "Web Development",
-    description: "Full-stack development with modern frameworks",
+    description: "আধুনিক ফ্রেমওয়ার্ক ও টেকনোলজির মাধ্যমে প্রফেশনাল Full-Stack ডেভেলপমেন্ট",
     color: "bg-blue-500",
   },
   {
     icon: FaPalette,
     title: "Graphics Design",
-    description: "Creative design for digital and print media",
+    description: "ডিজিটাল ও প্রিন্ট মিডিয়ার জন্য সৃজনশীল ব্র্যান্ডিং ও ভিজ্যুয়াল ডিজাইন",
     color: "bg-purple-500",
   },
   {
     icon: FaBullhorn,
     title: "Digital Marketing",
-    description: "SEO, social media, and content marketing",
+    description: "SEO, সোশ্যাল মিডিয়া মার্কেটিং ও ডেটা-ড্রিভেন কনটেন্ট স্ট্র্যাটেজি",
     color: "bg-pink-500",
   },
   {
     icon: FaCamera,
-    title: "Photography",
-    description: "Professional photography and editing skills",
+    title: "Photography & Videography",
+    description: "প্রফেশনাল ক্যামেরা হ্যান্ডলিং, স্টুডিও লাইটিং ও আধুনিক ভিডিও এডিটিং",
     color: "bg-indigo-500",
   },
 ];
@@ -130,11 +130,10 @@ function SkillAndCourses() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Skills & Courses
+            দক্ষতা ও আইটি কোর্সসমূহ
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Comprehensive programs designed to prepare you for the digital
-            economy
+            ডিজিটাল অর্থনীতির চাহিদার সাথে সংগতি রেখে তৈরি করা আধুনিক ও কর্মমুখী প্রশিক্ষণ কোর্স
           </p>
         </div>
 
@@ -157,7 +156,7 @@ function SkillAndCourses() {
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">{skill.description}</p>
                 <button className="text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:underline transition-colors duration-200">
-                  Enroll Now →
+                  কোর্সে ভর্তি হন →
                 </button>
               </div>
             </div>

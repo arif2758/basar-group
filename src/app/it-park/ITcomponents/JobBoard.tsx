@@ -2,10 +2,8 @@
 
 import { useRef } from "react";
 
-
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -17,44 +15,44 @@ function JobBoard() {
   const jobs = [
     {
       title: "Web Developer",
-      company: "Local Tech Co.",
-      type: "Full-time",
-      location: "Remote",
+      company: "লোকাল টেক কোম্পানি",
+      type: "ফুল-টাইম (Full-time)",
+      location: "রিমোট (Remote)",
       salary: "$1,200/mo",
     },
     {
       title: "Graphics Designer",
-      company: "Marketing Agency",
-      type: "Part-time",
-      location: "Local",
+      company: "ডিজিটাল এজেন্সি",
+      type: "পার্ট-টাইম (Part-time)",
+      location: "অন-সাইট (Local)",
       salary: "$800/mo",
     },
     {
       title: "Digital Marketing Specialist",
-      company: "E-commerce",
-      type: "Contract",
-      location: "Hybrid",
+      company: "ই-কমার্স প্ল্যাটফর্ম",
+      type: "চুক্তিভিত্তিক (Contract)",
+      location: "হাইব্রিড (Hybrid)",
       salary: "$1,000/mo",
     },
     {
       title: "Content Creator",
-      company: "Media Company",
-      type: "Freelance",
-      location: "Remote",
+      company: "মিডিয়া প্রোডাকশন",
+      type: "ফ্রিল্যান্স (Freelance)",
+      location: "রিমোট (Remote)",
       salary: "$600/mo",
     },
     {
       title: "Photography Assistant",
-      company: "Studio XYZ",
-      type: "Part-time",
-      location: "Local",
+      company: "ফটোগ্রাফি স্টুডিও",
+      type: "পার্ট-টাইম (Part-time)",
+      location: "অন-সাইট (Local)",
       salary: "$500/mo",
     },
     {
       title: "IT Support",
-      company: "Community Center",
-      type: "Full-time",
-      location: "Local",
+      company: "আইটি সাপোর্ট সেন্টার",
+      type: "ফুল-টাইম (Full-time)",
+      location: "অন-সাইট (Local)",
       salary: "$900/mo",
     },
   ];
@@ -126,11 +124,10 @@ function JobBoard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Job Opportunities
+            কর্মসংস্থান ও ক্যারিয়ার সুযোগ
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Connect with local and remote opportunities tailored for our
-            community
+            বাছার IT Park শিক্ষার্থীদের জন্য দেশীয় ও আন্তর্জাতিক রিমোট এবং অন-সাইট চাকরির সুযোগ
           </p>
         </div>
 
@@ -156,7 +153,7 @@ function JobBoard() {
                   {job.salary}
                 </span>
                 <button className="text-emerald-600 dark:text-emerald-400 hover:underline text-xs font-medium transition-colors duration-200">
-                  Apply →
+                  আবেদন করুন →
                 </button>
               </div>
             </div>

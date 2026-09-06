@@ -1,9 +1,6 @@
 "use client";
 
-
-
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
-
 import { useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -60,39 +57,41 @@ function VolunteerAndPartner() {
           {/* Volunteer Form */}
           <div className="volunteer-section bg-white dark:bg-[#141414] p-8 rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
-              Become a Volunteer
+              স্বেচ্ছাসেবক হিসেবে যুক্ত হোন
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              Join our community of dedicated volunteers and make a direct
-              impact in people&apos;s lives.
+              আমাদের একনিষ্ঠ স্বেচ্ছাসেবী দলের অংশ হোন এবং সাধারণ মানুষের জীবনে প্রত্যক্ষ ইতিবাচক ভূমিকা রাখুন।
             </p>
 
-            <form className="space-y-4">
+            <form onSubmit={(e) => { e.preventDefault(); alert("ধন্যবাদ! আপনার আবেদনটি সফলভাবে গৃহীত হয়েছে।"); }} className="space-y-4">
               <input
                 type="text"
-                placeholder="Full Name"
+                required
+                placeholder="আপনার পূর্ণ নাম"
                 className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <input
                 type="email"
-                placeholder="Email Address"
+                required
+                placeholder="ইমেইল ঠিকানা"
                 className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <input
                 type="tel"
-                placeholder="Phone Number"
+                placeholder="ফোন নম্বর"
                 className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
               />
               <textarea
-                placeholder="Why do you want to volunteer with us?"
+                placeholder="কেন আপনি আমাদের সাথে স্বেচ্ছাসেবী হতে চান?"
                 rows={4}
+                required
                 className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm resize-none"
               ></textarea>
               <button
                 type="submit"
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl transition-all duration-200 font-medium text-sm shadow-sm active:scale-[0.99]"
               >
-                Join Our Team
+                স্বেচ্ছাসেবী দলে যুক্ত হোন
               </button>
             </form>
           </div>
@@ -100,11 +99,10 @@ function VolunteerAndPartner() {
           {/* Partners */}
           <div className="partners-section flex flex-col justify-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
-              Our Partners
+              আমাদের সহযোগী সংস্থাসমূহ
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-              Working together with leading organizations to maximize our
-              impact.
+              সামাজিক রূপান্তর ও সেবার পরিধি বাড়াতে দেশীয় ও আন্তর্জাতিক উন্নয়ন সহযোগী সংস্থার সাথে যৌথ অংশীদারিত্ব।
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

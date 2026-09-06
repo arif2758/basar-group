@@ -97,31 +97,26 @@ function ITAbout() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            About BASAR IT Park
+            বাছার IT Park সম্পর্কে
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            A revolutionary concept that merges IT education with community
-            space, creating a safe, inspiring environment where learning leads
-            to earning.
+            আইটি শিক্ষা ও আধুনিক কমিউনিটি স্পেসের এক অনন্য সমন্বয়, যা তরুণদের প্রযুক্তিতে দক্ষ করে তোলে এবং উপার্জনের নতুন দিগন্ত উন্মোচন করে।
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div ref={leftContentRef}>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-              Our Vision
+              আমাদের লক্ষ্য ও দর্শন
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              BASAR IT Park combines the structured learning environment of
-              BASAR IT Center with the open, nature-filled atmosphere of BASAR
-              Park. This unique approach creates a holistic learning experience
-              that nurtures both technical skills and personal growth.
+              বাছার IT Park কেবল একটি সাধারণ প্রশিক্ষণ কেন্দ্র নয়—প্রকৃতি ও আধুনিক প্রযুক্তির সংমিশ্রণে গড়ে ওঠা এক প্রাণবন্ত ক্যাম্পাস। যেখানে ব্যবহারিক প্রযুক্তি শিক্ষার পাশাপাশি ব্যক্তিসত্তার পূর্ণ বিকাশ ঘটে এবং তরুণরা আত্মনির্ভরশীল ক্যারিয়ার গড়ে তোলে।
             </p>
             <div className="space-y-4">
               {[
-                { icon: FaShieldAlt, text: "24/7 CCTV monitoring for safety" },
-                { icon: FaClock, text: "Flexible schedules for students" },
-                { icon: FaGlobe, text: "Solar-powered evening learning" }
+                { icon: FaShieldAlt, text: "24/7 সিসিটিভি (CCTV) এবং সার্বক্ষণিক নিরাপদ ক্যাম্পাস" },
+                { icon: FaClock, text: "শিক্ষার্থীদের সুবিধাজনক ফ্লেক্সিবল লার্নিং সময়সূচি" },
+                { icon: FaGlobe, text: "Solar-Powered পরিবেশবান্ধব ল্যাব ও ইভনিং স্টাডিজ" }
               ].map((feature, index) => (
                 <div
                   key={index}
@@ -138,7 +133,7 @@ function ITAbout() {
           <div ref={rightContentRef} className="relative">
             <Image
               src="https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg"
-              alt="BASAR IT Park"
+              alt="বাছার IT Park"
               width={800}
               height={500}
               className="rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"

@@ -3,38 +3,36 @@
 import { useRef } from "react";
 import { FaTrophy } from "react-icons/fa";
 
-
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const achievements = [
   {
     year: "2020",
-    title: "BASAR IT Park Founded",
-    description: "Vision to combine learning with community space",
+    title: "বাছার IT Park প্রতিষ্ঠা",
+    description: "প্রযুক্তি শিক্ষা ও সামাজিক কল্যাণকে একত্রিত করার অনন্য স্বপ্ন নিয়ে যাত্রা শুরু",
   },
   {
     year: "2021",
-    title: "First 100 Students",
-    description: "Reached milestone of helping 100 learners",
+    title: "প্রথম 100 শিক্ষার্থীর মাইলফলক",
+    description: "প্রথম ব্যাচের সফল প্রশিক্ষণ সম্পন্ন ও তরুণদের প্রযুক্তিমুখী করে তোলা",
   },
   {
     year: "2022",
-    title: "Solar Installation",
-    description: "Became fully solar-powered for sustainability",
+    title: "Solar-Powered পরিবেশবান্ধব ক্যাম্পাস",
+    description: "টেকসই জ্বালানি ব্যবহারের লক্ষ্যে সম্পূর্ণ সোলার এনার্জি চালিত ল্যাব স্থাপন",
   },
   {
     year: "2023",
-    title: "1000+ Lives Impacted",
-    description: "Over 1000 community members benefited",
+    title: "1000+ মানুষের জীবনে ইতিবাচক প্রভাব",
+    description: "1000+ শিক্ষার্থী, উদ্যোক্তা ও কমিউনিটি সদস্যকে সম্পৃক্তকরণ",
   },
   {
     year: "2024",
-    title: "Regional Recognition",
-    description: "Awarded for community development excellence",
+    title: "জাতীয় ও আঞ্চলিক স্বীকৃতি",
+    description: "কমিউনিটি উন্নয়ন ও প্রযুক্তিভিত্তিক সমাজসেবায় বিশেষ সম্মাননা অর্জন",
   },
 ];
 
@@ -120,9 +118,9 @@ function AchievementsTimeline() {
     <section ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Our Journey</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">আমাদের অগ্রযাত্রার মাইলফলক</h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Milestones that mark our commitment to community development
+            সামাজিক রূপান্তর ও তরুণদের মেধা বিকাশে বাছার IT Park এর স্মরণীয় অর্জনসমূহ
           </p>
         </div>
 

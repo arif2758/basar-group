@@ -2,9 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Noto_Sans_Bengali, Inter } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/animations.css";
-import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
-import FooterWraper from "@/wraper/FooterWraper";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const notoBengali = Noto_Sans_Bengali({
@@ -72,13 +71,11 @@ export default function RootLayout({
         className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#070b14] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-[100vw]"
       >
         <ThemeProvider>
-          <LanguageProvider>
-            <Navbar />
-            <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
-              {children}
-            </div>
-            <FooterWraper />
-          </LanguageProvider>
+          <Navbar />
+          <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
+            {children}
+          </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

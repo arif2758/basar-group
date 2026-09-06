@@ -4,10 +4,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import { FaCalendarAlt } from "react-icons/fa";
 
-
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -18,31 +16,31 @@ function EventsAndRegistration() {
 
   const events = [
     {
-      title: "Free Medical Camp",
-      date: "March 15, 2024",
+      title: "ফ্রি মেডিকেল ও হেলথ ক্যাম্প",
+      date: "March 15, 2025",
       time: "9:00 AM - 4:00 PM",
-      description: "Free health checkups for community members",
+      description: "কমিউনিটির সদস্য ও শিক্ষার্থীদের জন্য অভিজ্ঞ চিকিৎসকদের মাধ্যমে বিনামূল্যে স্বাস্থ্য পরামর্শ",
       image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg",
     },
     {
-      title: "Skills Fair 2024",
-      date: "March 22, 2024",
+      title: "Skills Fair 2025",
+      date: "March 22, 2025",
       time: "10:00 AM - 6:00 PM",
-      description: "Showcase of student projects and skill demonstrations",
+      description: "শিক্ষার্থীদের সেরা টেক প্রজেক্ট প্রদর্শন, ইনোভেশন শোকেস এবং প্রজেক্ট মূল্যায়ন",
       image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg",
     },
     {
-      title: "Web Development Workshop",
-      date: "March 29, 2024",
+      title: "Web Development Hands-on Workshop",
+      date: "March 29, 2025",
       time: "2:00 PM - 5:00 PM",
-      description: "Hands-on workshop for beginners in web development",
+      description: "ওয়েব ডেভেলপমেন্টের প্রাথমিক থেকে অ্যাডভান্সড পর্যায়ের ব্যবহারিক হাতে-কলমে কর্মশালা",
       image: "https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg",
     },
     {
-      title: "Community Networking",
-      date: "April 5, 2024",
+      title: "Community Tech Networking",
+      date: "April 5, 2025",
       time: "6:00 PM - 8:00 PM",
-      description: "Connect with mentors, learners, and supporters",
+      description: "আইটি বিশেষজ্ঞ, ট্রেইনার ও শিক্ষার্থীদের মাঝে নলেজ শেয়ারিং ও ক্যারিয়ার নেটওয়ার্কিং",
       image: "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
     },
   ];
@@ -114,10 +112,10 @@ function EventsAndRegistration() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Upcoming Events
+            আসন্ন ইভেন্ট ও কর্মশালা
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Join our community events and workshops to grow together
+            আমাদের প্রযুক্তি কর্মশালা, স্কিল ফেয়ার ও কমিউনিটি ইভেন্টে অংশ নিয়ে দক্ষতা বৃদ্ধি করুন
           </p>
         </div>
 
@@ -150,7 +148,7 @@ function EventsAndRegistration() {
                     <div>{event.time}</div>
                   </div>
                   <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-medium shadow-sm transition-all duration-200 active:scale-[0.98]">
-                    Register
+                    নিবন্ধন করুন
                   </button>
                 </div>
               </div>

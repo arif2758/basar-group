@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 import Link from "next/link";
 import {
   Search,
@@ -75,7 +81,9 @@ function NextraTreeItem({
 
   // Gender filter check
   const matchesGender =
-    selectedGender === "all" || !member.gender || member.gender === selectedGender;
+    selectedGender === "all" ||
+    !member.gender ||
+    member.gender === selectedGender;
 
   if (!matchesGender) return null;
 
@@ -87,8 +95,8 @@ function NextraTreeItem({
           isSelected
             ? "bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border-l-2 border-emerald-500"
             : isHighlighted
-            ? "bg-amber-400/20 text-amber-900 dark:text-amber-200 font-bold border-l-2 border-amber-500"
-            : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
+              ? "bg-amber-400/20 text-amber-900 dark:text-amber-200 font-bold border-l-2 border-amber-500"
+              : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
         }`}
         onClick={() => {
           onSelectMember(member);
@@ -111,7 +119,9 @@ function NextraTreeItem({
             >
               <ChevronRight
                 className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  isExpanded ? "rotate-90 text-emerald-600 dark:text-emerald-400" : "rotate-0"
+                  isExpanded
+                    ? "rotate-90 text-emerald-600 dark:text-emerald-400"
+                    : "rotate-0"
                 }`}
               />
             </button>
@@ -124,13 +134,17 @@ function NextraTreeItem({
           {/* Gender Dot Indicator */}
           <span
             className={`w-2 h-2 rounded-full flex-shrink-0 ${
-              isFemale ? "bg-rose-500 shadow-sm shadow-rose-500/40" : "bg-blue-500 shadow-sm shadow-blue-500/40"
+              isFemale
+                ? "bg-rose-500 shadow-sm shadow-rose-500/40"
+                : "bg-blue-500 shadow-sm shadow-blue-500/40"
             }`}
             title={isFemale ? "মহিলা" : "পুরুষ"}
           />
 
           {/* Member Name */}
-          <span className="truncate leading-tight font-medium text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white">{member.title}</span>
+          <span className="truncate leading-tight font-medium text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white">
+            {member.title}
+          </span>
         </div>
 
         {/* Right: Generation & Children count tags */}
@@ -202,7 +216,7 @@ function AntDCascaderView({
 }: CascaderViewProps) {
   const lineage = useMemo(
     () => getAncestryLineage(treeData, selectedKey),
-    [treeData, selectedKey]
+    [treeData, selectedKey],
   );
 
   // Build the levels of columns
@@ -262,7 +276,7 @@ function AntDCascaderView({
                   (m) =>
                     selectedGender === "all" ||
                     !m.gender ||
-                    m.gender === selectedGender
+                    m.gender === selectedGender,
                 )
                 .map((item) => {
                   const isSelected = lineage.some((l) => l.key === item.key);
@@ -278,8 +292,8 @@ function AntDCascaderView({
                         isExact
                           ? "bg-emerald-600 text-white font-bold shadow-sm"
                           : isSelected
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold"
-                          : "text-slate-700 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
+                            ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold"
+                            : "text-slate-700 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
                       <div className="flex items-center gap-2 min-w-0">
@@ -288,7 +302,9 @@ function AntDCascaderView({
                             isFemale ? "bg-rose-500" : "bg-blue-500"
                           }`}
                         />
-                        <span className="truncate font-medium">{item.title}</span>
+                        <span className="truncate font-medium">
+                          {item.title}
+                        </span>
                       </div>
 
                       {hasChildren && (
@@ -394,18 +410,26 @@ function MemberDossier({
       </div>
 
       {/* Biographical Details (if available) */}
-      {(member.profession || member.phone || member.address || member.birthYear) && (
+      {(member.profession ||
+        member.phone ||
+        member.address ||
+        member.birthYear) && (
         <div className="mb-4 p-3 rounded-xl bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200/60 dark:border-[#262626] text-xs space-y-1.5">
           {member.profession && (
             <p className="text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
               <span className="text-slate-400">পেশা:</span>
-              <span className="font-semibold text-slate-900 dark:text-white">{member.profession}</span>
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {member.profession}
+              </span>
             </p>
           )}
           {member.phone && (
             <p className="text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
               <span className="text-slate-400">মোবাইল:</span>
-              <a href={`tel:${member.phone}`} className="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
+              <a
+                href={`tel:${member.phone}`}
+                className="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+              >
                 {member.phone}
               </a>
             </p>
@@ -413,7 +437,9 @@ function MemberDossier({
           {member.address && (
             <p className="text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
               <span className="text-slate-400">ঠিকানা:</span>
-              <span className="font-semibold text-slate-900 dark:text-white truncate">{member.address}</span>
+              <span className="font-semibold text-slate-900 dark:text-white truncate">
+                {member.address}
+              </span>
             </p>
           )}
         </div>
@@ -492,7 +518,9 @@ function MemberDossier({
                   </div>
 
                   <span className="text-[10px] text-slate-400 flex-shrink-0 ml-2">
-                    {child.children?.length ? `${child.children.length} সন্তান` : "সন্তান নেই"}
+                    {child.children?.length
+                      ? `${child.children.length} সন্তান`
+                      : "সন্তান নেই"}
                   </span>
                 </button>
               );
@@ -514,36 +542,39 @@ function MemberDossier({
 
 export default function FamilyTree() {
   // Tree data with localStorage persistence
-  const [treeData, setTreeData] = useState<FamilyMember[]>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("basar_family_tree_data");
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+  const [treeData, setTreeData] = useState<FamilyMember[]>(familyTreeData);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("basar_family_tree_data");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setTreeData(parsed);
         }
-      } catch (e) {
-        console.error("Failed to load family tree from localStorage", e);
       }
+    } catch (e) {
+      console.error("Failed to load family tree from localStorage", e);
     }
-    return familyTreeData;
-  });
+  }, []);
 
   // Tree expanded nodes state
   const [expandedKeys, setExpandedKeys] = useState<Set<string>>(
-    () => new Set(["1", "1-1", "1-2", "1-1-1", "1-1-1-1"])
+    () => new Set(["1", "1-1", "1-2", "1-1-1", "1-1-1-1"]),
   );
 
   // Selected member for profile
   const [selectedMember, setSelectedMember] = useState<FamilyMember>(
-    () => treeData[0]?.children?.[0] || treeData[0]
+    () => treeData[0]?.children?.[0] || treeData[0],
   );
 
   // Modals state
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [detailMember, setDetailMember] = useState<FamilyMember | null>(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [addModalParentKey, setAddModalParentKey] = useState<string | undefined>(undefined);
+  const [addModalParentKey, setAddModalParentKey] = useState<
+    string | undefined
+  >(undefined);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const [highlightedKey, setHighlightedKey] = useState<string | null>(null);
@@ -551,7 +582,9 @@ export default function FamilyTree() {
   // Filter & Search states
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [selectedGender, setSelectedGender] = useState<"all" | "male" | "female">("all");
+  const [selectedGender, setSelectedGender] = useState<
+    "all" | "male" | "female"
+  >("all");
   const [viewStyle, setViewStyle] = useState<"nextra" | "cascader">("nextra");
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState(false);
 
@@ -571,7 +604,7 @@ export default function FamilyTree() {
   // Search Results
   const searchResults = useMemo(
     () => searchMembers(treeData, searchQuery),
-    [treeData, searchQuery]
+    [treeData, searchQuery],
   );
 
   // Toggle tree node
@@ -603,26 +636,32 @@ export default function FamilyTree() {
   }, []);
 
   // Select Member & Expand Lineage
-  const handleSelectMember = useCallback((member: FamilyMember, openDetail: boolean = false) => {
-    setSelectedMember(member);
-    if (openDetail) {
-      setDetailMember(member);
-      setIsDetailModalOpen(true);
-    }
-    const ancestors = getAncestorKeys(member.key);
-    setExpandedKeys((prev) => {
-      const next = new Set(prev);
-      ancestors.forEach((k) => next.add(k));
-      return next;
-    });
-  }, []);
+  const handleSelectMember = useCallback(
+    (member: FamilyMember, openDetail: boolean = false) => {
+      setSelectedMember(member);
+      if (openDetail) {
+        setDetailMember(member);
+        setIsDetailModalOpen(true);
+      }
+      const ancestors = getAncestorKeys(member.key);
+      setExpandedKeys((prev) => {
+        const next = new Set(prev);
+        ancestors.forEach((k) => next.add(k));
+        return next;
+      });
+    },
+    [],
+  );
 
-  const handleSelectKey = useCallback((key: string, openDetail: boolean = false) => {
-    const found = findMemberByKey(treeData, key);
-    if (found) {
-      handleSelectMember(found, openDetail);
-    }
-  }, [treeData, handleSelectMember]);
+  const handleSelectKey = useCallback(
+    (key: string, openDetail: boolean = false) => {
+      const found = findMemberByKey(treeData, key);
+      if (found) {
+        handleSelectMember(found, openDetail);
+      }
+    },
+    [treeData, handleSelectMember],
+  );
 
   // Live fetch from database on mount
   useEffect(() => {
@@ -633,76 +672,89 @@ export default function FamilyTree() {
         if (isMounted && data.success && data.tree && data.tree.length > 0) {
           setTreeData(data.tree);
           try {
-            localStorage.setItem("basar_family_tree_data", JSON.stringify(data.tree));
+            localStorage.setItem(
+              "basar_family_tree_data",
+              JSON.stringify(data.tree),
+            );
           } catch (e) {
             console.error(e);
           }
         }
       })
-      .catch((err) => console.warn("Failed to fetch live family tree, using cached:", err));
+      .catch((err) =>
+        console.warn("Failed to fetch live family tree, using cached:", err),
+      );
     return () => {
       isMounted = false;
     };
   }, []);
 
   // Handle Add Member
-  const handleAddMember = useCallback(async (
-    parentKey: string,
-    memberData: Omit<FamilyMember, "key" | "generation">,
-    submitterInfo?: { name: string; phone: string }
-  ) => {
-    // 1. Submit crowd-sourced request to MongoDB Atlas
-    try {
-      const parent = findMemberByKey(treeData, parentKey);
-      await fetch("/api/family-tree/request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...memberData,
-          parentKey,
-          parentName: parent?.title || "",
-          submitterName: submitterInfo?.name || "",
-          submitterPhone: submitterInfo?.phone || "",
-        }),
-      });
-    } catch (e) {
-      console.warn("Could not send request to API:", e);
-    }
-
-    // 2. Optimistic local update
-    const result = addMemberToTree(treeData, parentKey, memberData);
-    if (result) {
-      setTreeData(result.updatedTree);
+  const handleAddMember = useCallback(
+    async (
+      parentKey: string,
+      memberData: Omit<FamilyMember, "key" | "generation">,
+      submitterInfo?: { name: string; phone: string },
+    ) => {
+      // 1. Submit crowd-sourced request to MongoDB Atlas
       try {
-        localStorage.setItem("basar_family_tree_data", JSON.stringify(result.updatedTree));
+        const parent = findMemberByKey(treeData, parentKey);
+        await fetch("/api/family-tree/request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...memberData,
+            parentKey,
+            parentName: parent?.title || "",
+            submitterName: submitterInfo?.name || "",
+            submitterPhone: submitterInfo?.phone || "",
+          }),
+        });
       } catch (e) {
-        console.error("Failed to save to localStorage", e);
+        console.warn("Could not send request to API:", e);
       }
 
-      // Expand parent branch
-      const ancestors = getAncestorKeys(result.newMember.key);
-      setExpandedKeys((prev) => {
-        const next = new Set(prev);
-        ancestors.forEach((k) => next.add(k));
-        next.add(parentKey);
-        next.add(result.newMember.key);
-        return next;
-      });
+      // 2. Optimistic local update
+      const result = addMemberToTree(treeData, parentKey, memberData);
+      if (result) {
+        setTreeData(result.updatedTree);
+        try {
+          localStorage.setItem(
+            "basar_family_tree_data",
+            JSON.stringify(result.updatedTree),
+          );
+        } catch (e) {
+          console.error("Failed to save to localStorage", e);
+        }
 
-      // Select and highlight new member
-      setSelectedMember(result.newMember);
-      setDetailMember(result.newMember);
-      setHighlightedKey(result.newMember.key);
+        // Expand parent branch
+        const ancestors = getAncestorKeys(result.newMember.key);
+        setExpandedKeys((prev) => {
+          const next = new Set(prev);
+          ancestors.forEach((k) => next.add(k));
+          next.add(parentKey);
+          next.add(result.newMember.key);
+          return next;
+        });
 
-      // Show toast
-      setToastMessage(`সদস্য "${result.newMember.title}" এর তথ্য সেন্ট্রাল ডাটাবেজে সফলভাবে গৃহীত হয়েছে! (আইডি: ${result.newMember.key})`);
-      setTimeout(() => setToastMessage(null), 5000);
-      setTimeout(() => setHighlightedKey(null), 3500);
+        // Select and highlight new member
+        setSelectedMember(result.newMember);
+        setDetailMember(result.newMember);
+        setHighlightedKey(result.newMember.key);
 
-      // Open new member profile
-      setIsDetailModalOpen(true);
-    }
-  }, [treeData]);
+        // Show toast
+        setToastMessage(
+          `সদস্য "${result.newMember.title}" এর তথ্য সেন্ট্রাল ডাটাবেজে সফলভাবে গৃহীত হয়েছে! (আইডি: ${result.newMember.key})`,
+        );
+        setTimeout(() => setToastMessage(null), 5000);
+        setTimeout(() => setHighlightedKey(null), 3500);
+
+        // Open new member profile
+        setIsDetailModalOpen(true);
+      }
+    },
+    [treeData],
+  );
 
   // Search Pick
   const handleSearchPick = useCallback(
@@ -722,18 +774,21 @@ export default function FamilyTree() {
 
       setTimeout(() => setHighlightedKey(null), 3500);
     },
-    [handleSelectMember]
+    [handleSelectMember],
   );
 
   const totalMembers = useMemo(() => countMembers(treeData), [treeData]);
   const maxGen = useMemo(() => getMaxGeneration(treeData) + 1, [treeData]);
   const maleCount = useMemo(() => countByGender(treeData, "male"), [treeData]);
-  const femaleCount = useMemo(() => countByGender(treeData, "female"), [treeData]);
+  const femaleCount = useMemo(
+    () => countByGender(treeData, "female"),
+    [treeData],
+  );
 
   return (
     <div className="min-h-screen bg-slate-50/60 dark:bg-[#070b14] text-slate-900 dark:text-white transition-colors duration-200 pb-20">
       {/* Compact Mobile-First Header */}
-      <header className="bg-white dark:bg-[#0c121e] border-b border-slate-200/80 dark:border-[#222] pt-6 pb-5 px-4 sm:px-6 lg:px-8">
+      <header className="pt-6 pb-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Title, Stats & Add Member Action */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -743,7 +798,7 @@ export default function FamilyTree() {
                 <span>বংশলতিকা ও ঐতিহ্য</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-                বাছার বংশের পরিবারবৃক্ষ
+                বাছার বংশের ফ্যামিলি ট্রি
               </h1>
             </div>
 
@@ -773,7 +828,7 @@ export default function FamilyTree() {
                 <span>অ্যাডমিন প্যানেল</span>
               </Link>
 
-              {/* + Add Member Button */}
+              {/* + Add Member Button - Temporarily Hidden
               <button
                 onClick={() => {
                   setAddModalParentKey(selectedMember?.key || "1-1-1-1-1");
@@ -784,6 +839,7 @@ export default function FamilyTree() {
                 <UserPlus className="w-4 h-4" />
                 <span>+ নতুন সদস্য যোগ করুন</span>
               </button>
+              */}
             </div>
           </div>
 
@@ -831,7 +887,9 @@ export default function FamilyTree() {
                         <div className="flex items-center gap-2 truncate">
                           <span
                             className={`w-2 h-2 rounded-full ${
-                              m.gender === "female" ? "bg-rose-500" : "bg-blue-500"
+                              m.gender === "female"
+                                ? "bg-rose-500"
+                                : "bg-blue-500"
                             }`}
                           />
                           <span className="font-bold text-slate-900 dark:text-white truncate">
@@ -1008,7 +1066,9 @@ export default function FamilyTree() {
           <div className="flex items-center gap-2.5 min-w-0">
             <span
               className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                selectedMember.gender === "female" ? "bg-rose-500" : "bg-blue-500"
+                selectedMember.gender === "female"
+                  ? "bg-rose-500"
+                  : "bg-blue-500"
               }`}
             />
             <div className="min-w-0">

@@ -28,49 +28,49 @@ export default function HeroShop() {
 
   const slides = [
     {
-      title: "Fresh Groceries at Your Doorstep",
-      highlight: "Delivered Within 2 Hours",
+      title: "তাজা মুদি সামগ্রী আপনার দোরগোড়ায়",
+      highlight: "পৌঁছে যাবে 2 ঘণ্টার মধ্যে",
       subtitle:
-        "Farm-fresh vegetables, seasonal fruits, and daily essentials sourced directly from local producers with love.",
+        "স্থানীয় কৃষকদের থেকে সরাসরি সংগৃহীত সতেজ শাকসবজি, মৌসুমী ফল এবং দৈনন্দিন নিত্যপ্রয়োজনীয় সামগ্রী।",
       image:
         "https://images.pexels.com/photos/4199098/pexels-photo-4199098.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      badge: "🌿 100% Fresh & Chemical-Free",
-      offer: "Free Delivery on Orders Over ৳500",
-      cta: "Explore Fresh Produce",
+      badge: "🌿 100% সতেজ ও রাসায়নিক মুক্ত",
+      offer: "৳500 বা তদূর্ধ্ব অর্ডারে ফ্রি ডেলিভারি",
+      cta: "তাজা পণ্য ব্রাউজ করুন",
       link: "/super-shop/shop?category=fresh-produce",
     },
     {
-      title: "Ramadan & Family Bundles",
-      highlight: "Save Up To 25% Today",
+      title: "পারিবারিক সাশ্রয়ী স্পেশাল বান্ডেল",
+      highlight: "আজই উপভোগ করুন 25% পর্যন্ত ছাড়",
       subtitle:
-        "Handpicked essentials, premium dates, aromatic rice, and lentils packed thoughtfully for your family's table.",
+        "আপনার পরিবারের জন্য বাছাইকৃত নিত্যপণ্য, প্রিমিয়াম খেজুর, সুগন্ধি চাল ও ডালের আকর্ষণীয় প্যাকেজ।",
       image:
         "https://images.pexels.com/photos/4397839/pexels-photo-4397839.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      badge: "⭐ Special Ramadan Packages",
-      offer: "Extra 10% Off with Code: RAMADAN10",
-      cta: "View Value Bundles",
+      badge: "⭐ বিশেষ সাশ্রয়ী প্যাকেজ",
+      offer: "কুপন কোড RAMADAN10 দিয়ে অতিরিক্ত 10% ছাড়",
+      cta: "ভ্যালু বান্ডেল দেখুন",
       link: "/super-shop/shop?category=grains-&-rice",
     },
     {
-      title: "Empowering Local Youth",
-      highlight: "Every Purchase Creates Jobs",
+      title: "স্থানীয় তরুণদের স্বাবলম্বীকরণ",
+      highlight: "প্রতিটি কেনাকাটায় কর্মসংস্থান সৃষ্টি",
       subtitle:
-        "Our logistics & operations are run by ambitious youth earning tuition fees and building professional skills.",
+        "আমাদের ডেলিভারি ও প্যাকেজিং কার্যক্রম স্থানীয় সম্ভাবনাময় শিক্ষার্থীদের দ্বারা পরিচালিত, যা তাদের পড়াশোনার খরচ ও দক্ষতা অর্জনে সহায়তা করে।",
       image:
         "https://images.pexels.com/photos/5632381/pexels-photo-5632381.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      badge: "🤝 Social Welfare Initiative",
-      offer: "120+ Youth Actively Employed",
-      cta: "Learn Our Mission",
+      badge: "🤝 সামাজিক কল্যাণমূলক উদ্যোগ",
+      offer: "120+ তরুণ সক্রিয়ভাবে কর্মরত",
+      cta: "আমাদের মিশন জানুন",
       link: "/foundation",
     },
   ];
 
   const quickTags = [
-    { label: "Fresh Vegetables", query: "vegetables" },
-    { label: "Basmati Rice", query: "rice" },
-    { label: "Pure Dairy", query: "dairy" },
-    { label: "Fresh Fruits", query: "fruits" },
-    { label: "Spices & Oils", query: "spices" },
+    { label: "তাজা শাকসবজি", query: "vegetables" },
+    { label: "বাসমতি চাল", query: "rice" },
+    { label: "খাঁটি দুগ্ধজাত", query: "dairy" },
+    { label: "মৌসুমী ফল", query: "fruits" },
+    { label: "তেল ও মশলা", query: "spices" },
   ];
 
   useScrollAnimation();
@@ -177,7 +177,7 @@ export default function HeroShop() {
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Search fresh vegetables, fruits, rice, milk..."
+                            placeholder="তাজা শাকসবজি, ফলমূল, চাল, দুধ বা নিত্যপণ্য খুঁজুন..."
                             className="w-full pl-11 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 focus:bg-white/20 border border-white/20 focus:border-emerald-400 text-white placeholder-slate-400 text-sm sm:text-base outline-none backdrop-blur-xl transition-all shadow-xl"
                           />
                         </div>
@@ -192,7 +192,7 @@ export default function HeroShop() {
 
                       {/* Quick Suggestion Pills */}
                       <div className="flex flex-wrap items-center gap-2 mt-3 pt-1">
-                        <span className="text-xs text-slate-400 font-medium">Quick find:</span>
+                        <span className="text-xs text-slate-400 font-medium">জনপ্রিয় সার্চ:</span>
                         {quickTags.map((tag, idx) => (
                           <button
                             key={idx}
@@ -221,7 +221,7 @@ export default function HeroShop() {
                         className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
                       >
                         <Zap className="w-4 h-4 text-amber-400" />
-                        <span>All Products</span>
+                        <span>সকল পণ্যসমূহ</span>
                       </Link>
                     </div>
                   </div>
@@ -235,14 +235,14 @@ export default function HeroShop() {
         <div className="absolute right-6 bottom-28 sm:bottom-24 z-30 flex items-center gap-3">
           <button
             onClick={prevSlide}
-            aria-label="Previous Slide"
+            aria-label="পূর্ববর্তী স্লাইড"
             className="p-3 rounded-full bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-lg"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={nextSlide}
-            aria-label="Next Slide"
+            aria-label="পরবর্তী স্লাইড"
             className="p-3 rounded-full bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-lg"
           >
             <ChevronRight className="w-5 h-5" />
@@ -255,7 +255,7 @@ export default function HeroShop() {
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
+              aria-label={`স্লাইড ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
                 idx === currentSlide
                   ? "w-8 bg-emerald-400 shadow-md shadow-emerald-400/50"
@@ -280,7 +280,7 @@ export default function HeroShop() {
                   2-Hour Express
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Fast delivery to your doorstep
+                  আপনার ঠিকানায় দ্রুততম হোম ডেলিভারি
                 </p>
               </div>
             </div>
@@ -295,7 +295,7 @@ export default function HeroShop() {
                   100% Farm Fresh
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Direct from verified growers
+                  যাচাইকৃত স্থানীয় চাষিদের থেকে সরাসরি
                 </p>
               </div>
             </div>
@@ -310,7 +310,7 @@ export default function HeroShop() {
                   Youth Empowered
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Every order creates local jobs
+                  প্রতিটি অর্ডারে স্থানীয় তরুণদের কর্মসংস্থান
                 </p>
               </div>
             </div>
@@ -325,7 +325,7 @@ export default function HeroShop() {
                   Guaranteed Quality
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Easy return & cash on delivery
+                  সহজ রিটার্ন ও Cash on Delivery সুবিধা
                 </p>
               </div>
             </div>

@@ -13,11 +13,7 @@ import {
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 
-interface FooterProps {
-  language: "bn" | "en";
-}
-
-export default function Footer({ language }: FooterProps) {
+export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -29,31 +25,25 @@ export default function Footer({ language }: FooterProps) {
   }, []);
 
   const quickLinks = [
-    { href: "/library", label: language === "bn" ? "গ্রন্থাগার" : "Library" },
-    {
-      href: "/foundation",
-      label: language === "bn" ? "ফাউন্ডেশন" : "Foundation",
-    },
-    { href: "/shop", label: language === "bn" ? "সুপার শপ" : "Super Shop" },
-    { href: "/it-park", label: language === "bn" ? "আইটি পার্ক" : "IT Park" },
-    { href: "#donate", label: language === "bn" ? "দান করুন" : "Donate" },
-    { href: "#contact", label: language === "bn" ? "যোগাযোগ" : "Contact" },
+    { href: "/library", label: "গ্রন্থাগার" },
+    { href: "/foundation", label: "Foundation" },
+    { href: "/shop", label: "Super Shop" },
+    { href: "/it-park", label: "IT Park" },
+    { href: "#donate", label: "দান করুন" },
+    { href: "#contact", label: "যোগাযোগ" },
   ];
 
   const services = [
-    { label: language === "bn" ? "বই ডেলিভারি" : "Book Delivery" },
-    { label: language === "bn" ? "আইটি প্রশিক্ষণ" : "IT Training" },
-    { label: language === "bn" ? "কমিউনিটি সহায়তা" : "Community Support" },
-    { label: language === "bn" ? "স্কলারশিপ" : "Scholarships" },
-    { label: language === "bn" ? "চাকরির সুযোগ" : "Job Opportunities" },
-    { label: language === "bn" ? "ব্যবসায়িক সহায়তা" : "Business Support" },
+    { label: "বই ডেলিভারি" },
+    { label: "IT প্রশিক্ষণ" },
+    { label: "কমিউনিটি সহায়তা" },
+    { label: "Scholarship" },
+    { label: "চাকরির সুযোগ" },
+    { label: "ব্যবসায়িক সহায়তা" },
   ];
 
   const contact = {
-    address:
-      language === "bn"
-        ? "বাছার বাড়ি, গ্রাম: নাগেরকান্দা, জেলা: ফরিদপুর, বাংলাদেশ"
-        : "Basar Bari, Village: Nagerkanda, District: Faridpur, Bangladesh",
+    address: "বাছার বাড়ি, গ্রাম: নাগেরকান্দা, জেলা: ফরিদপুর, বাংলাদেশ",
     phone: "+880 1XX XXX XXXX",
     email: "info@basargroup.org",
   };
@@ -77,7 +67,7 @@ export default function Footer({ language }: FooterProps) {
                 <div className="w-12 h-12 bg-primary-green rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">B</span>
                 </div>
-                <div>
+                <div className="text-center flex flex-col justify-center">
                   <h3 className="font-poppins font-bold text-xl">
                     BASAR Group
                   </h3>
@@ -86,9 +76,7 @@ export default function Footer({ language }: FooterProps) {
               </div>
 
               <p className="text-gray-300 leading-relaxed">
-                {language === "bn"
-                  ? "বাছার পরিবার ও কমিউনিটির উন্নয়নে প্রতিশ্রুতিবদ্ধ। শিক্ষা, দক্ষতা ও পারস্পরিক সহায়তার মাধ্যমে একটি উন্নত ভবিষ্যৎ গড়ছি।"
-                  : "Committed to the development of Basar family and community. Building a better future through education, skills and mutual support."}
+              বাছার পরিবার ও কমিউনিটির উন্নয়নে প্রতিশ্রুতিবদ্ধ। শিক্ষা, দক্ষতা ও পারস্পরিক সহায়তার মাধ্যমে একটি উন্নত ভবিষ্যৎ গড়ছি।
               </p>
 
               {/* Social Links */}
@@ -114,7 +102,7 @@ export default function Footer({ language }: FooterProps) {
             {/* Quick Links */}
             <div>
               <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
-                {language === "bn" ? "দ্রুত লিংক" : "Quick Links"}
+                দ্রুত লিংক
               </h4>
               <ul className="space-y-4">
                 {quickLinks.map((link, index) => (
@@ -134,7 +122,7 @@ export default function Footer({ language }: FooterProps) {
             {/* Services */}
             <div>
               <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
-                {language === "bn" ? "আমাদের সেবা" : "Our Services"}
+                আমাদের সেবা
               </h4>
               <ul className="space-y-4">
                 {services.map((service, index) => (
@@ -151,7 +139,7 @@ export default function Footer({ language }: FooterProps) {
             {/* Contact Info */}
             <div>
               <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
-                {language === "bn" ? "যোগাযোগ" : "Contact Us"}
+                যোগাযোগ
               </h4>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -183,16 +171,12 @@ export default function Footer({ language }: FooterProps) {
               {/* Newsletter Signup */}
               <div className="mt-6 p-4 bg-gray-800/50 rounded-lg  ">
                 <p className="text-sm text-gray-300 mb-3">
-                  {language === "bn"
-                    ? "আপডেট পেতে সাবস্ক্রাইব করুন"
-                    : "Subscribe for updates"}
+                  আপডেট পেতে Subscribe করুন
                 </p>
                 <div className="flex">
                   <input
                     type="email"
-                    placeholder={
-                      language === "bn" ? "আপনার ইমেইল" : "Your email"
-                    }
+                    placeholder="আপনার Email লিখুন"
                     className="flex-1 px-3 py-2 bg-gray-700 rounded-l-md text-sm focus:outline-none focus:border-accent"
                   />
                   <button className="bg-primary-accent hover:bg-accent-600 px-4 py-2 rounded-r-md transition-colors">
@@ -211,9 +195,7 @@ export default function Footer({ language }: FooterProps) {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">
               © 2024 BASAR Group.{" "}
-              {language === "bn"
-                ? "সকল অধিকার সংরক্ষিত।"
-                : "All rights reserved."}
+              সকল অধিকার সংরক্ষিত।
             </div>
 
             <div className="flex items-center space-x-6 text-sm">
@@ -221,17 +203,17 @@ export default function Footer({ language }: FooterProps) {
                 href="/privacy"
                 className="text-gray-400 hover:text-accent transition-colors"
               >
-                {language === "bn" ? "গোপনীয়তা নীতি" : "Privacy Policy"}
+                গোপনীয়তা নীতি
               </Link>
               <Link
                 href="/terms"
                 className="text-gray-400 hover:text-accent transition-colors"
               >
-                {language === "bn" ? "শর্তাবলী" : "Terms of Service"}
+                শর্তাবলী
               </Link>
               <span className="text-gray-600">•</span>
               <span className="text-gray-400">
-                {language === "bn" ? "প্রেমের সাথে তৈরি ❤️" : "Made with ❤️"}
+                প্রেমের সাথে তৈরি ❤️
               </span>
             </div>
           </div>

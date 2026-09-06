@@ -9,25 +9,21 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface FeaturesProps {
-  language: 'bn' | 'en';
-}
-
-const iconMap = { 
+const iconMap = {
   FiUsers,
   FiClock,
   FiAward,
   FiBriefcase,
 };
 
-export default function Features({ language }: FeaturesProps) {
+export default function Features() {
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useScrollAnimation();
   useGSAP(() => {
     gsap.set(headerRef.current, { y: 30, opacity: 0 });
-    
+
     ScrollTrigger.create({
       trigger: headerRef.current,
       start: "top 80%",
@@ -44,7 +40,7 @@ export default function Features({ language }: FeaturesProps) {
 
     const cards = cardsRef.current.filter(Boolean);
     gsap.set(cards, { y: 40, opacity: 0 });
-    
+
     ScrollTrigger.create({
       trigger: cards[0],
       start: "top 75%",
@@ -63,21 +59,10 @@ export default function Features({ language }: FeaturesProps) {
     cards.forEach((card) => {
       if (card) {
         card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
-            y: -5,
-            scale: 1.02,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          gsap.to(card, { y: -5, scale: 1.02, duration: 0.3, ease: "power2.out" });
         });
-        
         card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          gsap.to(card, { y: 0, scale: 1, duration: 0.3, ease: "power2.out" });
         });
       }
     });
@@ -88,20 +73,17 @@ export default function Features({ language }: FeaturesProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {language === 'bn' ? 'বিশেষ সুবিধা' : 'Special Features'}
+            বিশেষ সুবিধা
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            {language === 'bn' 
-              ? 'আমাদের সদস্যদের জন্য বিশেষ সুবিধা ও সেবা'
-              : 'Special facilities and services for our members'
-            }
+            আমাদের সদস্যদের জন্য বিশেষ সুবিধা ও সেবা
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => {
             const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
-            
+
             return (
               <Link
                 key={index}
@@ -115,24 +97,10 @@ export default function Features({ language }: FeaturesProps) {
                   <IconComponent className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {language === 'bn' 
-                    ? feature.title
-                      .replace('Membership', 'সদস্যপদ')
-                      .replace('Quick Delivery', 'দ্রুত ডেলিভারি')
-                      .replace('Monthly Quiz', 'মাসিক কুইজ')
-                      .replace('Local Jobs', 'স্থানীয় চাকরি')
-                    : feature.title
-                  }
+                  {feature.title}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  {language === 'bn' 
-                    ? feature.description
-                      .replace('100৳ Refundable membership fee', '১০০৳ ফেরতযোগ্য সদস্যপদ ফি')
-                      .replace('30-min book delivery service', '৩০ মিনিটে বই ডেলিভারি সার্ভিস')
-                      .replace('Quiz contests with rewards', 'পুরস্কারসহ কুইজ প্রতিযোগিতা')
-                      .replace('Employment & delivery opportunities', 'কর্মসংস্থান ও ডেলিভারি সুযোগ')
-                    : feature.description
-                  }
+                  {feature.description}
                 </p>
               </Link>
             );

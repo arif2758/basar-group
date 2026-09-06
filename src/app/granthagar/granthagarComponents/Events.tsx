@@ -58,22 +58,22 @@ const Events: React.FC = () => {
   }, []);
 
   const currentQuiz = {
-    title: "December Reading Challenge Quiz",
-    date: "December 28, 2024",
-    time: "7:00 PM - 8:30 PM",
-    location: "Online via Zoom",
+    title: "ডিসেম্বর রিডিং চ্যালেঞ্জ কুইজ",
+    date: "28 ডিসেম্বর, 2024",
+    time: "সন্ধ্যা 7:00 - রাত 8:30",
+    location: "অনলাইন (Zoom এর মাধ্যমে)",
     participants: 145,
     maxParticipants: 200,
     prizes: [
       {
-        position: "1st Place",
-        reward: "iPad Mini + Book Collection",
+        position: "1ম স্থান",
+        reward: "iPad Mini + বিশেষ বই সংগ্রহ",
         value: "৳45,000",
       },
-      { position: "2nd Place", reward: "Book Voucher", value: "৳1,000" },
+      { position: "2য় স্থান", reward: "বই ক্রয়ের ভাউচার", value: "৳1,000" },
       {
-        position: "3rd Place",
-        reward: "3 Months Premium Membership",
+        position: "3য় স্থান",
+        reward: "3 মাসের প্রিমিয়াম মেম্বারশিপ",
         value: "৳600",
       },
     ],
@@ -83,54 +83,54 @@ const Events: React.FC = () => {
       "Atomic Habits by James Clear",
       "1984 by George Orwell",
     ],
-    registrationDeadline: "December 25, 2024",
+    registrationDeadline: "25 ডিসেম্বর, 2024",
   };
 
   const pastWinners = [
     {
-      month: "November 2024",
+      month: "নভেম্বর 2024",
       quiz: "Philosophy & Self-Development Quiz",
       winners: [
         {
-          name: "Sara Ahmed",
+          name: "সারাহ আহমেদ",
           position: "1st",
-          prize: "Kindle E-reader",
+          prize: "Kindle ই-রিডার",
           university: "University of Dhaka",
         },
         {
-          name: "Karim Hassan",
+          name: "করিম হাসান",
           position: "2nd",
-          prize: "Book Voucher (৳500)",
+          prize: "বই ভাউচার (৳500)",
           university: "BUET",
         },
         {
-          name: "Nadia Khan",
+          name: "নাদিয়া খান",
           position: "3rd",
-          prize: "Premium Membership",
+          prize: "প্রিমিয়াম মেম্বারশিপ",
           university: "NSU",
         },
       ],
     },
     {
-      month: "October 2024",
+      month: "অক্টোবর 2024",
       quiz: "Science & Technology Quiz",
       winners: [
         {
-          name: "Ahmed Rahman",
+          name: "আহমেদ রহমান",
           position: "1st",
           prize: "iPad",
           university: "IUT",
         },
         {
-          name: "Fatima Ali",
+          name: "ফাতিমা আলী",
           position: "2nd",
-          prize: "Book Voucher (৳500)",
+          prize: "বই ভাউচার (৳500)",
           university: "AIUB",
         },
         {
-          name: "Mahmud Hasan",
+          name: "মাহমুদ হাসান",
           position: "3rd",
-          prize: "Premium Membership",
+          prize: "প্রিমিয়াম মেম্বারশিপ",
           university: "EWU",
         },
       ],
@@ -140,39 +140,39 @@ const Events: React.FC = () => {
   const upcomingEvents = [
     {
       id: 1,
-      title: "Book Club: Discussing 'The Alchemist'",
-      date: "January 15, 2025",
-      time: "6:00 PM - 7:30 PM",
-      location: "Community Center, Dhanmondi",
-      type: "Book Club",
+      title: "বুক ক্লাব: 'The Alchemist' নিয়ে উন্মুক্ত আলোচনা",
+      date: "15 জানুয়ারি, 2025",
+      time: "সন্ধ্যা 6:00 - 7:30",
+      location: "কমিউনিটি সেন্টার, ধানমন্ডি",
+      type: "বুক ক্লাব",
       participants: 25,
       maxParticipants: 30,
       description:
-        "Join fellow readers for an in-depth discussion about Paulo Coelho's masterpiece.",
+        "পাওলো কোয়েলহোর অমর সৃষ্টির গভীর দর্শন ও তাৎপর্য নিয়ে সহ-পাঠকদের সাথে প্রাণবন্ত আলোচনায় যোগ দিন।",
     },
     {
       id: 2,
-      title: "Speed Reading Workshop",
-      date: "January 20, 2025",
-      time: "2:00 PM - 5:00 PM",
-      location: "Online",
-      type: "Workshop",
+      title: "স্পিড রিডিং ও দ্রুত পাঠ কর্মশালা",
+      date: "20 জানুয়ারি, 2025",
+      time: "দুপুর 2:00 - বিকাল 5:00",
+      location: "অনলাইন",
+      type: "ওয়ার্কশপ",
       participants: 67,
       maxParticipants: 100,
       description:
-        "Learn techniques to double your reading speed while maintaining comprehension.",
+        "পড়ার গতি দ্বিগুণ করার পাশাপাশি অর্থ ও ভাবার্থ নিখুঁতভাবে ধারণ করার আধুনিক কৌশল শিখুন।",
     },
     {
       id: 3,
-      title: "Author Meet & Greet: Local Writers",
-      date: "February 5, 2025",
-      time: "4:00 PM - 6:00 PM",
-      location: "Bishwo Sahitya Kendra",
-      type: "Meet & Greet",
+      title: "লেখক সম্মিলনী ও আড্ডা: সমকালীন সাহিত্যিকদের সাথে",
+      date: "5 ফেব্রুয়ারি, 2025",
+      time: "বিকাল 4:00 - সন্ধ্যা 6:00",
+      location: "বিশ্বসাহিত্য কেন্দ্র",
+      type: "লেখক আড্ডা",
       participants: 42,
       maxParticipants: 80,
       description:
-        "Meet renowned Bangladeshi authors and learn about their writing journey.",
+        "দেশের খ্যাতিমান লেখকদের সাথে সরাসরি দেখা করুন এবং তাদের সাহিত্য ও লেখালেখির অভিজ্ঞতা জানুন।",
     },
   ];
 
@@ -257,11 +257,10 @@ const Events: React.FC = () => {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12">
           <h1 data-header-title className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
-            Events & Quizzes
+            ইভেন্ট ও মাসিক কুইজ প্রতিযোগিতা
           </h1>
           <p data-header-desc className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
-            Join our community events, test your knowledge in monthly quizzes,
-            and win amazing prizes while connecting with fellow book lovers.
+            আমাদের কমিউনিটি ইভেন্টে অংশ নিন, মাসিক কুইজে মেধা যাচাই করে জিতে নিন আকর্ষণীয় পুরস্কার এবং যুক্ত হোন বইপ্রেমীদের সাথে।
           </p>
         </div>
 
@@ -276,7 +275,7 @@ const Events: React.FC = () => {
                 {currentQuiz.title}
               </h2>
               <p className="text-slate-300 dark:text-slate-400 text-sm sm:text-base">
-                Test your knowledge and win incredible prizes!
+                আপনার মেধা যাচাই করুন এবং জিতে নিন দারুণ সব পুরস্কার!
               </p>
             </div>
 
@@ -286,7 +285,7 @@ const Events: React.FC = () => {
                 <div className="bg-slate-800/80 dark:bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border border-slate-700/60 dark:border-[#303030]">
                   <h3 className="text-base font-semibold mb-4 flex items-center space-x-2 text-white">
                     <Calendar className="w-4 h-4 text-amber-400" />
-                    <span>Quiz Details</span>
+                    <span>কুইজের বিবরণ</span>
                   </h3>
                   <div className="space-y-2.5 text-slate-300 text-sm">
                     <div className="flex items-center space-x-2.5">
@@ -304,15 +303,14 @@ const Events: React.FC = () => {
                     <div className="flex items-center space-x-2.5">
                       <Users className="w-4 h-4 text-slate-400" />
                       <span>
-                        {currentQuiz.participants} / {currentQuiz.maxParticipants}{" "}
-                        registered
+                        {currentQuiz.maxParticipants} জনের মধ্যে {currentQuiz.participants} জন নিবন্ধিত
                       </span>
                     </div>
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-slate-700/60 dark:border-[#303030]">
                     <div className="flex justify-between text-xs text-slate-400 mb-1.5">
-                      <span>Registration Progress</span>
+                      <span>নিবন্ধন অগ্রগতি</span>
                       <span>
                         {Math.round(
                           (currentQuiz.participants / currentQuiz.maxParticipants) * 100
@@ -335,7 +333,7 @@ const Events: React.FC = () => {
                 <div className="bg-slate-800/80 dark:bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border border-slate-700/60 dark:border-[#303030]">
                   <h4 className="text-base font-semibold mb-3 flex items-center space-x-2 text-white">
                     <BookOpen className="w-4 h-4 text-emerald-400" />
-                    <span>Quiz Topics</span>
+                    <span>কুইজের নির্ধারিত বিষয়সমূহ</span>
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {currentQuiz.topics.map((topic, index) => (
@@ -356,7 +354,7 @@ const Events: React.FC = () => {
                 <div className="bg-slate-800/80 dark:bg-[#1a1a1a] rounded-xl p-5 sm:p-6 text-center border border-slate-700/60 dark:border-[#303030]">
                   <h3 className="text-sm font-semibold mb-4 flex items-center justify-center space-x-2 text-white">
                     <Clock className="w-4 h-4 text-amber-400" />
-                    <span>Quiz Starts In</span>
+                    <span>কুইজ শুরু হতে বাকি</span>
                   </h3>
 
                   <div className="grid grid-cols-4 gap-2.5 sm:gap-3">
@@ -364,25 +362,25 @@ const Events: React.FC = () => {
                       <div className="text-xl sm:text-2xl font-bold text-amber-400">
                         {timeLeft.days}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">Days</div>
+                      <div className="text-xs text-slate-400 mt-0.5">দিন</div>
                     </div>
                     <div data-countdown-item className="bg-slate-700/40 dark:bg-[#141414] rounded-lg p-2.5 sm:p-3 border border-slate-600/40 dark:border-[#303030]">
                       <div className="text-xl sm:text-2xl font-bold text-amber-400">
                         {timeLeft.hours}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">Hours</div>
+                      <div className="text-xs text-slate-400 mt-0.5">ঘণ্টা</div>
                     </div>
                     <div data-countdown-item className="bg-slate-700/40 dark:bg-[#141414] rounded-lg p-2.5 sm:p-3 border border-slate-600/40 dark:border-[#303030]">
                       <div className="text-xl sm:text-2xl font-bold text-amber-400">
                         {timeLeft.minutes}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">Mins</div>
+                      <div className="text-xs text-slate-400 mt-0.5">মিনিট</div>
                     </div>
                     <div data-countdown-item className="bg-slate-700/40 dark:bg-[#141414] rounded-lg p-2.5 sm:p-3 border border-slate-600/40 dark:border-[#303030]">
                       <div className="text-xl sm:text-2xl font-bold text-amber-400">
                         {timeLeft.seconds}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">Secs</div>
+                      <div className="text-xs text-slate-400 mt-0.5">সেকেন্ড</div>
                     </div>
                   </div>
                 </div>
@@ -391,7 +389,7 @@ const Events: React.FC = () => {
                 <div className="bg-slate-800/80 dark:bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border border-slate-700/60 dark:border-[#303030]">
                   <h3 className="text-sm font-semibold mb-3 flex items-center space-x-2 text-white">
                     <Gift className="w-4 h-4 text-amber-400" />
-                    <span>Prizes</span>
+                    <span>পুরস্কারসমূহ</span>
                   </h3>
                   <div className="space-y-2">
                     {currentQuiz.prizes.map((prize, index) => (
@@ -416,12 +414,18 @@ const Events: React.FC = () => {
             </div>
 
             <div className="text-center mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]">
-                Register Now
-              </button>
-              <button className="border border-slate-600 dark:border-[#303030] bg-transparent hover:bg-slate-800 text-slate-300 px-7 py-3 rounded-xl font-medium text-sm transition-colors">
-                View Rules
-              </button>
+              <a 
+                href="/granthagar/membership"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
+              >
+                এখনই নিবন্ধন করুন
+              </a>
+              <a 
+                href="/granthagar/reading-tracker"
+                className="border border-slate-600 dark:border-[#303030] bg-transparent hover:bg-slate-800 text-slate-300 px-7 py-3 rounded-xl font-medium text-sm transition-colors"
+              >
+                নিয়মাবলী ও প্রস্তুতি
+              </a>
             </div>
           </div>
         </div>
@@ -430,7 +434,7 @@ const Events: React.FC = () => {
         <div ref={pastWinnersRef} data-winners-section className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] border border-slate-200 dark:border-[#303030] p-6 sm:p-8 mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center flex items-center justify-center space-x-2">
             <Star className="w-5 h-5 text-amber-400 fill-current" />
-            <span>Recent Quiz Winners</span>
+            <span>বিগত কুইজের বিজয়ী পাঠকগণ</span>
           </h2>
 
           <div className="space-y-8">
@@ -475,7 +479,7 @@ const Events: React.FC = () => {
         {/* Upcoming Events */}
         <div ref={upcomingEventsRef} data-events-section className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] border border-slate-200 dark:border-[#303030] p-6 sm:p-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
-            Upcoming Events
+            আসন্ন ইভেন্ট ও পাঠচক্র
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -514,14 +518,14 @@ const Events: React.FC = () => {
                     <div className="flex items-center space-x-2">
                       <Users className="w-3.5 h-3.5 text-slate-400" />
                       <span>
-                        {event.participants} / {event.maxParticipants} registered
+                        {event.maxParticipants} জনের মধ্যে {event.participants} জন নিবন্ধিত
                       </span>
                     </div>
                   </div>
 
                   <div className="mb-4">
                     <div className="flex justify-between text-xs text-slate-400 mb-1">
-                      <span>Registration</span>
+                      <span>নিবন্ধন</span>
                       <span>
                         {Math.round((event.participants / event.maxParticipants) * 100)}%
                       </span>
@@ -535,9 +539,12 @@ const Events: React.FC = () => {
                   </div>
                 </div>
 
-                <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg font-medium text-xs shadow-sm transition-colors active:scale-[0.99]">
-                  Register Now
-                </button>
+                <a
+                  href="/granthagar/membership"
+                  className="block text-center w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg font-medium text-xs shadow-sm transition-colors active:scale-[0.99]"
+                >
+                  নিবন্ধন করুন
+                </a>
               </div>
             ))}
           </div>

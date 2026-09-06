@@ -1,10 +1,9 @@
+"use client";
+
 import React from "react";
 import {
   Heart,
-  
   MessageCircle,
-  
-  
   PlayCircle,
   Mail,
   Phone,
@@ -13,49 +12,50 @@ import {
   Download,
   FileText,
 } from "lucide-react";
+import Link from "next/link";
 
 const FooterFoundation = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     foundation: {
-      title: "Foundation",
+      title: "ফাউন্ডেশন",
       links: [
-        { name: "About Us", href: "#about" },
-        { name: "Our Mission", href: "#mission" },
-        { name: "Leadership Team", href: "#team" },
-        { name: "Annual Reports", href: "#reports" },
-        { name: "Financial Transparency", href: "#finances" },
+        { name: "আমাদের সম্পর্কে", href: "#about" },
+        { name: "আমাদের মিশন", href: "#about" },
+        { name: "পরিচালনা পর্ষদ", href: "#about" },
+        { name: "বার্ষিক প্রতিবেদন", href: "#impact" },
+        { name: "আর্থিক স্বচ্ছতা", href: "#impact" },
       ],
     },
     programs: {
-      title: "Programs",
+      title: "কর্মসূচিসমূহ",
       links: [
-        { name: "Education Aid", href: "#education" },
-        { name: "Farmer Support", href: "#farming" },
-        { name: "Emergency Relief", href: "#emergency" },
-        { name: "Healthcare", href: "#healthcare" },
-        { name: "Seasonal Programs", href: "#seasonal" },
+        { name: "শিক্ষা সহায়তা", href: "#programs" },
+        { name: "কৃষি ও কৃষক উন্নয়ন", href: "#programs" },
+        { name: "জরুরি দুর্যোগ ত্রাণ", href: "#programs" },
+        { name: "স্বাস্থ্যসেবা কর্মসূচি", href: "#programs" },
+        { name: "মৌসুমি উপহার ও সহায়তা", href: "#programs" },
       ],
     },
     support: {
-      title: "Get Involved",
+      title: "যুক্ত হোন",
       links: [
-        { name: "Make a Donation", href: "#donate" },
-        { name: "Volunteer With Us", href: "#volunteer" },
-        { name: "Corporate Partnerships", href: "#corporate" },
-        { name: "Fundraising Events", href: "#events" },
-        { name: "Sponsor a Child", href: "#sponsor" },
+        { name: "অনুদান প্রদান", href: "#contact" },
+        { name: "স্বেচ্ছাসেবক হোন", href: "#contact" },
+        { name: "প্রাতিষ্ঠানিক পার্টনারশিপ", href: "#contact" },
+        { name: "তহবিল সংগ্রহ ইভেন্ট", href: "#contact" },
+        { name: "শিশুর পড়াশোনার দায়িত্ব নিন", href: "#contact" },
       ],
     },
     resources: {
-      title: "Resources",
+      title: "রিসোর্স ও তথ্য",
       links: [
-        { name: "Impact Stories", href: "#stories" },
-        { name: "Photo Gallery", href: "#gallery" },
-        { name: "Press & Media", href: "#press" },
-        { name: "Blog & Updates", href: "#blog" },
-        { name: "Contact Us", href: "#contact" },
+        { name: "সাফল্যের গল্প", href: "#about" },
+        { name: "ছবি গ্যালারি", href: "#about" },
+        { name: "প্রেস ও মিডিয়া", href: "#contact" },
+        { name: "ব্লগ ও আপডেট", href: "#contact" },
+        { name: "যোগাযোগ", href: "#contact" },
       ],
     },
   };
@@ -76,35 +76,33 @@ const FooterFoundation = () => {
           {/* Foundation Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-gradient-to-r from-amber-400 to-amber-600 p-2 rounded-full">
+              <div className="bg-gradient-to-r from-amber-400 to-amber-600 p-2 rounded-full shadow-sm">
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">BASAR Foundation</h3>
-                <p className="text-gray-300 text-sm">Building Better Futures</p>
+                <h3 className="text-2xl font-bold">বাছার ফাউন্ডেশন</h3>
+                <p className="text-amber-300 text-xs font-mono">Learn. Earn. Empower.</p>
               </div>
             </div>
 
-            <p className="text-gray-300 leading-relaxed mb-6">
-              Empowering underserved communities through sustainable programs in
-              education, healthcare, poverty alleviation, and emergency relief
-              since 2018.
+            <p className="text-gray-300 leading-relaxed mb-6 text-sm">
+              শিক্ষা, স্বাস্থ্যসেবা, দারিদ্র্য বিমোচন ও দুর্যোগকালীন জরুরি ত্রাণের মাধ্যমে সুবিধাবঞ্চিত মানুষের পাশে দাঁড়াতে 2018 সাল থেকে নিবেদিত।
             </p>
 
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                <span className="text-gray-300">
-                  123 Hope Street, Compassion City, CC 12345
+                <span className="text-gray-300 text-sm">
+                  বাছার ফাউন্ডেশন ভবন, মাদারীপুর, বাংলাদেশ
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300 text-sm">+880 123 456 789</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-sky-400 flex-shrink-0" />
-                <span className="text-gray-300">info@basarfoundation.org</span>
+                <span className="text-gray-300 text-sm">info@basarfoundation.org</span>
               </div>
             </div>
 
@@ -116,6 +114,7 @@ const FooterFoundation = () => {
                   <a
                     key={index}
                     href={social.href}
+                    aria-label="Social Link"
                     className={`bg-gray-800 p-3 rounded-full ${social.color} transition-all duration-300 hover:scale-110`}
                   >
                     <SocialIcon className="w-5 h-5" />
@@ -128,19 +127,19 @@ const FooterFoundation = () => {
           {/* Footer Links */}
           {Object.values(footerLinks).map((section, index) => (
             <div key={index}>
-              <h4 className="text-lg font-bold mb-4 text-amber-300">
+              <h4 className="text-base font-bold mb-4 text-amber-300">
                 {section.title}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
+                      className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group text-sm"
                     >
                       <span>{link.name}</span>
-                      <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
-                    </a>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200 text-emerald-400" />
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -152,24 +151,27 @@ const FooterFoundation = () => {
         <div className="mt-16 pt-8 border-t border-gray-800">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h4 className="text-2xl font-bold mb-2">Stay Updated</h4>
-              <p className="text-gray-300">
-                Subscribe to receive impact stories, program updates, and ways
-                to help directly in your inbox.
+              <h4 className="text-2xl font-bold mb-2">যুক্ত থাকুন ও আপডেট পান</h4>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                আমাদের উন্নয়ন কার্যক্রম, সাফল্যের গল্প এবং সমাজসেবার নানা উদ্যোগের আপডেট সরাসরি আপনার ইমেইলে পেতে সাবস্ক্রাইব করুন।
               </p>
             </div>
             <div>
-              <div className="flex max-w-md ml-auto">
+              <form onSubmit={(e) => { e.preventDefault(); alert("সাবস্ক্রাইব করার জন্য ধন্যবাদ!"); }} className="flex max-w-md ml-auto">
                 <input
                   type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-xl focus:border-emerald-500 focus:outline-none text-white"
+                  required
+                  placeholder="আপনার ইমেইল ঠিকানা লিখুন"
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-xl focus:border-emerald-500 focus:outline-none text-white text-sm"
                 />
-                <button className="bg-gradient-to-r from-emerald-500 to-emerald-700 px-6 py-3 rounded-r-xl hover:from-emerald-600 hover:to-emerald-800 transition-all duration-300 flex items-center space-x-2">
-                  <Mail className="w-5 h-5" />
-                  <span className="hidden sm:inline">Subscribe</span>
+                <button 
+                  type="submit"
+                  className="bg-gradient-to-r from-emerald-500 to-emerald-700 px-6 py-3 rounded-r-xl hover:from-emerald-600 hover:to-emerald-800 transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span className="hidden sm:inline">সাবস্ক্রাইব</span>
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -177,33 +179,33 @@ const FooterFoundation = () => {
         {/* Quick Downloads */}
         <div className="mt-12">
           <h4 className="text-lg font-bold mb-6 text-center">
-            Quick Downloads
+            জরুরি প্রকাশনাসমূহ
           </h4>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#"
-              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group"
+            <button
+              onClick={() => alert("বার্ষিক প্রতিবেদন ডাউনলোড শীঘ্রই উন্মুক্ত হবে।")}
+              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group text-sm"
             >
-              <Download className="w-5 h-5 text-amber-400" />
-              <span>Annual Report 2024</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
-            </a>
-            <a
-              href="#"
-              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group"
+              <Download className="w-4 h-4 text-amber-400" />
+              <span>বার্ষিক প্রতিবেদন 2024</span>
+              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
+            </button>
+            <button
+              onClick={() => alert("ইমপ্যাক্ট রিপোর্ট ডাউনলোড শীঘ্রই উন্মুক্ত হবে।")}
+              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group text-sm"
             >
-              <FileText className="w-5 h-5 text-emerald-400" />
-              <span>Impact Report Q4</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
-            </a>
-            <a
-              href="#"
-              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group"
+              <FileText className="w-4 h-4 text-emerald-400" />
+              <span>ইমপ্যাক্ট রিপোর্ট Q4</span>
+              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
+            </button>
+            <button
+              onClick={() => alert("ভলান্টিয়ার গাইডবুক ডাউনলোড শীঘ্রই উন্মুক্ত হবে।")}
+              className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 group text-sm"
             >
-              <Heart className="w-5 h-5 text-pink-400" />
-              <span>Volunteer Guide</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
-            </a>
+              <Heart className="w-4 h-4 text-pink-400" />
+              <span>ভলান্টিয়ার গাইডবুক</span>
+              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
+            </button>
           </div>
         </div>
       </div>
@@ -212,23 +214,22 @@ const FooterFoundation = () => {
       <div className="bg-gray-950">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} BASAR Foundation. All rights reserved. | Tax ID:
-              12-3456789
+            <div className="text-gray-400 text-xs mb-4 md:mb-0">
+              © {currentYear} বাছার ফাউন্ডেশন (BASAR Foundation)। সর্বস্বত্ব সংরক্ষিত।
             </div>
-            <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Cookie Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Accessibility
-              </a>
+            <div className="flex space-x-6 text-xs text-gray-400">
+              <Link href="#" className="hover:text-white transition-colors">
+                গোপনীয়তা নীতি
+              </Link>
+              <Link href="#" className="hover:text-white transition-colors">
+                ব্যবহারের শর্তাবলী
+              </Link>
+              <Link href="#" className="hover:text-white transition-colors">
+                কুকি পলিসি
+              </Link>
+              <Link href="#" className="hover:text-white transition-colors">
+                অ্যাক্সেসিবিলিটি
+              </Link>
             </div>
           </div>
         </div>

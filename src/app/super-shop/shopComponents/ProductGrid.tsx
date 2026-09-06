@@ -98,19 +98,19 @@ export default function ProductGrid({
     switch (level) {
       case "high":
         return {
-          text: "In Stock",
+          text: "স্টকে আছে",
           dot: "bg-emerald-500",
           textColor: "text-emerald-600 dark:text-emerald-400",
         };
       case "medium":
         return {
-          text: "Few Left",
+          text: "সীমিত স্টক",
           dot: "bg-amber-500",
           textColor: "text-amber-600 dark:text-amber-400",
         };
       case "low":
         return {
-          text: "Low Stock",
+          text: "শেষের দিকে",
           dot: "bg-rose-500",
           textColor: "text-rose-600 dark:text-rose-400",
         };
@@ -124,29 +124,29 @@ export default function ProductGrid({
         <div className="flex items-center gap-2">
           <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-            Showing{" "}
+            মোট{" "}
             <span className="text-emerald-600 dark:text-emerald-400 font-bold">
               {products.length}
             </span>{" "}
-            products
+            টি পণ্য দেখানো হচ্ছে
           </p>
         </div>
 
         {/* Sort Dropdown */}
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-            Sort by:
+            সাজান:
           </span>
           <select
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
             className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 focus:border-emerald-500 outline-none transition-colors"
           >
-            <option value="featured">✨ Featured</option>
-            <option value="price-low">💰 Price: Low to High</option>
-            <option value="price-high">💎 Price: High to Low</option>
-            <option value="rating">⭐ Highest Rated</option>
-            <option value="discount">🔥 Best Discounts</option>
+            <option value="featured">✨ সেরা বাছাই</option>
+            <option value="price-low">💰 মূল্য: কম থেকে বেশি</option>
+            <option value="price-high">💎 মূল্য: বেশি থেকে কম</option>
+            <option value="rating">⭐ সর্বোচ্চ রেটিং</option>
+            <option value="discount">🔥 সর্বোচ্চ মূল্যছাড়</option>
           </select>
         </div>
       </div>
@@ -158,10 +158,10 @@ export default function ProductGrid({
             <PackageX className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-            No products found
+            কোনো পণ্য পাওয়া যায়নি
           </h3>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto mb-6">
-            We couldn&apos;t find any grocery items matching your current filter or search criteria.
+            আপনার ফিল্টার বা সার্চ অনুযায়ী কোনো পণ্য খুঁজে পাওয়া যায়নি।
           </p>
           {onResetFilters && (
             <button
@@ -169,7 +169,7 @@ export default function ProductGrid({
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md transition-colors"
             >
               <RotateCcw className="w-4 h-4" />
-              <span>Clear All Filters</span>
+              <span>সকল ফিল্টার মুছুন</span>
             </button>
           )}
         </div>
@@ -204,7 +204,7 @@ export default function ProductGrid({
                     <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
                       {discount > 0 && (
                         <span className="px-2.5 py-1 rounded-lg bg-emerald-600 text-white text-[11px] font-bold shadow-md shadow-emerald-900/20">
-                          -{discount}% OFF
+                          -{discount}% ছাড়
                         </span>
                       )}
                       {product.badge && (
@@ -217,7 +217,7 @@ export default function ProductGrid({
                     {/* Wishlist Button */}
                     <button
                       onClick={() => toggleWishlist(product.id)}
-                      aria-label="Save to Wishlist"
+                      aria-label="উইশলিস্টে সংরক্ষণ করুন"
                       className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-200 z-10 ${
                         isWishlisted
                           ? "bg-rose-500 text-white shadow-md shadow-rose-500/30 scale-110"
@@ -252,7 +252,7 @@ export default function ProductGrid({
 
                     {/* Unit & Reviews */}
                     <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mt-2">
-                      <span>Unit: {product.unit}</span>
+                      <span>একক: {product.unit}</span>
                       <div className="flex items-center gap-1 font-semibold text-amber-500">
                         <Star className="w-3.5 h-3.5 fill-current" />
                         <span>{product.rating}</span>
@@ -288,12 +288,12 @@ export default function ProductGrid({
                     {isAdded ? (
                       <>
                         <Check className="w-4 h-4" />
-                        <span>Added</span>
+                        <span>যুক্ত হয়েছে</span>
                       </>
                     ) : (
                       <>
                         <Plus className="w-4 h-4" />
-                        <span>Add</span>
+                        <span>যোগ করুন</span>
                       </>
                     )}
                   </button>

@@ -34,7 +34,7 @@ export default function FlashSale() {
   const flashSaleProducts: FlashSaleProduct[] = [
     {
       id: 7,
-      name: "Fresh Diamond Potatoes (Alu)",
+      name: "ডায়মন্ড গোল আলু",
       price: 32,
       originalPrice: 48,
       image:
@@ -42,11 +42,11 @@ export default function FlashSale() {
       unit: "1 kg",
       sold: 68,
       total: 100,
-      tag: "Best Seller",
+      tag: "সেরা বিক্রিত",
     },
     {
       id: 8,
-      name: "Crisp Red Onions (Deshi Peyaj)",
+      name: "তাজা দেশি লাল পেঁয়াজ",
       price: 65,
       originalPrice: 85,
       image:
@@ -54,31 +54,31 @@ export default function FlashSale() {
       unit: "1 kg",
       sold: 52,
       total: 80,
-      tag: "Limited Stock",
+      tag: "সীমিত স্টক",
     },
     {
       id: 9,
-      name: "Farm Fresh Layer Eggs",
+      name: "খামারের তাজা লাল ডিম",
       price: 135,
       originalPrice: 165,
       image:
         "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600",
-      unit: "1 Dozen (12 pcs)",
+      unit: "1 ডজন (12 টি)",
       sold: 49,
       total: 60,
-      tag: "Fast Selling",
+      tag: "দ্রুত বিক্রি হচ্ছে",
     },
     {
       id: 10,
-      name: "Fresh Green Spinach (Palong Shak)",
+      name: "তাজা কচি পালং শাক",
       price: 25,
       originalPrice: 40,
       image:
         "https://images.pexels.com/photos/576831/pexels-photo-576831.jpeg?auto=compress&cs=tinysrgb&w=600",
-      unit: "1 Bunch",
+      unit: "1 আঁটি",
       sold: 34,
       total: 40,
-      tag: "Morning Harvest",
+      tag: "ভোরের তাজা তোলা",
     },
   ];
 
@@ -152,17 +152,17 @@ export default function FlashSale() {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold mb-4 backdrop-blur-md">
               <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
-              <span>Limited-Time Flash Deals</span>
+              <span>সীমিত সময়ের ফ্ল্যাশ ডিল</span>
               <span className="text-white/40">•</span>
-              <span>Stock Refreshes Daily</span>
+              <span>প্রতিদিন স্টক রিফ্রেশ হয়</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
-              Today&apos;s Flash Discounts
+              আজকের সেরা ফ্ল্যাশ ডিসকাউন্ট
             </h2>
 
             <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-xl leading-relaxed">
-              Incredible savings on daily fresh staples. Once the countdown timer ends or stock finishes, regular prices apply!
+              নিত্যপ্রয়োজনীয় তাজা পণ্যে আকর্ষণীয় মূল্যছাড়। কাউন্টডাউন টাইমার শেষ হলে বা স্টক ফুরালে নিয়মিত দাম কার্যকর হবে!
             </p>
           </div>
 
@@ -170,13 +170,13 @@ export default function FlashSale() {
           <div className="flex items-center gap-3 sm:gap-4 bg-slate-900/80 border border-slate-800 rounded-2xl p-3 sm:p-4 backdrop-blur-xl shadow-2xl">
             <div className="flex items-center gap-2 text-slate-400 text-xs sm:text-sm font-semibold pr-2">
               <Timer className="w-4 h-4 text-amber-400 animate-spin-slow" />
-              <span>Ends in:</span>
+              <span>বাকি আছে:</span>
             </div>
 
             {[
-              { val: timeLeft.hours, label: "Hours" },
-              { val: timeLeft.minutes, label: "Mins" },
-              { val: timeLeft.seconds, label: "Secs" },
+              { val: timeLeft.hours, label: "ঘণ্টা" },
+              { val: timeLeft.minutes, label: "মিনিট" },
+              { val: timeLeft.seconds, label: "সেকেন্ড" },
             ].map((unit, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <div className="flex flex-col items-center">
@@ -224,7 +224,7 @@ export default function FlashSale() {
                     {/* Top Discount Tag */}
                     <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
                       <span className="px-3 py-1 rounded-lg bg-gradient-to-r from-amber-500 to-rose-500 text-slate-950 font-black text-xs shadow-lg">
-                        SAVE {discount}%
+                        ছাড় {discount}%
                       </span>
                       <span className="px-2.5 py-0.5 rounded-md bg-slate-900/80 backdrop-blur-md text-slate-300 text-[10px] font-semibold border border-white/10">
                         {product.tag}
@@ -235,7 +235,7 @@ export default function FlashSale() {
                   {/* Product Details */}
                   <div className="p-4 sm:p-5">
                     <span className="text-xs text-slate-400 font-medium">
-                      Unit: {product.unit}
+                      একক: {product.unit}
                     </span>
 
                     <h3 className="font-bold text-base text-white mt-1 leading-snug line-clamp-1 group-hover:text-amber-400 transition-colors">
@@ -255,9 +255,9 @@ export default function FlashSale() {
                     {/* Stock Urgency Progress Bar */}
                     <div className="mt-4">
                       <div className="flex justify-between text-xs text-slate-400 font-medium mb-1.5">
-                        <span>Sold: {product.sold}</span>
+                        <span>বিক্রি: {product.sold}</span>
                         <span className="text-amber-400">
-                          {product.total - product.sold} left
+                          বাকি: {product.total - product.sold}
                         </span>
                       </div>
                       <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
@@ -283,12 +283,12 @@ export default function FlashSale() {
                     {isAdded ? (
                       <>
                         <Check className="w-4 h-4" />
-                        <span>Added to Cart!</span>
+                        <span>কার্টে যুক্ত হয়েছে!</span>
                       </>
                     ) : (
                       <>
                         <Zap className="w-4 h-4 fill-current" />
-                        <span>Grab Deal Now</span>
+                        <span>এখনই কিনুন</span>
                       </>
                     )}
                   </button>

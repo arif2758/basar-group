@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
 
-
 import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
@@ -162,11 +161,10 @@ function FooterIT() {
               <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
                 <FaGraduationCap className="text-white text-xl" />
               </div>
-              <span className="text-2xl font-bold">BASAR IT Park</span>
+              <span className="text-2xl font-bold">বাছার IT Park</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Empowering communities through education, creating opportunities
-              for growth and prosperity.
+              প্রযুক্তি শিক্ষার মাধ্যমে কমিউনিটিকে ক্ষমতায়ন এবং তরুণদের জন্য অর্থনৈতিক সমৃদ্ধি ও উজ্জ্বল ভবিষ্যৎ বিনির্মাণ।
             </p>
             <div className="flex space-x-4">
               <FaFacebook className="social-icon text-2xl cursor-pointer" />
@@ -177,14 +175,14 @@ function FooterIT() {
           </div>
 
           <div className="footer-section">
-            <h3 className="text-lg font-bold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-6">দ্রুত লিঙ্ক</h3>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="#about"
                   className="nav-link text-gray-400 cursor-pointer"
                 >
-                  About Us
+                  আমাদের সম্পর্কে
                 </Link>
               </li>
               <li>
@@ -192,7 +190,7 @@ function FooterIT() {
                   href="#skills"
                   className="nav-link text-gray-400 cursor-pointer"
                 >
-                  Courses
+                  আইটি কোর্সসমূহ
                 </Link>
               </li>
               <li>
@@ -200,7 +198,7 @@ function FooterIT() {
                   href="#jobs"
                   className="nav-link text-gray-400 cursor-pointer"
                 >
-                  Job Board
+                  ক্যারিয়ার ও চাকরি
                 </Link>
               </li>
               <li>
@@ -208,7 +206,7 @@ function FooterIT() {
                   href="#events"
                   className="nav-link text-gray-400 cursor-pointer"
                 >
-                  Events
+                  ইভেন্ট ও কর্মশালা
                 </Link>
               </li>
               <li>
@@ -216,14 +214,14 @@ function FooterIT() {
                   href="#guardian"
                   className="nav-link text-gray-400 cursor-pointer"
                 >
-                  Guardian Access
+                  অভিভাবক অ্যাক্সেস
                 </Link>
               </li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h3 className="text-lg font-bold mb-6">Programs</h3>
+            <h3 className="text-lg font-bold mb-6">প্রশিক্ষণ কর্মসূচি</h3>
             <ul className="space-y-3">
               <li>
                 <span className="text-gray-400">Web Development</span>
@@ -235,7 +233,7 @@ function FooterIT() {
                 <span className="text-gray-400">Digital Marketing</span>
               </li>
               <li>
-                <span className="text-gray-400">Photography</span>
+                <span className="text-gray-400">Photography & Videography</span>
               </li>
               <li>
                 <span className="text-gray-400">Co-Working Space</span>
@@ -244,12 +242,12 @@ function FooterIT() {
           </div>
 
           <div className="footer-section">
-            <h3 className="text-lg font-bold mb-6">Contact Info</h3>
+            <h3 className="text-lg font-bold mb-6">যোগাযোগ</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <FaMapMarkerAlt className="text-emerald-400" />
                 <span className="text-gray-400">
-                  BASAR Community, Local Area
+                  বাছার কমিউনিটি সেন্টার, মাদারীপুর, বাংলাদেশ
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -268,27 +266,26 @@ function FooterIT() {
           <div className="footer-divider absolute left-0 right-0 h-px bg-gray-800"></div>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0">
-              © 2024 BASAR IT Park. All rights reserved. Built with ❤️ for
-              community growth.
+              © 2025 বাছার IT Park. সর্বস্বত্ব সংরক্ষিত। মেধা ও সমাজ কল্যাণে নিবেদিত।
             </p>
             <div className="flex space-x-6">
               <Link
                 href="#"
                 className="nav-link text-gray-400 cursor-pointer"
               >
-                Privacy Policy
+                গোপনীয়তা নীতি
               </Link>
               <Link
                 href="#"
                 className="nav-link text-gray-400 cursor-pointer"
               >
-                Terms of Service
+                ব্যবহারের শর্তাবলী
               </Link>
               <Link
                 href="#"
                 className="nav-link text-gray-400 cursor-pointer"
               >
-                Support
+                হেল্প ও সাপোর্ট
               </Link>
             </div>
           </div>

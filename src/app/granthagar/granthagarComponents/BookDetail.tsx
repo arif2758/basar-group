@@ -37,41 +37,41 @@ const BookDetail: React.FC = () => {
       "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=400",
     rating: 4.8,
     totalReviews: 24,
-    donor: "Ahmed Rahman",
+    donor: "আহমেদ রহমান",
     donorPhoto:
       "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
-    donorLocation: "Dhanmondi",
+    donorLocation: "ধানমন্ডি",
     status: "Available",
-    category: "Philosophy",
+    category: "দর্শন ও জীবনধারা",
     pages: 163,
-    language: "English",
+    language: "English / অনুবাদ",
     publishYear: 1988,
     isbn: "978-0062315007",
-    dateAdded: "January 15, 2024",
+    dateAdded: "15 জানুয়ারি, 2024",
     description:
-      "The Alchemist is a novel by Brazilian author Paulo Coelho that was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller. An allegorical novel, The Alchemist follows a young Andalusian shepherd in his journey to the pyramids of Egypt, after having a recurring dream of finding a treasure there.",
+      "The Alchemist ব্রাজিলিয়ান লেখক পাওলো কোয়েলহোর এক বিশ্বখ্যাত ক্লাসিক উপন্যাস যা প্রথম প্রকাশিত হয় 1988 সালে। মূল পর্তুগিজ ভাষায় রচিত এই বইটি বিশ্বের অন্যতম সর্বাধিক অনূদিত বেস্টসেলার। এক তরুণ মেষপালকের আন্দালুসিয়া থেকে মিশরের পিরামিডের দিকে গুপ্তধনের সন্ধানে দীর্ঘ যাত্রার মাধ্যমে নিজের স্বপ্নপূরণ ও সত্য উপলব্ধির গল্প ফুটে উঠেছে এতে।",
     keyLearnings: [
-      "Follow your personal legend and dreams",
-      "Listen to your heart and the universe",
-      "The treasure is often the journey itself",
-      "Fear is the greatest obstacle to achieving dreams",
+      "নিজের স্বপ্ন এবং ব্যক্তিগত উদ্দেশ্যের (Personal Legend) প্রতি অবিচল থাকা",
+      "হৃদয়ের ডাক এবং প্রকৃতির সংকেত উপলব্ধি করা",
+      "অনেক সময় প্রাপ্তির চেয়ে যাত্রাপথ ও আত্ম-আবিষ্কারই প্রধান গুপ্তধন",
+      "স্বপ্ন পূরণের পথে সবচেয়ে বড় বাধা হলো ব্যর্থতার ভয়",
     ],
     whyRead:
-      "This timeless tale will inspire you to pursue your dreams fearlessly and understand that the journey of self-discovery is often more valuable than the destination itself.",
+      "এই কালজয়ী বইটি আপনাকে সকল দ্বিধাদ্বন্দ্ব ভুলে নিজের স্বপ্নপূরণের পথে অনুপ্রাণিত করবে এবং জীবনের গভীরে লুকানো আত্মশক্তির সন্ধান দেবে।",
     reviews: [
       {
         id: 1,
-        user: "Sarah Ahmed",
+        user: "সারাহ আহমেদ",
         rating: 5,
-        date: "2 weeks ago",
-        text: "Life-changing book! Paulo Coelho's writing style is simple yet profound.",
+        date: "2 সপ্তাহ আগে",
+        text: "জীবন বদলে দেওয়ার মতো একটি বই! পাওলো কোয়েলহোর সহজ অথচ গভীর লেখনী সত্যি অসাধারণ।",
       },
       {
         id: 2,
-        user: "Karim Hassan",
+        user: "করিম হাসান",
         rating: 4,
-        date: "1 month ago",
-        text: "Beautiful story about following your dreams. Highly recommended!",
+        date: "1 মাস আগে",
+        text: "স্বপ্নপূরণ আর নিজের পথ খুঁজে নেওয়ার দারুণ এক গল্প। প্রতিটি পাঠকের এটি পড়া উচিত!",
       },
     ],
     similarBooks: [
@@ -811,7 +811,7 @@ const BookDetail: React.FC = () => {
           className="back-button inline-flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 mb-8 bg-white dark:bg-[#141414] px-4 py-2 rounded-xl border border-slate-200 dark:border-[#303030] shadow-sm text-sm font-medium transition-colors"
         >
           <ArrowLeft className="back-icon w-4 h-4" />
-          <span className="back-text">Back to Catalog</span>
+          <span className="back-text">ক্যাটালগে ফিরে যান</span>
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -839,7 +839,7 @@ const BookDetail: React.FC = () => {
                   {book.title}
                 </h1>
                 <p className="book-author text-sm text-slate-500 dark:text-slate-400 mb-3 font-medium">
-                  by {book.author}
+                  লেখক: {book.author}
                 </p>
 
                 <div className="rating-stars flex items-center justify-center space-x-2 mb-4">
@@ -859,30 +859,33 @@ const BookDetail: React.FC = () => {
                     {book.rating}
                   </span>
                   <span className="text-xs text-slate-400">
-                    ({book.totalReviews} reviews)
+                    ({book.totalReviews} টি রিভিউ)
                   </span>
                 </div>
 
                 <div className="status-badge inline-flex items-center bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></div>
-                  {book.status}
+                  {book.status === "Available" ? "উপলব্ধ" : "ধার নেওয়া"}
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-3 mb-6 relative z-10">
-                <button className="action-btn primary-action-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]">
-                  <span className="btn-text">Request This Book</span>
-                </button>
+                <Link
+                  href="/granthagar/request-book"
+                  className="action-btn primary-action-btn w-full block text-center bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
+                >
+                  <span className="btn-text">বইটির জন্য অনুরোধ করুন</span>
+                </Link>
 
                 <div className="grid grid-cols-2 gap-3">
                   <button className="action-btn secondary-action-btn bg-slate-50 dark:bg-[#1a1a1a] hover:bg-slate-100 dark:hover:bg-[#262626] text-slate-700 dark:text-slate-300 py-2.5 px-4 rounded-xl font-medium text-xs transition-colors flex items-center justify-center space-x-2 border border-slate-200 dark:border-[#303030]">
                     <Heart className="btn-icon w-4 h-4 text-rose-500" />
-                    <span className="btn-text">Save</span>
+                    <span className="btn-text">সংরক্ষণ</span>
                   </button>
                   <button className="action-btn secondary-action-btn bg-slate-50 dark:bg-[#1a1a1a] hover:bg-slate-100 dark:hover:bg-[#262626] text-slate-700 dark:text-slate-300 py-2.5 px-4 rounded-xl font-medium text-xs transition-colors flex items-center justify-center space-x-2 border border-slate-200 dark:border-[#303030]">
                     <Share2 className="btn-icon w-4 h-4" />
-                    <span className="btn-text">Share</span>
+                    <span className="btn-text">শেয়ার</span>
                   </button>
                 </div>
               </div>
@@ -891,16 +894,16 @@ const BookDetail: React.FC = () => {
               <div className="border-t border-slate-100 dark:border-[#262626] pt-6 relative z-10">
                 <h3 className="details-header text-sm font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
                   <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-                  Book Details
+                  বইয়ের বিবরণ
                 </h3>
 
                 <div className="space-y-2">
                   {[
-                    { label: "Pages", value: book.pages, icon: "📖" },
-                    { label: "Language", value: book.language, icon: "🌐" },
-                    { label: "Published", value: book.publishYear, icon: "📅" },
-                    { label: "Category", value: book.category, icon: "📚" },
-                    { label: "Added", value: book.dateAdded, icon: "⏰" },
+                    { label: "মোট পৃষ্ঠা", value: book.pages, icon: "📖" },
+                    { label: "ভাষা", value: book.language, icon: "🌐" },
+                    { label: "প্রকাশের সাল", value: book.publishYear, icon: "📅" },
+                    { label: "ক্যাটাগরি", value: book.category, icon: "📚" },
+                    { label: "যুক্ত করার তারিখ", value: book.dateAdded, icon: "⏰" },
                   ].map((detail, index) => (
                     <div
                       key={index}
@@ -926,7 +929,7 @@ const BookDetail: React.FC = () => {
             <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
               <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
                 <User className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                Donated By
+                দান করেছেন
               </h2>
 
               <div className="section-content">
@@ -948,14 +951,17 @@ const BookDetail: React.FC = () => {
                         <span>{book.donorLocation}</span>
                       </div>
                       <span className="inline-block bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded text-[11px] font-medium border border-emerald-200 dark:border-emerald-800/40">
-                        Active donor • 12 books contributed
+                        সক্রিয় দাতা • 12 টি বই অবদান
                       </span>
                     </div>
                   </div>
 
-                  <button className="donor-button bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm">
-                    View Profile
-                  </button>
+                  <Link 
+                    href="/granthagar/donors"
+                    className="donor-button bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm text-center"
+                  >
+                    প্রোফাইল দেখুন
+                  </Link>
                 </div>
               </div>
             </div>
@@ -964,7 +970,7 @@ const BookDetail: React.FC = () => {
             <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
               <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
                 <BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                About This Book
+                বই পরিচিতি
               </h2>
 
               <div className="section-content">
@@ -976,7 +982,7 @@ const BookDetail: React.FC = () => {
                   <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-200 dark:border-[#262626]">
                     <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center space-x-1.5">
                       <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                      <span>Key Learnings</span>
+                      <span>মূল শিক্ষণীয় বিষয়</span>
                     </h3>
                     <ul className="space-y-2">
                       {book.keyLearnings.map((learning, index) => (
@@ -994,7 +1000,7 @@ const BookDetail: React.FC = () => {
                   <div className="bg-slate-50 dark:bg-[#1a1a1a] rounded-xl p-5 border border-slate-200 dark:border-[#262626]">
                     <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center space-x-1.5">
                       <Sparkles className="w-4 h-4 text-amber-500" />
-                      <span>Why You Should Read This</span>
+                      <span>কেন এই বইটি পড়বেন?</span>
                     </h3>
                     <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                       {book.whyRead}
@@ -1009,10 +1015,10 @@ const BookDetail: React.FC = () => {
               <div className="section-header flex items-center justify-between mb-6">
                 <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
                   <Star className="w-5 h-5 text-amber-400 mr-2 fill-current" />
-                  Reader Reviews
+                  পাঠকদের মতামত ও রিভিউ
                 </h2>
                 <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm">
-                  Write Review
+                  রিভিউ লিখুন
                 </button>
               </div>
 
@@ -1063,7 +1069,7 @@ const BookDetail: React.FC = () => {
             <div className="content-section bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
               <h2 className="section-header text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
                 <Eye className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                Similar Books You Might Like
+                অনুরূপ অন্যান্য বই
               </h2>
 
               <div className="section-content grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1079,7 +1085,7 @@ const BookDetail: React.FC = () => {
                       {similarBook.title}
                     </h4>
                     <p className="similar-author text-[11px] text-slate-500 dark:text-slate-400">
-                      by {similarBook.author}
+                      লেখক: {similarBook.author}
                     </p>
                   </div>
                 ))}
@@ -1091,7 +1097,7 @@ const BookDetail: React.FC = () => {
               <div className="section-header flex items-center justify-between mb-4">
                 <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
                   <MessageCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                  Book Discussion
+                  বই নিয়ে আলোচনা
                 </h2>
                 <span className="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded text-xs font-medium border border-emerald-200 dark:border-emerald-800/40">
                   3 comments
@@ -1103,13 +1109,13 @@ const BookDetail: React.FC = () => {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
-                  Join the Conversation!
+                  আলোচনায় অংশ নিন!
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-xs mb-4 max-w-md mx-auto">
-                  Share your thoughts about this book with the community and discover new perspectives.
+                  বইটি সম্পর্কে আপনার ভাবনা ও মতামত কমিউনিটির সাথে শেয়ার করুন এবং নতুন দৃষ্টিভঙ্গি আবিষ্কার করুন।
                 </p>
                 <button className="bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-6 rounded-xl font-medium text-xs shadow-sm transition-colors active:scale-[0.99]">
-                  Join Discussion
+                  মন্তব্য করুন
                 </button>
               </div>
             </div>

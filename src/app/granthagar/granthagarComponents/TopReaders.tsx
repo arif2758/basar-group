@@ -22,9 +22,9 @@ const TopReaders: React.FC = () => {
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       booksRead: 18,
       streak: 23,
-      level: "Master Reader",
-      badges: ["Speed Reader", "Diverse Explorer", "Night Owl"],
-      favoriteGenre: "Science Fiction",
+      level: "মাস্টার রিডার",
+      badges: ["দ্রুত পাঠক", "বৈচিত্র্যপ্রেমী", "রাতজাগা পাঠক"],
+      favoriteGenre: "সায়েন্স ফিকশন",
     },
     {
       id: 2,
@@ -33,9 +33,9 @@ const TopReaders: React.FC = () => {
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       booksRead: 15,
       streak: 19,
-      level: "Avid Reader",
-      badges: ["Consistent Reader", "Philosophy Lover"],
-      favoriteGenre: "Philosophy",
+      level: "অনুরাগী পাঠক",
+      badges: ["ধারাবাহিক পাঠক", "দর্শনপ্রেমী"],
+      favoriteGenre: "দর্শন",
     },
     {
       id: 3,
@@ -44,9 +44,9 @@ const TopReaders: React.FC = () => {
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       booksRead: 12,
       streak: 15,
-      level: "Book Enthusiast",
-      badges: ["History Buff", "Weekend Warrior"],
-      favoriteGenre: "History",
+      level: "বইপ্রেমী",
+      badges: ["ইতিহাসপ্রেমী", "সাপ্তাহিক যোদ্ধা"],
+      favoriteGenre: "ইতিহাস",
     },
   ];
 
@@ -82,7 +82,6 @@ const TopReaders: React.FC = () => {
       opacity: 1,
       scale: 1,
       duration: 0.7,
-      stagger: 0.2,
       ease: "back.out(1.4)"
     }, "-=0.4")
     .to(".reader-photo", {
@@ -130,12 +129,11 @@ const TopReaders: React.FC = () => {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Trophy className="w-8 h-8 text-amber-500" />
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Top Readers This Month
+              এই মাসের সেরা পাঠকবৃন্দ
             </h2>
           </div>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Celebrating our most dedicated readers who inspire the entire
-            community with their love for learning.
+            আমাদের নিয়মিত পাঠকদের অনুপ্রেরণামূলক পাঠাভ্যাস উদযাপন করছি, যারা পুরো কমিউনিটিকে জ্ঞানার্জনে উৎসাহিত করে।
           </p>
         </div>
 
@@ -143,7 +141,7 @@ const TopReaders: React.FC = () => {
           {topReaders.map((reader, index) => (
             <div
               key={reader.id}
-              className={`reader-card relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all hover:scale-105 ${
+              className={`reader-card relative bg-white dark:bg-[#141414] rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-[#303030] transform transition-all hover:scale-105 ${
                 index === 0 ? "lg:scale-110" : ""
               }`}
             >
@@ -187,26 +185,26 @@ const TopReaders: React.FC = () => {
               {/* Stats */}
               <div className="p-6">
                 <div className="reader-stats grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center bg-blue-50 rounded-lg p-3">
+                  <div className="text-center bg-blue-50 dark:bg-blue-950/40 rounded-lg p-3 border border-blue-100 dark:border-blue-900/40">
                     <div className="flex items-center justify-center space-x-1 mb-1">
-                      <BookOpen className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm font-medium text-gray-600">
-                        Books Read
+                      <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <span className="text-sm font-medium text-gray-600 dark:text-slate-300">
+                        পঠিত বই
                       </span>
                     </div>
-                    <div className="text-2xl font-bold text-blue-600">
+                    <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                       {reader.booksRead}
                     </div>
                   </div>
 
-                  <div className="text-center bg-red-50 rounded-lg p-3">
+                  <div className="text-center bg-red-50 dark:bg-red-950/40 rounded-lg p-3 border border-red-100 dark:border-red-900/40">
                     <div className="flex items-center justify-center space-x-1 mb-1">
-                      <Flame className="w-4 h-4 text-red-600" />
-                      <span className="text-sm font-medium text-gray-600">
-                        Day Streak
+                      <Flame className="w-4 h-4 text-red-600 dark:text-red-400" />
+                      <span className="text-sm font-medium text-gray-600 dark:text-slate-300">
+                        ধারাবাহিক দিন
                       </span>
                     </div>
-                    <div className="text-2xl font-bold text-red-600">
+                    <div className="text-2xl font-bold text-red-600 dark:text-red-400">
                       {reader.streak}
                     </div>
                   </div>
@@ -216,25 +214,25 @@ const TopReaders: React.FC = () => {
                 <div className="reader-badges mb-4">
                   <div className="flex items-center space-x-1 mb-2">
                     <Star className="w-4 h-4 text-purple-500" />
-                    <span className="text-sm font-medium text-gray-600">
-                      Favorite Genre
+                    <span className="text-sm font-medium text-gray-600 dark:text-slate-300">
+                      পছন্দের জনরা
                     </span>
                   </div>
-                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
                     {reader.favoriteGenre}
                   </span>
                 </div>
 
                 {/* Badges */}
                 <div className="reader-badges">
-                  <h4 className="text-sm font-medium text-gray-600 mb-2">
-                    Achievements
+                  <h4 className="text-sm font-medium text-gray-600 dark:text-slate-300 mb-2">
+                    অর্জনসমূহ
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {reader.badges.map((badge, badgeIndex) => (
                       <span
                         key={badgeIndex}
-                        className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium"
+                        className="bg-green-100 dark:bg-green-950/60 text-green-800 dark:text-green-300 px-2 py-1 rounded text-xs font-medium"
                       >
                         {badge}
                       </span>
@@ -242,9 +240,12 @@ const TopReaders: React.FC = () => {
                   </div>
                 </div>
 
-                <button className="reader-button w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                  View Profile
-                </button>
+                <a
+                  href="/granthagar/reading-tracker"
+                  className="block text-center reader-button w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors"
+                >
+                  প্রোফাইল দেখুন
+                </a>
               </div>
             </div>
           ))}
@@ -253,16 +254,17 @@ const TopReaders: React.FC = () => {
         <div className="challenge-cta text-center mt-12">
           <div className="bg-white dark:bg-[#141414] text-slate-900 dark:text-white rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-3 tracking-tight">
-              Join the Leaderboard!
+              লিডারবোর্ডে যুক্ত হোন!
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              Start your reading journey today and compete with fellow book
-              lovers. Track your progress, earn badges, and climb the monthly
-              rankings.
+              আজই আপনার পাঠযাত্রা শুরু করুন। অগ্রগতি ট্র্যাক করুন, ব্যাজ অর্জন করুন এবং মাসিক র‍্যাঙ্কিংয়ে এগিয়ে যান।
             </p>
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
-              Start Reading Challenge
-            </button>
+            <a
+              href="/granthagar/reading-tracker"
+              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]"
+            >
+              রিডিং চ্যালেঞ্জ শুরু করুন
+            </a>
           </div>
         </div>
       </div>

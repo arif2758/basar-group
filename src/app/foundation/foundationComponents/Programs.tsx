@@ -14,9 +14,6 @@ import Image from "next/image";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 // টাইপ ডেফিনিশন
@@ -39,120 +36,120 @@ type ProgramKey = "education" | "farming" | "seasonal" | "emergency";
 
 const programs: Record<ProgramKey, Program> = {
   education: {
-    title: "Education Aid Programs",
+    title: "শিক্ষা সহায়তা কর্মসূচি (Education Aid)",
     icon: BookOpen,
     color: "from-blue-500 to-blue-700",
     description:
-      "Empowering children through quality education and learning resources",
+      "মানসম্মত শিক্ষা উপকরণ ও আধুনিক লার্নিং সুবিধার মাধ্যমে সুবিধাবঞ্চিত শিশুদের মেধা বিকাশ ও ভবিষ্যৎ ক্ষমতায়ন",
     initiatives: [
       {
-        name: "School Supply Distribution",
-        description: "Books, notebooks, pens, and essential learning materials",
-        impact: "12,500 students equipped",
+        name: "স্কুল ব্যাগ ও শিক্ষা উপকরণ বিতরণ",
+        description: "বই, খাতা, জ্যামিতি বক্স, কলম ও প্রয়োজনীয় শিক্ষা সহায়ক সামগ্রী প্রদান",
+        impact: "12,500 শিক্ষার্থী উপকৃত",
         image:
           "https://images.pexels.com/photos/8613082/pexels-photo-8613082.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Study Table & Chair Program",
-        description: "Proper furniture for home study environments",
-        impact: "3,200 families benefited",
+        name: "পড়ার টেবিল ও চেয়ার সহায়তা",
+        description: "শিশুদের পড়াশোনার উপযোগী ঘরোয়া পরিবেশ গড়ে তোলার জন্য টেকসই ফার্নিচার",
+        impact: "3,200 পরিবার উপকৃত",
         image:
           "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Solar Study Lights",
-        description: "Rechargeable LED lights for evening studies",
-        impact: "8,500 students supported",
+        name: "সোলার স্টাডি ল্যাম্প বিতরণ",
+        description: "বিদ্যুৎহীন চরাঞ্চলে সন্ধ্যায় পড়াশোনার জন্য রিচার্জেবল সোলার ল্যাম্প",
+        impact: "8,500 শিক্ষার্থী উপকৃত",
         image:
           "https://images.pexels.com/photos/8923859/pexels-photo-8923859.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
     ],
   },
   farming: {
-    title: "Farmer Support Programs",
+    title: "কৃষি ও কৃষক উন্নয়ন কর্মসূচি (Farmer Support)",
     icon: Sprout,
     color: "from-green-500 to-green-700",
     description:
-      "Supporting agricultural communities with modern farming techniques",
+      "আধুনিক কৃষি প্রযুক্তি, উচ্চফলনশীল বীজ ও টেকসই পদ্ধতির মাধ্যমে প্রান্তিক কৃষকদের জীবিকা সুরক্ষা",
     initiatives: [
       {
-        name: "Improved Seed Distribution",
-        description: "High-yield, climate-resistant crop varieties",
-        impact: "2,800 farmers benefited",
+        name: "উন্নত ও উচ্চফলনশীল বীজ বিতরণ",
+        description: "জলবায়ু সহনশীল ও অধিক ফলনশীল জাতের বিভিন্ন ফসলের বীজ প্রদান",
+        impact: "2,800 কৃষক উপকৃত",
         image:
           "https://images.pexels.com/photos/4960464/pexels-photo-4960464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Agricultural Training",
-        description: "Modern farming techniques and sustainable practices",
-        impact: "1,500 farmers trained",
+        name: "ব্যবহারিক কৃষি প্রশিক্ষণ",
+        description: "আধুনিক চাষাবাদ, জৈব সার প্রস্তুত ও টেকসই কৃষিপদ্ধতি শেখানো",
+        impact: "1,500 কৃষক প্রশিক্ষিত",
         image:
           "https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Farming Tools & Equipment",
-        description: "Essential tools and small machinery for efficiency",
-        impact: "900 farming families equipped",
+        name: "কৃষি যন্ত্রপাতি ও সরঞ্জাম সহায়তা",
+        description: "কৃষিকাজ সহজ ও সাশ্রয়ী করতে প্রয়োজনীয় ছোট যন্ত্রপাতি বিতরণ",
+        impact: "900 কৃষক পরিবার উপকৃত",
         image:
           "https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
     ],
   },
   seasonal: {
-    title: "Seasonal Support Programs",
+    title: "মৌসুমি ও ধর্মীয় উৎসব সহায়তা (Seasonal Support)",
     icon: Gift,
     color: "from-amber-500 to-amber-700",
     description:
-      "Special assistance during religious festivals and harsh seasons",
+      "পবিত্র রমজান, ঈদ ও শীতকালে দরিদ্র ও অসহায় পরিবারের মুখে হাসি ফোটাতে বিশেষ মানবিক উপহার",
     initiatives: [
       {
-        name: "Ramadan Food Packages",
-        description: "Complete iftar meals and groceries for families",
-        impact: "25,000 families fed",
+        name: "রমজান ফুড প্যাকেজ বিতরণ",
+        description: "মাসব্যাপী পুষ্টিকর ইফতার ও নিত্যপ্রয়োজনীয় খাদ্যসামগ্রী বিতরণ",
+        impact: "25,000 পরিবার উপকৃত",
         image:
           "https://images.pexels.com/photos/6646944/pexels-photo-6646944.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Winter Clothing Drive",
-        description: "Warm clothes, blankets, and winter essentials",
-        impact: "8,500 people warmed",
+        name: "শীতবস্ত্র ও কম্বল বিতরণ কর্মসূচি",
+        description: "কঠোর শীতে শীতার্ত মানুষের সুরক্ষায় উষ্ণ পোশাক ও লেপ-কম্বল প্রদান",
+        impact: "8,500 শীতার্ত উপকৃত",
         image:
           "https://images.pexels.com/photos/6647004/pexels-photo-6647004.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Eid Shopping Support",
-        description: "New clothes and gifts for children during Eid",
-        impact: "15,000 children celebrated",
+        name: "ঈদ উপহার ও নতুন পোশাক",
+        description: "সুবিধাবঞ্চিত শিশুদের জন্য ঈদের আনন্দ ছড়িয়ে দিতে নতুন জামা ও উপহার সামগ্রী",
+        impact: "15,000 শিশুর মুখে হাসি",
         image:
           "https://images.pexels.com/photos/6647028/pexels-photo-6647028.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
     ],
   },
   emergency: {
-    title: "Emergency Aid Programs",
+    title: "জরুরি দুর্যোগ ও স্বাস্থ্য ত্রাণ (Emergency Aid)",
     icon: AlertTriangle,
     color: "from-red-500 to-red-700",
     description:
-      "Rapid response to natural disasters and urgent community needs",
+      "বন্যা, অগ্নিকাণ্ড ও আকস্মিক দুর্যোগে দ্রুত সাড়াদান এবং তাৎক্ষণিক খাদ্য, পানি ও চিকিৎসাসেবা",
     initiatives: [
       {
-        name: "Disaster Relief Operations",
-        description: "Immediate aid during floods, earthquakes, and disasters",
-        impact: "12,000 families assisted",
+        name: "দুর্যোগকালীন জরুরি ত্রাণ কার্যক্রম",
+        description: "বন্যা ও প্রাকৃতিক দুর্যোগে পানিবন্দি মানুষদের শুকনো খাবার ও জীবনরক্ষা সামগ্রী",
+        impact: "12,000 পরিবার উপকৃত",
         image:
           "https://images.pexels.com/photos/6646929/pexels-photo-6646929.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Clean Water Projects",
-        description: "Water purification systems and well drilling",
-        impact: "45 communities served",
+        name: "নিরাপদ সুপেয় পানি প্রকল্প",
+        description: "গভীর নলকূপ স্থাপন ও আর্সেনিকমুক্ত ওয়াটার ফিল্টারিং ব্যবস্থা স্থাপন",
+        impact: "45টি গ্রাম উপকৃত",
         image:
           "https://images.pexels.com/photos/6256304/pexels-photo-6256304.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
       {
-        name: "Medical Emergency Fund",
-        description: "Critical healthcare support for urgent medical needs",
-        impact: "3,200 patients treated",
+        name: "জরুরি চিকিৎসা সহায়তা তহবিল",
+        description: "দরিদ্র ও জটিল রোগীদের জরুরি অপারেশন ও ওষুধ সহায়তা প্রদান",
+        impact: "3,200 রোগী উপকৃত",
         image:
           "https://images.pexels.com/photos/6303615/pexels-photo-6303615.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       },
@@ -161,10 +158,10 @@ const programs: Record<ProgramKey, Program> = {
 };
 
 const tabs: { key: ProgramKey; label: string; icon: LucideIcon }[] = [
-  { key: "education", label: "Education", icon: BookOpen },
-  { key: "farming", label: "Farming", icon: Sprout },
-  { key: "seasonal", label: "Seasonal", icon: Gift },
-  { key: "emergency", label: "Emergency", icon: AlertTriangle },
+  { key: "education", label: "শিক্ষা সহায়তা", icon: BookOpen },
+  { key: "farming", label: "কৃষি ও কৃষক উন্নয়ন", icon: Sprout },
+  { key: "seasonal", label: "মৌসুমি সহায়তা", icon: Gift },
+  { key: "emergency", label: "জরুরি ত্রাণ", icon: AlertTriangle },
 ];
 
 const Programs = () => {
@@ -266,11 +263,10 @@ const Programs = () => {
         {/* Title */}
         <div className="programs-header text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Our Impact Programs
+            আমাদের উন্নয়ন ও সহায়তা কর্মসূচিসমূহ
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Comprehensive initiatives addressing the most pressing needs of
-            underserved communities
+            সুবিধাবঞ্চিত মানুষের মৌলিক চাহিদা পূরণ এবং টেকসই স্বাবলম্বিতা অর্জনে বহুমুখী মানবিক উদ্যোগ
           </p>
         </div>
 
@@ -350,10 +346,10 @@ const Programs = () => {
             <div className="text-center mb-8">
               <Calendar className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                Upcoming Projects - 2024
+                আসন্ন উন্নয়ন প্রকল্পসমূহ - 2025
               </h3>
               <p className="text-base text-slate-600 dark:text-slate-400">
-                Exciting new initiatives launching soon to expand our impact
+                কমিউনিটি সেবার পরিধি আরও বিস্তৃত করতে নতুন ও যুগান্তকারী উদ্যোগ
               </p>
             </div>
 
@@ -363,14 +359,13 @@ const Programs = () => {
                   <BookOpen className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                  Mobile Learning Labs
+                  ভ্রাম্যমাণ ডিজিটাল লার্নিং ল্যাব
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Technology-equipped vehicles bringing digital education to
-                  remote areas
+                  দূরবর্তী প্রত্যন্ত অঞ্চলের শিশুদের কাছে আধুনিক প্রযুক্তিনির্ভর শিক্ষা পৌঁছে দিতে ভ্রাম্যমাণ বাস ল্যাব
                 </p>
                 <div className="text-blue-600 dark:text-blue-400 font-semibold text-xs mt-3">
-                  Q2 2024 Launch
+                  Q2 2025 Launch
                 </div>
               </div>
 
@@ -379,14 +374,13 @@ const Programs = () => {
                   <Users className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                  Women Empowerment Centers
+                  নারী ক্ষমতায়ন কেন্দ্র
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Skill development and microfinance programs for women
-                  entrepreneurs
+                  নারী উদ্যোক্তাদের জন্য ব্যবহারিক হস্তশিল্প প্রশিক্ষণ ও স্বাবলম্বী হওয়ার ক্ষুদ্র সহায়তা
                 </p>
                 <div className="text-green-600 dark:text-green-400 font-semibold text-xs mt-3">
-                  Q3 2024 Launch
+                  Q3 2025 Launch
                 </div>
               </div>
 
@@ -395,14 +389,13 @@ const Programs = () => {
                   <Sprout className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                  Sustainable Farming Hub
+                  টেকসই কৃষিব্যবস্থা হাব (Sustainable Farming)
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Comprehensive agricultural support center with modern
-                  techniques
+                  আধুনিক কৃষি প্রযুক্তি ও মাটির স্বাস্থ্য পরীক্ষা সমৃদ্ধ সমন্বিত কৃষক সহায়তা কেন্দ্র
                 </p>
                 <div className="text-amber-600 dark:text-amber-400 font-semibold text-xs mt-3">
-                  Q4 2024 Launch
+                  Q4 2025 Launch
                 </div>
               </div>
             </div>

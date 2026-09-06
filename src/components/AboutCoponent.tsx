@@ -4,8 +4,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import React, { useRef } from "react";
 import Link from "next/link";
 
-
-
 import {
   ArrowRight,
   BookOpen,
@@ -21,8 +19,6 @@ import {
 } from "lucide-react";
 import { FaLeaf, FaRegSmileBeam } from "react-icons/fa";
 
-
-
 export default function AboutComponent() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -34,23 +30,23 @@ export default function AboutComponent() {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   const stats = [
-    { label: "Learners engaged", value: "12,500+", icon: Users },
-    { label: "Books delivered", value: "38,000+", icon: BookOpen },
-    { label: "Local jobs created", value: "350+", icon: LineChart },
-    { label: "Communities served", value: "40+", icon: Globe2 },
+    { label: "সংযুক্ত শিক্ষার্থী", value: "12,500+", icon: Users },
+    { label: "বিতরণকৃত বই", value: "38,000+", icon: BookOpen },
+    { label: "স্থানীয় কর্মসংস্থান সৃষ্টি", value: "350+", icon: LineChart },
+    { label: "সেবাপ্রাপ্ত কমিউনিটি", value: "40+", icon: Globe2 },
   ];
 
   const values = [
     {
-      title: "Integrity",
-      desc: "We do the right thing—always.",
+      title: "সততা (Integrity)",
+      desc: "আমরা সর্বাবস্থায় ন্যায়ের পথে অবিচল ও দায়বদ্ধ।",
       icon: ShieldCheck,
     },
-    { title: "Impact", desc: "Decisions that change lives.", icon: Target },
-    { title: "Joy", desc: "Learning should feel good.", icon: FaRegSmileBeam },
+    { title: "প্রভাব (Impact)", desc: "এমন প্রতিটি সিদ্ধান্ত যা মানুষের জীবনকে ইতিবাচকভাবে বদলে দেয়।", icon: Target },
+    { title: "আনন্দ (Joy)", desc: "শেখা এবং কাজ হওয়া উচিত প্রাণবন্ত ও আনন্দদায়ক।", icon: FaRegSmileBeam },
     {
-      title: "Sustainability",
-      desc: "People, planet, prosperity.",
+      title: "স্থায়িত্ব (Sustainability)",
+      desc: "মানুষ, পরিবেশ ও টেকসই সমৃদ্ধির দীর্ঘমেয়াদি মেলবন্ধন।",
       icon: FaLeaf,
     },
   ];
@@ -59,39 +55,38 @@ export default function AboutComponent() {
     {
       title: "Library",
       href: "/granthagar",
-      desc: "Order & read beyond textbooks. Track availability, donors, and reading streaks.",
+      desc: "পাঠ্যবইয়ের বাইরে পড়ুন ও জানুন। বইয়ের সংগ্রহ, দাতা এবং নিয়মিত পড়ার অভ্যাস ট্র্যাক করুন।",
       icon: BookOpen,
-      badge: "Read • Discover • Grow",
+      badge: "পড়ুন • আবিষ্কার করুন • বিকশিত হন",
       color: "from-sky-500/20 to-indigo-500/20",
     },
     {
       title: "Foundation",
       href: "/foundation",
-      desc: "Education aid, farmer support, seasonal relief—transparent impact at scale.",
+      desc: "শিক্ষা সহায়তা, কৃষক উন্নয়ন ও জরুরি ত্রাণ—স্বচ্ছ ও দৃশ্যমান সামাজিক প্রভাব সৃষ্টি।",
       icon: HeartHandshake,
-      badge: "Care • Uplift • Share",
+      badge: "সেবা • উন্নয়ন • অংশীদারিত্ব",
       color: "from-emerald-500/20 to-teal-500/20",
     },
     {
       title: "Super Shop",
       href: "/super-shop",
-      desc: "Community-powered grocery with fast local delivery & youth upskilling.",
+      desc: "কমিউনিটি-চালিত সুপার শপ, দ্রুত স্থানীয় ডেলিভারি এবং তরুণদের কাজের বাস্তব সুযোগ।",
       icon: ShoppingBasket,
-      badge: "Local • Fresh • Fair",
+      badge: "স্থানীয় • তাজা • ন্যায্য",
       color: "from-orange-500/20 to-amber-500/20",
     },
     {
       title: "IT Park",
       href: "/it-park",
-      desc: "Learn skills, earn income, mentor juniors—true Learn & Earn ecosystem.",
+      desc: "আধুনিক প্রযুক্তি দক্ষতা শিখুন, আয় করুন, জুনিয়রদের মেন্টরিং করুন—বাস্তব Learn & Earn ইকোসিস্টেম।",
       icon: Laptop,
-      badge: "Learn • Earn • Mentor",
+      badge: "শিখুন • আয় করুন • মেন্টরিং",
       color: "from-fuchsia-500/20 to-pink-500/20",
     },
   ];
 
   useScrollAnimation();
-
 
   return (
     <main
@@ -114,31 +109,29 @@ export default function AboutComponent() {
                 </span>
               </h1>
               <p className="hero-description text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                We&apos;re a community-first ecosystem transforming lives
-                through reading, skill-building, jobs, and local commerce.
-                Minimal by look, rich by impact.
+                আমরা একটি সমাজ-কেন্দ্রিক ইকোসিস্টেম, যা বই পড়া, প্রযুক্তি দক্ষতা, কর্মসংস্থান ও স্থানীয় বাণিজ্যের সমন্বয়ে মানুষের জীবনকে সমৃদ্ধ করে তোলে।
               </p>
               <div className="hero-buttons flex flex-wrap gap-3">
                 <Link
                   href="/granthagar"
                   className="hover-button group inline-flex items-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white px-5 py-3 font-semibold shadow-sm transition-all"
                 >
-                  Explore Library
+                  Library অন্বেষণ করুন
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
                   href="/foundation"
                   className="hover-button inline-flex items-center gap-2 rounded-xl bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-white/5 px-5 py-3 font-semibold border border-slate-200 dark:border-[#303030] text-slate-800 dark:text-slate-200 shadow-xs transition-all"
                 >
-                  See Impact
+                  প্রভাব দেখুন
                 </Link>
               </div>
               <div className="hero-features flex items-center gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                 <div className="flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Open for everyone
+                  <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> সবার জন্য উন্মুক্ত
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Globe2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> i18n ready
+                  <Globe2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> ডিজিটাল প্রস্তুত
                 </div>
               </div>
             </div>
@@ -161,7 +154,7 @@ export default function AboutComponent() {
               </div>
               <div className="hero-badge-floating absolute -bottom-5 -right-3 sm:-right-5 rounded-2xl bg-white/95 dark:bg-[#141414]/95 border border-slate-200 dark:border-[#303030] shadow-lg backdrop-blur-md px-4 py-3 text-xs sm:text-sm flex items-center gap-2 text-slate-800 dark:text-slate-200">
                 <FaRegSmileBeam className="text-amber-500 w-4 h-4" />
-                <span>Wow experience guaranteed ✨</span>
+                <span>বাস্তব পরিবর্তনের নিশ্চয়তা ✨</span>
               </div>
             </div>
           </div>
@@ -171,30 +164,28 @@ export default function AboutComponent() {
       {/* STORY */}
       <section ref={storyRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="story-header space-y-2 mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Our Story</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">আমাদের গল্প</h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-            From a proud lineage of choosing the best—BASAR grew into a
-            future-ready platform for learning, livelihood, and community
-            wellbeing.
+            ঐতিহ্য ও পারস্পরিক ঐক্যের দৃঢ় ভিত্তি থেকে গড়ে উঠেছে BASAR — যা শিক্ষা, জীবিকা ও কমিউনিটি উন্নয়নের এক ভবিষ্যৎমুখী প্ল্যাটফর্ম।
           </p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
-              year: "Past",
-              text: "Rooted in a culture of excellence & generosity.",
+              year: "অতীত",
+              text: "শ্রেষ্ঠত্ব, উদারতা ও সেবার সমৃদ্ধ ঐতিহ্য।",
             },
             {
-              year: "Now",
-              text: "Library, Foundation, Super Shop, IT Park—working as one.",
+              year: "বর্তমান",
+              text: "Library, Foundation, Super Shop, IT Park—একটি সূত্রে গাঁথা।",
             },
             {
-              year: "Next",
-              text: "Scale across neighborhoods, districts, and beyond.",
+              year: "পরবর্তী ধাপ",
+              text: "গ্রাম থেকে জেলা ও দেশব্যাপী কার্যক্রমের সম্প্রসারণ।",
             },
             {
-              year: "Future",
-              text: "A self-sustaining ecosystem where everyone can thrive.",
+              year: "ভবিষ্যৎ",
+              text: "একটি স্বনির্ভর ইকোসিস্টেম যেখানে সবাই এগিয়ে যাবে।",
             },
           ].map((t, i) => (
             <div
@@ -233,10 +224,9 @@ export default function AboutComponent() {
       {/* PILLARS (Departments) */}
       <section ref={pillarsRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="pillars-header mb-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">What we do</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">আমরা যা করি</h3>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mt-1 leading-relaxed">
-            Four connected pillars—each feels like its own product, yet all work
-            together.
+            চারটি সংযুক্ত স্তম্ভ—প্রতিটি স্বতন্ত্র কার্যক্রমে সমৃদ্ধ এবং সামগ্রিকভাবে একত্রিত।
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-5">
@@ -259,7 +249,7 @@ export default function AboutComponent() {
               </div>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{p.desc}</p>
               <div className="mt-4 inline-flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 font-semibold text-sm">
-                Visit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                ভিজিট করুন <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           ))}
@@ -269,9 +259,9 @@ export default function AboutComponent() {
       {/* VALUES */}
       <section ref={valuesRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="values-header mb-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Our Values</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">আমাদের মূল্যবোধ</h3>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mt-1 leading-relaxed">
-            Principles that shape our design, ops, and community relationships.
+            যে নীতি ও আদর্শের ভিত্তিতে আমাদের সকল পরিকল্পনা, অপারেশন ও সামাজিক সম্পর্ক পরিচালিত হয়।
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -298,41 +288,39 @@ export default function AboutComponent() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <div className="ecosystem-content flex-1 space-y-4">
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-                One ecosystem, many paths
+                একটি ইকোসিস্টেম, বহুমুখী পথ
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-                Read at the Library → learn skills at the IT Park → earn via
-                Super Shop ops → give back through the Foundation. Everyone can
-                enter anywhere and keep moving forward.
+                Library-তে জ্ঞানচর্চা করুন → IT Park-এ প্রযুক্তি দক্ষতা শিখুন → Super Shop-এর সাথে কর্মসংস্থান গড়ুন → Foundation-এর মাধ্যমে সমাজে অবদান রাখুন। যেকোনো পর্যায় থেকে শুরু করে সামনে এগিয়ে যাওয়ার সুযোগ।
               </p>
               <div className="flex flex-wrap gap-2.5">
                 <span className="px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-medium">
-                  Reading → Skills
+                  পড়ালেখা → দক্ষতা
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm font-medium">
-                  Skills → Jobs
+                  দক্ষতা → কর্মসংস্থান
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-300 text-xs sm:text-sm font-medium">
-                  Jobs → Community
+                  কর্মসংস্থান → সমাজ উন্নয়ন
                 </span>
               </div>
             </div>
             <div className="ecosystem-grid flex-1 grid grid-cols-2 gap-3 w-full">
               <div className="ecosystem-card rounded-2xl p-4 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030]">
                 <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Library → habit & discovery</p>
+                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Library → অভ্যাস ও বিকাশ</p>
               </div>
               <div className="ecosystem-card rounded-2xl p-4 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030]">
                 <Laptop className="w-5 h-5 text-fuchsia-600 dark:text-fuchsia-400" />
-                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">IT Park → skills & gigs</p>
+                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">IT Park → দক্ষতা ও ফ্রিল্যান্সিং</p>
               </div>
               <div className="ecosystem-card rounded-2xl p-4 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030]">
                 <ShoppingBasket className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Super Shop → local commerce</p>
+                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Super Shop → স্থানীয় বাণিজ্য</p>
               </div>
               <div className="ecosystem-card rounded-2xl p-4 bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030]">
                 <HeartHandshake className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Foundation → social impact</p>
+                <p className="mt-2 font-medium text-xs sm:text-sm text-slate-800 dark:text-slate-200">Foundation → সামাজিক কল্যাণ</p>
               </div>
             </div>
           </div>
@@ -345,10 +333,10 @@ export default function AboutComponent() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="cta-content text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                Ready to explore BASAR?
+                BASAR অন্বেষণ করতে প্রস্তুত?
               </h3>
               <p className="text-white/90 text-sm sm:text-base mt-1">
-                Jump into any pillar—everything connects.
+                যেকোনো একটি স্তম্ভ থেকে শুরু করুন—সবকিছু একে অপরের সাথে সংযুক্ত।
               </p>
             </div>
             <div className="cta-buttons flex flex-wrap gap-2.5 justify-center">
@@ -356,7 +344,7 @@ export default function AboutComponent() {
                 href="/granthagar"
                 className="hover-button bg-white text-slate-900 hover:bg-slate-50 font-semibold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm transition-all"
               >
-                Start Reading
+                পড়া শুরু করুন
               </Link>
               <Link
                 href="/it-park"
@@ -368,20 +356,19 @@ export default function AboutComponent() {
                 href="/super-shop"
                 className="hover-button bg-white/15 hover:bg-white/25 backdrop-blur border border-white/20 text-white font-semibold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all"
               >
-                Shop Local
+                কেনাকাটা করুন
               </Link>
               <Link
                 href="/foundation"
                 className="hover-button bg-white/15 hover:bg-white/25 backdrop-blur border border-white/20 text-white font-semibold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all"
               >
-                See Impact
+                প্রভাব দেখুন
               </Link>
             </div>
           </div>
         </div>
         <p className="mt-4 text-center text-xs text-slate-500 dark:text-slate-400">
-          *We don&apos;t collect donations online. Offline contributors are
-          acknowledged transparently in relevant sections.
+          *আমরা কোনো ধরনের অনৈতিক অর্থ সংগ্রহ করি না। সকল সহায়তা ও অনুদান সম্পূর্ণ স্বচ্ছতার সাথে পরিচালিত হয়।
         </p>
       </section>
     </main>

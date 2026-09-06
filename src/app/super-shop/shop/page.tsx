@@ -22,7 +22,7 @@ const allProducts: Product[] = [
   // Vegetables
   {
     id: 1,
-    name: "Farm Fresh Tomatoes",
+    name: "তাজা খামারের লাল টমেটো",
     price: 80,
     originalPrice: 100,
     rating: 4.8,
@@ -38,7 +38,7 @@ const allProducts: Product[] = [
   },
   {
     id: 2,
-    name: "Diamond Potatoes (Alu)",
+    name: "ডায়মন্ড গোল আলু",
     price: 32,
     originalPrice: 48,
     rating: 4.8,
@@ -54,7 +54,7 @@ const allProducts: Product[] = [
   },
   {
     id: 3,
-    name: "Crisp Red Onions (Deshi Peyaj)",
+    name: "তাজা দেশি লাল পেঁয়াজ",
     price: 65,
     originalPrice: 85,
     rating: 4.7,
@@ -69,7 +69,7 @@ const allProducts: Product[] = [
   },
   {
     id: 4,
-    name: "Fresh Green Spinach (Palong Shak)",
+    name: "তাজা কচি পালং শাক",
     price: 25,
     originalPrice: 40,
     rating: 4.9,
@@ -78,14 +78,14 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/576831/pexels-photo-576831.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Vegetables",
     categorySlug: "vegetables",
-    unit: "1 Bunch",
+    unit: "1 আঁটি",
     inStock: true,
     stockLevel: "medium",
     badge: "Fresh Pick",
   },
   {
     id: 5,
-    name: "Fresh Crunchy Carrots (Gajor)",
+    name: "তাজা কচি গাজর",
     price: 50,
     originalPrice: 65,
     rating: 4.6,
@@ -100,7 +100,7 @@ const allProducts: Product[] = [
   },
   {
     id: 6,
-    name: "Green Chili & Coriander Leaves",
+    name: "কাঁচা মরিচ ও ধনেপাতা কম্বো",
     price: 35,
     originalPrice: 45,
     rating: 4.8,
@@ -109,7 +109,7 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/1400172/pexels-photo-1400172.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Vegetables",
     categorySlug: "vegetables",
-    unit: "1 Combo Pack",
+    unit: "1 কম্বো প্যাক",
     inStock: true,
     stockLevel: "high",
   },
@@ -117,7 +117,7 @@ const allProducts: Product[] = [
   // Fruits / Fresh Produce
   {
     id: 7,
-    name: "Sweet Local Bananas (Sagor Kola)",
+    name: "মিষ্টি সুস্বাদু সাগর কলা",
     price: 45,
     originalPrice: 55,
     rating: 4.7,
@@ -126,13 +126,13 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Fresh Produce",
     categorySlug: "fresh-produce",
-    unit: "1 Dozen",
+    unit: "1 ডজন",
     inStock: true,
     stockLevel: "low",
   },
   {
     id: 8,
-    name: "Fresh Red Apples (Royal Gala)",
+    name: "তাজা রয়্যাল গালা লাল আপেল",
     price: 220,
     originalPrice: 260,
     rating: 4.9,
@@ -148,7 +148,7 @@ const allProducts: Product[] = [
   },
   {
     id: 9,
-    name: "Juicy Sweet Oranges (Komla)",
+    name: "রসালো মিষ্টি কমলা",
     price: 180,
     originalPrice: 210,
     rating: 4.7,
@@ -165,7 +165,7 @@ const allProducts: Product[] = [
   // Dairy & Eggs
   {
     id: 10,
-    name: "Pure Farm Fresh Cow Milk",
+    name: "খাঁটি দেশি গাভীর তাজা দুধ",
     price: 85,
     originalPrice: 95,
     rating: 4.9,
@@ -181,7 +181,7 @@ const allProducts: Product[] = [
   },
   {
     id: 11,
-    name: "Country Brown Eggs (Deshi Dim)",
+    name: "দেশি মুরগির লাল ডিম",
     price: 155,
     originalPrice: 175,
     rating: 4.9,
@@ -190,7 +190,7 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Dairy & Eggs",
     categorySlug: "dairy",
-    unit: "1 Dozen (12 pcs)",
+    unit: "1 ডজন (12 টি)",
     inStock: true,
     stockLevel: "high",
     badge: "Pure Deshi",
@@ -199,7 +199,7 @@ const allProducts: Product[] = [
   // Rice & Grains
   {
     id: 12,
-    name: "Premium Kalijira Aromatic Rice",
+    name: "প্রিমিয়াম সুগন্ধি কালোজিরা চাল",
     price: 150,
     originalPrice: 180,
     rating: 4.9,
@@ -215,7 +215,7 @@ const allProducts: Product[] = [
   },
   {
     id: 13,
-    name: "Premium Miniket Rice (Shoru Chal)",
+    name: "প্রিমিয়াম মিনিকেট চাল",
     price: 72,
     originalPrice: 85,
     rating: 4.8,
@@ -230,7 +230,7 @@ const allProducts: Product[] = [
   },
   {
     id: 14,
-    name: "Cold-Pressed Mustard Oil (Sorisha)",
+    name: "ঘানিভাঙা খাঁটি সরিষার তেল",
     price: 280,
     originalPrice: 320,
     rating: 4.8,
@@ -248,7 +248,7 @@ const allProducts: Product[] = [
   // Seafood & Meat
   {
     id: 15,
-    name: "Fresh Broiler Chicken (Dressed)",
+    name: "ফার্মের তাজা ব্রয়লার মুরগি (ড্রেসড)",
     price: 260,
     originalPrice: 290,
     rating: 4.8,
@@ -264,7 +264,7 @@ const allProducts: Product[] = [
   },
   {
     id: 16,
-    name: "Fresh River Rui Fish (Cleaned)",
+    name: "নদীর তাজা রুই মাছ (পরিষ্কার করা)",
     price: 340,
     originalPrice: 390,
     rating: 4.7,
@@ -281,7 +281,7 @@ const allProducts: Product[] = [
   // Snacks & Bakery
   {
     id: 17,
-    name: "Crispy Traditional Toast Biscuits",
+    name: "মুচমুচে ট্র্যাডিশনাল টোস্ট বিস্কুট",
     price: 65,
     originalPrice: 80,
     rating: 4.6,
@@ -290,7 +290,7 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Snacks & Bakery",
     categorySlug: "snacks",
-    unit: "350g Pack",
+    unit: "350g প্যাক",
     inStock: true,
     stockLevel: "high",
   },
@@ -298,7 +298,7 @@ const allProducts: Product[] = [
   // Beverages
   {
     id: 18,
-    name: "Sylhet Organic Premium Black Tea",
+    name: "সিলেটের প্রিমিয়াম অর্গানিক ব্ল্যাক টি",
     price: 120,
     originalPrice: 140,
     rating: 4.9,
@@ -307,7 +307,7 @@ const allProducts: Product[] = [
       "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Beverages",
     categorySlug: "beverages",
-    unit: "200g Pack",
+    unit: "200g প্যাক",
     inStock: true,
     stockLevel: "high",
     badge: "Sylhet Estate",
@@ -316,13 +316,13 @@ const allProducts: Product[] = [
 
 // Available Categories List
 const categoriesConfig = [
-  { name: "Vegetables", slug: "vegetables" },
-  { name: "Fresh Produce", slug: "fresh-produce" },
-  { name: "Dairy & Eggs", slug: "dairy" },
-  { name: "Rice & Grains", slug: "grains-&-rice" },
-  { name: "Fish & Seafood", slug: "seafood" },
-  { name: "Snacks & Bakery", slug: "snacks" },
-  { name: "Beverages", slug: "beverages" },
+  { name: "শাকসবজি", slug: "vegetables" },
+  { name: "তাজা ফলমূল", slug: "fresh-produce" },
+  { name: "দুগ্ধজাত ও ডিম", slug: "dairy" },
+  { name: "চাল ও শস্য", slug: "grains-&-rice" },
+  { name: "মাছ ও মাংস", slug: "seafood" },
+  { name: "স্ন্যাকস ও বেকারি", slug: "snacks" },
+  { name: "পানীয়", slug: "beverages" },
 ];
 
 function ShopContent() {
@@ -476,7 +476,7 @@ function ShopContent() {
             href="/super-shop"
             className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
           >
-            Super Shop
+            সুপার শপ
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <Link
@@ -485,7 +485,7 @@ function ShopContent() {
               selectedCategory === "all" ? "font-bold text-slate-900 dark:text-white" : ""
             }`}
           >
-            Shop Catalog
+            শপ ক্যাটালগ
           </Link>
           {currentCategoryObj && (
             <>
@@ -504,23 +504,23 @@ function ShopContent() {
               <ShoppingBag className="w-3.5 h-3.5" />
               <span>
                 {currentCategoryObj
-                  ? `Department: ${currentCategoryObj.name}`
-                  : "All Grocery Departments"}
+                  ? `বিভাগ: ${currentCategoryObj.name}`
+                  : "সকল গ্রোসারি বিভাগ"}
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-3">
               {currentCategoryObj
-                ? `Fresh ${currentCategoryObj.name}`
+                ? `তাজা ${currentCategoryObj.name}`
                 : searchQuery
-                ? `Search: "${searchQuery}"`
-                : "Explore All Fresh Groceries"}
+                ? `অনুসন্ধান: "${searchQuery}"`
+                : "সকল তাজা নিত্যপণ্য অন্বেষণ করুন"}
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl font-normal mb-6">
               {currentCategoryObj
-                ? `Browse our top-quality selection of ${currentCategoryObj.name.toLowerCase()} sourced directly from verified local growers.`
-                : "Order 100% chemical-free vegetables, seasonal fruits, organic grains, and dairy essentials with guaranteed 2-hour delivery."}
+                ? `স্থানীয় চাষিদের থেকে সরাসরি সংগৃহীত সেরা মানের ${currentCategoryObj.name} ব্রাউজ করুন।`
+                : "100% রাসায়নিক মুক্ত শাকসবজি, মৌসুমী ফল, অর্গানিক খাদ্যশস্য এবং দুগ্ধজাত পণ্য অর্ডার করুন 2 ঘণ্টার নিশ্চিত ডেলিভারিতে।"}
             </p>
 
             {/* Interactive Search Bar */}
@@ -530,7 +530,7 @@ function ShopContent() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products by name or category (e.g. rice, milk, tomato)..."
+                placeholder="নাম বা বিভাগ দিয়ে পণ্য খুঁজুন (যেমন: চাল, দুধ, টমেটো)..."
                 className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-xl bg-slate-50 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] text-slate-900 dark:text-white placeholder-slate-400 text-sm outline-none focus:border-emerald-500 transition-colors"
               />
               {searchQuery && (
@@ -547,11 +547,11 @@ function ShopContent() {
             {isFiltered && (
               <div className="flex flex-wrap items-center gap-2 mt-4 pt-2">
                 <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  Active filters:
+                  সক্রিয় ফিল্টার:
                 </span>
                 {currentCategoryObj && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
-                    Category: {currentCategoryObj.name}
+                    বিভাগ: {currentCategoryObj.name}
                     <button
                       onClick={() => handleCategorySelect("all")}
                       className="hover:text-emerald-900 dark:hover:text-white"
@@ -562,7 +562,7 @@ function ShopContent() {
                 )}
                 {searchQuery && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 text-blue-700 dark:text-blue-300 text-xs font-semibold">
-                    Search: &ldquo;{searchQuery}&rdquo;
+                    অনুসন্ধান: &ldquo;{searchQuery}&rdquo;
                     <button
                       onClick={() => setSearchQuery("")}
                       className="hover:text-blue-900 dark:hover:text-white"
@@ -573,7 +573,7 @@ function ShopContent() {
                 )}
                 {selectedPriceRange !== "all" && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 text-xs font-semibold">
-                    Price: {selectedPriceRange}
+                    মূল্য: {selectedPriceRange}
                     <button
                       onClick={() => setSelectedPriceRange("all")}
                       className="hover:text-amber-900 dark:hover:text-white"
@@ -584,7 +584,7 @@ function ShopContent() {
                 )}
                 {inStockOnly && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/15 text-teal-700 dark:text-teal-300 text-xs font-semibold">
-                    In Stock Only
+                    স্টকে থাকা পণ্য
                     <button
                       onClick={() => setInStockOnly(false)}
                       className="hover:text-teal-900 dark:hover:text-white"
@@ -597,7 +597,7 @@ function ShopContent() {
                   onClick={handleResetFilters}
                   className="text-xs text-rose-500 hover:text-rose-600 dark:text-rose-400 font-semibold underline ml-1"
                 >
-                  Clear all
+                  সব মুছুন
                 </button>
               </div>
             )}
@@ -630,7 +630,7 @@ function ShopContent() {
               className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] text-slate-800 dark:text-slate-200 text-sm font-bold flex items-center justify-center gap-2 shadow-sm"
             >
               <SlidersHorizontal className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Filters & Categories</span>
+              <span>ফিল্টার ও বিভাগসমূহ</span>
               {isFiltered && (
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
               )}
@@ -644,7 +644,7 @@ function ShopContent() {
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-[#262626] mb-4">
                     <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                      Filters & Categories
+                      ফিল্টার ও বিভাগসমূহ
                     </h3>
                     <button
                       onClick={() => setIsMobileFilterOpen(false)}
@@ -676,7 +676,7 @@ function ShopContent() {
                     onClick={() => setIsMobileFilterOpen(false)}
                     className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md"
                   >
-                    View Results ({filteredProducts.length})
+                    ফলাফল দেখুন ({filteredProducts.length})
                   </button>
                 </div>
               </div>

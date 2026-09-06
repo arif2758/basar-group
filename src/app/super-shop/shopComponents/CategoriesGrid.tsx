@@ -31,82 +31,82 @@ export default function CategoriesGrid() {
 
   const categories = [
     {
-      name: "Fresh Produce",
+      name: "তাজা শাকসবজি ও ফল",
       slug: "fresh-produce",
       icon: Apple,
-      count: "120+ items",
+      count: "120+ আইটেম",
       color: "from-emerald-500/20 to-teal-500/20",
       textColor: "text-emerald-500 dark:text-emerald-400",
       borderColor: "border-emerald-500/30",
     },
     {
-      name: "Vegetables",
+      name: "শাকসবজি",
       slug: "vegetables",
       icon: Carrot,
-      count: "85+ items",
+      count: "85+ আইটেম",
       color: "from-orange-500/20 to-amber-500/20",
       textColor: "text-orange-500 dark:text-orange-400",
       borderColor: "border-orange-500/30",
     },
     {
-      name: "Dairy & Eggs",
+      name: "দুগ্ধজাত ও ডিম",
       slug: "dairy",
       icon: Milk,
-      count: "45+ items",
+      count: "45+ আইটেম",
       color: "from-sky-500/20 to-blue-500/20",
       textColor: "text-sky-500 dark:text-sky-400",
       borderColor: "border-sky-500/30",
     },
     {
-      name: "Fish & Seafood",
+      name: "মাছ ও সি-ফুড",
       slug: "seafood",
       icon: Fish,
-      count: "60+ items",
+      count: "60+ আইটেম",
       color: "from-cyan-500/20 to-teal-500/20",
       textColor: "text-cyan-500 dark:text-cyan-400",
       borderColor: "border-cyan-500/30",
     },
     {
-      name: "Rice & Grains",
+      name: "চাল ও শস্য",
       slug: "grains-&-rice",
       icon: Rice,
-      count: "35+ items",
+      count: "35+ আইটেম",
       color: "from-amber-500/20 to-yellow-500/20",
       textColor: "text-amber-500 dark:text-amber-400",
       borderColor: "border-amber-500/30",
     },
     {
-      name: "Snacks & Bakery",
+      name: "স্ন্যাকস ও বেকারি",
       slug: "snacks",
       icon: Cookie,
-      count: "100+ items",
+      count: "100+ আইটেম",
       color: "from-rose-500/20 to-pink-500/20",
       textColor: "text-rose-500 dark:text-rose-400",
       borderColor: "border-rose-500/30",
     },
     {
-      name: "Beverages",
+      name: "পানীয়",
       slug: "beverages",
       icon: Coffee,
-      count: "55+ items",
+      count: "55+ আইটেম",
       color: "from-violet-500/20 to-purple-500/20",
       textColor: "text-violet-500 dark:text-violet-400",
       borderColor: "border-violet-500/30",
     },
     {
-      name: "Personal Care",
+      name: "ব্যক্তিগত যত্ন",
       slug: "personal-care",
       icon: Sparkles,
-      count: "90+ items",
+      count: "90+ আইটেম",
       color: "from-pink-500/20 to-rose-500/20",
       textColor: "text-pink-500 dark:text-pink-400",
       borderColor: "border-pink-500/30",
     },
     {
-      name: "Household",
+      name: "গৃহস্থালি সামগ্রী",
       slug: "household",
       icon: Home,
-      count: "75+ items",
+      count: "75+ আইটেম",
       color: "from-slate-500/20 to-zinc-500/20",
       textColor: "text-slate-600 dark:text-slate-300",
       borderColor: "border-slate-500/30",
@@ -168,15 +168,15 @@ export default function CategoriesGrid() {
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Curated Grocery Departments</span>
+            <span>বাছাইকৃত নিত্যপণ্য বিভাগ</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
-            Shop by Category
+            ক্যাটাগরি অনুযায়ী কেনাকাটা
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-            Hand-inspected fresh vegetables, organic staples, and daily household needs — all sourced directly from local producers with transparent pricing.
+            হাতে বাছাই করা সতেজ শাকসবজি, অর্গানিক খাদ্যশস্য এবং নিত্যপ্রয়োজনীয় গৃহস্থালি সামগ্রী — সবই স্থানীয় কৃষকদের থেকে সরাসরি ন্যায্যমূল্যে সংগৃহীত।
           </p>
         </div>
 
@@ -215,7 +215,7 @@ export default function CategoriesGrid() {
 
                   {/* Hover Micro-link */}
                   <div className="mt-4 flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 gap-1">
-                    <span>Browse</span>
+                    <span>দেখুন</span>
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -237,29 +237,29 @@ export default function CategoriesGrid() {
               <div className="lg:col-span-8">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-bold mb-4 backdrop-blur-md">
                   <Percent className="w-4 h-4" />
-                  <span>Limited Weekend Mega Sale</span>
+                  <span>সীমিত সময়ের উইকেন্ড মেগা সেল</span>
                   <span className="text-white/40">•</span>
-                  <span>Save Up to 25% Off</span>
+                  <span>উপভোগ করুন 25% পর্যন্ত ছাড়</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4">
-                  Organic Grocery Bundles at Special Member Prices!
+                  মেম্বারদের জন্য অর্গানিক গ্রোসারি বান্ডেলে বিশেষ মূল্যছাড়!
                 </h3>
 
                 <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-6">
-                  Get seasonal vegetable packs, premium aromatic rice, farm eggs, and fresh cold-pressed mustard oil with guaranteed same-day delivery.
+                  মৌসুমী শাকসবজি প্যাক, প্রিমিয়াম সুবাসিত চাল, খামারের তাজা ডিম এবং খাঁটি ঘানিভাঙা সরিষার তেল পান নিশ্চিত সমদিনের এক্সপ্রেস ডেলিভারিতে।
                 </p>
 
                 {/* Perk Pills */}
                 <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300 mb-8">
                   <span className="flex items-center gap-1.5">
-                    <Truck className="w-4 h-4 text-emerald-400" /> Free delivery over ৳500
+                    <Truck className="w-4 h-4 text-emerald-400" /> ৳500 এর বেশি অর্ডারে ফ্রি ডেলিভারি
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-emerald-400" /> 2-Hour Express available
+                    <Clock className="w-4 h-4 text-emerald-400" /> 2-Hour Express ডেলিভারি সুবিধা
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" /> 100% satisfaction guarantee
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" /> 100% সন্তুষ্টি নিশ্চয়তা
                   </span>
                 </div>
 
@@ -269,7 +269,7 @@ export default function CategoriesGrid() {
                     href="/super-shop/shop"
                     className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
                   >
-                    <span>Shop Weekend Deals</span>
+                    <span>উইকেন্ড ডিল দেখুন</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
 
@@ -284,7 +284,7 @@ export default function CategoriesGrid() {
                     <button
                       onClick={handleCopyCode}
                       className="ml-1 p-1 rounded hover:bg-white/20 text-white transition-colors"
-                      title="Copy Coupon Code"
+                      title="কুপন কোড কপি করুন"
                     >
                       {copiedCode ? (
                         <Check className="w-4 h-4 text-emerald-400" />
@@ -294,7 +294,7 @@ export default function CategoriesGrid() {
                     </button>
                     {copiedCode && (
                       <span className="text-xs text-emerald-400 font-semibold ml-1">
-                        Copied!
+                        কপি হয়েছে!
                       </span>
                     )}
                   </div>
@@ -308,10 +308,10 @@ export default function CategoriesGrid() {
                     25%
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2">
-                    Weekend Special Pack
+                    উইকেন্ড স্পেশাল প্যাক
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                    Includes 5kg Premium Rice, 2kg Potatoes, 1kg Onions, 1 Dozen Eggs & 1 Liter Mustard Oil.
+                    এতে রয়েছে 5kg প্রিমিয়াম চাল, 2kg আলু, 1kg পেঁয়াজ, 1 ডজন ডিম এবং 1 লিটার সরিষার তেল।
                   </p>
                   <div className="text-center py-2 px-4 rounded-xl bg-black/20 border border-white/10">
                     <span className="text-xs text-slate-400 line-through mr-2">৳980</span>

@@ -27,21 +27,21 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const categories = [
-    { value: "all", label: "All Categories", icon: "📚" },
-    { value: "fiction", label: "Fiction", icon: "📖" },
-    { value: "non-fiction", label: "Non-Fiction", icon: "📰" },
-    { value: "science", label: "Science & Technology", icon: "🔬" },
-    { value: "history", label: "History", icon: "🏛️" },
-    { value: "philosophy", label: "Philosophy", icon: "🤔" },
-    { value: "self-help", label: "Self-Help", icon: "💪" },
-    { value: "biography", label: "Biography", icon: "👤" },
-    { value: "business", label: "Business", icon: "💼" },
+    { value: "all", label: "সব ক্যাটাগরি", icon: "📚" },
+    { value: "fiction", label: "ফিকশন", icon: "📖" },
+    { value: "non-fiction", label: "নন-ফিকশন", icon: "📰" },
+    { value: "science", label: "বিজ্ঞান ও প্রযুক্তি", icon: "🔬" },
+    { value: "history", label: "ইতিহাস", icon: "🏛️" },
+    { value: "philosophy", label: "দর্শন", icon: "🤔" },
+    { value: "self-help", label: "আত্মউন্নয়ন (Self-Help)", icon: "💪" },
+    { value: "biography", label: "জীবনী", icon: "👤" },
+    { value: "business", label: "ব্যবসা ও ক্যারিয়ার", icon: "💼" },
   ];
 
   const statusOptions = [
-    { value: "all", label: "All Books" },
-    { value: "available", label: "Available" },
-    { value: "borrowed", label: "Currently Borrowed" },
+    { value: "all", label: "সব বই" },
+    { value: "available", label: "উপলব্ধ বই" },
+    { value: "borrowed", label: "ধার নেওয়া হয়েছে" },
   ];
 
   useScrollAnimation();
@@ -68,7 +68,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
           <Search className="w-4 h-4 absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors" />
           <input
             type="text"
-            placeholder="Search by title, author, or donor..."
+            placeholder="বইয়ের নাম, লেখক বা দাতার নাম দিয়ে খুঁজুন..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2.5 border border-slate-300 dark:border-[#303030] rounded-lg bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
@@ -114,7 +114,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
         {/* Enhanced Filter Button */}
         <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-center space-x-2 shadow-sm active:scale-[0.99]">
           <Filter className="w-4 h-4" />
-          <span>Apply Filters</span>
+          <span>ফিল্টার প্রয়োগ করুন</span>
           <Sparkles className="w-3.5 h-3.5" />
         </button>
       </div>

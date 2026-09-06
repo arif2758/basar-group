@@ -4,10 +4,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 
-
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -96,15 +94,15 @@ function VirtualTour() {
     <section ref={sectionRef} className="py-20 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Virtual Tour</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">ভার্চুয়াল ক্যাম্পাস ট্যুর</h2>
           <p className="text-xl opacity-90 mb-12 max-w-3xl mx-auto">
-            Explore our facilities and see where the magic happens
+            আমাদের আধুনিক আইটি ল্যাব ও ক্যাম্পাস সুবিধাসমূহ এক নজরে ঘুরে দেখুন
           </p>
 
           <div ref={imageRef} className="relative max-w-4xl mx-auto">
             <Image
               src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
-              alt="Virtual Tour"
+              alt="ভার্চুয়াল ট্যুর"
               width={1000}
               height={600}
               className="rounded-lg shadow-2xl w-full"

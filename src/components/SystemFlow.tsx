@@ -1,10 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
-
-
-
-import { useRef } from "react";
 import { IconType } from "react-icons";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
@@ -319,54 +315,54 @@ const SystemFlow = () => {
     {
       id: "library",
       icon: FiBook,
-      title: "Education",
-      description: "Learning starts with access to quality resources",
+      title: "শিক্ষা (Education)",
+      description: "মানসম্মত রিসোর্সের সহজলভ্যতার মাধ্যমেই শিক্ষার সূচনা",
       color: "#0B6E4F",
-      example: "Student accesses digital learning resources and books",
+      example: "শিক্ষার্থীরা ডিজিটাল রিসোর্স ও বই পড়ার সুবিধা পায়",
     },
     {
       id: "foundation",
       icon: FiHeart,
-      title: "Support",
-      description: "Scholarships and assistance enable continued growth",
+      title: "সহায়তা (Support)",
+      description: "Scholarship ও সার্বিক সহায়তা অব্যাহত অগ্রগতি নিশ্চিত করে",
       color: "#2B6CB0",
-      example: "Receives scholarship and healthcare support",
+      example: "Scholarship এবং স্বাস্থ্যসেবা সহায়তা লাভ করে",
     },
     {
       id: "it-park",
       icon: FiMonitor,
-      title: "Skills",
-      description: "Technology training creates job-ready professionals",
+      title: "দক্ষতা (Skills)",
+      description: "Technology প্রশিক্ষণ তৈরি করে কাজের উপযোগী পেশাজীবী",
       color: "#8B5CF6",
-      example: "Learns web development and digital marketing",
+      example: "Web Development ও Digital Marketing শেখে",
     },
     {
       id: "super-shop",
       icon: FiShoppingBag,
-      title: "Enterprise",
-      description: "Economic opportunities through local commerce",
+      title: "উদ্যোগ (Enterprise)",
+      description: "স্থানীয় বাণিজ্যের মাধ্যমে অর্থনৈতিক সুযোগ সৃষ্টি",
       color: "#FFB84D",
-      example: "Starts freelancing or joins Super Shop as employee",
+      example: "Freelancing শুরু করে অথবা Super Shop-এ যুক্ত হয়",
     },
   ];
 
   const outcomes: Outcome[] = [
     {
       icon: FiUsers,
-      label: "Community Growth",
-      description: "Stronger local networks",
+      label: "কমিউনিটি প্রবৃদ্ধি",
+      description: "শক্তিশালী স্থানীয় নেটওয়ার্ক",
       color: "#0B6E4F",
     },
     {
       icon: FiTrendingUp,
-      label: "Economic Impact",
-      description: "Sustainable income generation",
+      label: "অর্থনৈতিক প্রভাব",
+      description: "টেকসই আয় বৃদ্ধি",
       color: "#2B6CB0",
     },
     {
       icon: FiHeart,
-      label: "Social Development",
-      description: "Improved quality of life",
+      label: "সামাজিক উন্নয়ন",
+      description: "উন্নত জীবনমান",
       color: "#8B5CF6",
     },
   ];
@@ -381,11 +377,10 @@ const SystemFlow = () => {
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            How It All Connects
+            কীভাবে সবকিছু সংযুক্ত
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A holistic ecosystem where education leads to empowerment, skills
-            create opportunities, and commerce sustains community development.
+            একটি সমন্বিত ব্যবস্থা যেখানে শিক্ষা ক্ষমতায়ন এনে দেয়, দক্ষতা কাজের সুযোগ সৃষ্টি করে এবং বাণিজ্য কমিউনিটির উন্নয়নকে টেকসই করে।
           </p>
         </div>
 
@@ -509,7 +504,7 @@ const SystemFlow = () => {
           className="bg-slate-50 dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8"
         >
           <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-6 tracking-tight">
-            Collective Impact
+            সম্মিলিত প্রভাব
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {outcomes.map((outcome, index) => {

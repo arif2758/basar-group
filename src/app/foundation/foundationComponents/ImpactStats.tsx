@@ -9,6 +9,7 @@ import {
   Utensils,
   Stethoscope,
 } from "lucide-react";
+import Link from "next/link";
 
 const ImpactStats = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +24,7 @@ const ImpactStats = () => {
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  // ✅ useMemo দিয়ে stable করে ফেললাম
+  // useMemo for stable numbers
   const finalCounts = useMemo(
     () => ({
       people: 45000,
@@ -36,7 +37,7 @@ const ImpactStats = () => {
     []
   );
 
-  // ✅ Animate counters with useCallback
+  // Animate counters with useCallback
   const animateCounters = useCallback(() => {
     const duration = 2000;
     const steps = 60;
@@ -86,58 +87,60 @@ const ImpactStats = () => {
     {
       icon: Users,
       count: counts.people,
-      label: "Lives Transformed",
+      label: "জীবনযাত্রার রূপান্তর",
       color: "from-emerald-400 to-emerald-600",
-      description: "People directly impacted by our programs",
+      description: "আমাদের মানবিক উদ্যোগের মাধ্যমে প্রত্যক্ষ সুবিধাভোগী মানুষ",
     },
     {
       icon: BookOpen,
       count: counts.students,
-      label: "Students Supported",
+      label: "শিক্ষার্থী সহায়তা",
       color: "from-sky-400 to-sky-600",
-      description: "Children receiving educational assistance",
+      description: "শিক্ষা উপকরণ ও বৃত্তিপ্রাপ্ত সুবিধাবঞ্চিত শিশু ও শিক্ষার্থী",
     },
     {
       icon: Heart,
       count: counts.families,
-      label: "Families Helped",
+      label: "পরিবার পুনর্বাসন",
       color: "from-pink-400 to-pink-600",
-      description: "Families receiving ongoing support",
+      description: "জরুরি সহায়তা ও টেকসই পুনর্বাসন পাওয়া দুস্থ পরিবার",
     },
     {
       icon: Utensils,
       count: counts.meals,
-      label: "Meals Provided",
+      label: "খাদ্য সহায়তা বিতরণ",
       color: "from-amber-400 to-amber-600",
-      description: "Nutritious meals served to those in need",
+      description: "রমজান ও দুর্যোগকালীন সময়ে পুষ্টিকর খাদ্য প্যাকেজ বিতরণ",
     },
     {
       icon: Stethoscope,
       count: counts.patients,
-      label: "Patients Treated",
+      label: "বিনামূল্যে স্বাস্থ্যসেবা",
       color: "from-red-400 to-red-600",
-      description: "Medical care provided through our health programs",
+      description: "ফ্রি মেডিকেল ক্যাম্প ও স্বাস্থ্য কর্মসূচির মাধ্যমে চিকিৎসাপ্রাপ্ত রোগী",
     },
     {
       icon: Home,
       count: counts.homes,
-      label: "Homes Built",
+      label: "বাসস্থান ও আশ্রয় সহায়তা",
       color: "from-purple-400 to-purple-600",
-      description: "Safe housing provided to vulnerable families",
+      description: "গৃহহীন ও নদীভাঙন কবলিত পরিবারের জন্য নিরাপদ আবাসন নির্মাণ",
     },
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
+    <section 
+      id="impact" 
+      ref={sectionRef} 
+      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Our Impact in Numbers
+            পরিসংখ্যানে আমাদের সামাজিক প্রভাব
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Every donation creates ripple effects of positive change.
-            Here&apos;s how your generosity has transformed lives across
-            communities worldwide.
+            আপনার প্রতিটি অনুদান মানবিক পরিবর্তনের সূচনা করে। জেনে নিন কীভাবে আপনার সহযোগিতা সাধারণ মানুষের জীবন বদলে দিচ্ছে।
           </p>
         </div>
 
@@ -176,16 +179,17 @@ const ImpactStats = () => {
         <div className="mt-16 text-center">
           <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
-              Be Part of Our Growing Impact
+              আমাদের উন্নয়ন অভিযাত্রার অংশীদার হোন
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-              Join thousands of compassionate donors who are making a difference
-              every day. Your contribution, no matter the size, creates lasting
-              change.
+              হাজারো সহমর্মী মানুষের সাথে যুক্ত হয়ে আর্তমানবতার সেবায় এগিয়ে আসুন। আপনার ক্ষুদ্রতম অবদানও সমাজে স্থায়ী ইতিবাচক প্রভাব ফেলতে পারে।
             </p>
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl text-base font-medium transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]">
-              Start Making Impact Today
-            </button>
+            <Link 
+              href="#contact"
+              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl text-base font-medium transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]"
+            >
+              আজই সহযোগিতার হাত বাড়ান
+            </Link>
           </div>
         </div>
       </div>

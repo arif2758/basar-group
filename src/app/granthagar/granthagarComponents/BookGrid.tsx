@@ -38,12 +38,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.8,
-      donor: "Ahmed Rahman",
-      donorLocation: "Dhanmondi",
+      donor: "আহমেদ রহমান",
+      donorLocation: "ধানমন্ডি",
       status: "Available",
-      category: "Philosophy",
+      categoryKey: "philosophy",
+      category: "দর্শন",
       summary:
-        "A young shepherd's journey to find treasure teaches us about following our dreams.",
+        "একজন তরুণ রাখালের গুপ্তধন খোঁজার যাত্রা আমাদের স্বপ্ন পূরণের পথ শেখায়।",
       dateAdded: "2024-01-15",
       borrowedBy: null,
       returnDate: null,
@@ -55,12 +56,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.9,
-      donor: "Fatima Khan",
-      donorLocation: "Gulshan",
+      donor: "ফাতিমা খান",
+      donorLocation: "গুলশান",
       status: "Available",
-      category: "History",
+      categoryKey: "history",
+      category: "ইতিহাস",
       summary:
-        "A fascinating look at how humans became the dominant species on Earth.",
+        "মানুষ কীভাবে পৃথিবীর প্রধানতম প্রজাতি হয়ে উঠল তার এক চমকপ্রদ ইতিহাস।",
       dateAdded: "2024-01-20",
       borrowedBy: null,
       returnDate: null,
@@ -72,12 +74,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.7,
-      donor: "Rafiq Uddin",
-      donorLocation: "Banani",
+      donor: "রফিক উদ্দিন",
+      donorLocation: "বনানী",
       status: "Borrowed",
-      category: "Self-Help",
+      categoryKey: "self-help",
+      category: "আত্মউন্নয়ন",
       summary:
-        "Learn how tiny changes can create remarkable results in your life.",
+        "ছোট ছোট অভ্যাস কীভাবে আপনার জীবনে অসাধারণ পরিবর্তন আনতে পারে তা জানুন।",
       dateAdded: "2024-01-10",
       borrowedBy: "Sarah Ahmed",
       returnDate: "2024-02-10",
@@ -89,12 +92,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.6,
-      donor: "Nasreen Akter",
-      donorLocation: "Uttara",
+      donor: "নাসরিন আক্তার",
+      donorLocation: "উত্তরা",
       status: "Available",
-      category: "Fiction",
+      categoryKey: "fiction",
+      category: "ফিকশন",
       summary:
-        "A dystopian masterpiece about surveillance, control, and the power of truth.",
+        "নজরদারি, নিয়ন্ত্রণ এবং সত্যের শক্তি নিয়ে রচিত এক কালজয়ী ডিসটোপিয়ান মাস্টারপিস।",
       dateAdded: "2024-01-25",
       borrowedBy: null,
       returnDate: null,
@@ -106,12 +110,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.8,
-      donor: "Karim Hassan",
-      donorLocation: "Mirpur",
+      donor: "করিম হাসান",
+      donorLocation: "মিরপুর",
       status: "Available",
-      category: "Business",
+      categoryKey: "business",
+      category: "ব্যবসা ও ক্যারিয়ার",
       summary:
-        "Understanding how psychology influences our financial decisions.",
+        "অর্থনৈতিক সিদ্ধান্তের পেছনে মানব মনস্তত্ত্ব কীভাবে কাজ করে তা জানুন।",
       dateAdded: "2024-02-01",
       borrowedBy: null,
       returnDate: null,
@@ -123,12 +128,13 @@ const BookGrid: React.FC<BookGridProps> = ({
       cover:
         "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=300",
       rating: 4.5,
-      donor: "Dr. Rahman",
-      donorLocation: "Wari",
+      donor: "ডা. রহমান",
+      donorLocation: "ওয়ারী",
       status: "Borrowed",
-      category: "Science",
+      categoryKey: "science",
+      category: "বিজ্ঞান",
       summary:
-        "The great physicist's final thoughts on the universe's biggest mysteries.",
+        "মহাবিশ্বের সবচেয়ে বড় রহস্যগুলো নিয়ে মহান পদার্থবিজ্ঞানীর চূড়ান্ত ভাবনা।",
       dateAdded: "2024-01-30",
       borrowedBy: "Mahmud Ali",
       returnDate: "2024-02-15",
@@ -144,6 +150,7 @@ const BookGrid: React.FC<BookGridProps> = ({
 
     const matchesCategory =
       selectedCategory === "all" ||
+      book.categoryKey === selectedCategory ||
       book.category.toLowerCase() === selectedCategory;
 
     const matchesStatus =
@@ -193,19 +200,19 @@ const BookGrid: React.FC<BookGridProps> = ({
         <div className="flex items-center space-x-2">
           <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <p className="text-slate-600 dark:text-slate-400 text-sm">
-            Showing{" "}
+            প্রদর্শন করা হচ্ছে{" "}
             <span className="text-slate-900 dark:text-white font-semibold">
               {filteredBooks.length}
             </span>{" "}
-            of <span className="font-semibold">{books.length}</span> books
+            / মোট <span className="font-semibold">{books.length}</span> টি বই
           </p>
         </div>
 
         <select className="bg-white dark:bg-[#141414] border border-slate-300 dark:border-[#303030] rounded-lg px-3 py-2 text-xs sm:text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors">
-          <option>Sort by: Recently Added</option>
-          <option>Sort by: Rating</option>
-          <option>Sort by: Title A-Z</option>
-          <option>Sort by: Author A-Z</option>
+          <option>ক্রমানুসার: সম্প্রতি যুক্ত</option>
+          <option>ক্রমানুসার: সর্বোচ্চ রেটিং</option>
+          <option>নাম অনুসারে (A-Z)</option>
+          <option>লেখক অনুসারে (A-Z)</option>
         </select>
       </div>
 
@@ -235,13 +242,13 @@ const BookGrid: React.FC<BookGridProps> = ({
                         : "bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40"
                     }`}
                   >
-                    {book.status === "Available" ? "Available" : "Borrowed"}
+                    {book.status === "Available" ? "উপলব্ধ" : "ধার নেওয়া"}
                   </span>
                 </div>
 
                 {/* Heart Button */}
                 <button 
-                  aria-label="Add to favorites"
+                  aria-label="পছন্দের তালিকায় যোগ করুন"
                   className="absolute top-2.5 left-2.5 w-8 h-8 bg-white/90 dark:bg-[#141414]/90 rounded-full flex items-center justify-center text-slate-500 hover:text-rose-500 transition-colors shadow-sm border border-slate-200 dark:border-[#303030]"
                 >
                   <Heart className="w-4 h-4" />
@@ -264,7 +271,7 @@ const BookGrid: React.FC<BookGridProps> = ({
                 </h3>
 
                 <p className="text-slate-500 dark:text-slate-400 text-xs mb-3 font-medium">
-                  by {book.author}
+                  লেখক: {book.author}
                 </p>
 
                 {/* Rating & Donor */}
@@ -293,7 +300,7 @@ const BookGrid: React.FC<BookGridProps> = ({
                   <div className="bg-amber-50 dark:bg-amber-950/30 rounded-lg p-2.5 mb-3 border border-amber-200/60 dark:border-amber-900/30">
                     <div className="flex items-center space-x-1 text-xs text-amber-800 dark:text-amber-300">
                       <Clock className="w-3 h-3" />
-                      <span>Returns {book.returnDate}</span>
+                      <span>ফেরত আসার সম্ভাব্য তারিখ: {book.returnDate}</span>
                     </div>
                   </div>
                 )}
@@ -306,18 +313,23 @@ const BookGrid: React.FC<BookGridProps> = ({
                 href={`/granthagar/book-detail/${book.id}`}
                 className="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white py-2 px-3 rounded-lg text-xs font-medium transition-colors shadow-sm active:scale-[0.99]"
               >
-                View Details
+                বিস্তারিত দেখুন
               </Link>
-              <button
-                className={`w-full py-2 px-3 rounded-lg text-xs font-medium transition-colors ${
-                  book.status === "Available"
-                    ? "bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030]"
-                    : "bg-slate-50 dark:bg-[#141414] text-slate-400 dark:text-slate-600 cursor-not-allowed border border-slate-200 dark:border-[#262626]"
-                }`}
-                disabled={book.status !== "Available"}
-              >
-                {book.status === "Available" ? "Request Book" : "Currently Borrowed"}
-              </button>
+              {book.status === "Available" ? (
+                <Link
+                  href="/granthagar/request-book"
+                  className="w-full text-center py-2 px-3 rounded-lg text-xs font-medium transition-colors bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030]"
+                >
+                  বইটির জন্য অনুরোধ করুন
+                </Link>
+              ) : (
+                <button
+                  disabled
+                  className="w-full py-2 px-3 rounded-lg text-xs font-medium transition-colors bg-slate-50 dark:bg-[#141414] text-slate-400 dark:text-slate-600 cursor-not-allowed border border-slate-200 dark:border-[#262626]"
+                >
+                  ধার নেওয়া হয়েছে
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -330,16 +342,16 @@ const BookGrid: React.FC<BookGridProps> = ({
             <span className="text-2xl">📚</span>
           </div>
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-            No books found
+            কোনো বই পাওয়া যায়নি
           </h3>
           <p className="text-slate-600 dark:text-slate-400 mb-5 max-w-sm mx-auto text-xs sm:text-sm">
-            Try adjusting your search terms or filter criteria to find what you need.
+            আপনার অনুসন্ধানের শব্দ বা ফিল্টারের মান পরিবর্তন করে আবার চেষ্টা করুন।
           </p>
           <button 
             onClick={() => {}}
             className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-lg text-xs font-medium transition-colors shadow-sm"
           >
-            Reset Filters
+            ফিল্টার রিসেট করুন
           </button>
         </div>
       )}
@@ -347,10 +359,10 @@ const BookGrid: React.FC<BookGridProps> = ({
       {/* Trust Indicators */}
       <div className="mt-14 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-slate-500 dark:text-slate-400 text-xs sm:text-sm pt-8">
         {[
-          "📚 Verified Books",
-          "🤝 Trusted Community",
-          "⚡ Quick Exchange",
-          "💯 100% Free Service",
+          "📚 যাচাইকৃত বইয়ের সংগ্রহ",
+          "🤝 বিশ্বস্ত পাঠক কমিউনিটি",
+          "⚡ দ্রুত বই আদান-প্রদান",
+          "💯 100% ফ্রি সেবা",
         ].map((indicator, index) => (
           <div key={index} className="flex items-center space-x-1.5 font-medium">
             <span>{indicator}</span>

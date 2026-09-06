@@ -19,24 +19,24 @@ const ComingSoon: React.FC = () => {
       title: "The Power of Now",
       author: "Eckhart Tolle",
       donor: "Maria Ahmed",
-      arrivalDate: "3 days",
-      category: "Spirituality"
+      arrivalDate: "3 দিন",
+      category: "আধ্যাত্মিক"
     },
     {
       id: 2,
       title: "Rich Dad Poor Dad",
       author: "Robert Kiyosaki",
       donor: "Karim Hassan",
-      arrivalDate: "5 days",
-      category: "Finance"
+      arrivalDate: "5 দিন",
+      category: "অর্থনীতি ও ফাইন্যান্স"
     },
     {
       id: 3,
       title: "The 7 Habits",
       author: "Stephen Covey",
       donor: "Ayesha Siddique",
-      arrivalDate: "7 days",
-      category: "Self-Help"
+      arrivalDate: "7 দিন",
+      category: "আত্মউন্নয়ন"
     }
   ];
 
@@ -86,10 +86,10 @@ const ComingSoon: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="coming-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Books Coming Soon
+            শীঘ্রই আসছে নতুন বই
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Exciting new books are on their way! Reserve your spot and be the first to read these amazing titles.
+            অসাধারণ কিছু নতুন বই যুক্ত হতে চলেছে! আগে থেকেই বুকিং করুন এবং সর্বপ্রথম পড়ার সুযোগ নিন।
           </p>
         </div>
 
@@ -104,13 +104,13 @@ const ComingSoon: React.FC = () => {
                   <h3 className="text-base font-bold text-slate-900 dark:text-white mt-2 mb-1">
                     {book.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">by {book.author}</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">লেখক: {book.author}</p>
                 </div>
                 
                 <div className="text-right">
                   <div className="flex items-center space-x-1 text-orange-600 mb-1">
                     <Clock className="w-4 h-4" />
-                    <span className="text-sm font-medium">Arrives in</span>
+                    <span className="text-sm font-medium">পৌঁছাবে</span>
                   </div>
                   <div className="text-2xl font-bold text-orange-600">
                     {book.arrivalDate}
@@ -121,12 +121,15 @@ const ComingSoon: React.FC = () => {
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div className="flex items-center space-x-1 text-sm text-gray-500">
                   <User className="w-4 h-4" />
-                  <span>Donated by {book.donor}</span>
+                  <span>দাতা: {book.donor}</span>
                 </div>
                 
-                <button className="bg-green-100 hover:bg-green-200 text-green-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                  Reserve
-                </button>
+                <a
+                  href="/granthagar/request-book"
+                  className="bg-green-100 hover:bg-green-200 text-green-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  বুকিং করুন
+                </a>
               </div>
             </div>
           ))}
@@ -135,14 +138,17 @@ const ComingSoon: React.FC = () => {
         <div className="calendar-cta bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 mt-12 text-center max-w-2xl mx-auto">
           <Calendar className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto mb-3" />
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-            Want to see more arrivals?
+            আরো নতুন বইয়ের তালিকা দেখতে চান?
           </h3>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-            Check our complete arrival calendar and reserve books up to 30 days in advance.
+            আমাদের সম্পূর্ণ আগমন ক্যালেন্ডার দেখুন এবং 30 দিন আগেই বইয়ের জন্য বুকিং দিয়ে রাখুন।
           </p>
-          <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
-            View Full Calendar
-          </button>
+          <a
+            href="/granthagar/events"
+            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]"
+          >
+            সম্পূর্ণ ক্যালেন্ডার দেখুন
+          </a>
         </div>
       </div>
     </section>

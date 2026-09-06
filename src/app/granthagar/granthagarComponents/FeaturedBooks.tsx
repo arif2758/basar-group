@@ -24,7 +24,7 @@ const FeaturedBooks: React.FC = () => {
       rating: 4.8,
       donor: "Ahmed Rahman",
       status: "Available",
-      category: "Philosophy",
+      category: "দর্শন",
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ const FeaturedBooks: React.FC = () => {
       rating: 4.9,
       donor: "Fatima Khan",
       status: "Available",
-      category: "History",
+      category: "ইতিহাস",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ const FeaturedBooks: React.FC = () => {
       rating: 4.7,
       donor: "Rafiq Uddin",
       status: "Borrowed",
-      category: "Self-Help",
+      category: "আত্মউন্নয়ন",
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ const FeaturedBooks: React.FC = () => {
       rating: 4.6,
       donor: "Nasreen Akter",
       status: "Available",
-      category: "Fiction",
+      category: "কল্পকাহিনী",
     },
   ];
 
@@ -65,7 +65,7 @@ const FeaturedBooks: React.FC = () => {
   useGSAP(() => {
     // Set initial states
     gsap.set(".books-header", { y: 50, opacity: 1 });
-    gsap.set(".book-card", { y: 60, opacity: 0,  });
+    gsap.set(".book-card", { y: 60, opacity: 0 });
     gsap.set(".view-all-btn", { y: 40, opacity: 0 });
 
     // Create master timeline
@@ -106,11 +106,10 @@ const FeaturedBooks: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="books-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Featured Books
+            নির্বাচিত বইসমূহ
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Discover our most loved books, carefully curated by our amazing
-            community of donors and readers.
+            আমাদের পাঠক ও দাতা কমিউনিটির দ্বারা সংগৃহীত সবচেয়ে প্রশংসিত বইগুলো অন্বেষণ করুন।
           </p>
         </div>
 
@@ -136,7 +135,7 @@ const FeaturedBooks: React.FC = () => {
                         : "bg-orange-100 text-orange-800"
                     }`}
                   >
-                    {book.status}
+                    {book.status === "Available" ? "উপলব্ধ" : "ধার নেওয়া"}
                   </span>
                 </div>
                 <button className="absolute top-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
@@ -155,7 +154,7 @@ const FeaturedBooks: React.FC = () => {
                   {book.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3">by {book.author}</p>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3">লেখক: {book.author}</p>
 
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-1">
@@ -167,23 +166,27 @@ const FeaturedBooks: React.FC = () => {
 
                   <div className="flex items-center space-x-1 text-xs text-gray-500">
                     <User className="w-3 h-3" />
-                    <span>by {book.donor}</span>
+                    <span>দাতা: {book.donor}</span>
                   </div>
                 </div>
 
                 <div className="flex space-x-2">
-                  <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg text-sm font-medium transition-colors">
-                    View Details
-                  </button>
-                  <button
-                    className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
+                  <a
+                    href="/granthagar/book-detail"
+                    className="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    বিবরণ দেখুন
+                  </a>
+                  <a
+                    href="/granthagar/request-book"
+                    className={`flex-1 text-center py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
                       book.status === "Available"
                         ? "bg-green-100 hover:bg-green-200 text-green-800"
-                        : "bg-gray-100 text-gray-500 cursor-not-allowed"
+                        : "bg-gray-100 text-gray-500 cursor-not-allowed pointer-events-none"
                     }`}
                   >
-                    {book.status === "Available" ? "Request" : "Unavailable"}
-                  </button>
+                    {book.status === "Available" ? "অনুরোধ" : "অনুপলব্ধ"}
+                  </a>
                 </div>
               </div>
             </div>
@@ -191,9 +194,12 @@ const FeaturedBooks: React.FC = () => {
         </div>
 
         <div className="view-all-btn text-center mt-12">
-          <button className="bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#303030] px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]">
-            View All Books
-          </button>
+          <a
+            href="/granthagar/books-catalog"
+            className="inline-block bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#303030] px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm active:scale-[0.98]"
+          >
+            সব বই দেখুন
+          </a>
         </div>
       </div>
     </section>

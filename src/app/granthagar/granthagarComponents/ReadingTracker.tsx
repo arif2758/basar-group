@@ -72,40 +72,40 @@ const ReadingTracker: React.FC = () => {
 
   const badges = [
     {
-      name: "First Book",
+      name: "প্রথম বই",
       icon: "🎉",
       earned: true,
-      description: "Read your first book",
+      description: "আপনার প্রথম বইটি সফলভাবে পড়া সম্পন্ন করেছেন",
     },
     {
-      name: "Speed Reader",
+      name: "দ্রুতগতির পাঠক",
       icon: "⚡",
       earned: true,
-      description: "Read 5 books in a month",
+      description: "এক মাসে 5 টি বই পাঠ সম্পন্ন করেছেন",
     },
     {
-      name: "Night Owl",
+      name: "রাতের পাঠক",
       icon: "🌙",
       earned: true,
-      description: "Read after midnight",
+      description: "মধ্যরাতে পড়ার অভ্যাস ধরে রেখেছেন",
     },
     {
-      name: "Genre Explorer",
+      name: "বৈচিত্র্যময় পাঠক",
       icon: "🗺️",
       earned: false,
-      description: "Read books from 5 different genres",
+      description: "5 টি ভিন্ন বিষয়ের বই পাঠ করেছেন",
     },
     {
-      name: "Marathon Reader",
+      name: "ম্যারাথন পাঠক",
       icon: "🏃",
       earned: false,
-      description: "Read for 5+ hours in a day",
+      description: "দিনে 5 ঘণ্টার বেশি সময় বই পড়েছেন",
     },
     {
-      name: "Consistent Reader",
+      name: "নিয়মিত পাঠক",
       icon: "📚",
       earned: true,
-      description: "Read 30 days in a row",
+      description: "টানা 30 দিন বই পড়ার রুটিন ধরে রেখেছেন",
     },
   ];
 
@@ -116,7 +116,7 @@ const ReadingTracker: React.FC = () => {
       completedDate: "2024-01-28",
       rating: 5,
       pages: 320,
-      timeSpent: "8 hours",
+      timeSpent: "8 ঘণ্টা",
     },
     {
       title: "The Alchemist",
@@ -124,7 +124,7 @@ const ReadingTracker: React.FC = () => {
       completedDate: "2024-01-15",
       rating: 4,
       pages: 163,
-      timeSpent: "4 hours",
+      timeSpent: "4 ঘণ্টা",
     },
     {
       title: "1984",
@@ -132,17 +132,17 @@ const ReadingTracker: React.FC = () => {
       completedDate: "2024-01-02",
       rating: 5,
       pages: 328,
-      timeSpent: "10 hours",
+      timeSpent: "10 ঘণ্টা",
     },
   ];
 
   const monthlyProgress = [
-    { month: "Aug", books: 2 },
-    { month: "Sep", books: 3 },
-    { month: "Oct", books: 4 },
-    { month: "Nov", books: 2 },
-    { month: "Dec", books: 1 },
-    { month: "Jan", books: 3 },
+    { month: "আগস্ট", books: 2 },
+    { month: "সেপ্টেম্বর", books: 3 },
+    { month: "অক্টোবর", books: 4 },
+    { month: "নভেম্বর", books: 2 },
+    { month: "ডিসেম্বর", books: 1 },
+    { month: "জানুয়ারি", books: 3 },
   ];
 
   return (
@@ -150,11 +150,10 @@ const ReadingTracker: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div ref={headerRef} className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
-            My Reading Journey
+            পড়ার অগ্রগতির ট্র্যাকার (Reading Tracker)
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-            Track your progress, celebrate achievements, and stay motivated on
-            your reading adventure.
+            আপনার বই পড়ার ধারাবাহিক অগ্রগতি ট্র্যাক করুন, অর্জন উদযাপন করুন এবং নিয়মিত পড়ার অভ্যাস গড়ে তুলুন।
           </p>
         </div>
 
@@ -164,7 +163,7 @@ const ReadingTracker: React.FC = () => {
             {/* Key Metrics */}
             <div ref={statsRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
               <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
-                Reading Stats
+                পড়ার পরিসংখ্যান
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
@@ -174,7 +173,7 @@ const ReadingTracker: React.FC = () => {
                   <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.booksRead}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Books Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">পঠিত মোট বই</div>
                 </div>
 
                 <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
@@ -184,7 +183,7 @@ const ReadingTracker: React.FC = () => {
                   <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.pagesRead.toLocaleString()}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Pages Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">পঠিত মোট পৃষ্ঠা</div>
                 </div>
 
                 <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
@@ -194,7 +193,7 @@ const ReadingTracker: React.FC = () => {
                   <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.currentStreak}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Day Streak</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">দিনের স্ট্রিক</div>
                 </div>
 
                 <div className="stat-card text-center p-3 rounded-lg bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#262626]">
@@ -204,7 +203,7 @@ const ReadingTracker: React.FC = () => {
                   <div className="stat-number text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
                     {userStats.readingHours}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Hours Read</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">পড়ার মোট ঘণ্টা</div>
                 </div>
               </div>
             </div>
@@ -212,16 +211,16 @@ const ReadingTracker: React.FC = () => {
             {/* Goals Progress */}
             <div ref={goalsRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
               <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
-                Reading Goals
+                পড়ার লক্ষ্যমাত্রা
               </h2>
               <div className="space-y-4">
                 <div>
                   <div className="flex items-center justify-between mb-1.5 text-xs">
                     <span className="font-medium text-slate-700 dark:text-slate-300">
-                      Monthly Goal
+                      মাসিক লক্ষ্য
                     </span>
                     <span className="text-slate-500 dark:text-slate-400">
-                      1 of {userStats.monthlyGoal} books
+                      {userStats.monthlyGoal} টির মধ্যে 1 টি বই সম্পন্ন
                     </span>
                   </div>
                   <div className="w-full bg-slate-100 dark:bg-[#262626] rounded-full h-2">
@@ -235,10 +234,10 @@ const ReadingTracker: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-1.5 text-xs">
                     <span className="font-medium text-slate-700 dark:text-slate-300">
-                      Yearly Goal
+                      বার্ষিক লক্ষ্য
                     </span>
                     <span className="text-slate-500 dark:text-slate-400">
-                      {userStats.booksRead} of {userStats.yearlyGoal} books
+                      {userStats.yearlyGoal} টির মধ্যে {userStats.booksRead} টি বই সম্পন্ন
                     </span>
                   </div>
                   <div className="w-full bg-slate-100 dark:bg-[#262626] rounded-full h-2">
@@ -253,7 +252,7 @@ const ReadingTracker: React.FC = () => {
               <div className="mt-5 bg-slate-50 dark:bg-[#1a1a1a] rounded-lg p-3.5 border border-slate-200 dark:border-[#262626] flex items-center space-x-2.5">
                 <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                 <p className="text-xs text-slate-600 dark:text-slate-300">
-                  You&apos;re 50% ahead of your yearly reading goal. Keep up the excellent work!
+                  আপনি আপনার বার্ষিক পাঠ লক্ষ্যমাত্রার চেয়ে 50% এগিয়ে আছেন। দারুণ এই গতি বজায় রাখুন!
                 </p>
               </div>
             </div>
@@ -261,7 +260,7 @@ const ReadingTracker: React.FC = () => {
             {/* Monthly Progress Chart */}
             <div ref={chartRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
               <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-5">
-                Monthly Progress
+                মাসভিত্তিক অগ্রগতি
               </h2>
               <div className="flex items-end space-x-3 sm:space-x-4 h-36 pt-4 border-b border-slate-100 dark:border-[#262626]">
                 {monthlyProgress.map((month, index) => (
@@ -287,7 +286,7 @@ const ReadingTracker: React.FC = () => {
             {/* Recent Books */}
             <div ref={booksRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6">
               <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-4">
-                Recently Completed
+                সম্প্রতি পড়া সম্পন্ন বই
               </h2>
               <div className="space-y-3">
                 {recentBooks.map((book, index) => (
@@ -302,9 +301,9 @@ const ReadingTracker: React.FC = () => {
                       <h3 className="font-semibold text-slate-900 dark:text-white text-xs sm:text-sm truncate">
                         {book.title}
                       </h3>
-                      <p className="text-slate-500 dark:text-slate-400 text-xs">by {book.author}</p>
+                      <p className="text-slate-500 dark:text-slate-400 text-xs">লেখক: {book.author}</p>
                       <div className="flex items-center space-x-3 mt-1 text-[11px] text-slate-400">
-                        <span>{book.pages} pages</span>
+                        <span>{book.pages} পৃষ্ঠা</span>
                         <span>•</span>
                         <span>{book.timeSpent}</span>
                       </div>
@@ -337,7 +336,7 @@ const ReadingTracker: React.FC = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <Trophy className="w-5 h-5 text-amber-500" />
                 <h2 className="text-base font-semibold text-slate-900 dark:text-white">
-                  Achievements
+                  অর্জিত ব্যাজ ও মেডেল
                 </h2>
               </div>
 
@@ -386,18 +385,27 @@ const ReadingTracker: React.FC = () => {
               className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6"
             >
               <h2 className="text-base font-semibold text-slate-900 dark:text-white mb-4">
-                Quick Actions
+                দ্রুত অ্যাকশন
               </h2>
               <div className="space-y-2.5">
-                <button className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg font-medium text-xs shadow-sm transition-colors active:scale-[0.99]">
-                  Log New Book
-                </button>
-                <button className="w-full bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors">
-                  Set New Goal
-                </button>
-                <button className="w-full bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors">
-                  Share Progress
-                </button>
+                <a
+                  href="/granthagar/request-book"
+                  className="w-full block text-center bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-4 rounded-lg font-medium text-xs shadow-sm transition-colors active:scale-[0.99]"
+                >
+                  নতুন বইয়ের অনুরোধ
+                </a>
+                <a
+                  href="/granthagar/books-catalog"
+                  className="w-full block text-center bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors"
+                >
+                  ক্যাটালগ ব্রাউজ করুন
+                </a>
+                <a
+                  href="/granthagar/membership"
+                  className="w-full block text-center bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-[#303030] py-2.5 px-4 rounded-lg font-medium text-xs transition-colors"
+                >
+                  মেম্বারশিপ সুবিধা দেখুন
+                </a>
               </div>
             </div>
 
@@ -407,13 +415,13 @@ const ReadingTracker: React.FC = () => {
               className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-xl shadow-sm p-6 text-white text-center"
             >
               <Flame className="w-8 h-8 mx-auto mb-2 text-amber-400" />
-              <h2 className="text-base font-semibold mb-1 text-white">Reading Streak</h2>
+              <h2 className="text-base font-semibold mb-1 text-white">পড়ার ধারাবাহিকতা (Streak)</h2>
               <div className="text-3xl font-bold text-amber-400 mb-0.5">
                 {userStats.currentStreak}
               </div>
-              <div className="text-xs text-slate-400 mb-3">Days in a row</div>
+              <div className="text-xs text-slate-400 mb-3">টানা প্রতিদিন পড়া হচ্ছে</div>
               <div className="text-xs text-slate-400 pt-3 border-t border-slate-800 dark:border-[#262626]">
-                Personal best: {userStats.longestStreak} days
+                সর্বোচ্চ রেকর্ড: টানা {userStats.longestStreak} দিন
               </div>
             </div>
           </div>

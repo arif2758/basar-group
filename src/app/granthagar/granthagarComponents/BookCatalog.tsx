@@ -66,26 +66,26 @@ const BookCatalog: React.FC = () => {
         <div className="header-content mb-12 text-center">
           <div className="inline-flex items-center bg-white dark:bg-[#141414] text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-5 border border-slate-200 dark:border-[#303030] shadow-sm">
             <BookOpen className="w-3.5 h-3.5 mr-1.5" />
-            Digital Library
+            ডিজিটাল লাইব্রেরি
             <Sparkles className="w-3.5 h-3.5 ml-1.5" />
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
-            Book Catalog
+            বই ক্যাটালগ
           </h1>
           
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8">
-            Explore our collection of over{" "}
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">500+ books</span> donated by our amazing community.
+            আমাদের কমিউনিটি কর্তৃক দানকৃত{" "}
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">500+ বইয়ের</span> সমৃদ্ধ সংগ্রহ অন্বেষণ করুন।
           </p>
 
           {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
             {[
-              { icon: "📚", number: "500+", label: "Total Books" },
-              { icon: "👥", number: "150+", label: "Active Donors" },
-              { icon: "⭐", number: "4.8", label: "Avg Rating" },
-              { icon: "🔄", number: "200+", label: "Books Exchanged" }
+              { icon: "📚", number: "500+", label: "সর্বমোট বই" },
+              { icon: "👥", number: "150+", label: "সক্রিয় দাতা" },
+              { icon: "⭐", number: "4.8", label: "গড় রেটিং" },
+              { icon: "🔄", number: "200+", label: "বই বিনিময়" }
             ].map((stat, index) => (
               <div key={index} className="stat-item text-center bg-white dark:bg-[#141414] rounded-xl p-4 sm:p-5 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200">
                 <div className="text-2xl mb-1.5">{stat.icon}</div>

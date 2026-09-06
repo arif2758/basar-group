@@ -76,75 +76,75 @@ const Membership: React.FC = () => {
   const rules = [
     {
       icon: BookOpen,
-      title: "One Book at a Time",
+      title: "একবারে একটি বই",
       description:
-        "Members can borrow one book at a time. You must return your current book before requesting another.",
+        "সদস্যগণ একবারে একটি বই ধার নিতে পারবেন। পরবর্তী বই নেওয়ার পূর্বে পূর্ববর্তী বইটি জমা দিতে হবে।",
     },
     {
       icon: Users,
-      title: "Student Priority",
+      title: "শিক্ষার্থীদের অগ্রাধিকার",
       description:
-        "Students receive priority access to books, especially for academic and educational materials.",
+        "অ্যাকাডেমিক এবং শিক্ষামূলক বই সংগ্রহের ক্ষেত্রে শিক্ষার্থীদের সর্বোচ্চ অগ্রাধিকার দেওয়া হয়।",
     },
     {
       icon: Truck,
-      title: "30-Minute Delivery",
+      title: "30 মিনিটে ফ্রি ডেলিভারি",
       description:
-        "Free delivery within 30 minutes for members in Dhaka city. We bring books directly to your doorstep.",
+        "ঢাকা শহরের নির্দিষ্ট এলাকায় সদস্যদের জন্য 30 মিনিটে ফ্রি ডেলিভারি সেবা। বই পৌঁছাবে আপনার ঠিকানায়।",
     },
     {
       icon: Clock,
-      title: "Return Policy",
+      title: "বই ফেরতের নীতি",
       description:
-        "Books should be returned within 14 days. Extensions available upon request if no one else is waiting.",
+        "বই সাধারণত 14 দিনের মধ্যে ফেরত দিতে হবে। অন্য কোনো পাঠকের অনুরোধ না থাকলে সময় বৃদ্ধি করা সম্ভব।",
     },
     {
       icon: Shield,
-      title: "Book Care",
+      title: "বইয়ের যত্ন ও সুরক্ষা",
       description:
-        "Handle books with care. Damaged or lost books may require replacement or repair fees.",
+        "বইয়ের সঠিক যত্ন নিন। বইয়ের ক্ষতিসাধন বা হারিয়ে ফেললে প্রতিস্থাপন বা ক্ষতিপূরণ প্রযোজ্য হতে পারে।",
     },
   ];
 
   const benefits = [
-    "Access to 500+ carefully curated books",
-    "Free 30-minute delivery service in Dhaka",
-    "Priority access to new arrivals",
-    "Reading tracker and achievement system",
-    "Participation in monthly quiz contests",
-    "Community discussion forums",
-    "Personalized book recommendations",
-    "No late fees for students",
+    "500+ বাছাইকৃত সমৃদ্ধ বইয়ের সংগ্রহে অ্যাক্সেস",
+    "ঢাকায় দ্রুততম 30 মিনিটে ফ্রি ডেলিভারি সেবা",
+    "নতুন প্রকাশিত ও সংগৃহীত বইয়ে অগ্রাধিকার",
+    "রিডিং ট্র্যাকার এবং ব্যাজ অর্জন সুবিধা",
+    "মাসিক কুইজ ও আকর্ষণীয় পুরস্কার প্রতিযোগিতা",
+    "কমিউনিটি পাঠচক্র ও মতবিনিময় ফোরাম",
+    "ব্যক্তিগত পছন্দ অনুযায়ী বইয়ের সুপারিশ",
+    "শিক্ষার্থীদের জন্য কোনো বিলম্ব ফি নেই",
   ];
 
   const membershipPlans = [
     {
-      name: "Student Membership",
+      name: "শিক্ষার্থী মেম্বারশিপ (Student)",
       price: "৳100",
-      period: "Refundable Deposit",
-      description: "Perfect for students with valid student ID",
+      period: "ফেরতযোগ্য জামানত",
+      description: "বৈধ স্টুডেন্ট আইডিধারী শিক্ষার্থীদের জন্য প্রযোজ্য",
       features: [
-        "One book at a time",
-        "30-minute free delivery",
-        "14-day borrowing period",
-        "Student priority access",
-        "Reading tracker access",
-        "Monthly quiz participation",
+        "একবারে একটি বই পড়ার সুযোগ",
+        "30 মিনিটে ফ্রি ডেলিভারি",
+        "14 দিন বই রাখার সুবিধা",
+        "শিক্ষার্থী হিসেবে বিশেষ অগ্রাধিকার",
+        "রিডিং ট্র্যাকার ও প্রোফাইল অ্যাক্সেস",
+        "মাসিক কুইজ প্রতিযোগিতায় অংশগ্রহণ",
       ],
       popular: true,
     },
     {
-      name: "General Membership",
+      name: "সাধারণ মেম্বারশিপ (General)",
       price: "৳200",
-      period: "Refundable Deposit",
-      description: "For working professionals and general readers",
+      period: "ফেরতযোগ্য জামানত",
+      description: "চাকরিজীবী, গবেষক ও সাধারণ বইপ্রেমী পাঠকদের জন্য",
       features: [
-        "One book at a time",
-        "30-minute free delivery",
-        "14-day borrowing period",
-        "Access to all books",
-        "Reading tracker access",
-        "Monthly quiz participation",
+        "একবারে একটি বই পড়ার সুযোগ",
+        "30 মিনিটে ফ্রি ডেলিভারি",
+        "14 দিন বই রাখার সুবিধা",
+        "সকল বইয়ের সংগ্রহে পূর্ণ অ্যাক্সেস",
+        "রিডিং ট্র্যাকার ও প্রোফাইল অ্যাক্সেস",
+        "মাসিক কুইজ প্রতিযোগিতায় অংশগ্রহণ",
       ],
       popular: false,
     },
@@ -152,29 +152,29 @@ const Membership: React.FC = () => {
 
   const faq = [
     {
-      question: "Is the membership fee refundable?",
+      question: "মেম্বারশিপ ফি কি সম্পূর্ণ ফেরতযোগ্য?",
       answer:
-        "Yes! The membership deposit is 100% refundable when you cancel your membership. We only keep the deposit to ensure books are returned safely.",
+        "হ্যাঁ! মেম্বারশিপ বাতিল করার সাথে সাথেই জামানতের টাকা 100% ফেরত দেওয়া হয়। বইয়ের সুরক্ষা নিশ্চিত করতেই এই ফেরতযোগ্য জামানত নেওয়া হয়।",
     },
     {
-      question: "How does the 30-minute delivery work?",
+      question: "30 মিনিটের ডেলিভারি প্রক্রিয়া কীভাবে কাজ করে?",
       answer:
-        "Once you request a book, our team will deliver it to your location within 30 minutes during business hours (9 AM - 9 PM). We cover most areas of Dhaka city.",
+        "বইটির অনুরোধ অনুমোদনের পর প্রতিদিন সকাল 9 AM থেকে রাত 9 PM-এর মধ্যে 30 মিনিটের মধ্যে বই আপনার ঠিকানায় পৌঁছে দেওয়া হয়। ঢাকা শহরের অধিকাংশ এলাকায় এই সুবিধা রয়েছে।",
     },
     {
-      question: "What if I lose or damage a book?",
+      question: "বই হারিয়ে গেলে বা ক্ষতিগ্রস্ত হলে কী করণীয়?",
       answer:
-        "We understand accidents happen. For minor damage, there's no charge. For significant damage or lost books, we may ask you to replace the book or pay a reasonable replacement fee.",
+        "দুর্ঘটনা ঘটতেই পারে। সামান্য দাগ বা ব্যবহারে কোনো চার্জ নেই। তবে গুরুতর ক্ষতি বা বই হারিয়ে গেলে নতুন বই প্রতিস্থাপন অথবা সমপরিমাণ মূল্য পরিশোধ করতে হবে।",
     },
     {
-      question: "Can I extend my borrowing period?",
+      question: "বই পড়ার সময়সীমা কি বাড়ানো যায়?",
       answer:
-        "Yes, you can extend for another 7 days if no one else is waiting for the book. Just send us a message through the app or call us.",
+        "হ্যাঁ, যদি বইটি অন্য কোনো পাঠক আগে থেকে বুক না করে থাকেন তবে আরও 7 দিন সময় বাড়িয়ে নিতে পারবেন। অ্যাপের মাধ্যমে বা ফোনে জানালেই হবে।",
     },
     {
-      question: "Do you have digital/e-books?",
+      question: "ডিজিটাল বা ই-বুকের কোনো ব্যবস্থা আছে কি?",
       answer:
-        "Currently, we focus on physical books to reduce screen time and encourage focused reading. However, we're exploring digital options for rare or high-demand books.",
+        "স্ক্রিন টাইম কমিয়ে বই পড়ার গভীর আনন্দ ধরে রাখতে আমরা মূলত ফিজিক্যাল প্রিন্টেড বই দিয়ে থাকি। তবে বিরল ও শিক্ষামূলক বইয়ের ক্ষেত্রে ই-বুক চালুর পরিকল্পনা চলছে।",
     },
   ];
 
@@ -183,11 +183,10 @@ const Membership: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div ref={headerRef} className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
-            Join BASAR গ্রন্থাগার
+            যুক্ত হোন BASAR গ্রন্থাগারে
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
-            Become part of our reading community and transform your learning
-            journey. Simple rules, great books, and amazing community support.
+            আমাদের পাঠক পরিবারের অংশ হোন এবং আপনার জ্ঞানার্জনের যাত্রাকে নতুন রূপ দিন। সহজ নিয়ম, সেরা বই এবং অসাধারণ কমিউনিটি সুবিধা।
           </p>
         </div>
 
@@ -205,7 +204,7 @@ const Membership: React.FC = () => {
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-emerald-600 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg">
-                  Most Popular
+                  সর্বাধিক জনপ্রিয়
                 </div>
               )}
 
@@ -229,11 +228,12 @@ const Membership: React.FC = () => {
                   ))}
                 </div>
 
-                <button
-                  className="w-full mt-8 bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
+                <a
+                  href="/granthagar/books-catalog"
+                  className="block text-center w-full mt-8 bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-6 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
                 >
-                  Join Now
-                </button>
+                  এখনই যুক্ত হোন
+                </a>
               </div>
             </div>
           ))}
@@ -246,7 +246,7 @@ const Membership: React.FC = () => {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center flex items-center justify-center space-x-2">
             <Star className="w-5 h-5 text-amber-400 fill-current" />
-            <span>Membership Benefits</span>
+            <span>মেম্বারশিপের বিশেষ সুবিধাসমূহ</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -268,7 +268,7 @@ const Membership: React.FC = () => {
           className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 mb-12"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
-            Simple Rules for a Great Experience
+            সুশৃঙ্খল পাঠাগার পরিচালনার নীতিমালা
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -298,13 +298,13 @@ const Membership: React.FC = () => {
             <AlertCircle className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="text-base font-semibold text-amber-700 dark:text-amber-400 mb-2">
-                Important Notice
+                জরুরি তথ্যাবলী
               </h3>
               <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-                <p>• Your membership deposit is 100% refundable when you cancel your membership.</p>
-                <p>• Student ID verification required for student membership rates.</p>
-                <p>• Delivery service available in Dhaka city from 9 AM to 9 PM, 7 days a week.</p>
-                <p>• Books must be returned in good condition to maintain membership benefits.</p>
+                <p>• মেম্বারশিপ বাতিলের সাথে সাথে আপনার জামানতের টাকা 100% ফেরত দেওয়া হবে।</p>
+                <p>• শিক্ষার্থী মেম্বারশিপের জন্য শিক্ষাপ্রতিষ্ঠানের বৈধ স্টুডেন্ট আইডি ভেরিফিকেশন প্রযোজ্য।</p>
+                <p>• ঢাকা শহরে প্রতিদিন সকাল 9 AM থেকে রাত 9 PM পর্যন্ত সপ্তাহের 7 দিনই ডেলিভারি সেবা সক্রিয়।</p>
+                <p>• বইসমূহ যত্নসহকারে পড়া এবং নির্ধারিত সময়ে ফেরত দিয়ে সুবিধাসমূহ বজায় রাখুন।</p>
               </div>
             </div>
           </div>
@@ -313,7 +313,7 @@ const Membership: React.FC = () => {
         {/* FAQ */}
         <div ref={faqRef} className="bg-white dark:bg-[#141414] rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
-            Frequently Asked Questions
+            সাধারণ জিজ্ঞাসা ও প্রশ্নোত্তর (FAQ)
           </h2>
 
           <div className="space-y-4">
@@ -337,19 +337,24 @@ const Membership: React.FC = () => {
           className="bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl shadow-sm p-8 sm:p-12 text-white text-center"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
-            Ready to Start Your Reading Journey?
+            বই পড়ার রোমাঞ্চকর যাত্রা শুরু করতে প্রস্তুত?
           </h2>
           <p className="text-slate-300 dark:text-slate-400 mb-8 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Join hundreds of students and readers who&apos;ve already
-            transformed their lives through our community library.
+            আমাদের কমিউনিটি লাইব্রেরির মাধ্যমে জ্ঞান ও দক্ষতায় এগিয়ে চলা শত শত শিক্ষার্থী ও পাঠকের সাথে আজই যুক্ত হোন।
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]">
-              Join as Student (৳100)
-            </button>
-            <button className="border border-slate-600 dark:border-[#303030] bg-transparent hover:bg-slate-800 text-slate-300 px-7 py-3 rounded-xl font-medium text-sm transition-colors">
-              General Membership (৳200)
-            </button>
+            <a 
+              href="/granthagar/books-catalog"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3 rounded-xl font-medium text-sm transition-colors shadow-sm active:scale-[0.99]"
+            >
+              শিক্ষার্থী হিসেবে যুক্ত হোন (৳100)
+            </a>
+            <a 
+              href="/granthagar/books-catalog"
+              className="border border-slate-600 dark:border-[#303030] bg-transparent hover:bg-slate-800 text-slate-300 px-7 py-3 rounded-xl font-medium text-sm transition-colors"
+            >
+              সাধারণ মেম্বারশিপ (৳200)
+            </a>
           </div>
         </div>
       </div>

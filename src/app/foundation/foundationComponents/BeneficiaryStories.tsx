@@ -5,59 +5,57 @@ import Image from "next/image";
 import { Play, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-
-
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const stories = [
   {
-    name: "Amina Hassan",
+    name: "আমিনা হাসান",
     age: 12,
-    location: "Rural Bangladesh",
-    program: "Education Aid",
+    location: "পল্লী অঞ্চল, বাংলাদেশ",
+    program: "শিক্ষা সহায়তা",
     story:
-      "Thanks to BASAR Foundation, I received school supplies and a solar study light. Now I can study even after sunset. My dream is to become a teacher and help other children in my village learn to read and write.",
+      "বাছার ফাউন্ডেশনের উপহার হিসেবে বইখাতা ও সোলার স্টাডি ল্যাম্প পাওয়ার পর আমার পড়াশোনার গতি ফিরে এসেছে। এখন সন্ধ্যায়ও নিশ্চিন্তে পড়তে পারি। বড় হয়ে আমি শিক্ষিকা হতে চাই এবং গ্রামের অন্য শিশুদের পড়াতে চাই।",
     image:
       "https://images.pexels.com/photos/8613082/pexels-photo-8613082.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    impact: "Now reading at grade level",
+    impact: "শ্রেণিভিত্তিক দক্ষতায় পূর্ণ উন্নতি",
     videoThumbnail: true,
   },
   {
-    name: "Mohammed Ali",
+    name: "মোহাম্মদ আলী",
     age: 45,
-    location: "Punjab, Pakistan",
-    program: "Farmer Support",
+    location: "কৃষি অঞ্চল, রাজবাড়ী",
+    program: "কৃষি সহায়তা",
     story:
-      "The improved seeds and farming training from BASAR Foundation doubled my crop yield. I can now provide better for my family and even send my children to school. This support changed our entire future.",
+      "বাছার ফাউন্ডেশনের উন্নত জাতের বীজ এবং আধুনিক প্রশিক্ষণ আমার ফসলের ফলন দ্বিগুণ করেছে। এখন পরিবারের ব্যয় মিটিয়ে সন্তানদের ভালো স্কুলে পাঠাতে পারছি। এই সহযোগিতা আমাদের ভবিষ্যৎ বদলে দিয়েছে।",
     image:
       "https://images.pexels.com/photos/4960464/pexels-photo-4960464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    impact: "200% increase in crop yield",
+    impact: "ফসলের ফলন 200% বৃদ্ধি",
     videoThumbnail: false,
   },
   {
-    name: "Fatima Khatun",
+    name: "ফাতিমা খাতুন",
     age: 35,
-    location: "Dhaka, Bangladesh",
-    program: "Emergency Aid",
+    location: "ঢাকা, বাংলাদেশ",
+    program: "জরুরি দুর্যোগ ত্রাণ",
     story:
-      "During the devastating floods, BASAR Foundation provided us with clean water, food, and temporary shelter. When we lost everything, they gave us hope and helped us rebuild our lives from scratch.",
+      "ভয়াবহ বন্যায় যখন আমরা সবকিছু হারিয়ে ফেলেছিলাম, তখন বাছার ফাউন্ডেশন আমাদের জরুরি খাদ্য, বিশুদ্ধ পানি ও অস্থায়ী আশ্রয়ের ব্যবস্থা করে দিয়েছিল। তারা আমাদের নতুন করে বাঁচার আশা দেখিয়েছে।",
     image:
       "https://images.pexels.com/photos/6303945/pexels-photo-6303945.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    impact: "Family safely relocated",
+    impact: "পরিবার নিরাপদে পুনর্বাসিত",
     videoThumbnail: true,
   },
   {
-    name: "Omar Ibrahim",
+    name: "ওমর ইব্রাহিম",
     age: 28,
-    location: "Sylhet, Bangladesh",
-    program: "Healthcare Support",
+    location: "সিলেট, বাংলাদেশ",
+    program: "স্বাস্থ্যসেবা সহায়তা",
     story:
-      "My son needed urgent medical care that we could not afford. BASAR Foundation covered his surgery costs and provided ongoing treatment. Today, he is healthy and playing with other children.",
+      "আমার ছোট্ট ছেলের জরুরি চিকিৎসার জন্য প্রচুর অর্থের প্রয়োজন ছিল যা আমাদের পক্ষে বহন করা অসম্ভব ছিল। বাছার ফাউন্ডেশন অপারেশনের সমস্ত খরচ বহন করে। আজ আমার ছেলে সম্পূর্ণ সুস্থ এবং স্কুলে যাচ্ছে।",
     image:
       "https://images.pexels.com/photos/6303615/pexels-photo-6303615.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    impact: "Child fully recovered",
+    impact: "শিশুটির সম্পূর্ণ সুস্থতা অর্জন",
     videoThumbnail: false,
   },
 ];
@@ -76,76 +74,76 @@ function BeneficiaryStories() {
     setCurrentStory((prev) => (prev - 1 + stories.length) % stories.length);
   };
 
-useScrollAnimation();
+  useScrollAnimation();
   useGSAP(() => {
-  // Main story animation
-  gsap.from(".main-story", {
-    scrollTrigger: {
-      trigger: ".main-story",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
-
-  // Navigation animation
-  gsap.from(".story-navigation", {
-    scrollTrigger: {
-      trigger: ".story-navigation",
-      start: "top 85%",
-      toggleActions: "play none none reverse",
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.6,
-    ease: "power2.out",
-  });
-
-  // Story cards - individual targeting
-  gsap.utils.toArray<HTMLElement>(".story-card").forEach((card, index) => {
-    gsap.from(card, {
+    // Main story animation
+    gsap.from(".main-story", {
       scrollTrigger: {
-        trigger: card,
+        trigger: ".main-story",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+
+    // Navigation animation
+    gsap.from(".story-navigation", {
+      scrollTrigger: {
+        trigger: ".story-navigation",
         start: "top 85%",
         toggleActions: "play none none reverse",
       },
       y: 30,
       opacity: 0,
       duration: 0.6,
-      delay: index * 0.15,
       ease: "power2.out",
     });
-  });
 
-  // CTA animation
-  gsap.from(".cta-section", {
-    scrollTrigger: {
-      trigger: ".cta-section",
-      start: "top 85%",
-      toggleActions: "play none none reverse",
-    },
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
+    // Story cards - individual targeting
+    gsap.utils.toArray<HTMLElement>(".story-card").forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        delay: index * 0.15,
+        ease: "power2.out",
+      });
+    });
 
-  // Story change animation
-  if (currentStory >= 0) {
-    gsap.fromTo(".story-content", 
-      { x: 30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-    gsap.fromTo(".story-image", 
-      { x: -30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-  }
+    // CTA animation
+    gsap.from(".cta-section", {
+      scrollTrigger: {
+        trigger: ".cta-section",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
 
-}, { scope: containerRef, dependencies: [currentStory] });
+    // Story change animation
+    if (currentStory >= 0) {
+      gsap.fromTo(".story-content", 
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+      );
+      gsap.fromTo(".story-image", 
+        { x: -30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+      );
+    }
+
+  }, { scope: containerRef, dependencies: [currentStory] });
 
   return (
     <section ref={containerRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
@@ -164,7 +162,10 @@ useScrollAnimation();
                 />
                 {currentBeneficiary.videoThumbnail && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                    <button className="play-button bg-white/90 dark:bg-[#141414]/90 hover:bg-white p-3.5 rounded-full transition-all duration-200 shadow-lg transform hover:scale-105">
+                    <button 
+                      aria-label="Play Story Video"
+                      className="play-button bg-white/90 dark:bg-[#141414]/90 hover:bg-white p-3.5 rounded-full transition-all duration-200 shadow-lg transform hover:scale-105"
+                    >
                       <Play className="w-6 h-6 text-emerald-600 ml-0.5" />
                     </button>
                   </div>
@@ -182,7 +183,7 @@ useScrollAnimation();
                       {currentBeneficiary.name}
                     </h3>
                     <p className="story-meta text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                      Age {currentBeneficiary.age} • {currentBeneficiary.location}
+                      বয়স {currentBeneficiary.age} বছর • {currentBeneficiary.location}
                     </p>
                   </div>
 
@@ -196,7 +197,7 @@ useScrollAnimation();
 
                 <div className="story-impact bg-slate-50 dark:bg-[#1f1f1f] rounded-xl p-4 border border-slate-200 dark:border-[#303030]">
                   <h4 className="font-semibold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-                    Impact Achieved:
+                    অর্জিত সুফল:
                   </h4>
                   <p className="text-emerald-600 dark:text-emerald-400 font-medium text-sm">
                     {currentBeneficiary.impact}
@@ -210,6 +211,7 @@ useScrollAnimation();
           <div className="story-navigation flex items-center justify-between mt-6 px-2">
             <button
               onClick={prevStory}
+              aria-label="Previous Story"
               className="nav-button bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] p-3 rounded-full shadow-sm transition-all duration-200 border border-slate-200 dark:border-[#303030] text-slate-700 dark:text-slate-300"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -221,6 +223,7 @@ useScrollAnimation();
                 <button
                   key={index}
                   onClick={() => setCurrentStory(index)}
+                  aria-label={`Story ${index + 1}`}
                   className={`indicator h-2 rounded-full transition-all duration-200 ${
                     index === currentStory
                       ? "bg-emerald-600 w-6"
@@ -232,6 +235,7 @@ useScrollAnimation();
 
             <button
               onClick={nextStory}
+              aria-label="Next Story"
               className="nav-button bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] p-3 rounded-full shadow-sm transition-all duration-200 border border-slate-200 dark:border-[#303030] text-slate-700 dark:text-slate-300"
             >
               <ChevronRight className="w-5 h-5" />
@@ -270,7 +274,7 @@ useScrollAnimation();
                     onClick={() => setCurrentStory(stories.indexOf(story))}
                     className="text-emerald-600 dark:text-emerald-400 font-medium text-xs mt-4 text-center hover:underline transition-colors"
                   >
-                    Read Full Story →
+                    সম্পূর্ণ গল্প পড়ুন →
                   </button>
                 </div>
               ))} 
@@ -280,15 +284,17 @@ useScrollAnimation();
           <div className="cta-section text-center mt-12">
             <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
               <h3 className="cta-title text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                Create Your Own Success Story
+                একটি নতুন মানবিক সাফল্যের গল্প তৈরি করুন
               </h3>
               <p className="cta-text text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
-                Your donation today could be the turning point in someone&apos;s
-                life tomorrow
+                আপনার আজকের সহযোগিতা আগামীতে কারও জীবনের সবচেয়ে বড় রূপান্তর এনে দিতে পারে।
               </p>
-              <button className="cta-button bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl text-base font-medium shadow-sm transition-all duration-200 active:scale-[0.98]">
-                Make a Difference Now
-              </button>
+              <Link 
+                href="#contact"
+                className="cta-button inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-xl text-base font-medium shadow-sm transition-all duration-200 active:scale-[0.98]"
+              >
+                আজই সহযোগিতার হাত বাড়ান
+              </Link>
             </div>
           </div>
         </div>

@@ -52,17 +52,17 @@ export default function FilterSidebar({
   };
 
   const priceRanges = [
-    { id: "all", label: "All Prices" },
-    { id: "under-50", label: "Under ৳50" },
+    { id: "all", label: "সকল মূল্য" },
+    { id: "under-50", label: "৳50 এর নিচে" },
     { id: "50-100", label: "৳50 - ৳100" },
     { id: "100-250", label: "৳100 - ৳250" },
-    { id: "over-250", label: "Over ৳250" },
+    { id: "over-250", label: "৳250 এর বেশি" },
   ];
 
   const ratingOptions = [
-    { value: 0, label: "All Ratings" },
-    { value: 4.8, label: "4.8★ & Above" },
-    { value: 4.5, label: "4.5★ & Above" },
+    { value: 0, label: "সকল রেটিং" },
+    { value: 4.8, label: "4.8★ ও তদূর্ধ্ব" },
+    { value: 4.5, label: "4.5★ ও তদূর্ধ্ব" },
   ];
 
   return (
@@ -72,7 +72,7 @@ export default function FilterSidebar({
         <div className="flex items-center gap-2">
           <Tag className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <h2 className="text-base font-bold text-slate-900 dark:text-white">
-            Filter Products
+            পণ্য ফিল্টার
           </h2>
         </div>
 
@@ -82,7 +82,7 @@ export default function FilterSidebar({
             className="flex items-center gap-1 text-xs font-semibold text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span>Reset</span>
+            <span>রিসেট</span>
           </button>
         )}
       </div>
@@ -93,7 +93,7 @@ export default function FilterSidebar({
           onClick={() => toggleSection("category")}
           className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
-          <span>Categories</span>
+          <span>বিভাগসমূহ</span>
           {openSections.category ? (
             <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
@@ -111,7 +111,7 @@ export default function FilterSidebar({
                   : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
               }`}
             >
-              <span>All Categories</span>
+              <span>সকল বিভাগ</span>
               <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-200/60 dark:bg-[#262626]">
                 {categories.reduce((acc, curr) => acc + curr.count, 0)}
               </span>
@@ -146,7 +146,7 @@ export default function FilterSidebar({
           onClick={() => toggleSection("price")}
           className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
-          <span>Price Range</span>
+          <span>মূল্য পরিসীমা</span>
           {openSections.price ? (
             <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
@@ -183,7 +183,7 @@ export default function FilterSidebar({
           onClick={() => toggleSection("availability")}
           className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
-          <span>Availability</span>
+          <span>প্রাপ্যতা</span>
           {openSections.availability ? (
             <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (
@@ -201,7 +201,7 @@ export default function FilterSidebar({
                 className="w-4 h-4 rounded text-emerald-600 border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-emerald-500"
               />
               <span className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                In Stock Only
+                শুধুমাত্র স্টকে থাকা পণ্য
               </span>
             </label>
           </div>
@@ -214,7 +214,7 @@ export default function FilterSidebar({
           onClick={() => toggleSection("rating")}
           className="flex items-center justify-between w-full text-left font-bold text-sm text-slate-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
-          <span>Minimum Rating</span>
+          <span>গ্রাহক রেটিং</span>
           {openSections.rating ? (
             <ChevronUp className="w-4 h-4 text-slate-400" />
           ) : (

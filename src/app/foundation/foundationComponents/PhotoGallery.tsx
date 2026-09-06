@@ -6,9 +6,6 @@ import Image from "next/image";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-
-
-
 gsap.registerPlugin(ScrollTrigger);
  
 interface Photo {
@@ -25,12 +22,12 @@ const PhotoGallery = () => {
   const containerRef = useRef(null);
 
   const filters = [
-    { key: "all", label: "All Projects" },
-    { key: "education", label: "Education" },
-    { key: "farming", label: "Farming" },
-    { key: "seasonal", label: "Seasonal" },
-    { key: "emergency", label: "Emergency" },
-    { key: "healthcare", label: "Healthcare" },
+    { key: "all", label: "সকল কার্যক্রম" },
+    { key: "education", label: "শিক্ষা সহায়তা" },
+    { key: "farming", label: "কৃষি সহায়তা" },
+    { key: "seasonal", label: "মৌসুমি উপহার" },
+    { key: "emergency", label: "জরুরি ত্রাণ" },
+    { key: "healthcare", label: "স্বাস্থ্যসেবা" },
   ];
 
   const photos: Photo[] = [
@@ -38,85 +35,85 @@ const PhotoGallery = () => {
       id: 1,
       src: "https://images.pexels.com/photos/8613082/pexels-photo-8613082.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "education",
-      title: "School Supply Distribution",
-      description: "Children receiving new books and educational materials",
+      title: "শিক্ষা উপকরণ বিতরণ",
+      description: "সুবিধাবঞ্চিত শিক্ষার্থীদের মাঝে নতুন বই, খাতা ও স্কুলব্যাগ বিতরণ",
     },
     {
       id: 2,
       src: "https://images.pexels.com/photos/6646944/pexels-photo-6646944.jpeg?auto=compress&cs=tinysrgb&w=400",
       category: "seasonal",
-      title: "Ramadan Food Packages",
-      description: "Families receiving nutritious meal packages during Ramadan",
+      title: "রমজান ফুড প্যাকেজ",
+      description: "পবিত্র রমজানে অসহায় পরিবারের জন্য পুষ্টিকর খাদ্য ও ইফতার সামগ্রী বিতরণ",
     },
     {
       id: 3,
       src: "https://images.pexels.com/photos/4960464/pexels-photo-4960464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "farming",
-      title: "Improved Seeds Distribution",
-      description: "Farmers receiving high-yield crop seeds and training",
+      title: "উন্নত জাতের বীজ বিতরণ",
+      description: "প্রান্তিক কৃষকদের মাঝে অধিক ফলনশীল বীজ ও আধুনিক প্রশিক্ষণ প্রদান",
     },
     {
       id: 4,
       src: "https://images.pexels.com/photos/6647004/pexels-photo-6647004.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "seasonal",
-      title: "Winter Clothing Drive",
-      description: "Warm clothes and blankets distribution for winter",
+      title: "শীতবস্ত্র ও কম্বল বিতরণ",
+      description: "কঠোর শীতে শীতার্ত মানুষের সুরক্ষায় উষ্ণ পোশাক ও লেপ-কম্বল বিতরণ",
     },
     {
       id: 5,
       src: "https://images.pexels.com/photos/6303615/pexels-photo-6303615.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "healthcare",
-      title: "Medical Camp",
-      description: "Free healthcare services in rural communities",
+      title: "ফ্রি মেডিকেল ক্যাম্প",
+      description: "প্রত্যন্ত গ্রামীণ জনগোষ্ঠীর জন্য বিনামূল্যে বিশেষজ্ঞ চিকিৎসাসেবা ও ওষুধ প্রদান",
     },
     {
       id: 6,
       src: "https://images.pexels.com/photos/6646929/pexels-photo-6646929.jpeg?auto=compress&cs=tinysrgb&w=400",
       category: "emergency",
-      title: "Disaster Relief",
-      description: "Emergency aid distribution after natural disasters",
+      title: "দুর্যোগকালীন জরুরি ত্রাণ",
+      description: "বন্যা ও প্রাকৃতিক দুর্যোগে ক্ষতিগ্রস্ত পরিবারের মাঝে দ্রুত খাদ্য ও ওষুধ সহায়তা",
     },
     {
       id: 7,
       src: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "education",
-      title: "Study Tables Distribution",
-      description: "Providing proper study furniture for home learning",
+      title: "পড়ার টেবিল-চেয়ার বিতরণ",
+      description: "শিশুদের স্বাচ্ছন্দ্যে পড়াশোনার জন্য ঘরোয়া উপযোগী ফার্নিচার প্রদান",
     },
     {
       id: 8,
       src: "https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "farming",
-      title: "Agricultural Training",
-      description: "Teaching modern farming techniques to increase productivity",
+      title: "কৃষি আধুনিকায়ন প্রশিক্ষণ",
+      description: "উৎপাদনশীলতা বাড়াতে কৃষকদের পরিবেশবান্ধব জৈব চাষাবাদ পদ্ধতি প্রশিক্ষণ",
     },
     {
       id: 9,
       src: "https://images.pexels.com/photos/6647028/pexels-photo-6647028.jpeg?auto=compress&cs=tinysrgb&w=400",
       category: "seasonal",
-      title: "Eid Celebrations",
-      description: "Bringing joy to children during Eid festivities",
+      title: "ঈদ আনন্দ ও নতুন জামা",
+      description: "সুবিধাবঞ্চিত শিশুদের জন্য ঈদের খুশি ছড়িয়ে দিতে রঙিন নতুন পোশাক বিতরণ",
     },
     {
       id: 10,
       src: "https://images.pexels.com/photos/6256304/pexels-photo-6256304.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "emergency",
-      title: "Clean Water Project",
-      description: "Installing water purification systems in affected areas",
+      title: "নিরাপদ খাবার পানি প্রকল্প",
+      description: "আর্সেনিকমুক্ত গভীর নলকূপ ও ওয়াটার পিউরিফিকেশন সিস্টেম স্থাপন",
     },
     {
       id: 11,
       src: "https://images.pexels.com/photos/8923859/pexels-photo-8923859.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "education",
-      title: "Solar Study Lights",
-      description: "Providing rechargeable LED lights for evening studies",
+      title: "সোলার স্টাডি ল্যাম্প",
+      description: "বিদ্যুৎবিহীন চরাঞ্চলে শিশুদের পড়াশোনায় আলো ছড়িয়ে দিতে রিচার্জেবল সোলার ল্যাম্প",
     },
     {
       id: 12,
       src: "https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "farming",
-      title: "Farm Equipment Support",
-      description: "Essential tools and equipment for efficient farming",
+      title: "কৃষি যন্ত্রপাতি সহায়তা",
+      description: "প্রান্তিক কৃষকদের সাশ্রয়ী ও দ্রুত চাষাবাদের জন্য ছোট আধুনিক কৃষি সরঞ্জাম",
     },
   ];
 
@@ -199,11 +196,10 @@ const PhotoGallery = () => {
       <div className="container mx-auto px-4">
         <div className="gallery-header text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Our Work in Pictures
+            ছবিতে আমাদের সমাজকল্যাণমূলক কার্যক্রম
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            A visual journey through our programs and the communities we serve.
-            Every image tells a story of hope, progress, and positive change.
+            আমাদের নানা কর্মসূচি ও সেবাগ্রহীতাদের প্রাণবন্ত মুহূর্তসমূহের এক ঝলক। প্রতিটি ছবি বলে আশার গল্প ও ইতিবাচক রূপান্তরের কথা।
           </p>
         </div>
 
@@ -249,6 +245,7 @@ const PhotoGallery = () => {
                   </div>
                   <button
                     onClick={() => openLightbox(photo)}
+                    aria-label="Zoom Photo"
                     className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all duration-200"
                   >
                     <ZoomIn className="w-4 h-4 text-white" />
@@ -259,7 +256,7 @@ const PhotoGallery = () => {
               {/* Category Badge */}
               <div className="absolute top-4 left-4">
                 <span className="bg-emerald-600/90 backdrop-blur-xs text-white px-2.5 py-0.5 rounded-full text-xs font-medium capitalize">
-                  {photo.category}
+                  {filters.find(f => f.key === photo.category)?.label || photo.category}
                 </span>
               </div>
             </div>
@@ -269,7 +266,7 @@ const PhotoGallery = () => {
         {/* Load More Button */}
         <div className="load-more-btn text-center mt-12">
           <button className="bg-white dark:bg-[#141414] hover:bg-slate-50 dark:hover:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#303030] px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200 shadow-sm active:scale-[0.98]">
-            View More Photos
+            আরও ছবি দেখুন
           </button>
         </div>
 
@@ -278,6 +275,7 @@ const PhotoGallery = () => {
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
             <button
               onClick={closeLightbox}
+              aria-label="Close Lightbox"
               className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 z-10"
             >
               <X className="w-6 h-6 text-white" />

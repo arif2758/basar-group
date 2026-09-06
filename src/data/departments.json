@@ -11,8 +11,8 @@
         "en": "A comprehensive community library providing free access to books, digital resources, and educational programs for learners of all ages.",
         "bn": "একটি সম্প্রদায় ভিত্তিক লাইব্রেরি যা সকল বয়সের শিক্ষার্থীদের জন্য বই, ডিজিটাল রিসোর্স এবং শিক্ষামূলক প্রোগ্রাম বিনামূল্যে প্রদান করে।"
       },
-      "beneficiaries": { "en": "5,000+", "bn": "৫,০০০+" },
-      "impact": { "en": "85% literacy improvement", "bn": "৮৫% সাক্ষরতা বৃদ্ধি" },
+      "beneficiaries": { "en": "5,000+", "bn": "5,000+" },
+      "impact": { "en": "85% literacy improvement", "bn": "85% সাক্ষরতা বৃদ্ধি" },
       "features": {
         "en": [
           "10,000+ books in Bengali & English",
@@ -23,7 +23,7 @@
           "Computer & internet access"
         ],
         "bn": [
-          "১০,০০০+ বাংলা ও ইংরেজি বই",
+          "10,000+ বাংলা ও ইংরেজি বই",
           "ডিজিটাল শিক্ষামূলক রিসোর্স",
           "অধ্যয়ন ও পাঠাগারের স্থান",
           "শিশুদের গল্প বলার সেশন",
@@ -43,8 +43,8 @@
         "en": "Supporting vulnerable families through education scholarships, healthcare assistance, and emergency relief programs.",
         "bn": "শিক্ষা বৃত্তি, স্বাস্থ্যসেবা সহায়তা এবং জরুরি ত্রাণ প্রোগ্রামের মাধ্যমে দুর্বল পরিবারের সহায়তা প্রদান।"
       },
-      "beneficiaries": { "en": "3,200+", "bn": "৩,২০০+" },
-      "impact": { "en": "92% family stability rate", "bn": "৯২% পরিবারের স্থিতিশীলতা" },
+      "beneficiaries": { "en": "3,200+", "bn": "3,200+" },
+      "impact": { "en": "92% family stability rate", "bn": "92% পরিবারের স্থিতিশীলতা" },
       "features": {
         "en": [
           "Education scholarships",
@@ -75,8 +75,8 @@
         "en": "A cooperative marketplace providing essential goods at fair prices while creating local employment and supporting community development.",
         "bn": "একটি সমবায় বাজার যা ন্যায্য মূল্যে প্রয়োজনীয় পণ্য সরবরাহ করে এবং স্থানীয় কর্মসংস্থান ও সম্প্রদায় উন্নয়নকে সমর্থন করে।"
       },
-      "beneficiaries": { "en": "8,500+", "bn": "৮,৫০০+" },
-      "impact": { "en": "450+ jobs created", "bn": "৪৫০+ চাকরি সৃষ্টি হয়েছে" },
+      "beneficiaries": { "en": "8,500+", "bn": "8,500+" },
+      "impact": { "en": "450+ jobs created", "bn": "450+ চাকরি সৃষ্টি হয়েছে" },
       "features": {
         "en": [
           "Essential goods at fair prices",
@@ -107,8 +107,8 @@
         "en": "Technology training center offering courses in web development, digital marketing, and freelancing to bridge the digital divide.",
         "bn": "ওয়েব ডেভেলপমেন্ট, ডিজিটাল মার্কেটিং এবং ফ্রিল্যান্সিং কোর্স প্রদান করে ডিজিটাল বিভাজন কমানোর জন্য প্রযুক্তি প্রশিক্ষণ কেন্দ্র।"
       },
-      "beneficiaries": { "en": "1,800+", "bn": "১,৮০০+" },
-      "impact": { "en": "78% job placement rate", "bn": "৭৮% চাকরি অর্জনের হার" },
+      "beneficiaries": { "en": "1,800+", "bn": "1,800+" },
+      "impact": { "en": "78% job placement rate", "bn": "78% চাকরি অর্জনের হার" },
       "features": {
         "en": [
           "Web development bootcamps",

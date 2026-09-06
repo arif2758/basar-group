@@ -5,11 +5,7 @@ import { FiChevronLeft, FiChevronRight, FiStar } from "react-icons/fi";
 import { testimonials } from "@/lib/data";
 import Image from "next/image";
 
-interface TestimonialsProps {
-  language: "bn" | "en";
-}
-
-export default function Testimonials({ language }: TestimonialsProps) {
+export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -34,35 +30,26 @@ export default function Testimonials({ language }: TestimonialsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {language === "bn" ? "সদস্যদের মতামত" : "Member Testimonials"}
+            সদস্যদের মতামত
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            {language === "bn"
-              ? "আমাদের সদস্য ও সেবা গ্রহীতাদের কথা"
-              : "Words from our members and beneficiaries"}
+            আমাদের সদস্য ও সেবা গ্রহীতাদের কথা
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Main Testimonial Card */}
           <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-3xl shadow-[0_6px_16px_0_rgba(0,0,0,0.06)] dark:shadow-[0_6px_16px_0_rgba(0,0,0,0.4)] p-8 md:p-12 transition-all duration-300">
             <div className="flex flex-col items-center text-center">
-              {/* Stars */}
               <div className="flex items-center mb-6 gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <FiStar
-                    key={i}
-                    className="w-5 h-5 text-amber-400 fill-current"
-                  />
+                  <FiStar key={i} className="w-5 h-5 text-amber-400 fill-current" />
                 ))}
               </div>
 
-              {/* Quote */}
               <blockquote className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed mb-8 italic">
                 &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </blockquote>
 
-              {/* Avatar and Details */}
               <div className="flex flex-col items-center">
                 <Image
                   src={testimonials[currentIndex].avatar}
@@ -77,36 +64,22 @@ export default function Testimonials({ language }: TestimonialsProps) {
                     {testimonials[currentIndex].name}
                   </h4>
                   <p className="text-slate-500 dark:text-slate-400 text-sm">
-                    {language === "bn"
-                      ? testimonials[currentIndex].role
-                          .replace("Library Member", "লাইব্রেরি সদস্য")
-                          .replace(
-                            "IT Park Graduate",
-                            "আইটি পার্ক গ্র্যাজুয়েট"
-                          )
-                          .replace(
-                            "Foundation Volunteer",
-                            "ফাউন্ডেশন স্বেচ্ছাসেবক"
-                          )
-                          .replace("Super Shop Customer", "সুপার শপ ক্রেতা")
-                      : testimonials[currentIndex].role}
+                    {testimonials[currentIndex].role}
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="flex items-center justify-center mt-8 space-x-4">
             <button
               onClick={prevTestimonial}
               className="w-10 h-10 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-100 dark:hover:bg-white/5 rounded-full flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
-              aria-label="Previous testimonial"
+              aria-label="আগের মতামত"
             >
               <FiChevronLeft className="w-5 h-5" />
             </button>
 
-            {/* Dots */}
             <div className="flex space-x-2">
               {testimonials.map((_, index) => (
                 <button
@@ -117,7 +90,7 @@ export default function Testimonials({ language }: TestimonialsProps) {
                       ? "bg-blue-600 dark:bg-blue-400 w-6"
                       : "bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
                   }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`মতামত ${index + 1}`}
                 />
               ))}
             </div>
@@ -125,7 +98,7 @@ export default function Testimonials({ language }: TestimonialsProps) {
             <button
               onClick={nextTestimonial}
               className="w-10 h-10 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-100 dark:hover:bg-white/5 rounded-full flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
-              aria-label="Next testimonial"
+              aria-label="পরের মতামত"
             >
               <FiChevronRight className="w-5 h-5" />
             </button>

@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
 
-
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
@@ -79,18 +78,18 @@ function SDG() {
   const goals = [
     {
       number: "4",
-      title: "Quality Education",
-      description: "Providing accessible IT education for all",
+      title: "গুণগত শিক্ষা (Quality Education)",
+      description: "সকলের জন্য সহজলভ্য ও মানসম্পন্ন ব্যবহারিক আইটি শিক্ষা নিশ্চিতকরণ",
     },
     {
       number: "1",
-      title: "No Poverty",
-      description: "Creating income opportunities through skill development",
+      title: "দারিদ্র্য বিমোচন (No Poverty)",
+      description: "প্রযুক্তি দক্ষতা অর্জনের মাধ্যমে বিকল্প ও সম্মানজনক উপার্জনের সুযোগ তৈরি",
     },
     {
       number: "8",
-      title: "Decent Work",
-      description: "Promoting employment and economic growth",
+      title: "মর্যাদাপূর্ণ কাজ ও অর্থনৈতিক প্রবৃদ্ধি (Decent Work)",
+      description: "ডিজিটাল অর্থনীতিতে যুব সমাজের কর্মসংস্থান ও অর্থনৈতিক প্রবৃদ্ধি ত্বরান্বিত করা",
     },
   ];
 
@@ -102,11 +101,10 @@ function SDG() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="header-animate text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Sustainable Development Goals
+            টেকসই উন্নয়ন লক্ষ্যমাত্রা (SDGs)
           </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            Contributing to global sustainability through education,
-            employment, and community development
+            শিক্ষা, কর্মসংস্থান ও মেধা বিকাশের মাধ্যমে জাতিসংঘের টেকসই উন্নয়ন লক্ষ্য বাস্তবায়নে আমাদের প্রয়াস
           </p>
         </div>
 

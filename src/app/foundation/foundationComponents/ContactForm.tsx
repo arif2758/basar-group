@@ -14,9 +14,6 @@ import {
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactForm = () => {
@@ -32,9 +29,8 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
-    // Reset form
+    alert("আপনার বার্তার জন্য ধন্যবাদ! আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব।");
     setFormData({
       name: "",
       email: "",
@@ -43,7 +39,6 @@ const ContactForm = () => {
       message: "",
       volunteer: false,
     });
-    alert("Thank you for your message! We will get back to you soon.");
   };
 
   const handleChange = (
@@ -66,37 +61,37 @@ const ContactForm = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Our Address",
-      info: "123 Hope Street\nCompassion City, CC 12345\nUnited States",
+      title: "প্রধান কার্যালয়",
+      info: "বাছার ফাউন্ডেশন ভবন\nমাদারীপুর সদর, ঢাকা বিভাগ, বাংলাদেশ",
       color: "from-emerald-500 to-emerald-700",
     },
     {
       icon: Phone,
-      title: "Phone Numbers",
-      info: "Main: +1 (555) 123-4567\nEmergency: +1 (555) 987-6543\nWhatsApp: +1 (555) 456-7890",
+      title: "হটলাইন ও ফোন নম্বর",
+      info: "প্রধান: +880 123 456 789\nজরুরি সেবা: +880 198 765 432\nWhatsApp: +880 171 234 5678",
       color: "from-sky-500 to-sky-700",
     },
     {
       icon: Mail,
-      title: "Email Addresses",
-      info: "General: info@basarfoundation.org\nDonations: donate@basarfoundation.org\nVolunteer: volunteer@basarfoundation.org",
+      title: "ইমেইল যোগাযোগ",
+      info: "সাধারণ তথ্য: info@basarfoundation.org\nঅনুদান সহায়তা: donate@basarfoundation.org\nস্বেচ্ছাসেবক: volunteer@basarfoundation.org",
       color: "from-amber-500 to-amber-700",
     },
     {
       icon: Clock,
-      title: "Office Hours",
-      info: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM\nSunday: Closed (Emergency only)",
+      title: "অফিসের সময়সূচি",
+      info: "রবিবার - বৃহস্পতিবার: 9:00 AM - 6:00 PM\nশুক্রবার: 10:00 AM - 4:00 PM\nজরুরি সেবা: 24/7 খোলা",
       color: "from-purple-500 to-purple-700",
     },
   ];
 
   const subjects = [
-    { value: "general", label: "General Inquiry" },
-    { value: "donation", label: "Donation Information" },
-    { value: "volunteer", label: "Volunteer Opportunities" },
-    { value: "partnership", label: "Corporate Partnership" },
-    { value: "media", label: "Media & Press" },
-    { value: "emergency", label: "Emergency Assistance" },
+    { value: "general", label: "সাধারণ জিজ্ঞাসা" },
+    { value: "donation", label: "অনুদান সম্পর্কিত তথ্য" },
+    { value: "volunteer", label: "স্বেচ্ছাসেবী হওয়ার সুযোগ" },
+    { value: "partnership", label: "প্রাতিষ্ঠানিক পার্টনারশিপ" },
+    { value: "media", label: "মিডিয়া ও প্রেস" },
+    { value: "emergency", label: "জরুরি সহায়তা ও ত্রাণ" },
   ];
 
   useScrollAnimation();
@@ -202,11 +197,10 @@ const ContactForm = () => {
       <div className="container mx-auto px-4">
         <div className="contact-header text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Get in Touch
+            আমাদের সাথে যোগাযোগ করুন
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Have questions about our programs, want to volunteer, or need
-            assistance? We&apos;re here to help and would love to hear from you.
+            আমাদের কর্মসূচি সম্পর্কে কোনো প্রশ্ন থাকলে, স্বেচ্ছাসেবী হতে চাইলে অথবা জরুরি সহায়তার প্রয়োজনে সরাসরি যোগাযোগ করুন।
           </p>
         </div>
 
@@ -219,10 +213,10 @@ const ContactForm = () => {
                   <Heart className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
-                  Let&apos;s Connect
+                  যোগাযোগের মাধ্যমসমূহ
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">
-                  Multiple ways to reach our dedicated team
+                  আমাদের ডেডিকেটেড টিমের সাথে যুক্ত হওয়ার সহজ উপায়
                 </p>
               </div>
 
@@ -251,11 +245,17 @@ const ContactForm = () => {
 
               {/* Quick Actions */}
               <div className="mt-8 space-y-2.5">
-                <button className="w-full bg-rose-600 hover:bg-rose-700 text-white py-2.5 rounded-xl font-medium text-sm transition-all shadow-sm active:scale-[0.99]">
-                  Emergency Hotline
-                </button>
-                <button className="w-full bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-700 dark:text-slate-300 py-2.5 rounded-xl font-medium text-sm transition-all">
-                  Download Brochure
+                <a 
+                  href="tel:+880198765432"
+                  className="w-full inline-block text-center bg-rose-600 hover:bg-rose-700 text-white py-2.5 rounded-xl font-medium text-sm transition-all shadow-sm active:scale-[0.99]"
+                >
+                  জরুরি হটলাইন
+                </a>
+                <button 
+                  onClick={() => alert("ব্রোশিউর ডাউনলোড শীঘ্রই চালু হবে।")}
+                  className="w-full bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-700 dark:text-slate-300 py-2.5 rounded-xl font-medium text-sm transition-all"
+                >
+                  ব্রোশিউর ডাউনলোড করুন
                 </button>
               </div>
             </div>
@@ -270,10 +270,10 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                    Send us a Message
+                    আমাদের বার্তা পাঠান
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                    We&apos;ll respond within 24 hours
+                    আমরা 24 ঘণ্টার মধ্যে আপনার বার্তার উত্তর দেব
                   </p>
                 </div>
               </div>
@@ -282,7 +282,7 @@ const ContactForm = () => {
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="form-field">
                     <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      Full Name *
+                      আপনার পূর্ণ নাম *
                     </label>
                     <div className="relative">
                       <User className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
@@ -293,14 +293,14 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="Enter your full name"
+                        placeholder="আপনার পূর্ণ নাম লিখুন"
                       />
                     </div>
                   </div>
 
                   <div className="form-field">
                     <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      Email Address *
+                      ইমেইল ঠিকানা *
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
@@ -311,7 +311,7 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="Enter your email"
+                        placeholder="আপনার ইমেইল লিখুন"
                       />
                     </div>
                   </div>
@@ -320,7 +320,7 @@ const ContactForm = () => {
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="form-field">
                     <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      Phone Number
+                      ফোন নম্বর
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
@@ -330,14 +330,14 @@ const ContactForm = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="Enter your phone number"
+                        placeholder="আপনার ফোন নম্বর লিখুন"
                       />
                     </div>
                   </div>
 
                   <div className="form-field">
                     <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      Subject *
+                      বিষয় *
                     </label>
                     <select
                       name="subject"
@@ -357,7 +357,7 @@ const ContactForm = () => {
 
                 <div className="form-field">
                   <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                    Message *
+                    বার্তা বা মন্তব্য *
                   </label>
                   <textarea
                     name="message"
@@ -366,7 +366,7 @@ const ContactForm = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm resize-none"
-                    placeholder="Tell us more about your inquiry..."
+                    placeholder="আপনার বার্তা বিস্তারিত লিখুন..."
                   ></textarea>
                 </div>
 
@@ -379,8 +379,8 @@ const ContactForm = () => {
                     onChange={handleChange}
                     className="w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 dark:bg-[#1f1f1f] dark:border-[#303030]"
                   />
-                  <label htmlFor="volunteer-checkbox" className="ml-2.5 text-slate-700 dark:text-slate-300 text-sm">
-                    I&apos;m interested in volunteering opportunities
+                  <label htmlFor="volunteer-checkbox" className="ml-2.5 text-slate-700 dark:text-slate-300 text-sm cursor-pointer">
+                    আমি স্বেচ্ছাসেবক হিসেবে কাজ করতে আগ্রহী
                   </label>
                 </div>
 
@@ -389,7 +389,7 @@ const ContactForm = () => {
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl text-base font-medium shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Send Message</span>
+                  <span>বার্তা পাঠান</span>
                 </button>
               </form>
             </div>
@@ -400,34 +400,34 @@ const ContactForm = () => {
         <div className="faq-section mt-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-              Frequently Asked Questions
+              সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400">
-              Quick answers to common questions about our foundation
+              বাছার ফাউন্ডেশন ও আমাদের সমাজসেবামূলক কার্যক্রম সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {[
               {
-                question: "How can I track my donation's impact?",
+                question: "আমি কীভাবে আমার অনুদানের সামাজিক প্রভাব ট্র্যাক করতে পারব?",
                 answer:
-                  "Every donor receives quarterly impact reports showing exactly how their contributions are being used, with photos and stories from beneficiaries.",
+                  "প্রতিটি অনুদানকারীকে আমরা নিয়মিত প্রভাব প্রতিবেদন পাঠাই, যেখানে অনুদানের সঠিক ব্যবহার, সেবাগ্রহীতাদের ছবি ও বাস্তব সাফল্যের গল্প তুলে ধরা হয়।",
               },
               {
-                question: "Are donations tax-deductible?",
+                question: "অনুদানে কি অফিসিয়াল রসিদ প্রদান করা হয়?",
                 answer:
-                  "Yes, BASAR Foundation is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible and you'll receive a receipt for your records.",
+                  "হ্যাঁ, বাছার ফাউন্ডেশন একটি সরকার নিবন্ধিত অলাভজনক সমাজকল্যাণমূলক সংস্থা। প্রতিটি অনুদানের জন্য তাৎক্ষণিক অফিসিয়াল মানি রিসিট প্রদান করা হয়।",
               },
               {
-                question: "Can I volunteer remotely?",
+                question: "আমি কি দূর থেকে রিমোটলি স্বেচ্ছাসেবী হিসেবে কাজ করতে পারি?",
                 answer:
-                  "Absolutely! We have various remote volunteer opportunities including social media management, content creation, virtual tutoring, and administrative support.",
+                  "অবশ্যই! আমাদের সোশ্যাল মিডিয়া প্রচারণা, কনটেন্ট তৈরি, ডিজিটাল টিউটরিং এবং প্রশাসনিক সহায়তার মতো বিভিন্ন অনলাইন ভলান্টিয়ার সুযোগ রয়েছে।",
               },
               {
-                question: "How do you ensure transparency?",
+                question: "আপনারা কীভাবে আর্থিক স্বচ্ছতা বজায় রাখেন?",
                 answer:
-                  "We publish detailed financial reports annually, provide regular program updates, and maintain an open-door policy for donors to visit our operations.",
+                  "আমরা নিয়মিত বার্ষিক অডিট রিপোর্ট প্রকাশ করি, প্রতিটি কর্মসূচির হিসাব উন্মুক্ত রাখি এবং যে কোনো শুভাকাঙ্ক্ষী ও ডোনারদের কার্যক্রম পরিদর্শনের সুযোগ উন্মুক্ত রাখি।",
               },
             ].map((faq, index) => (
               <div

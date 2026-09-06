@@ -16,25 +16,25 @@ function StudentHelpDesk() {
 
   const programs = [
     {
-      title: "Morning Sessions",
+      title: "মর্নিং সেশন (Morning Sessions)",
       description:
-        "Early morning classes for working professionals and college students",
+        "চাকরিজীবী ও কলেজ-বিশ্ববিদ্যালয়ের শিক্ষার্থীদের জন্য সকালের বিশেষ প্র্যাকটিস সেশন",
       icon: "🌅",
       time: "6:00 AM - 10:00 AM",
     },
     {
-      title: "Afternoon Programs",
+      title: "আফটারনুন প্রোগ্রাম (Afternoon Programs)",
       description:
-        "Dedicated time for school students and skill development workshops",
+        "স্কুল শিক্ষার্থী ও স্কিল ডেভেলপমেন্ট ট্রেইনিদের জন্য ডেডিকেটেড ল্যাব টাইম",
       icon: "☀️",
       time: "2:00 PM - 6:00 PM",
     },
     {
-      title: "Peer Mentoring",
+      title: "পিয়ার মেন্টরিং (Peer Mentoring)",
       description:
-        "Senior learners guide juniors, creating a collaborative learning environment",
+        "সিনিয়র শিক্ষার্থী ও মেন্টরদের সার্বক্ষণিক গাইডলাইন এবং পারস্পরিক কোলাবোরেশন",
       icon: "🤝",
-      time: "Ongoing Support",
+      time: "সার্বক্ষণিক সাপোর্ট (Ongoing Support)",
     },
   ];
 
@@ -105,11 +105,10 @@ function StudentHelpDesk() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Student Support System
+            শিক্ষার্থী সহায়তা ও মেন্টরিং ব্যবস্থা
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Our mentoring system ensures every learner gets personalized
-            attention and guidance
+            আমাদের সুসংগঠিত মেন্টরিং ব্যবস্থা নিশ্চিত করে প্রতিটি শিক্ষার্থীর প্রয়োজনীয় ব্যক্তিগত দিকনির্দেশনা ও যত্ন
           </p>
         </div>
 

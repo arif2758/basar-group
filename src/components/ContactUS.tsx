@@ -11,11 +11,6 @@ import {
   FaInstagram,
 } from "react-icons/fa6";
 
-
-
-
-
-
 const ContactUS: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -34,7 +29,6 @@ const ContactUS: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useScrollAnimation();
-
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -59,19 +53,19 @@ const ContactUS: React.FC = () => {
 
     const newErrors: Record<string, string> = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.fullName.trim()) newErrors.fullName = "পূর্ণ নাম আবশ্যক";
+    if (!formData.email.trim()) newErrors.email = "Email আবশ্যক";
     else if (!validateEmail(formData.email))
-      newErrors.email = "Please enter a valid email";
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+      newErrors.email = "অনুগ্রহ করে একটি সঠিক Email লিখুন";
+    if (!formData.subject.trim()) newErrors.subject = "বিষয় আবশ্যক";
+    if (!formData.message.trim()) newErrors.message = "বার্তা আবশ্যক";
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      alert("Message sent successfully!");
+      alert("বার্তাটি সফলভাবে পাঠানো হয়েছে!");
       setFormData({ fullName: "", email: "", subject: "", message: "" });
     }
 
@@ -92,13 +86,13 @@ const ContactUS: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3.5 py-1 text-xs font-semibold mb-5">
-              Get In Touch With Us
+              যোগাযোগ করুন
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight">
-              Contact <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BASAR Group</span>
+              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BASAR Group</span>-এর সাথে যোগাযোগ
             </h1>
             <p className="text-base md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              We&apos;d love to hear from you. Reach out to learn more about our community initiatives, join as a volunteer, or connect with our team.
+              আমরা আপনার মতামত ও প্রশ্নের অপেক্ষায় আছি। আমাদের কমিউনিটি উদ্যোগ সম্পর্কে জানতে, ভলান্টিয়ার হিসেবে যুক্ত হতে বা যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।
             </p>
           </div>
         </div>
@@ -112,10 +106,10 @@ const ContactUS: React.FC = () => {
           <div className="animate-on-scroll">
             <div className="bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_0_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_24px_0_rgba(0,0,0,0.4)] p-8 lg:p-10 border border-slate-200 dark:border-[#303030] transition-all duration-300">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
-                Send us a Message
+                আমাদের একটি বার্তা পাঠান
               </h2>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-8">
-                Fill out the form below and our team will get back to you promptly.
+                নিচের ফর্মটি পূরণ করুন, আমাদের টিম দ্রুত আপনার সাথে যোগাযোগ করবে।
               </p>
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
@@ -124,7 +118,7 @@ const ContactUS: React.FC = () => {
                     htmlFor="fullName"
                     className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Full Name <span className="text-red-500">*</span>
+                    পূর্ণ নাম <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -137,7 +131,7 @@ const ContactUS: React.FC = () => {
                         ? "border-red-400 dark:border-red-500/60 bg-red-50/50 dark:bg-red-950/20"
                         : "border-slate-200 dark:border-[#303030] focus:border-blue-500 dark:focus:border-blue-500"
                     }`}
-                    placeholder="Enter your full name"
+                    placeholder="আপনার পূর্ণ নাম লিখুন"
                   />
                   {errors.fullName && (
                     <p className="text-red-500 text-xs mt-1.5 font-medium">
@@ -151,7 +145,7 @@ const ContactUS: React.FC = () => {
                     htmlFor="email"
                     className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Email Address <span className="text-red-500">*</span>
+                    Email ঠিকানা <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -164,7 +158,7 @@ const ContactUS: React.FC = () => {
                         ? "border-red-400 dark:border-red-500/60 bg-red-50/50 dark:bg-red-950/20"
                         : "border-slate-200 dark:border-[#303030] focus:border-blue-500 dark:focus:border-blue-500"
                     }`}
-                    placeholder="Enter your email address"
+                    placeholder="আপনার Email ঠিকানা লিখুন"
                   />
                   {errors.email && (
                     <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email}</p>
@@ -176,7 +170,7 @@ const ContactUS: React.FC = () => {
                     htmlFor="subject"
                     className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Subject <span className="text-red-500">*</span>
+                    বিষয় <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -189,7 +183,7 @@ const ContactUS: React.FC = () => {
                         ? "border-red-400 dark:border-red-500/60 bg-red-50/50 dark:bg-red-950/20"
                         : "border-slate-200 dark:border-[#303030] focus:border-blue-500 dark:focus:border-blue-500"
                     }`}
-                    placeholder="What's this about?"
+                    placeholder="কী বিষয়ে জানতে চান?"
                   />
                   {errors.subject && (
                     <p className="text-red-500 text-xs mt-1.5 font-medium">
@@ -203,7 +197,7 @@ const ContactUS: React.FC = () => {
                     htmlFor="message"
                     className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Message <span className="text-red-500">*</span>
+                    বার্তা <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -216,7 +210,7 @@ const ContactUS: React.FC = () => {
                         ? "border-red-400 dark:border-red-500/60 bg-red-50/50 dark:bg-red-950/20"
                         : "border-slate-200 dark:border-[#303030] focus:border-blue-500 dark:focus:border-blue-500"
                     }`}
-                    placeholder="Write your message or inquiry here..."
+                    placeholder="আপনার বার্তা বা জিজ্ঞাসা এখানে লিখুন..."
                   />
                   {errors.message && (
                     <p className="text-red-500 text-xs mt-1.5 font-medium">
@@ -253,10 +247,10 @@ const ContactUS: React.FC = () => {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           ></path>
                         </svg>
-                        Sending...
+                        পাঠানো হচ্ছে...
                       </span>
                     ) : (
-                      "Send Message"
+                      "বার্তা পাঠান"
                     )}
                   </button>
                 </div>
@@ -269,10 +263,10 @@ const ContactUS: React.FC = () => {
             {/* Company Info */}
             <div className="animate-on-scroll bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 lg:p-10 border border-slate-200 dark:border-[#303030]">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
-                Get in Touch
+                যোগাযোগের ঠিকানা
               </h2>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-8">
-                Visit our main office or contact us through our official channels.
+                আমাদের প্রধান কার্যালয়ে আসুন অথবা অফিশিয়াল চ্যানেলে যোগাযোগ করুন।
               </p>
 
               <div className="space-y-6">
@@ -300,7 +294,7 @@ const ContactUS: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
-                      Address
+                      ঠিকানা (Address)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                       House 123, Road 45
@@ -330,7 +324,7 @@ const ContactUS: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
-                      Phone
+                      ফোন (Phone)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">+880 1712-345678</p>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">+880 2-9876543</p>
@@ -380,15 +374,15 @@ const ContactUS: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-1">
-                      Working Hours
+                      কর্মঘণ্টা (Working Hours)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      সোমবার - শুক্রবার: 9:00 AM - 6:00 PM
                     </p>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">
-                      Saturday: 10:00 AM - 4:00 PM
+                      শনিবার: 10:00 AM - 4:00 PM
                     </p>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Sunday: Closed</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">রবিবার: বন্ধ</p>
                   </div>
                 </div>
               </div>
@@ -398,7 +392,7 @@ const ContactUS: React.FC = () => {
             <div className="animate-on-scroll bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden border border-slate-200 dark:border-[#303030]">
               <div className="p-5">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Find Us
+                  আমাদের অবস্থান (Location)
                 </h3>
               </div>
               <div className="h-64 lg:h-80 relative">
@@ -421,10 +415,10 @@ const ContactUS: React.FC = () => {
         <div ref={socialRef} className="mt-16 lg:mt-24 animate-on-scroll">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
-              Connect With Us
+              সোশ্যাল মিডিয়ায় যুক্ত থাকুন
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-              Follow us on social media for the latest updates and insights
+              সর্বশেষ আপডেট, কার্যক্রম ও তথ্যের জন্য আমাদের সামাজিক যোগাযোগ মাধ্যমে অনুসরণ করুন
             </p>
           </div>
 

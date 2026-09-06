@@ -185,23 +185,23 @@ export default function CartItems() {
   if (cartItems.length === 0) {
     return (
       <div ref={containerRef}>
-        <div ref={emptyStateRef} className="bg-white rounded-2xl shadow-md p-8 text-center">
-          <div className="text-gray-400 mb-4">
-            <div className="empty-icon w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
-              <ShoppingCart className="w-10 h-10 text-gray-400" />
+        <div ref={emptyStateRef} className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] rounded-2xl shadow-sm p-8 sm:p-12 text-center transition-colors">
+          <div className="text-slate-400 mb-4">
+            <div className="empty-icon w-24 h-24 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+              <ShoppingCart className="w-10 h-10 text-slate-400 dark:text-slate-500" />
             </div>
           </div>
-          <h2 className="empty-title text-2xl font-semibold text-gray-800 mb-2">
-            Your cart is empty
+          <h2 className="empty-title text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            আপনার কার্ট বর্তমানে খালি
           </h2>
-          <p className="empty-description text-gray-600 mb-6">
-            Add some fresh products to get started
+          <p className="empty-description text-slate-500 dark:text-slate-400 mb-6 max-w-sm mx-auto text-sm">
+            কেনাকাটা শুরু করতে আমাদের শপ থেকে তাজা নিত্যপণ্য কার্টে যুক্ত করুন।
           </p>
           <Link
-            href="/shop"
-            className="shop-btn inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg"
+            href="/super-shop/shop"
+            className="shop-btn inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/25 transition-colors"
           >
-            Continue Shopping
+            শপিং চালিয়ে যান
           </Link>
         </div>
       </div>
@@ -210,73 +210,78 @@ export default function CartItems() {
 
   return (
     <div ref={containerRef}>
-      <div ref={cartContentRef} className="bg-white rounded-2xl shadow-md overflow-hidden">
-        <div className="cart-header p-6 border-b border-gray-200 bg-gradient-to-r from-emerald-50 to-teal-50">
-          <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-            <ShoppingCart className="w-5 h-5 text-emerald-600" />
-            Cart Items ({cartItems.length})
+      <div ref={cartContentRef} className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-[#303030] rounded-2xl shadow-sm overflow-hidden transition-colors">
+        <div className="cart-header p-6 border-b border-slate-100 dark:border-[#262626] bg-slate-50/70 dark:bg-[#191919]">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <ShoppingCart className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            কার্টের পণ্যসমূহ ({cartItems.length})
           </h2>
         </div>
 
-        <div className="divide-y divide-gray-200">
-          {cartItems.map((item, ) => (
+        <div className="divide-y divide-slate-100 dark:divide-[#262626]">
+          {cartItems.map((item) => (
             <div 
               key={item.id} 
               data-item-id={item.id}
-              className="cart-item p-6 flex items-center space-x-4 hover:bg-gray-50 transition-colors duration-300"
+              className="cart-item p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-slate-50/50 dark:hover:bg-[#1a1a1a] transition-colors duration-200"
             >
-              <div className="item-image relative">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 object-cover rounded-lg shadow-md"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-lg"></div>
+              <div className="flex items-center space-x-4 flex-1">
+                <div className="item-image relative flex-shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 object-cover rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-800"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
+                </div>
+
+                <div className="item-content flex-1">
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    {item.name}
+                  </h3>
+                  <p className="text-emerald-600 dark:text-emerald-400 font-black text-lg">৳{item.price}</p>
+                </div>
               </div>
 
-              <div className="item-content flex-1">
-                <h3 className="font-semibold text-gray-800 mb-1 hover:text-emerald-600 transition-colors">
-                  {item.name}
-                </h3>
-                <p className="text-emerald-600 font-bold text-lg">৳{item.price}</p>
-              </div>
+              <div className="flex items-center justify-between w-full sm:w-auto gap-4 sm:gap-6">
+                <div className="item-controls flex items-center space-x-2 bg-slate-100 dark:bg-[#202020] rounded-full px-2 py-1">
+                  <button
+                    onClick={() => handleQuantityUpdate(item.id, item.quantity - 1)}
+                    className="quantity-btn p-1.5 rounded-full hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all"
+                    disabled={item.quantity <= 1}
+                  >
+                    <Minus className="w-4 h-4" />
+                  </button>
 
-              <div className="item-controls flex items-center space-x-3 bg-gray-50 rounded-full px-3 py-2">
-                <button
-                  onClick={() => handleQuantityUpdate(item.id, item.quantity - 1)}
-                  className="quantity-btn p-2 rounded-full transition-all duration-200"
-                  disabled={item.quantity <= 1}
-                >
-                  <Minus className="w-4 h-4 text-gray-600" />
-                </button>
+                  <span 
+                    data-quantity-id={item.id}
+                    className="w-8 text-center font-bold text-slate-900 dark:text-white text-base"
+                  >
+                    {item.quantity}
+                  </span>
 
-                <span 
-                  data-quantity-id={item.id}
-                  className="w-12 text-center font-bold text-gray-800 text-lg"
-                >
-                  {item.quantity}
-                </span>
+                  <button
+                    onClick={() => handleQuantityUpdate(item.id, item.quantity + 1)}
+                    className="quantity-btn p-1.5 rounded-full hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
+                </div>
 
-                <button
-                  onClick={() => handleQuantityUpdate(item.id, item.quantity + 1)}
-                  className="quantity-btn p-2 rounded-full transition-all duration-200"
-                >
-                  <Plus className="w-4 h-4 text-gray-600" />
-                </button>
-              </div>
-
-              <div className="text-right">
-                <p className="font-bold text-gray-800 text-xl mb-2">
-                  ৳{item.price * item.quantity}
-                </p>
-                <button
-                  onClick={() => handleRemoveItem(item.id)}
-                  className="remove-btn p-2 rounded-full hover:bg-red-50 transition-all duration-200"
-                >
-                  <Trash2 className="w-4 h-4 text-red-500" />
-                </button>
+                <div className="text-right flex items-center gap-3">
+                  <p className="font-black text-slate-900 dark:text-white text-lg">
+                    ৳{item.price * item.quantity}
+                  </p>
+                  <button
+                    onClick={() => handleRemoveItem(item.id)}
+                    aria-label="পণ্য মুছুন"
+                    className="remove-btn p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all duration-200"
+                  >
+                    <Trash2 className="w-4 h-4 text-rose-500" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}

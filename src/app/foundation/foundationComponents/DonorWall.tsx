@@ -4,9 +4,7 @@ import React, { useRef } from "react";
 import { Crown, Award, Star, Heart } from "lucide-react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-
-
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +13,7 @@ const DonorWall = () => {
 
   const donorTiers = [
     {
-      title: "Platinum Champions",
+      title: "প্লাটিনাম চ্যাম্পিয়নস (Platinum)",
       icon: Crown,
       color: "from-purple-500 to-purple-700",
       minAmount: "$10,000+",
@@ -26,11 +24,11 @@ const DonorWall = () => {
           year: "2024",
         },
         { name: "Global Tech Solutions", amount: "$15,000", year: "2024" },
-        { name: "Anonymous Donor", amount: "$12,500", year: "2024" },
+        { name: "Anonymous Donor (বেনামী দাতা)", amount: "$12,500", year: "2024" },
       ],
     },
     {
-      title: "Golden Supporters",
+      title: "গোল্ডেন সাপোর্টারস (Gold)",
       icon: Award,
       color: "from-amber-500 to-amber-700",
       minAmount: "$5,000+",
@@ -42,7 +40,7 @@ const DonorWall = () => {
       ],
     },
     {
-      title: "Silver Contributors",
+      title: "সিলভার কন্ট্রিবিউটরস (Silver)",
       icon: Star,
       color: "from-gray-400 to-gray-600",
       minAmount: "$1,000+",
@@ -66,144 +64,142 @@ const DonorWall = () => {
   ];
 
   const recentDonors = [
-    { name: "Emma Watson", amount: "$500", timeAgo: "2 hours ago" },
-    { name: "David Park", amount: "$250", timeAgo: "4 hours ago" },
-    { name: "Anonymous", amount: "$100", timeAgo: "6 hours ago" },
-    { name: "Jennifer Smith", amount: "$750", timeAgo: "8 hours ago" },
-    { name: "Carlos Rivera", amount: "$300", timeAgo: "12 hours ago" },
+    { name: "Emma Watson", amount: "$500", timeAgo: "2 ঘণ্টা আগে" },
+    { name: "David Park", amount: "$250", timeAgo: "4 ঘণ্টা আগে" },
+    { name: "বেনামী শুভাকাঙ্ক্ষী", amount: "$100", timeAgo: "6 ঘণ্টা আগে" },
+    { name: "Jennifer Smith", amount: "$750", timeAgo: "8 ঘণ্টা আগে" },
+    { name: "Carlos Rivera", amount: "$300", timeAgo: "12 ঘণ্টা আগে" },
   ];
 
-useScrollAnimation();
+  useScrollAnimation();
   useGSAP(() => {
-  // Header animation
-  gsap.from(".donor-header", {
-    scrollTrigger: {
-      trigger: ".donor-header",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
-
-  // Donor tiers animation
-  gsap.utils.toArray<HTMLElement>(".donor-tier").forEach((tier, index) => {
-    gsap.from(tier, {
+    // Header animation
+    gsap.from(".donor-header", {
       scrollTrigger: {
-        trigger: tier,
+        trigger: ".donor-header",
         start: "top 80%",
         toggleActions: "play none none reverse",
       },
-      y: 60,
+      y: 50,
       opacity: 0,
       duration: 0.8,
-      delay: index * 0.2,
       ease: "power2.out",
     });
-  });
 
-  // Donor cards individual
-  gsap.utils.toArray<HTMLElement>(".donor-card").forEach((card, index) => {
-    gsap.from(card, {
+    // Donor tiers animation
+    gsap.utils.toArray<HTMLElement>(".donor-tier").forEach((tier, index) => {
+      gsap.from(tier, {
+        scrollTrigger: {
+          trigger: tier,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        ease: "power2.out",
+      });
+    });
+
+    // Donor cards individual
+    gsap.utils.toArray<HTMLElement>(".donor-card").forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        delay: index * 0.05,
+        ease: "power2.out",
+      });
+    });
+
+    // Recent donations section
+    gsap.from(".recent-donations", {
       scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
+        trigger: ".recent-donations",
+        start: "top 80%",
         toggleActions: "play none none reverse",
       },
-      y: 30,
+      y: 50,
       opacity: 0,
-      duration: 0.6,
-      delay: index * 0.05,
+      duration: 0.8,
       ease: "power2.out",
     });
-  });
 
-  // Recent donations section
-  gsap.from(".recent-donations", {
-    scrollTrigger: {
-      trigger: ".recent-donations",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
+    // Recent donor items - Individual targeting
+    gsap.utils.toArray<HTMLElement>(".recent-donor-item").forEach((item, index) => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: "power2.out",
+      });
+    });
 
-  // Recent donor items - Individual targeting
-  gsap.utils.toArray<HTMLElement>(".recent-donor-item").forEach((item, index) => {
-    gsap.from(item, {
+    // Corporate partners section
+    gsap.from(".corporate-partners", {
       scrollTrigger: {
-        trigger: item,
-        start: "top 85%",
+        trigger: ".corporate-partners",
+        start: "top 80%",
         toggleActions: "play none none reverse",
       },
-      y: 20,
+      y: 40,
       opacity: 0,
-      duration: 0.5,
-      delay: index * 0.1,
+      duration: 0.8,
       ease: "power2.out",
     });
-  });
 
-  // Corporate partners section
-  gsap.from(".corporate-partners", {
-    scrollTrigger: {
-      trigger: ".corporate-partners",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
+    // Corporate partner cards - Individual targeting
+    gsap.utils.toArray<HTMLElement>(".partner-card").forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: "power2.out",
+      });
+    });
 
-  // Corporate partner cards - Individual targeting
-  gsap.utils.toArray<HTMLElement>(".partner-card").forEach((card, index) => {
-    gsap.from(card, {
+    // CTA animation
+    gsap.from(".donor-cta", {
       scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
+        trigger: ".donor-cta",
+        start: "top 80%",
         toggleActions: "play none none reverse",
       },
-      y: 30,
+      y: 40,
       opacity: 0,
-      duration: 0.6,
-      delay: index * 0.08,
+      duration: 0.8,
       ease: "power2.out",
     });
-  });
 
-  // CTA animation
-  gsap.from(".donor-cta", {
-    scrollTrigger: {
-      trigger: ".donor-cta",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
-
-}, { scope: containerRef });
+  }, { scope: containerRef });
 
   return (
     <section ref={containerRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="donor-header text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Wall of Generosity
+            সম্মানিত দাতাদের প্রাচীর (Wall of Generosity)
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Honoring the compassionate hearts who make our mission possible.
-            Every donor, regardless of contribution size, creates meaningful
-            impact.
+            যাঁদের আন্তরিক অনুদান ও ভালোবাসায় আমাদের সামাজিক লক্ষ্য এগিয়ে চলেছে। প্রতিটি অনুদানই মানুষের মুখে হাসি ফোটাতে অর্থবহ ভূমিকা রাখে।
           </p>
         </div>
 
@@ -227,7 +223,7 @@ useScrollAnimation();
                       {tier.title}
                     </h3>
                     <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-                      {tier.minAmount}
+                      সর্বনিম্ন অনুদান {tier.minAmount}
                     </p>
                   </div>
                 </div>
@@ -268,10 +264,10 @@ useScrollAnimation();
             <div className="text-center mb-6">
               <Heart className="w-8 h-8 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                Recent Donations
+                সাম্প্রতিক অনুদানসমূহ
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                Live updates from our community of generous supporters
+                আমাদের সহমর্মী ডোনারদের সাম্প্রতিক অনুদানের রিয়েল-টাইম তালিকা
               </p>
             </div>
 
@@ -303,10 +299,10 @@ useScrollAnimation();
         <div className="corporate-partners mt-16">
           <div className="text-center mb-10">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-              Corporate Partners
+              প্রাতিষ্ঠানিক সহযোগী সংস্থা (Corporate Partners)
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              Companies committed to social responsibility and community impact
+              কর্পোরেট সামাজিক দায়বদ্ধতা (CSR) ও কমিউনিটি উন্নয়নে নিবেদিত প্রতিষ্ঠানসমূহ
             </p>
           </div>
 
@@ -334,7 +330,7 @@ useScrollAnimation();
                   {company}
                 </h4>
                 <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
-                  Partner Since 2023
+                  সহযোগী 2023 সাল থেকে
                 </p>
               </div>
             ))}
@@ -345,19 +341,24 @@ useScrollAnimation();
         <div className="donor-cta text-center mt-16">
           <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-              Join Our Wall of Generosity
+              সম্মানিত দাতাদের তালিকায় আপনার নাম যুক্ত করুন
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
-              Every donation, no matter the size, makes a difference and earns
-              recognition in our community of change-makers.
+              আপনার প্রতিটি অনুদান সমাজে ইতিবাচক পরিবর্তনের বার্তা বহন করে এবং ভবিষ্যৎ প্রজন্মের উজ্জ্বল জীবন নিশ্চিত করে।
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl text-sm font-medium shadow-sm transition-all duration-200 active:scale-[0.98]">
-                Make a Donation
-              </button>
-              <button className="bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-800 dark:text-slate-200 px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200">
-                Corporate Partnerships
-              </button>
+              <Link 
+                href="#contact"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl text-sm font-medium shadow-sm transition-all duration-200 active:scale-[0.98]"
+              >
+                অনুদানে অংশ নিন
+              </Link>
+              <Link 
+                href="#contact"
+                className="bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-800 dark:text-slate-200 px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200"
+              >
+                কর্পোরেট পার্টনারশিপ
+              </Link>
             </div>
           </div>
         </div>

@@ -297,7 +297,7 @@ export default function AdminFamilyTreePage() {
 
   // Database seed
   const handleSeedDefault = async () => {
-    if (!confirm("আপনি কি নিশ্চিত যে পরিবারবৃক্ষের প্রাথমিক ডাটা রিসেট বা সিড করতে চান?")) return;
+    if (!confirm("আপনি কি নিশ্চিত যে ফ্যামিলি ট্রির প্রাথমিক ডাটা রিসেট বা সিড করতে চান?")) return;
     try {
       const res = await fetch("/api/admin/family-tree/seed", { method: "POST" });
       const data = await res.json();
@@ -380,22 +380,20 @@ export default function AdminFamilyTreePage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#080d1a] text-slate-900 dark:text-white transition-colors duration-200">
       {/* Top Banner & Header */}
-      <header className="bg-white dark:bg-[#0e1628] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 shadow-sm">
+      <header className="bg-white dark:bg-[#141414] sticky top-0 z-30 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <ShieldCheck className="w-5 h-5" />
-                </span>
-                <div>
-                  <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-                    বাছার পরিবারবৃক্ষ অ্যাডমিন প্যানেল
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    সদস্য অনুমোদন, সংযোজন, সম্পাদনা এবং সম্পূর্ণ বংশলতিকা পরিচালনা
-                  </p>
-                </div>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 text-center md:text-left">
+            <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-start gap-2">
+              <span className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <ShieldCheck className="w-5 h-5" />
+              </span>
+              <div>
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+                  অ্যাডমিন প্যানেল
+                </h1>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  সদস্য অনুমোদন, সংযোজন, সম্পাদনা এবং সম্পূর্ণ বংশলতিকা পরিচালনা
+                </p>
               </div>
             </div>
 
@@ -418,7 +416,7 @@ export default function AdminFamilyTreePage() {
                 href="/family-tree"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition-colors"
               >
-                <span>মূল পরিবারবৃক্ষ দেখুন</span>
+                <span>মূল ফ্যামিলি ট্রি দেখুন</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -443,12 +441,12 @@ export default function AdminFamilyTreePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* KPI Metrics Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mb-6">
-          <div className="bg-white dark:bg-[#0e1628] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
-              <span>মোট সদস্য</span>
+          <div className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
               <Users className="w-4 h-4 text-emerald-500" />
+              <span>মোট সদস্য</span>
             </div>
-            <p className="text-2xl font-black text-slate-900 dark:text-white">
+            <p className="text-2xl font-black text-slate-900 dark:text-white mt-1">
               {isLoading ? "..." : members.length}
             </p>
             <p className="text-[11px] text-slate-400 mt-1">
@@ -458,13 +456,13 @@ export default function AdminFamilyTreePage() {
 
           <div
             onClick={() => setActiveTab("requests")}
-            className="bg-white dark:bg-[#0e1628] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm cursor-pointer hover:border-amber-500/50 transition-colors"
+            className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm cursor-pointer hover:border-amber-500/50 transition-colors flex flex-col items-center text-center"
           >
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
-              <span>মুলতুবি আবেদন</span>
+            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
               <Clock className="w-4 h-4 text-amber-500" />
+              <span>মুলতুবি আবেদন</span>
             </div>
-            <p className="text-2xl font-black text-amber-600 dark:text-amber-400 flex items-center gap-2">
+            <p className="text-2xl font-black text-amber-600 dark:text-amber-400 flex items-center justify-center gap-2 mt-1">
               {isLoading ? "..." : pendingRequestsCount}
               {pendingRequestsCount > 0 && (
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
@@ -473,23 +471,23 @@ export default function AdminFamilyTreePage() {
             <p className="text-[11px] text-slate-400 mt-1">অনুমোদনের অপেক্ষায়</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0e1628] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
-              <span>সর্বোচ্চ প্রজন্ম</span>
+          <div className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
               <GitBranch className="w-4 h-4 text-blue-500" />
+              <span>সর্বোচ্চ প্রজন্ম</span>
             </div>
-            <p className="text-2xl font-black text-blue-600 dark:text-blue-400">
+            <p className="text-2xl font-black text-blue-600 dark:text-blue-400 mt-1">
               {isLoading ? "..." : `${maxGen}টি`}
             </p>
             <p className="text-[11px] text-slate-400 mt-1">আদি শিকড় হতে বর্তমান</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0e1628] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
-              <span>ডাটাবেজ স্ট্যাটাস</span>
+          <div className="bg-white dark:bg-[#141414] border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+            <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">
               <Database className="w-4 h-4 text-purple-500" />
+              <span>ডাটাবেজ স্ট্যাটাস</span>
             </div>
-            <p className="text-sm font-bold text-slate-900 dark:text-white capitalize truncate">
+            <p className="text-sm font-bold text-slate-900 dark:text-white capitalize truncate mt-1">
               {dataSource === "mongodb" ? "MongoDB Atlas" : "Local JSON"}
             </p>
             <p className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-1">🟢 সক্রিয় ও সিঙ্কড</p>
@@ -497,13 +495,13 @@ export default function AdminFamilyTreePage() {
         </div>
 
         {/* Tab Navigation Bar */}
-        <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3 mb-6 overflow-x-auto no-scrollbar">
+        <div className="flex flex-nowrap items-center md:justify-center gap-2 pb-3 mb-6 overflow-x-auto no-scrollbar w-full scroll-smooth">
           <button
             onClick={() => setActiveTab("requests")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`flex flex-shrink-0 items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "requests"
                 ? "bg-amber-500 text-white shadow-md shadow-amber-500/20"
-                : "bg-white dark:bg-[#0e1628] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}
           >
             <Clock className="w-4 h-4" />
@@ -517,10 +515,10 @@ export default function AdminFamilyTreePage() {
 
           <button
             onClick={() => setActiveTab("members")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`flex flex-shrink-0 items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "members"
                 ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
-                : "bg-white dark:bg-[#0e1628] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}
           >
             <Users className="w-4 h-4" />
@@ -529,10 +527,10 @@ export default function AdminFamilyTreePage() {
 
           <button
             onClick={() => setActiveTab("add")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`flex flex-shrink-0 items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "add"
                 ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
-                : "bg-white dark:bg-[#0e1628] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}
           >
             <UserPlus className="w-4 h-4" />
@@ -541,10 +539,10 @@ export default function AdminFamilyTreePage() {
 
           <button
             onClick={() => setActiveTab("db")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`flex flex-shrink-0 items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "db"
                 ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
-                : "bg-white dark:bg-[#0e1628] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                : "bg-white dark:bg-[#141414] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}
           >
             <Database className="w-4 h-4" />
@@ -558,9 +556,9 @@ export default function AdminFamilyTreePage() {
         {activeTab === "requests" && (
           <div className="space-y-4">
             {/* Filter Sub-nav */}
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-slate-500">ফিল্টার:</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 text-center w-full">
+              <div className="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
+                <span className="text-xs font-semibold text-slate-500 w-full sm:w-auto">ফিল্টার:</span>
                 {(["pending", "approved", "rejected", "all"] as const).map((st) => (
                   <button
                     key={st}
@@ -568,7 +566,7 @@ export default function AdminFamilyTreePage() {
                     className={`px-3 py-1 rounded-lg text-xs font-bold capitalize transition-colors ${
                       requestFilter === st
                         ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                        : "bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300"
+                        : "bg-slate-200/70 dark:bg-[#141414] border border-slate-300/30 dark:border-[#262626] text-slate-600 dark:text-slate-400 hover:bg-slate-300 dark:hover:bg-[#1a1a1a]"
                     }`}
                   >
                     {st === "pending"
@@ -584,7 +582,7 @@ export default function AdminFamilyTreePage() {
 
               <button
                 onClick={fetchData}
-                className="flex items-center gap-1 text-xs text-emerald-600 hover:underline font-bold"
+                className="flex items-center justify-center gap-1 text-xs text-emerald-600 hover:underline font-bold bg-white dark:bg-[#141414] px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#262626]"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>রিফ্রেশ</span>
@@ -593,7 +591,7 @@ export default function AdminFamilyTreePage() {
 
             {/* Requests Cards List */}
             {filteredRequests.length === 0 ? (
-              <div className="bg-white dark:bg-[#0e1628] border border-slate-200 dark:border-slate-800 rounded-2xl p-10 text-center">
+              <div className="bg-white dark:bg-[#141414] border border-slate-200 dark:border-slate-800 rounded-2xl p-10 text-center">
                 <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">
                   কোনো আবেদন অপেক্ষমাণ নেই
@@ -933,7 +931,7 @@ export default function AdminFamilyTreePage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  সরাসরি পরিবারবৃক্ষে নতুন সদস্য যোগ
+                  সরাসরি ফ্যামিলি ট্রিতে নতুন সদস্য যোগ
                 </h3>
                 <p className="text-xs text-slate-500">
                   অ্যাডমিন হিসেবে সরাসরি সদস্য যুক্ত করুন। এটি সাথে সাথে ডাটাবেজে সেভ হবে।
@@ -1164,7 +1162,7 @@ export default function AdminFamilyTreePage() {
                 className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Save className="w-4 h-4" />
-                <span>সরাসরি পরিবারবৃক্ষে সংরক্ষণ করুন</span>
+                <span>সরাসরি ফ্যামিলি ট্রিতে সংরক্ষণ করুন</span>
               </button>
             </form>
           </div>
@@ -1206,7 +1204,7 @@ export default function AdminFamilyTreePage() {
                   <span className="font-bold">{requests.length}টি</span>
                 </div>
                 <div className="flex justify-between py-2">
-                  <span className="text-slate-500">পরিবারবৃক্ষ সংস্করণ:</span>
+                  <span className="text-slate-500">ফ্যামিলি ট্রি সংস্করণ:</span>
                   <span className="font-mono font-bold">2.4.0 (Semantic ID Engine)</span>
                 </div>
               </div>
@@ -1217,7 +1215,7 @@ export default function AdminFamilyTreePage() {
                   className="w-full py-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold text-xs flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
                 >
                   <Download className="w-4 h-4" />
-                  <span>সম্পূর্ণ পরিবারবৃক্ষ JSON ডাউনলোড করুন</span>
+                  <span>সম্পূর্ণ ফ্যামিলি ট্রি JSON ডাউনলোড করুন</span>
                 </button>
               </div>
             </div>

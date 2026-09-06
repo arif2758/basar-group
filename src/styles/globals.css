@@ -246,6 +246,15 @@ body {
   -webkit-line-clamp: 2;
 }
 
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 /* Tailwind 3 specific root colors (merged) */
 :root {
   --foreground-rgb: 0, 0, 0;

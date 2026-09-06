@@ -43,26 +43,26 @@ export default function FooterShop() {
                   BASAR Super Shop
                 </h3>
                 <p className="text-xs text-emerald-400 font-medium">
-                  Community Grocery & Youth Enterprise
+                  কমিউনিটি গ্রোসারি ও তরুণদের সামাজিক উদ্যোগ
                 </p>
               </div>
             </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
-              Your neighborhood grocery digitally transformed. 100% farm-fresh produce delivered in 2 hours, with profits directly funding free IT education and library programs.
+              আপনার পরিচিত গ্রোসারি সেবা এখন আধুনিক ডিজিটাল রূপে। 100% খামারের তাজা পণ্য 2 ঘণ্টায় ডেলিভারি, যার মুনাফা সরাসরি ব্যয় হয় বিনামূল্যে IT শিক্ষা ও পাঠাগার পরিচালনায়।
             </p>
 
             {/* Newsletter Subscription */}
             <form onSubmit={handleSubscribe} className="max-w-sm">
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                Get Weekly Deals & Coupons
+                সাপ্তাহিক স্পেশাল ডিল ও কুপন পান
               </label>
               <div className="relative flex items-center">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
+                  placeholder="আপনার ইমেইল ঠিকানা লিখুন"
                   className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-white placeholder-slate-500 text-xs sm:text-sm outline-none focus:border-emerald-500 transition-colors"
                   required
                 />
@@ -70,14 +70,14 @@ export default function FooterShop() {
                   type="submit"
                   className="absolute right-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center gap-1"
                 >
-                  <span>Join</span>
+                  <span>যুক্ত হোন</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
               {subscribed && (
                 <p className="text-xs text-emerald-400 font-semibold mt-2 flex items-center gap-1">
                   <CheckCircle className="w-3.5 h-3.5" />
-                  <span>Subscribed! Check your inbox for 10% coupon.</span>
+                  <span>ধন্যবাদ! 10% ছাড়ের কুপনের জন্য আপনার ইনবক্স চেক করুন।</span>
                 </p>
               )}
             </form>
@@ -86,32 +86,32 @@ export default function FooterShop() {
           {/* Grocery Categories */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Categories
+              ক্যাটাগরি
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
                 <Link href="/super-shop/shop?category=fresh-produce" className="hover:text-emerald-400 transition-colors">
-                  Fresh Produce
+                  তাজা শাকসবজি ও ফল
                 </Link>
               </li>
               <li>
                 <Link href="/super-shop/shop?category=vegetables" className="hover:text-emerald-400 transition-colors">
-                  Vegetables & Greens
+                  শাকসবজি
                 </Link>
               </li>
               <li>
                 <Link href="/super-shop/shop?category=dairy" className="hover:text-emerald-400 transition-colors">
-                  Pure Dairy & Eggs
+                  খাঁটি দুগ্ধজাত ও ডিম
                 </Link>
               </li>
               <li>
                 <Link href="/super-shop/shop?category=grains-&-rice" className="hover:text-emerald-400 transition-colors">
-                  Rice & Organic Grains
+                  চাল ও অর্গানিক শস্য
                 </Link>
               </li>
               <li>
                 <Link href="/super-shop/shop?category=seafood" className="hover:text-emerald-400 transition-colors">
-                  Fresh Fish & Seafood
+                  তাজা মাছ ও সি-ফুড
                 </Link>
               </li>
             </ul>
@@ -120,27 +120,27 @@ export default function FooterShop() {
           {/* Customer Care */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Customer Care
+              কাস্টমার সার্ভিস
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
                 <Link href="/super-shop/shop" className="hover:text-emerald-400 transition-colors">
-                  All Products
+                  সকল পণ্যসমূহ
                 </Link>
               </li>
               <li>
                 <Link href="/super-shop/cart" className="hover:text-emerald-400 transition-colors">
-                  My Shopping Cart
+                  আমার শপিং কার্ট
                 </Link>
               </li>
               <li>
                 <Link href="/foundation" className="hover:text-emerald-400 transition-colors">
-                  Social Welfare Mission
+                  সামাজিক কল্যাণ মিশন
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-emerald-400 transition-colors">
-                  Help & Customer Support
+                <Link href="/super-shop/contact" className="hover:text-emerald-400 transition-colors">
+                  সাহায্য ও কাস্টমার সাপোর্ট
                 </Link>
               </li>
             </ul>
@@ -149,7 +149,7 @@ export default function FooterShop() {
           {/* Contact Details & Payment Badges */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Contact & Hours
+              যোগাযোগ ও সময়সূচি
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-slate-400 mb-5">
               <div className="flex items-center gap-2.5">
@@ -162,12 +162,12 @@ export default function FooterShop() {
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <span>BASAR Complex, Dhaka, Bangladesh</span>
+                <span>বাছার কমপ্লেক্স, ঢাকা, বাংলাদেশ</span>
               </div>
             </div>
 
             <h5 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-              Payment Methods
+              পেমেন্ট মাধ্যমসমূহ
             </h5>
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] font-bold text-pink-400 border border-slate-700">
@@ -188,13 +188,13 @@ export default function FooterShop() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} BASAR Super Shop. A BASAR Group Initiative. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BASAR Super Shop | বাছার গ্রুপ উদ্যোগ। সর্বস্বত্ব সংরক্ষিত।</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-emerald-400 transition-colors">
-              Privacy Policy
+              গোপনীয়তা নীতি
             </Link>
             <Link href="/terms" className="hover:text-emerald-400 transition-colors">
-              Terms of Service
+              ব্যবহারের শর্তাবলী
             </Link>
           </div>
         </div>

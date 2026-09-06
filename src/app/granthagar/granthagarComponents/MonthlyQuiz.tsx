@@ -42,9 +42,9 @@ const MonthlyQuiz: React.FC = () => {
   }, []);
 
   const previousWinners = [
-    { name: "Sara Ahmed", prize: "Kindle E-reader", month: "November" },
-    { name: "Karim Hassan", prize: "Book Voucher (৳500)", month: "October" },
-    { name: "Nadia Khan", prize: "Premium Membership", month: "September" },
+    { name: "Sara Ahmed", prize: "Kindle E-reader", month: "নভেম্বর" },
+    { name: "Karim Hassan", prize: "বুক ভাউচার (৳500)", month: "অক্টোবর" },
+    { name: "Nadia Khan", prize: "প্রিমিয়াম মেম্বারশিপ", month: "সেপ্টেম্বর" },
   ];
 
   useScrollAnimation();
@@ -156,11 +156,10 @@ const MonthlyQuiz: React.FC = () => {
             <Trophy className="w-8 h-8" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-            December Reading Quiz
+            ডিসেম্বর পাঠ কুইজ প্রতিযোগিতা
           </h2>
           <p className="text-slate-300 dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Test your knowledge from this month&apos;s featured books and win
-            amazing prizes!
+            এই মাসের নির্বাচিত বইগুলো থেকে আপনার জ্ঞান পরীক্ষা করুন এবং জিতে নিন আকর্ষণীয় পুরস্কার!
           </p>
         </div>
 
@@ -170,26 +169,26 @@ const MonthlyQuiz: React.FC = () => {
             <div className="bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-xl p-6 sm:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
               <h3 className="text-xl font-bold mb-5 flex items-center space-x-2 text-white">
                 <Gift className="w-5 h-5 text-amber-400" />
-                <span>This Month&apos;s Prizes</span>
+                <span>এই মাসের পুরস্কারসমূহ</span>
               </h3>
 
               <div className="space-y-3">
                 <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
-                  <span className="font-medium text-slate-200">🏆 1st Place</span>
+                  <span className="font-medium text-slate-200">🏆 1st স্থান</span>
                   <span className="text-amber-400 font-semibold">
-                    iPad Mini + Book Collection
+                    iPad Mini + বইয়ের কালেকশন
                   </span>
                 </div>
                 <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
-                  <span className="font-medium text-slate-200">🥈 2nd Place</span>
+                  <span className="font-medium text-slate-200">🥈 2nd স্থান</span>
                   <span className="text-slate-300 font-semibold">
-                    Book Voucher (৳1000)
+                    বুক ভাউচার (৳1000)
                   </span>
                 </div>
                 <div className="prize-item flex items-center justify-between bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-lg p-4">
-                  <span className="font-medium text-slate-200">🥉 3rd Place</span>
+                  <span className="font-medium text-slate-200">🥉 3rd স্থান</span>
                   <span className="text-amber-300 font-semibold">
-                    3 Months Premium
+                    3 মাসের প্রিমিয়াম মেম্বারশিপ
                   </span>
                 </div>
               </div>
@@ -198,7 +197,7 @@ const MonthlyQuiz: React.FC = () => {
             <div className="bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-xl p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
               <h4 className="text-lg font-semibold mb-3 flex items-center space-x-2 text-white">
                 <Users className="w-5 h-5 text-emerald-400" />
-                <span>Previous Winners</span>
+                <span>বিগত বিজয়ীগণ</span>
               </h4>
               <div className="space-y-3">
                 {previousWinners.map((winner, index) => (
@@ -226,7 +225,7 @@ const MonthlyQuiz: React.FC = () => {
             <div className="countdown-timer bg-slate-800/80 dark:bg-[#141414] border border-slate-700/60 dark:border-[#303030] rounded-2xl p-6 sm:p-8 mb-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
               <h3 className="text-xl font-bold mb-2 flex items-center justify-center space-x-2 text-white">
                 <Clock className="w-5 h-5 text-amber-400" />
-                <span>Quiz Starts In</span>
+                <span>কুইজ শুরু হতে বাকি</span>
               </h3>
 
               <div className="grid grid-cols-4 gap-3 sm:gap-4 mt-6">
@@ -234,31 +233,31 @@ const MonthlyQuiz: React.FC = () => {
                   <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.days}
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Days</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">দিন</div>
                 </div>
                 <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
                   <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.hours}
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Hours</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">ঘণ্টা</div>
                 </div>
                 <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
                   <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.minutes}
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Minutes</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">মিনিট</div>
                 </div>
                 <div className="bg-slate-700/50 dark:bg-[#1a1a1a] border border-slate-600/40 dark:border-[#303030] rounded-xl p-3 sm:p-4">
                   <div className="text-2xl sm:text-3xl font-bold text-amber-400">
                     {timeLeft.seconds}
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-400 mt-1">Seconds</div>
+                  <div className="text-xs sm:text-sm text-slate-400 mt-1">সেকেন্ড</div>
                 </div>
               </div>
             </div>
 
             <div className="quiz-topics bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-xl p-6 text-left mb-6 shadow-sm">
-              <h4 className="text-lg font-bold mb-3 text-slate-900 dark:text-white">Quiz Topics</h4>
+              <h4 className="text-lg font-bold mb-3 text-slate-900 dark:text-white">কুইজের বিষয়সমূহ</h4>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="topic-item bg-slate-50 dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] rounded-lg p-3 text-slate-800 dark:text-slate-200">
                   <span className="font-medium">The Alchemist</span>
@@ -275,12 +274,15 @@ const MonthlyQuiz: React.FC = () => {
               </div>
             </div>
 
-            <button className="register-button w-full sm:w-auto inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-medium text-base transition-colors shadow-sm active:scale-[0.99]">
-              Register for Quiz
-            </button>
+            <a
+              href="/granthagar/events"
+              className="register-button w-full sm:w-auto inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-medium text-base transition-colors shadow-sm active:scale-[0.99]"
+            >
+              কুইজের জন্য নিবন্ধন করুন
+            </a>
 
             <p className="quiz-note text-slate-400 text-sm mt-4">
-              📚 Read the featured books to participate • 👥 Open to all members
+              📚 অংশগ্রহণের জন্য নির্বাচিত বইগুলো পড়ুন • 👥 সকল সদস্যের জন্য উন্মুক্ত
             </p>
           </div>
         </div>

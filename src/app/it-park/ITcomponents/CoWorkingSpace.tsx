@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { gsap, useGSAP, ScrollTrigger, Observer } from "@/utils/mockGsap";
 
-
 import { FaHandHoldingHeart, FaLaptopCode, FaWifi } from 'react-icons/fa';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -82,20 +81,20 @@ function CoWorkingSpace() {
   const features = [
     {
       icon: FaWifi,
-      title: "High-Speed Internet",
-      description: "Reliable fiber optic connection for seamless work",
+      title: "হাই-স্পিড ইন্টারনেট (High-Speed Internet)",
+      description: "বাধাহীন কাজ ও ফ্রিল্যান্সিং প্রজেক্ট পরিচালনার জন্য সার্বক্ষণিক ডেডিকেটেড ফাইবার অপটিক ইন্টারনেট",
       color: "bg-blue-500",
     },
     {
       icon: FaLaptopCode,
-      title: "Modern Workstations", 
-      description: "Ergonomic desks and latest technology setup",
+      title: "আধুনিক ওয়ার্কস্টেশন (Modern Workstations)", 
+      description: "আরামদায়ক এর্গোনমিক সিটিং এবং উন্নত কনফিগারেশনের আধুনিক কম্পিউটার সেটআপ",
       color: "bg-purple-500",
     },
     {
       icon: FaHandHoldingHeart,
-      title: "Flexible Contributions",
-      description: "Pay with money or share your skills with the community",
+      title: "ফ্লেক্সিবল পার্টিসিপেশন (Flexible Contributions)",
+      description: "অর্থনৈতিক কিংবা মেধার বিনিময়ে কাজ শেখা ও কমিউনিটি প্রকল্পে অবদান রাখার অনন্য সুযোগ",
       color: "bg-pink-500",
     },
   ];
@@ -105,11 +104,10 @@ function CoWorkingSpace() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="header-animate text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Co-Working Space
+            কো-ওয়ার্কিং স্পেস (Co-Working Space)
           </h2>
           <p className="header-animate text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            High-speed internet, collaborative workspace, and flexible
-            contribution options
+            উচ্চগতির ইন্টারনেট, নিরিবিলি কাজের পরিবেশ এবং সুবিধাজনক কমিউনিটি শেয়ারিং প্ল্যাটফর্ম
           </p>
         </div>
 

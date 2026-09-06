@@ -24,54 +24,53 @@ const ImpactSection = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const storiesRef = useRef<HTMLDivElement>(null);
 
-  // Mock stats data - replace with your actual data
   const stats = [
     {
       id: 1,
       value: 2500,
-      label: "Books Shared",
+      label: "শেয়ারকৃত বই",
       suffix: "+",
-      description: "Active circulation",
+      description: "সক্রিয় বিতরণ",
       icon: FiUsers,
     },
     {
       id: 2,
       value: 150,
-      label: "Students",
+      label: "শিক্ষার্থী",
       suffix: "+",
-      description: "Scholarship recipients",
+      description: "Scholarship প্রাপ্ত",
       icon: FiHeart,
     },
     {
       id: 3,
       value: 85,
-      label: "IT Graduates",
+      label: "IT গ্র্যাজুয়েট",
       suffix: "+",
-      description: "Job-ready professionals",
+      description: "কাজের উপযোগী দক্ষ জনশক্তি",
       icon: FiTrendingUp,
     },
     {
       id: 4,
       value: 45,
-      label: "Businesses",
+      label: "ব্যবসা প্রতিষ্ঠান",
       suffix: "+",
-      description: "Super Shop network",
+      description: "Super Shop নেটওয়ার্ক",
       icon: FiTarget,
     },
     {
       id: 5,
       value: 98,
-      label: "Success Rate",
+      label: "সফলতার হার",
       suffix: "%",
-      description: "Graduate employment",
+      description: "গ্র্যাজুয়েট কর্মসংস্থান",
       icon: FiAward,
     },
     {
       id: 6,
       value: 12,
-      label: "Communities",
+      label: "কমিউনিটি",
       suffix: "+",
-      description: "Areas served",
+      description: "সেবাপ্রাপ্ত এলাকা",
       icon: FiStar,
     },
   ];
@@ -79,36 +78,36 @@ const ImpactSection = () => {
   const successStories = [
     {
       id: 1,
-      name: "Rashida Khatun",
+      name: "রাশিদা খাতুন",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
       story:
-        "From library member to IT professional, now earning $500/month freelancing",
+        "লাইব্রেরির সাধারণ সদস্য থেকে IT পেশাজীবী, এখন Freelancing করে মাসে $500 উপার্জন করছেন",
       department: "Library → IT Park",
-      impact: "Supporting her family of 5",
+      impact: "তার 5 সদস্যের পরিবারের প্রধান অবলম্বন",
       color: "#10B981",
       bgGradient: "from-emerald-50 to-green-50",
     },
     {
       id: 2,
-      name: "Ahmed Rahman",
+      name: "আহমেদ রহমান",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      story: "Started as Super Shop trainee, now manages 3 delivery routes",
+      story: "Super Shop-এর শিক্ষানবিস হিসেবে শুরু করে এখন 3টি ডেলিভারি রুট পরিচালনা করছেন",
       department: "Super Shop",
-      impact: "Created 15 local jobs",
+      impact: "15টি স্থানীয় কর্মসংস্থান সৃষ্টি করেছেন",
       color: "#3B82F6",
       bgGradient: "from-blue-50 to-indigo-50",
     },
     {
       id: 3,
-      name: "Fatima Begum",
+      name: "ফাতিমা বেগম",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face",
       story:
-        "Foundation scholarship helped her become a teacher, now volunteers weekly",
+        "Foundation Scholarship-এর সাহায্যে শিক্ষক হয়েছেন, এখন নিয়মিত স্বেচ্ছাসেবী হিসেবে পড়াচ্ছেন",
       department: "Foundation → Library",
-      impact: "Teaching 50+ children",
+      impact: "50+ সুবিধাবঞ্চিত শিশুকে পাঠদান করছেন",
       color: "#8B5CF6",
       bgGradient: "from-purple-50 to-pink-50",
     },
@@ -329,11 +328,10 @@ const ImpactSection = () => {
             <FiTrendingUp className="w-6 h-6" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-            Our Impact & Achievements
+            আমাদের প্রভাব ও অর্জন
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Real stories, measurable results, and lasting change in communities
-            across Bangladesh.
+            বাস্তব অনুপ্রেরণার গল্প, সুনির্দিষ্ট ফলাফল এবং পুরো বাংলাদেশ জুড়ে মানুষের জীবনে দীর্ঘস্থায়ী পরিবর্তন।
           </p>
         </div>
 
@@ -377,10 +375,10 @@ const ImpactSection = () => {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                  Success Stories
+                  সাফল্যের গল্পসমূহ
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                  Inspiring journeys of transformation
+                  জীবন পরিবর্তনের অনুপ্রেরণাদায়ী অভিযাত্রা
                 </p>
               </div>
               <div className="flex items-center space-x-2">
@@ -454,7 +452,7 @@ const ImpactSection = () => {
                               </p>
                             </div>
                             <button className="inline-flex items-center space-x-2 px-4 py-2 bg-white dark:bg-[#252525] hover:bg-slate-50 dark:hover:bg-[#2d2d2d] rounded-lg shadow-sm transition-all duration-200 border border-slate-200 dark:border-[#303030] text-xs font-medium text-slate-700 dark:text-slate-200">
-                              <span>Read Full Story</span>
+                              <span>সম্পূর্ণ গল্প পড়ুন</span>
                               <FiExternalLink className="w-3.5 h-3.5 text-slate-500" />
                             </button>
                           </div>
@@ -466,7 +464,7 @@ const ImpactSection = () => {
               </div>
             </div>
 
-            {/* AntD style indicators */}
+            {/* Indicators */}
             <div className="flex justify-center mt-6 space-x-2">
               {successStories.map((_, index) => (
                 <button
@@ -487,7 +485,7 @@ const ImpactSection = () => {
         {/* Call to Action */}
         <div className="mt-12 text-center">
           <button className="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm transition-colors text-sm font-medium">
-            <span>Join Our Impact Story</span>
+            <span>আমাদের প্রভাবের গল্পে যুক্ত হোন</span>
             <FiExternalLink className="w-4 h-4" />
           </button>
         </div>

@@ -9,11 +9,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 
 
-interface HeroProps {
-  language: "bn" | "en";
-}
-
-export default function Hero({ language }: HeroProps) {
+export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -30,19 +26,16 @@ export default function Hero({ language }: HeroProps) {
     return () => clearInterval(timer);
   }, [images.length]);
 
-  // Single useGSAP for everything
   useScrollAnimation();
   useGSAP(
     () => {
       const tl = gsap.timeline();
 
-      // Set initial states
       gsap.set(".hero-title", { y: 80, opacity: 0 });
       gsap.set(".hero-subtitle", { y: 50, opacity: 0 });
       gsap.set(".hero-buttons", { y: 30, opacity: 0 });
       gsap.set(".hero-trust", { y: 20, opacity: 0 });
 
-      // Animate in sequence
       tl.to(".hero-title", {
         y: 0,
         opacity: 1,
@@ -79,7 +72,6 @@ export default function Hero({ language }: HeroProps) {
           },
           "-=0.3"
         );
-
     },
     { scope: heroRef }
   );
@@ -87,7 +79,7 @@ export default function Hero({ language }: HeroProps) {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      className="relative min-h-[calc(100svh-4rem)] flex flex-col justify-start sm:justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-8 sm:pt-0"
     >
       {/* Background Carousel */}
       <div className="absolute inset-0 z-0">
@@ -106,28 +98,28 @@ export default function Hero({ language }: HeroProps) {
         ))}
       </div>
 
-      {/* Overlay for readability */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-transparent z-10" />
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h1 className="text-gray-400 text-sm">Beacon Alliance Spark Authentic Rise (BASAR)</h1>
-        <div className="max-w-5xl">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center w-full">
+        <h1 className="text-gray-400 text-xs sm:text-sm mb-3">Beacon Alliance Spark Authentic Rise (BASAR)</h1>
+        <div className="max-w-5xl flex flex-col items-center">
           {/* Headline */}
           <h1 className="hero-title font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
             <span className="block">
-              <span className="bg-[linear-gradient(180deg,#8ee8cf_0%,#e9fff7_40%,#ffffff_50%,#e9fff7_60%,#8ee8cf_100%)] bg-clip-text text-transparent [text-shadow:0_1px_0_rgba(255,255,255,0.)]">
-                <span className="inline-block rounded-xl bg-black/30 px-4 ring-1 ring-white/10">
+              <span className="bg-[linear-gradient(180deg,#8ee8cf_0%,#e9fff7_40%,#ffffff_50%,#e9fff7_60%,#8ee8cf_100%)] bg-clip-text text-transparent [text-shadow:0_1px_0_rgba(255,255,255,0.5)]">
+                <span className="inline-block rounded-xl bg-black/30 px-3 sm:px-4 ring-1 ring-white/10">
                   BASAR
                 </span>{" "}
                 Group
               </span>
             </span>
 
-            <span className="block mt-3">
+            <span className="block mt-3 text-[28px] sm:text-5xl lg:text-6xl whitespace-nowrap">
               <span className="bg-[linear-gradient(180deg,#8ee8cf_0%,#e9fff7_40%,#ffffff_50%,#e9fff7_60%,#8ee8cf_100%)] bg-clip-text text-transparent [text-shadow:0_1px_0_rgba(255,255,255,0.5)]">
-                Learn. Earn.
-                <span className="inline-block rounded-xl bg-black/30 px-4 ring-1 ring-white/10">
+                Learn. Earn.{" "}
+                <span className="inline-block rounded-xl bg-black/30 px-3 sm:px-4 ring-1 ring-white/10">
                   Empower.
                 </span>{" "}
               </span>
@@ -136,75 +128,44 @@ export default function Hero({ language }: HeroProps) {
 
           {/* Subtitle */}
           <div className="hero-subtitle mb-8">
-            {language === "bn" ? (
-              <>
-                <p className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-4">
-                  বাছার বংশের জন্য একটি ভবিষ্যৎ—শিক্ষা, আত্মনির্ভরতা ও কমিউনিটি
-                  উন্নয়ন।
-                </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  আমরা এমন ব্যবস্থা গড়ে তুলেছি যাতে বাছার পরিবারের প্রতিটি
-                  সদস্য এবং আমাদের কমিউনিটি শিখতে, বেড়ে উঠতে এবং সফল হতে পারে।
-                </p>
-              </>
-            ) : (
-              <>
-            
-                <p className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-4">
-                  Building a future for the Basar family—education,
-                  self-reliance & community development.
-                </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  We build systems so every member of the Basar family and our
-                  community can learn, grow and succeed.
-                </p>
-              </>
-            )}
+            <p className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-4">
+              বাছার বংশের জন্য একটি ভবিষ্যৎ—শিক্ষা, আত্মনির্ভরতা ও কমিউনিটি উন্নয়ন।
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              আমরা এমন ব্যবস্থা গড়ে তুলেছি যাতে বাছার পরিবারের প্রতিটি সদস্য
+              এবং আমাদের কমিউনিটি শিখতে, বেড়ে উঠতে এবং সফল হতে পারে।
+            </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="hero-buttons flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="hero-buttons flex flex-col sm:flex-row gap-4 mb-12 justify-center w-full">
             <Link
               href="#departments"
-              className="primary-btn group relative px-8 py-3 rounded-lg font-semibold text-lg text-white bg-[#056A5F] flex items-center justify-center"
+              className="primary-btn group relative px-8 py-3 rounded-lg font-semibold text-lg text-white bg-[#056A5F] flex items-center justify-center w-full sm:w-auto"
             >
-              <span>
-                {language === "bn" ? "যোগ দিন / ভিজিট করুন" : "Join / Visit"}
-              </span>
+              <span>যোগ দিন / ভিজিট করুন</span>
               <FiArrowRight className="ml-2 w-5 h-5 text-white" />
             </Link>
 
-            <button className="secondary-btn group relative px-8 py-3 rounded-lg font-semibold text-lg text-gray-200 border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center">
-              <span>{language === "bn" ? "আরও জানুন" : "Learn More"}</span>
+            <button className="secondary-btn group relative px-8 py-3 rounded-lg font-semibold text-lg text-gray-200 border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center w-full sm:w-auto">
+              <span>আরও জানুন</span>
               <FiPlay className="ml-2 w-5 h-5 text-gray-300" />
             </button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="hero-trust flex flex-wrap items-center gap-6 text-sm text-gray-300">
+          <div className="hero-trust flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-300">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-green-400 rounded-full mr-2" />
-              <span>
-                {language === "bn"
-                  ? "১২৫০+ ছাত্রছাত্রীকে সহায়তা"
-                  : "1250+ students helped"}
-              </span>
+              <span>1250+ ছাত্রছাত্রীকে সহায়তা</span>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-teal-400 rounded-full mr-2" />
-              <span>
-                {language === "bn"
-                  ? "৮৫+ দাতার সহায়তায়"
-                  : "Supported by 85+ donors"}
-              </span>
+              <span>85+ দাতার সহায়তায়</span>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2" />
-              <span>
-                {language === "bn"
-                  ? "১৫+ কমিউনিটি প্রকল্প"
-                  : "15+ community projects"}
-              </span>
+              <span>15+ কমিউনিটি প্রকল্প</span>
             </div>
           </div>
         </div>
@@ -221,7 +182,7 @@ export default function Hero({ language }: HeroProps) {
                 ? "bg-emerald-500 scale-125 shadow-md"
                 : "bg-white/40 hover:bg-white/70"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Slide ${index + 1}`}
           />
         ))}
       </div>

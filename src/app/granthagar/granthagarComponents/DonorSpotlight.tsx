@@ -26,8 +26,8 @@ const DonorSpotlight: React.FC = () => {
       "Man's Search for Meaning",
     ],
     quote:
-      "Knowledge grows when shared. I donate books to help students discover new worlds and perspectives.",
-    achievement: "Top Donor of the Month",
+      "জ্ঞান ভাগ করে নিলে তা বৃদ্ধি পায়। শিক্ষার্থীদের নতুন চিন্তা ও দিগন্ত উন্মোচনে সহায়তা করতে আমি বই দান করি।",
+    achievement: "মাসের সেরা দাতা",
     joinDate: "January 2023",
   };
 
@@ -118,11 +118,10 @@ const DonorSpotlight: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="donor-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            Donor Spotlight
+            বিশিষ্ট দাতা কর্নার
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Celebrating our amazing donors who make our community library
-            possible through their generous contributions.
+            আমাদের সম্মানিত দাতাদের সাধুবাদ জানাচ্ছি, যাঁদের উদার অবদানে কমিউনিটি Library সমৃদ্ধ হয়ে উঠছে।
           </p>
         </div>
 
@@ -147,7 +146,7 @@ const DonorSpotlight: React.FC = () => {
                   {featuredDonor.name}
                 </h3>
                 <p className="text-orange-100">
-                  Member since {featuredDonor.joinDate}
+                  যুক্ত আছেন: {featuredDonor.joinDate}
                 </p>
               </div>
             </div>
@@ -157,54 +156,60 @@ const DonorSpotlight: React.FC = () => {
                 <div>
                   <div className="flex items-center space-x-2 mb-4">
                     <BookOpen className="w-6 h-6 text-blue-600" />
-                    <h4 className="text-lg font-semibold text-gray-900">
-                      Recent Donations
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      সম্প্রতি দানকৃত বই
                     </h4>
                   </div>
                   <ul className="space-y-2">
                     {featuredDonor.recentBooks.map((book, index) => (
                       <li key={index} className="recent-book flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700">{book}</span>
+                        <span className="text-gray-700 dark:text-slate-300">{book}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="text-center">
-                  <div className="stats-box bg-blue-50 rounded-xl p-6">
+                  <div className="stats-box bg-blue-50 dark:bg-[#1a1a1a] rounded-xl p-6 border border-blue-100 dark:border-[#303030]">
                     <div className="flex items-center justify-center space-x-2 mb-2">
                       <Heart className="w-6 h-6 text-red-500" />
-                      <span className="text-sm font-medium text-gray-600">
-                        Total Books Donated
+                      <span className="text-sm font-medium text-gray-600 dark:text-slate-400">
+                        সর্বমোট দানকৃত বই
                       </span>
                     </div>
-                    <div className="text-4xl font-bold text-blue-600 mb-2">
+                    <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                       {featuredDonor.totalDonations}
                     </div>
-                    <div className="text-sm text-gray-500">
-                      Helping {featuredDonor.totalDonations * 3}+ students learn
+                    <div className="text-sm text-gray-500 dark:text-slate-400">
+                      {featuredDonor.totalDonations * 3}+ শিক্ষার্থীর পড়াশোনায় সহায়ক
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="quote-box bg-gray-50 rounded-xl p-6">
-                <h4 className="font-semibold text-gray-900 mb-2">
-                  Message from {featuredDonor.name.split(" ")[1]}:
+              <div className="quote-box bg-gray-50 dark:bg-[#1a1a1a] rounded-xl p-6 border border-slate-200 dark:border-[#303030]">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  {featuredDonor.name}-এর বার্তা:
                 </h4>
-                <blockquote className="text-gray-700 italic">
-                  {featuredDonor.quote}
+                <blockquote className="text-gray-700 dark:text-slate-300 italic">
+                  &quot;{featuredDonor.quote}&quot;
                 </blockquote>
               </div>
 
               <div className="donor-buttons flex flex-col sm:flex-row gap-4 mt-6">
-                <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
-                  View All Donations
-                </button>
-                <button className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-800 py-3 px-6 rounded-lg font-semibold transition-colors">
-                  Become a Donor
-                </button>
+                <a
+                  href="/granthagar/donors"
+                  className="flex-1 text-center bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+                >
+                  সকল অনুদান দেখুন
+                </a>
+                <a
+                  href="/granthagar/donors"
+                  className="flex-1 text-center bg-blue-100 dark:bg-blue-950/60 hover:bg-blue-200 dark:hover:bg-blue-900/60 text-blue-800 dark:text-blue-300 py-3 px-6 rounded-lg font-semibold transition-colors"
+                >
+                  দাতা হিসেবে যুক্ত হোন
+                </a>
               </div>
             </div>
           </div>

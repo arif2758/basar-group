@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 
-
-
 import { useRef } from "react";
 import {
   FiHeart,
@@ -32,24 +30,23 @@ const CommunityWall = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const newsletterRef = useRef<HTMLDivElement>(null);
 
-  // Mock data - replace with your actual data
   const donors = [
     {
       id: 1,
-      name: "Dr. Ahmed Hassan",
+      name: "ড. আহমেদ হাসান",
       image:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      contribution: "Donated 500+ books",
+      contribution: "500+ বই অনুদান",
       date: "2024-01-15",
       type: "books",
       featured: true,
     },
     {
       id: 2,
-      name: "Fatima Rahman",
+      name: "ফাতিমা রহমান",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=150&h=150&fit=crop&crop=face",
-      contribution: "Monthly scholarship fund",
+      contribution: "মাসিক Scholarship ফান্ড",
       date: "2024-01-10",
       type: "education",
       featured: true,
@@ -59,17 +56,17 @@ const CommunityWall = () => {
       name: "Tech Solutions Ltd",
       image:
         "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=150&h=150&fit=crop",
-      contribution: "Laptops & equipment",
+      contribution: "Laptop ও Tech সরঞ্জাম",
       date: "2024-01-08",
       type: "technology",
       featured: false,
     },
     {
       id: 4,
-      name: "Sarah Khan",
+      name: "সারাহ খান",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      contribution: "Healthcare support",
+      contribution: "স্বাস্থ্যসেবা সহায়তা",
       date: "2024-01-05",
       type: "healthcare",
       featured: true,
@@ -79,17 +76,17 @@ const CommunityWall = () => {
       name: "Green Foods Co.",
       image:
         "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=150&h=150&fit=crop",
-      contribution: "Weekly food packages",
+      contribution: "সাপ্তাহিক খাদ্য প্যাকেজ",
       date: "2024-01-03",
       type: "food",
       featured: false,
     },
     {
       id: 6,
-      name: "Mohammad Ali",
+      name: "মোহাম্মদ আলী",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      contribution: "Volunteer coordinator",
+      contribution: "ভলান্টিয়ার সমন্বয়কারী",
       date: "2024-01-01",
       type: "education",
       featured: false,
@@ -99,32 +96,32 @@ const CommunityWall = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Dr. Sarah Rahman",
-      role: "Community Leader",
+      name: "ড. সারাহ রহমান",
+      role: "কমিউনিটি লিডার",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face",
       quote:
-        "BASAR Group has transformed our community. The integrated approach of education, technology, and commerce creates sustainable development.",
+        "BASAR Group আমাদের সমাজের চিত্র বদলে দিয়েছে। শিক্ষা, প্রযুক্তি এবং বাণিজ্যের সমন্বিত প্রয়াস টেকসই উন্নয়নের সৃষ্টি করে।",
       rating: 5,
     },
     {
       id: 2,
-      name: "Mohammad Hasan",
-      role: "IT Park Graduate",
+      name: "মোহাম্মদ হাসান",
+      role: "IT Park গ্র্যাজুয়েট",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       quote:
-        "Started from zero programming knowledge. Now I'm a freelance web developer earning $800/month. Thanks to BASAR IT Park!",
+        "প্রোগ্রামিংয়ের শূন্য জ্ঞান থেকে শুরু করেছিলাম। এখন আমি একজন Freelance Web Developer এবং মাসে $800 উপার্জন করছি। BASAR IT Park-কে ধন্যবাদ!",
       rating: 5,
     },
     {
       id: 3,
-      name: "Amina Khatun",
-      role: "Library Member & Mother",
+      name: "আমিনা খাতুন",
+      role: "লাইব্রেরির সদস্য ও অভিভাবক",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       quote:
-        "My children love the library. The books and study environment helped them excel in school. The Foundation also supported us during tough times.",
+        "আমার সন্তানেরা লাইব্রেরি খুব ভালোবাসে। এখানকার বই ও পড়ার পরিবেশ তাদের স্কুলে ভালো ফলাফলে সাহায্য করেছে। কঠিন সময়ে Foundation-ও আমাদের পাশে ছিল।",
       rating: 5,
     },
   ];
@@ -204,93 +201,39 @@ const CommunityWall = () => {
         );
       });
 
-      // Grid Animation
+      // Grid Cards Animation
       const donorCards = gridRef.current?.querySelectorAll(".donor-card");
       donorCards?.forEach((card, index) => {
         gsap.fromTo(
           card,
           {
             opacity: 0,
-            y: 60,
-            scale: 0.8,
-            rotationY: 15,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotationY: 0,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      // Testimonials Animation
-      const testimonialCards =
-        testimonialsRef.current?.querySelectorAll(".testimonial-card");
-      testimonialCards?.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            y: 50,
+            y: 40,
             scale: 0.9,
-            rotation: 2,
           },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            rotation: 0,
-            duration: 0.8,
-            delay: index * 0.2,
+            duration: 0.6,
+            delay: index * 0.05,
             ease: "power2.out",
             scrollTrigger: {
-              trigger: testimonialsRef.current,
-              start: "top 80%",
+              trigger: gridRef.current,
+              start: "top 85%",
               toggleActions: "play none none reverse",
             },
           }
         );
       });
 
-      // Newsletter Animation
-      gsap.fromTo(
-        newsletterRef.current,
-        {
-          opacity: 0,
-          y: 80,
-          scale: 0.95,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: newsletterRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Hover animations
-      const donorCards2 = gridRef.current?.querySelectorAll(".donor-card");
-      donorCards2?.forEach((card) => {
+      // Hover animations for donor cards
+      donorCards?.forEach((card) => {
         const cardElement = card as HTMLElement;
         cardElement.addEventListener("mouseenter", () => {
           gsap.to(cardElement, {
-            y: -12,
-            scale: 1.05,
+            y: -6,
+            scale: 1.02,
             duration: 0.3,
             ease: "power2.out",
           });
@@ -389,13 +332,13 @@ const CommunityWall = () => {
       : donors.filter((donor) => donor.type === filter);
 
   const filterOptions = [
-    { value: "featured", label: "Featured", icon: FiStar },
-    { value: "all", label: "All Donors", icon: FiUsers },
-    { value: "education", label: "Education", icon: FiAward },
-    { value: "books", label: "Books", icon: FiHeart },
-    { value: "technology", label: "Technology", icon: FiFilter },
-    { value: "food", label: "Food Support", icon: FiHeart },
-    { value: "healthcare", label: "Healthcare", icon: FiHeart },
+    { value: "featured", label: "বিশেষ অবদান", icon: FiStar },
+    { value: "all", label: "সকল দাতা", icon: FiUsers },
+    { value: "education", label: "শিক্ষা", icon: FiAward },
+    { value: "books", label: "বই", icon: FiHeart },
+    { value: "technology", label: "প্রযুক্তি", icon: FiFilter },
+    { value: "food", label: "খাদ্য সহায়তা", icon: FiHeart },
+    { value: "healthcare", label: "স্বাস্থ্যসেবা", icon: FiHeart },
   ];
 
   return (
@@ -410,15 +353,14 @@ const CommunityWall = () => {
             <FiUsers className="w-6 h-6" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-            Community Wall
+            কমিউনিটি ওয়াল (Community Wall)
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Celebrating our amazing donors, volunteers, and community members
-            who make our mission possible.
+            আমাদের সকল অসাধারণ দাতা, শুভাকাঙ্ক্ষী ও স্বেচ্ছাসেবকদের জানাই আন্তরিক কৃতজ্ঞতা, যাদের যৌথ প্রয়াসে আমাদের মিশন সফল হচ্ছে।
           </p>
         </div>
 
-        {/* AntD Segmented Toggle */}
+        {/* Segmented Toggle */}
         <div ref={toggleRef} className="flex justify-center mb-10">
           <div className="inline-flex p-1 bg-slate-200/70 dark:bg-[#1f1f1f] rounded-lg border border-slate-300/60 dark:border-[#303030]">
             <button
@@ -430,7 +372,7 @@ const CommunityWall = () => {
               }`}
             >
               <FiUsers className="w-4 h-4" />
-              <span>Donor Recognition</span>
+              <span>দাতাদের স্বীকৃতি</span>
             </button>
             <button
               onClick={() => handleToggle(true)}
@@ -441,7 +383,7 @@ const CommunityWall = () => {
               }`}
             >
               <FiStar className="w-4 h-4" />
-              <span>Testimonials</span>
+              <span>প্রশংসাপত্র ও মতামত</span>
             </button>
           </div>
         </div>
@@ -455,7 +397,7 @@ const CommunityWall = () => {
             >
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 mr-2 text-xs font-semibold uppercase tracking-wider">
                 <FiFilter className="w-3.5 h-3.5" />
-                <span>Category:</span>
+                <span>ক্যাটাগরি:</span>
               </div>
               <div className="flex flex-wrap justify-center gap-2">
                 {filterOptions.map((option) => {
@@ -523,15 +465,15 @@ const CommunityWall = () => {
               ))}
             </div>
 
-            {/* AntD Style CTA */}
+            {/* Call to action */}
             <div className="text-center mb-16">
               <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-sm">
                 <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base font-medium">
-                  Join our community wall by making a contribution today
+                  আজই অবদান রেখে আমাদের কমিউনিটি ওয়ালে যুক্ত হোন
                 </p>
                 <button className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium shadow-sm transition-colors">
                   <FiHeart className="w-4 h-4 mr-2" />
-                  <span>Become a Supporter</span>
+                  <span>সহায়ক হোন</span>
                   <FiArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </div>
@@ -595,30 +537,30 @@ const CommunityWall = () => {
                 <FiMail className="w-6 h-6" />
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">
-                Stay Connected with Us
+                আমাদের সাথে যুক্ত থাকুন
               </h3>
               <p className="text-sm sm:text-base text-blue-100 mb-6 max-w-md leading-relaxed">
-                Be part of our global community. Get impact stories, project updates, and opportunities delivered straight to your inbox.
+                আমাদের কমিউনিটির অংশ হোন। অনুপ্রেরণার গল্প, প্রকল্পের আপডেট এবং নতুন সুযোগ সরাসরি আপনার ইনবক্সে পান।
               </p>
 
               <form className="flex flex-col sm:flex-row gap-2 max-w-md">
                 <input
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="আপনার Email ঠিকানা দিন"
                   className="flex-1 px-4 py-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-blue-200 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
                 />
                 <button
                   type="submit"
                   className="px-5 py-2.5 rounded-lg font-medium text-sm bg-white text-blue-800 hover:bg-blue-50 transition-colors flex items-center justify-center space-x-1.5 shadow-sm shrink-0"
                 >
-                  <span>Subscribe</span>
+                  <span>সাবস্ক্রাইব করুন</span>
                   <FiArrowRight className="w-4 h-4" />
                 </button>
               </form>
 
               <p className="mt-4 text-xs text-blue-200 flex items-center space-x-1.5">
                 <FiHeart className="w-3.5 h-3.5 text-pink-300" />
-                <span>No spam. Unsubscribe anytime with a single click.</span>
+                <span>কোনো স্প্যাম নয়। যেকোনো সময় এক ক্লিকে Unsubscribe করতে পারবেন।</span>
               </p>
             </div>
 

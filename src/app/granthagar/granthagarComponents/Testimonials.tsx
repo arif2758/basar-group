@@ -15,29 +15,29 @@ const Testimonials: React.FC = () => {
     {
       id: 1,
       name: "Rashida Begum",
-      role: "University Student",
+      role: "বিশ্ববিদ্যালয় শিক্ষার্থী",
       photo:
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       rating: 5,
-      text: "BASAR গ্রন্থাগার has completely transformed my reading habits. I used to waste hours scrolling social media, but now I'm reading amazing books that actually help me grow. The 30-minute delivery is incredible!",
+      text: "BASAR লাইব্রেরি আমার পড়ার অভ্যাস পুরোপুরি বদলে দিয়েছে। আগে ঘণ্টার পর ঘণ্টা সোশ্যাল মিডিয়ায় অপচয় করতাম, এখন দারুণ সব বই পড়ে নিজের জ্ঞান বৃদ্ধি করছি। বিশেষ করে 30-মিনিটের ডেলিভারি সত্যিই অবিশ্বাস্য!",
     },
     {
       id: 2,
       name: "Mohammad Karim",
-      role: "High School Student",
+      role: "স্কুল শিক্ষার্থী",
       photo:
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       rating: 5,
-      text: "This library helped me discover books I never knew existed. The donor system is amazing - seeing who donated each book makes me feel connected to the community. It's like having a friend recommend books!",
+      text: "এই লাইব্রেরির মাধ্যমে আমি এমন অসাধারণ বইগুলোর খোঁজ পেয়েছি যা আগে কখনো জানতাম না। দাতা ব্যবস্থাটি চমৎকার—কে বইটি দান করেছেন তা দেখতে পেলে কমিউনিটির সাথে আন্তরিক বন্ধন অনুভব হয়!",
     },
     {
       id: 3,
       name: "Fatima Rahman",
-      role: "College Student",
+      role: "কলেজ শিক্ষার্থী",
       photo:
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
       rating: 5,
-      text: "The reading tracker and achievements keep me motivated. I love competing in the monthly quiz and seeing my progress. This library turned reading from a chore into an exciting adventure!",
+      text: "রিডিং ট্র্যাকার এবং ব্যাজগুলো আমাকে নিয়মিত পড়তে অনুপ্রাণিত করে। প্রতি মাসের কুইজে অংশ নিতে দারুণ লাগে। বই পড়া এখন আমার কাছে আর কোনো সাধারণ কাজ নয়, একটি রোমাঞ্চকর অভিজ্ঞতা!",
     },
   ];
 
@@ -146,11 +146,10 @@ const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="testimonials-header text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
-            What Our Community Says
+            আমাদের কমিউনিটির অনুভূতি
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Real stories from students who transformed their learning journey
-            with our community library.
+            আমাদের কমিউনিটি Library-র সাথে যুক্ত হয়ে শিক্ষার্থীদের জীবন ও পাঠাভ্যাস কীভাবে সমৃদ্ধ হয়েছে তার বাস্তব গল্প।
           </p>
         </div>
 
@@ -206,27 +205,27 @@ const Testimonials: React.FC = () => {
         {/* Stats Section */}
         <div className="stats-section bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 mt-16 text-white text-center shadow-sm">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-            Join 200+ Students Who&apos;ve Transformed Their Reading Habits
+            200+ শিক্ষার্থীর সাথে যুক্ত হোন যারা বই পড়ার মাধ্যমে নিজেদের বিকশিত করেছেন
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
               <div className="text-3xl font-bold text-amber-400 mb-1">85%</div>
-              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Reduced Social Media Time</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">সোশ্যাল মিডিয়ায় অলস সময় হ্রাস</div>
             </div>
             <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
               <div className="text-3xl font-bold text-amber-400 mb-1">3.2</div>
-              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Books Read Per Month</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">প্রতি মাসে গড়ে পঠিত বই</div>
             </div>
             <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
               <div className="text-3xl font-bold text-amber-400 mb-1">92%</div>
-              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Improved Academic Performance</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">লেখাপড়ায় মনোযোগ ও দক্ষতা বৃদ্ধি</div>
             </div>
             <div className="stat-item p-4 bg-slate-800/50 dark:bg-[#1a1a1a] rounded-xl border border-slate-700/40 dark:border-[#303030]">
               <div className="text-3xl font-bold text-amber-400 mb-1">
                 4.9/5
               </div>
-              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">Community Satisfaction</div>
+              <div className="text-slate-300 dark:text-slate-400 text-xs sm:text-sm">কমিউনিটি সন্তুষ্টি রেটিং</div>
             </div>
           </div>
         </div>

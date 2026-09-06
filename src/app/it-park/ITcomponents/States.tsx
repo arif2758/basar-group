@@ -88,10 +88,10 @@ function States() {
   }, []);
 
   const stats = [
-    { number: 1000, label: "Lives Impacted", icon: FaUsers },
-    { number: 500, label: "Students Trained", icon: FaGraduationCap },
-    { number: 200, label: "Jobs Created", icon: FaLaptopCode },
-    { number: 50, label: "Community Events", icon: FaCalendarAlt },
+    { number: 1000, label: "জীবনযাত্রার মান উন্নয়ন", icon: FaUsers },
+    { number: 500, label: "প্রশিক্ষণপ্রাপ্ত শিক্ষার্থী", icon: FaGraduationCap },
+    { number: 200, label: "সৃষ্ট কর্মসংস্থান", icon: FaLaptopCode },
+    { number: 50, label: "কমিউনিটি ও টেক ইভেন্ট", icon: FaCalendarAlt },
   ];
 
   return (

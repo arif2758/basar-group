@@ -1,11 +1,10 @@
+"use client";
+
 import { Eye, Globe, Target } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,7 +93,7 @@ function AboutBasarFoundation() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 ref={headerRef} className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
-              About BASAR Foundation
+              বাছার ফাউন্ডেশন সম্পর্কে
             </h2> 
 
             <div className="space-y-6 mb-8">
@@ -107,12 +106,10 @@ function AboutBasarFoundation() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                    Mission
+                    আমাদের মিশন
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    To empower communities through education, healthcare, and
-                    sustainable development initiatives that create lasting
-                    positive change.
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    শিক্ষা, স্বাস্থ্যসেবা ও টেকসই উন্নয়নমূলক উদ্যোগের মাধ্যমে সমাজের প্রতিটি মানুষকে ক্ষমতায়ন করা এবং সমাজে স্থায়ী ইতিবাচক পরিবর্তন সৃষ্টি করা।
                   </p>
                 </div>
               </div>
@@ -126,12 +123,10 @@ function AboutBasarFoundation() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                    Vision
+                    আমাদের ভিশন
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    A world where every individual has access to quality
-                    education, healthcare, and opportunities for sustainable
-                    development.
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    এমন একটি মানবিক সমাজ বিনির্মাণ, যেখানে প্রতিটি মানুষের জন্য মানসম্পন্ন শিক্ষা, সুচিকিৎসা এবং টেকসই আত্মউন্নয়নের সমান অধিকার ও সুযোগ থাকবে।
                   </p>
                 </div>
               </div>
@@ -145,12 +140,10 @@ function AboutBasarFoundation() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                    SDG Alignment
+                    টেকসই উন্নয়ন লক্ষ্যমাত্রা (SDG)
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    Our work directly contributes to UN Sustainable Development
-                    Goals: No Poverty, Quality Education, Good Health, and Clean
-                    Water.
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    আমাদের সকল সামাজিক কার্যক্রম জাতিসংঘের টেকসই উন্নয়ন লক্ষ্যমাত্রার (দারিদ্র্য বিমোচন, গুণগত শিক্ষা, সুস্বাস্থ্য এবং নিরাপদ পানি) সাথে প্রত্যক্ষভাবে সংগতিপূর্ণ।
                   </p>
                 </div>
               </div>
@@ -161,10 +154,10 @@ function AboutBasarFoundation() {
               className="bg-slate-50 dark:bg-[#141414] p-6 rounded-xl border border-slate-200 dark:border-[#303030] border-l-4 border-l-[#00A86B] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
             >
               <p className="text-lg italic text-slate-700 dark:text-slate-300">
-                Education is the most powerful weapon to change the world.
+                &quot;শিক্ষা হলো সবচেয়ে শক্তিশালী অস্ত্র, যা দিয়ে তুমি বিশ্বকে পরিবর্তন করতে পারো।&quot;
               </p>
-              <cite className="text-[#00A86B] font-semibold block mt-2">
-                - Nelson Mandela
+              <cite className="text-[#00A86B] font-semibold block mt-2 not-italic">
+                — নেলসন ম্যান্ডেলা
               </cite>
             </blockquote>
           </div>
@@ -172,7 +165,7 @@ function AboutBasarFoundation() {
           <div ref={imageRef}>
             <Image
               src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="About Us"
+              alt="বাছার ফাউন্ডেশন"
               width={600}
               height={400}
               className="rounded-xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] w-full h-auto"

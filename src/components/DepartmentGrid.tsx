@@ -9,11 +9,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface DepartmentGridProps {
-  language: "en" | "bn";
-}
-
-const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
+const DepartmentGrid: React.FC = () => {
   const [hoveredDept, setHoveredDept] = useState<string | null>(null);
   const { departments = [] } = departmentsData || {};
   const headerRef = useRef<HTMLDivElement>(null);
@@ -85,12 +81,10 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
-            {language === "en" ? "Our Departments" : "আমাদের বিভাগসমূহ"}
+            আমাদের বিভাগসমূহ
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            {language === "en"
-              ? "Four interconnected pillars working together to build stronger communities through education, empowerment, commerce, and technology."
-              : "চারটি আন্তঃসংযুক্ত স্তম্ভ যা শিক্ষা, ক্ষমতায়ন, ব্যবসা এবং প্রযুক্তির মাধ্যমে শক্তিশালী সম্প্রদায় গড়ে তুলতে একসাথে কাজ করছে।"}
+            চারটি আন্তঃসংযুক্ত স্তম্ভ যা শিক্ষা, ক্ষমতায়ন, ব্যবসা এবং প্রযুক্তির মাধ্যমে শক্তিশালী সম্প্রদায় গড়ে তুলতে একসাথে কাজ করছে।
           </p>
         </div>
 
@@ -117,7 +111,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                 <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-[#1a1a1a]">
                   <Image
                     src={dept.image}
-                    alt={dept.name[language]}
+                    alt={dept.name["bn"]}
                     width={100}
                     height={75}
                     className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
@@ -128,18 +122,18 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-2">
-                    {dept.name[language]}
+                    {dept.name["bn"]}
                   </h3>
                   <p
                     className="text-sm font-medium mb-3 transition-colors duration-300"
                     style={{ color: dept.color }}
                   >
-                    {dept.tagline[language]}
+                    {dept.tagline["bn"]}
                   </p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6">
-                    {dept.features[language].map((bullet, bulletIndex) => (
+                    {dept.features["bn"].map((bullet, bulletIndex) => (
                       <li
                         key={bulletIndex}
                         className="text-sm text-slate-600 dark:text-slate-300 flex items-start"
@@ -170,9 +164,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
                     }}
                   >
                     <span className="font-medium text-sm">
-                      {language === "en"
-                        ? `Visit ${dept.name[language].split(" ")[1]}`
-                        : `${dept.name[language].split(" ")[1]} দেখুন`}
+                      {dept.name["bn"]} দেখুন
                     </span>
                     <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>
@@ -201,9 +193,7 @@ const DepartmentGrid: React.FC<DepartmentGridProps> = ({ language }) => {
             className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-[#303030] bg-white dark:bg-[#141414] text-slate-800 dark:text-slate-200 text-base font-medium hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 shadow-xs hover:shadow transition-all duration-300"
           >
             <span>
-              {language === "en"
-                ? "See How They Connect"
-                : "দেখুন কীভাবে তারা সংযুক্ত"}
+              দেখুন কীভাবে তারা সংযুক্ত
             </span>
             <FiArrowRight className="w-5 h-5" />
           </a>
