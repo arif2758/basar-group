@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createMemberRequest } from "@/lib/treeStorage";
+import { auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
+    const session = await auth();
     const body = await req.json();
 
     if (!body.title || !body.parentKey) {
@@ -31,8 +33,9 @@ export async function POST(req: NextRequest) {
       profession: body.profession || "",
       spouse: body.spouse || "",
       bio: body.bio || "",
-      submitterName: body.submitterName || "",
+      submitterName: body.submitterName || session?.user?.fullname || "",
       submitterPhone: body.submitterPhone || "",
+      submitterEmail: session?.user?.email || "",
     });
 
     if (!result.success) {

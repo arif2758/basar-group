@@ -5,6 +5,9 @@ import "../styles/animations.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/sonner";
+
+import AuthProvider from "@/components/AuthProvider";
 
 const notoBengali = Noto_Sans_Bengali({
   variable: "--font-noto-bengali",
@@ -68,15 +71,19 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#070b14] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-[100vw]"
+        suppressHydrationWarning
+        className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#141414] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-[100vw]"
       >
-        <ThemeProvider>
-          <Navbar />
-          <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
-            {children}
-          </div>
-          <Footer />
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <Navbar />
+            <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
+              {children}
+            </div>
+            <Footer />
+            <Toaster position="bottom-right" richColors />
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

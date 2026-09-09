@@ -56,8 +56,8 @@ export default function MemberDetailModal({
   const keyInfo = parseMemberKeyInfo(member.key);
 
   const handleCopyLink = () => {
-    const textToCopy = `বাছার পরিবারবৃক্ষ: ${member.title} (আইডি: ${member.key}, ${getGenerationLabel(
-      member.generation
+    const textToCopy = `বাছার পরিবারবৃক্ষ: ${member.title} (জেন আইডি: ${member.key}, ${getGenerationLabel(
+      member.generation,
     )})`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
@@ -70,12 +70,12 @@ export default function MemberDetailModal({
       <div className="fixed inset-0" onClick={onClose} />
 
       {/* Modal Dialog Card */}
-      <div className="relative w-full sm:max-w-2xl max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-[#111726] border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10">
+      <div className="relative w-full sm:max-w-2xl max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10">
         {/* Mobile Pull Bar */}
         <div className="sm:hidden w-12 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 mx-auto mt-3 mb-1 flex-shrink-0" />
 
         {/* Modal Top Header Bar */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-slate-100 dark:border-slate-800/80 flex-shrink-0 bg-slate-50/70 dark:bg-[#0c121e]/70 backdrop-blur-md">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-slate-100 dark:border-[#303030]/80 flex-shrink-0 bg-slate-50/70 dark:bg-[#141414]/70 backdrop-blur-md">
           <div className="flex items-center gap-2">
             <span className="p-1.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
               <TreePine className="w-4 h-4" />
@@ -91,12 +91,14 @@ export default function MemberDetailModal({
             <button
               onClick={handleCopyLink}
               title="তথ্য কপি করুন"
-              className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1 text-xs font-semibold"
+              className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#ffffff14] transition-colors flex items-center gap-1 text-xs font-semibold"
             >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-500" />
-                  <span className="text-emerald-600 dark:text-emerald-400">কপি হয়েছে!</span>
+                  <span className="text-emerald-600 dark:text-emerald-400">
+                    কপি হয়েছে!
+                  </span>
                 </>
               ) : (
                 <>
@@ -108,7 +110,7 @@ export default function MemberDetailModal({
 
             <button
               onClick={onClose}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#ffffff14] transition-colors"
               aria-label="বন্ধ করুন"
             >
               <X className="w-5 h-5" />
@@ -119,7 +121,7 @@ export default function MemberDetailModal({
         {/* Scrollable Content Body */}
         <div className="overflow-y-auto px-5 sm:px-6 py-5 space-y-6 flex-1">
           {/* Main Profile Header with Avatar */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 pb-5 border-b border-slate-100 dark:border-slate-800/80">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 pb-5 border-b border-slate-100 dark:border-[#303030]/80">
             {/* Large Avatar */}
             <div
               className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl font-black shadow-lg flex-shrink-0 ${
@@ -147,14 +149,17 @@ export default function MemberDetailModal({
                 </span>
 
                 {/* Semantic ID Badge */}
-                <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-[#1a2233] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/60" title="অর্থবোধক বংশলতিকা আইডি">
-                  আইডি: {member.key}
+                <span
+                  className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-[#424242]/60"
+                  title="অর্থবোধক বংশলতিকা আইডি"
+                >
+                  জেন আইডি: {member.key}
                 </span>
 
                 {/* Living Status */}
                 {member.isAlive === false ? (
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                    পরলোকগত
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-200 dark:bg-[#2a2a2a] text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-[#424242]">
+                    প্রয়াত
                   </span>
                 ) : member.isAlive === true ? (
                   <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
@@ -171,7 +176,15 @@ export default function MemberDetailModal({
                 <span>{isFemale ? "মহিলা ♀" : "পুরুষ ♂"}</span>
                 <span>•</span>
                 <span>
-                  পিতার {keyInfo.birthOrder === 1 ? "১ম" : keyInfo.birthOrder === 2 ? "২য়" : keyInfo.birthOrder === 3 ? "৩য়" : `${keyInfo.birthOrder}তম`} সন্তান
+                  পিতার{" "}
+                  {keyInfo.birthOrder === 1
+                    ? "১ম"
+                    : keyInfo.birthOrder === 2
+                      ? "২য়"
+                      : keyInfo.birthOrder === 3
+                        ? "৩য়"
+                        : `${keyInfo.birthOrder}তম`}{" "}
+                  সন্তান
                 </span>
                 {member.children && (
                   <>
@@ -186,15 +199,18 @@ export default function MemberDetailModal({
           </div>
 
           {/* Biographical & Personal Details Card */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-50/70 dark:bg-[#0c121e]/80 border border-slate-200/80 dark:border-slate-800/80">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-50/70 dark:bg-[#141414]/80 border border-slate-200/80 dark:border-[#303030]/80">
             {/* Life span (Birth & Death) */}
             {(member.birthYear || member.deathYear) && (
               <div className="flex items-start gap-2.5">
                 <Calendar className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase">জীবনকাল</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    জীবনকাল
+                  </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                    {member.birthYear || "অজানা"} - {member.isAlive ? "বর্তমান" : member.deathYear || "অজানা"}
+                    {member.birthYear || "অজানা"} -{" "}
+                    {member.isAlive ? "বর্তমান" : member.deathYear || "অজানা"}
                   </p>
                 </div>
               </div>
@@ -205,7 +221,9 @@ export default function MemberDetailModal({
               <div className="flex items-start gap-2.5">
                 <Briefcase className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase">পেশা</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    পেশা
+                  </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {member.profession}
                   </p>
@@ -218,7 +236,9 @@ export default function MemberDetailModal({
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase">মোবাইল নম্বর</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    মোবাইল নম্বর
+                  </p>
                   <a
                     href={`tel:${member.phone}`}
                     className="text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
@@ -234,7 +254,9 @@ export default function MemberDetailModal({
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase">ঠিকানা / বাসস্থান</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    ঠিকানা / বাসস্থান
+                  </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {member.address}
                   </p>
@@ -247,7 +269,9 @@ export default function MemberDetailModal({
               <div className="flex items-start gap-2.5 sm:col-span-2">
                 <Heart className="w-4 h-4 text-pink-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase">জীবনসঙ্গী (স্বামী/স্ত্রী)</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    জীবনসঙ্গী (স্বামী/স্ত্রী)
+                  </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {member.spouse}
                   </p>
@@ -257,8 +281,10 @@ export default function MemberDetailModal({
 
             {/* Bio Note */}
             {member.bio && (
-              <div className="sm:col-span-2 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
-                <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">সংক্ষিপ্ত পরিচিতি</p>
+              <div className="sm:col-span-2 pt-2 border-t border-slate-200/60 dark:border-[#303030]/60">
+                <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">
+                  সংক্ষিপ্ত পরিচিতি
+                </p>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                   {member.bio}
                 </p>
@@ -267,13 +293,15 @@ export default function MemberDetailModal({
           </div>
 
           {/* Ancestry Lineage Trail (বংশধারা ক্রম) */}
-          <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-[#0c121e]/80 border border-slate-200/80 dark:border-slate-800/80">
+          <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-[#141414]/80 border border-slate-200/80 dark:border-[#303030]/80">
             <div className="flex items-center justify-between mb-3">
               <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                 <GitBranch className="w-3.5 h-3.5 text-emerald-500" />
                 <span>বংশলতিকা শিকড় (Ancestry Trail)</span>
               </p>
-              <span className="text-[11px] text-slate-400">ক্লিক করে প্রোফাইলে যান</span>
+              <span className="text-[11px] text-slate-400">
+                ক্লিক করে প্রোফাইলে যান
+              </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-1.5 text-xs">
@@ -286,7 +314,7 @@ export default function MemberDetailModal({
                       className={`px-2.5 py-1 rounded-lg transition-all font-medium flex items-center gap-1.5 ${
                         isCurrent
                           ? "bg-emerald-600 text-white font-bold shadow-sm"
-                          : "bg-white dark:bg-[#1a2233] text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#25324b] hover:text-emerald-600 dark:hover:text-emerald-400 border border-slate-200/60 dark:border-slate-700/60"
+                          : "bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#25324b] hover:text-emerald-600 dark:hover:text-emerald-400 border border-slate-200/60 dark:border-[#424242]/60"
                       }`}
                     >
                       <span className="text-[10px] opacity-75 font-mono">
@@ -328,7 +356,7 @@ export default function MemberDetailModal({
                     <button
                       key={child.key}
                       onClick={() => onSelectMember(child)}
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-[#0c121e]/80 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/15 border border-slate-200/60 dark:border-slate-800/80 hover:border-emerald-500/30 text-left transition-all group"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-[#141414]/80 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/15 border border-slate-200/60 dark:border-[#303030]/80 hover:border-emerald-500/30 text-left transition-all group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <span
@@ -365,7 +393,7 @@ export default function MemberDetailModal({
                 })}
               </div>
             ) : (
-              <div className="p-5 text-center rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0c121e]/40">
+              <div className="p-5 text-center rounded-2xl border border-dashed border-slate-200 dark:border-[#303030] bg-slate-50/50 dark:bg-[#141414]/40">
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
                   এই সদস্যের পরবর্তী কোনো সন্তানের তথ্য এখনো যুক্ত করা হয়নি।
                 </p>
@@ -382,14 +410,14 @@ export default function MemberDetailModal({
         </div>
 
         {/* Modal Bottom Action Footer */}
-        <div className="px-5 sm:px-6 py-3.5 bg-slate-50 dark:bg-[#0c121e] border-t border-slate-100 dark:border-slate-800/80 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2.5 flex-shrink-0">
+        <div className="px-5 sm:px-6 py-3.5 bg-slate-50 dark:bg-[#141414] border-t border-slate-100 dark:border-[#303030]/80 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2.5 flex-shrink-0">
           {onFocusInTree && (
             <button
               onClick={() => {
                 onFocusInTree(member);
                 onClose();
               }}
-              className="px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-center"
+              className="px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#ffffff14] transition-colors text-center"
             >
               ট্রি-তে এই সদস্যকে দেখুন
             </button>
@@ -406,7 +434,7 @@ export default function MemberDetailModal({
 
             <button
               onClick={onClose}
-              className="w-full xs:w-auto px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="w-full xs:w-auto px-4 py-2 rounded-xl border border-slate-200 dark:border-[#424242] text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#ffffff14] transition-colors"
             >
               বন্ধ করুন
             </button>

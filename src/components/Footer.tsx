@@ -25,21 +25,22 @@ export default function Footer() {
   }, []);
 
   const quickLinks = [
-    { href: "/library", label: "গ্রন্থাগার" },
+    { href: "/about", label: "আমাদের সম্পর্কে" },
+    { href: "/granthagar", label: "গ্রন্থাগার" },
     { href: "/foundation", label: "Foundation" },
-    { href: "/shop", label: "Super Shop" },
+    { href: "/super-shop", label: "Super Shop" },
     { href: "/it-park", label: "IT Park" },
-    { href: "#donate", label: "দান করুন" },
-    { href: "#contact", label: "যোগাযোগ" },
+    { href: "/foundation", label: "দান করুন" },
+    { href: "/contact", label: "যোগাযোগ" },
   ];
 
   const services = [
-    { label: "বই ডেলিভারি" },
-    { label: "IT প্রশিক্ষণ" },
-    { label: "কমিউনিটি সহায়তা" },
-    { label: "Scholarship" },
-    { label: "চাকরির সুযোগ" },
-    { label: "ব্যবসায়িক সহায়তা" },
+    { href: "/granthagar", label: "বই ডেলিভারি" },
+    { href: "/it-park#skills", label: "IT প্রশিক্ষণ" },
+    { href: "/foundation", label: "কমিউনিটি সহায়তা" },
+    { href: "/foundation#programs", label: "Scholarship" },
+    { href: "/it-park#jobs", label: "চাকরির সুযোগ" },
+    { href: "/it-park", label: "ব্যবসায়িক সহায়তা" },
   ];
 
   const contact = {
@@ -82,10 +83,10 @@ export default function Footer() {
               {/* Social Links */}
               <div className="flex space-x-4">
                 {[
-                  { icon: FiFacebook, href: "#", label: "Facebook" },
-                  { icon: FiTwitter, href: "#", label: "Twitter" },
-                  { icon: FiInstagram, href: "#", label: "Instagram" },
-                  { icon: FiYoutube, href: "#", label: "YouTube" },
+                  { icon: FiFacebook, href: "https://facebook.com", label: "Facebook" },
+                  { icon: FiTwitter, href: "https://twitter.com", label: "Twitter" },
+                  { icon: FiInstagram, href: "https://instagram.com", label: "Instagram" },
+                  { icon: FiYoutube, href: "https://youtube.com", label: "YouTube" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -127,10 +128,10 @@ export default function Footer() {
               <ul className="space-y-4">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <span className="text-gray-300 flex items-center group cursor-pointer hover:text-primary-accent ">
+                    <Link href={service.href} className="text-gray-300 flex items-center group cursor-pointer hover:text-primary-accent ">
                       <span className="w-0 group-hover:w-2 h-0.5 bg-soft transition-all duration-200 mr-0 group-hover:mr-3 bg-primary-accent "></span>
                       {service.label}
-                    </span>
+                    </Link>
                   </li>
                 ))}
               </ul>

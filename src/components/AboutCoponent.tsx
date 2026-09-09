@@ -135,26 +135,82 @@ export default function AboutComponent() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="hero-visual aspect-video rounded-3xl bg-gradient-to-tr from-indigo-500/10 via-pink-500/10 to-amber-500/10 dark:from-indigo-950/40 dark:via-purple-950/40 dark:to-slate-900/60 p-2.5 border border-slate-200/80 dark:border-white/10 shadow-xl">
-                <div className="h-full w-full rounded-2xl bg-white dark:bg-[#141414] grid grid-cols-3 gap-2.5 p-2.5 border border-slate-100 dark:border-white/5">
-                  <div className="col-span-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-center">
-                    <BookOpen className="w-9 h-9 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 flex items-center justify-center">
-                    <HeartHandshake className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div className="rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-900/40 flex items-center justify-center">
-                    <ShoppingBasket className="w-8 h-8 text-amber-600 dark:text-amber-400" />
-                  </div>
-                  <div className="col-span-2 rounded-xl bg-fuchsia-50 dark:bg-fuchsia-950/30 border border-fuchsia-100 dark:border-fuchsia-900/40 flex items-center justify-center">
-                    <Laptop className="w-9 h-9 text-fuchsia-600 dark:text-fuchsia-400" />
+            <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[450px] flex items-center justify-center mt-8 md:mt-0">
+              {/* Abstract Glowing Backgrounds */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[400px] max-h-[400px] bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/20 to-emerald-500/20 dark:from-indigo-600/20 dark:via-fuchsia-600/20 dark:to-emerald-600/20 rounded-full blur-3xl opacity-70 animate-[pulse_4s_ease-in-out_infinite]" />
+              
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] h-[280px] sm:h-[320px] lg:h-[360px] z-10">
+                {/* Main Glassmorphic Board */}
+                <div className="absolute inset-0 bg-white/70 dark:bg-[#141414]/80 backdrop-blur-2xl border border-white/60 dark:border-[#303030]/50 rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden transform md:-rotate-2 hover:rotate-0 transition-transform duration-500">
+                  {/* Inner subtle gradient top */}
+                  <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-indigo-50/80 dark:from-indigo-900/20 to-transparent pointer-events-none"></div>
+                  
+                  <div className="relative p-5 sm:p-7 lg:p-8 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-auto">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 sm:p-2.5 bg-gradient-to-tr from-indigo-600 to-indigo-500 rounded-xl shadow-lg shadow-indigo-500/30 text-white">
+                          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base lg:text-lg">BASAR Ecosystem</h3>
+                          <p className="text-[9px] sm:text-[10px] lg:text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Real-time Impact</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-1 relative">
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping absolute right-0"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 relative z-10"></div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6">
+                       <div className="bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 lg:p-5 border border-white/50 dark:border-[#303030]/50 shadow-sm transition-transform hover:-translate-y-1">
+                         <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-2 sm:mb-3">
+                           <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 dark:text-indigo-400" />
+                         </div>
+                         <p className="text-lg sm:text-xl lg:text-2xl font-black text-slate-900 dark:text-white tracking-tight">12.5k</p>
+                         <p className="text-[9px] sm:text-[10px] lg:text-xs text-slate-500 dark:text-slate-400 font-medium">Readers Connected</p>
+                       </div>
+                       <div className="bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 lg:p-5 border border-white/50 dark:border-[#303030]/50 shadow-sm transition-transform hover:-translate-y-1">
+                         <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-fuchsia-100 dark:bg-fuchsia-900/30 flex items-center justify-center mb-2 sm:mb-3">
+                           <Laptop className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-fuchsia-600 dark:text-fuchsia-400" />
+                         </div>
+                         <p className="text-lg sm:text-xl lg:text-2xl font-black text-slate-900 dark:text-white tracking-tight">500+</p>
+                         <p className="text-[9px] sm:text-[10px] lg:text-xs text-slate-500 dark:text-slate-400 font-medium">Tech Students</p>
+                       </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="hero-badge-floating absolute -bottom-5 -right-3 sm:-right-5 rounded-2xl bg-white/95 dark:bg-[#141414]/95 border border-slate-200 dark:border-[#303030] shadow-lg backdrop-blur-md px-4 py-3 text-xs sm:text-sm flex items-center gap-2 text-slate-800 dark:text-slate-200">
-                <FaRegSmileBeam className="text-amber-500 w-4 h-4" />
-                <span>বাস্তব পরিবর্তনের নিশ্চয়তা ✨</span>
+
+                {/* Floating Element 1 - Top Right */}
+                <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-8 bg-white/95 dark:bg-[#141414]/95 backdrop-blur-xl border border-slate-200/60 dark:border-[#303030] rounded-2xl p-3 sm:p-4 shadow-xl transform md:rotate-3 hover:rotate-6 transition-transform duration-300 z-20 w-36 sm:w-40 lg:w-48">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <HeartHandshake className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-emerald-600 dark:text-emerald-400" />
+                      <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-slate-900 dark:text-white">Foundation</span>
+                    </div>
+                  </div>
+                  <div className="w-full bg-slate-100 dark:bg-[#202020] rounded-full h-1 sm:h-1.5 mb-1 sm:mb-1.5 overflow-hidden">
+                    <div className="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full w-[85%]"></div>
+                  </div>
+                  <p className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-500 dark:text-slate-400 text-right font-medium">Impact Growing</p>
+                </div>
+
+                {/* Floating Element 2 - Bottom Left */}
+                <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 lg:-bottom-8 lg:-left-8 bg-white/95 dark:bg-[#141414]/95 backdrop-blur-xl border border-slate-200/60 dark:border-[#303030] rounded-2xl p-2.5 sm:p-3 lg:p-4 shadow-xl transform md:-rotate-3 hover:-rotate-6 transition-transform duration-300 z-20 w-40 sm:w-44 lg:w-52 flex items-center gap-2 sm:gap-3 lg:gap-4">
+                  <div className="p-2 sm:p-2.5 lg:p-3 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-100/50 dark:border-amber-900/30 rounded-xl shadow-inner">
+                    <ShoppingBasket className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] sm:text-xs lg:text-sm font-bold text-slate-900 dark:text-white">Super Shop</p>
+                    <p className="text-[8px] sm:text-[9px] lg:text-xs text-slate-500 dark:text-slate-400 font-medium">Local Commerce</p>
+                  </div>
+                </div>
+
+                {/* Floating Badge */}
+                <div className="absolute -right-1 bottom-6 sm:-right-4 sm:bottom-8 lg:-right-6 lg:bottom-12 bg-gradient-to-r from-indigo-600 to-pink-600 text-white text-[9px] sm:text-[10px] lg:text-xs font-bold px-2.5 py-1.5 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full shadow-[0_8px_16px_-4px_rgba(236,72,153,0.4)] flex items-center gap-1 sm:gap-1.5 lg:gap-2 transform md:rotate-12 z-30 hover:scale-105 transition-transform cursor-default">
+                  <FaRegSmileBeam className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-pink-100" />
+                  <span>বাস্তব পরিবর্তন ✨</span>
+                </div>
               </div>
             </div>
           </div>

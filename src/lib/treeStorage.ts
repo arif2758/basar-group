@@ -281,6 +281,7 @@ export interface IFamilyRequestItem {
   bio?: string;
   submitterName?: string;
   submitterPhone?: string;
+  submitterEmail?: string;
   status: "pending" | "approved" | "rejected";
   rejectionReason?: string;
   createdAt: string;

@@ -90,7 +90,7 @@ export default function FooterShop() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <Link href="/super-shop/shop?category=fresh-produce" className="hover:text-emerald-400 transition-colors">
+                <Link href="/super-shop/shop?category=fruits" className="hover:text-emerald-400 transition-colors">
                   তাজা শাকসবজি ও ফল
                 </Link>
               </li>
@@ -105,12 +105,12 @@ export default function FooterShop() {
                 </Link>
               </li>
               <li>
-                <Link href="/super-shop/shop?category=grains-&-rice" className="hover:text-emerald-400 transition-colors">
+                <Link href="/super-shop/shop?category=rice-grains" className="hover:text-emerald-400 transition-colors">
                   চাল ও অর্গানিক শস্য
                 </Link>
               </li>
               <li>
-                <Link href="/super-shop/shop?category=seafood" className="hover:text-emerald-400 transition-colors">
+                <Link href="/super-shop/shop?category=meat-fish" className="hover:text-emerald-400 transition-colors">
                   তাজা মাছ ও সি-ফুড
                 </Link>
               </li>
@@ -139,7 +139,7 @@ export default function FooterShop() {
                 </Link>
               </li>
               <li>
-                <Link href="/super-shop/contact" className="hover:text-emerald-400 transition-colors">
+                <Link href="/contact" className="hover:text-emerald-400 transition-colors">
                   সাহায্য ও কাস্টমার সাপোর্ট
                 </Link>
               </li>

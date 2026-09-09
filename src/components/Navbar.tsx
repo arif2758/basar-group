@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 import {
   Home,
   BookOpen,
@@ -22,9 +23,12 @@ import {
   Search,
   Target,
   TrendingUp,
+  LayoutDashboard,
+  ShieldCheck,
   Heart,
   LayoutGrid,
   Trophy,
+  GitPullRequestDraft,
   Store,
   ShoppingBag,
   MessageSquare,
@@ -41,6 +45,8 @@ import {
   Cookie,
   Coffee,
   Sparkles,
+  LogOut,
+  User as UserIcon,
 } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -59,7 +65,9 @@ const categories = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
     library: false,
@@ -83,6 +91,9 @@ export default function Navbar() {
       const target = e.target as HTMLElement;
       if (!target.closest(".nav-dropdown-container")) {
         setActiveDropdown(null);
+      }
+      if (!target.closest(".profile-dropdown-container")) {
+        setProfileOpen(false);
       }
     };
     document.addEventListener("click", handleOutsideClick);
@@ -645,23 +656,6 @@ export default function Navbar() {
                 <span>ফ্যামিলি ট্রি</span>
               </Link>
 
-              {/* About Us */}
-              <Link
-                href="/about"
-                className={navItemClass(isSectionActive("/about"))}
-              >
-                <Info className="w-3.5 h-3.5 opacity-70" />
-                <span>আমাদের সম্পর্কে</span>
-              </Link>
-
-              {/* Contact */}
-              <Link
-                href="/contact"
-                className={navItemClass(isSectionActive("/contact"))}
-              >
-                <Phone className="w-3.5 h-3.5 opacity-70" />
-                <span>যোগাযোগ</span>
-              </Link>
             </nav>
 
             {/* Right Side: ThemeSwitcher + Mobile Menu Button */}
@@ -669,6 +663,101 @@ export default function Navbar() {
               
               {/* ThemeSwitcher */}
               <ThemeSwitcher />
+
+              {/* Auth Button / Profile Dropdown */}
+              <div className="relative profile-dropdown-container ml-1 hidden lg:block">
+                {status === "loading" ? (
+                  <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-[#333] animate-pulse"></div>
+                ) : session?.user ? (
+                  <>
+                    <button
+                      onClick={() => setProfileOpen(!profileOpen)}
+                      className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-slate-200 dark:border-[#303030] hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-[#1f1f1f] hover:bg-slate-50 dark:hover:bg-white/5 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 focus:outline-none shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
+                      title={session.user.fullname}
+                    >
+                      <UserIcon className="w-4 h-4" />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    {profileOpen && (
+                      <div className="absolute top-full right-0 mt-2 w-56 rounded-xl bg-white dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] shadow-xl p-1 z-50 animate-in fade-in zoom-in-95 duration-200">
+                        <div className="px-3 py-2.5 border-b border-slate-100 dark:border-[#2a2a2a] mb-1">
+                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
+                            {session.user.fullname}
+                          </p>
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                            {session.user.email}
+                          </p>
+                          {session.user.role === "ADMIN" && (
+                            <span className="inline-block mt-1.5 px-2 py-0.5 text-[10px] font-bold bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400 rounded-md">
+                              ADMIN
+                            </span>
+                          )}
+                        </div>
+                        <div className="p-1 space-y-0.5">
+                          <Link
+                            href="/dashboard"
+                            onClick={() => setProfileOpen(false)}
+                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                          >
+                            <LayoutDashboard className="w-4 h-4 opacity-70" />
+                            <span>ড্যাশবোর্ড ওভারভিউ</span>
+                          </Link>
+                          
+                          <Link
+                            href="/dashboard/profile"
+                            onClick={() => setProfileOpen(false)}
+                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                          >
+                            <UserIcon className="w-4 h-4 opacity-70" />
+                            <span>প্রোফাইল সেটিংস</span>
+                          </Link>
+
+                          <Link
+                            href="/dashboard/requests"
+                            onClick={() => setProfileOpen(false)}
+                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                          >
+                            <GitPullRequestDraft className="w-4 h-4 opacity-70" />
+                            <span>আমার রিকোয়েস্ট</span>
+                          </Link>
+
+                          {session.user.role === "ADMIN" && (
+                            <Link
+                              href="/admin/family-tree"
+                              onClick={() => setProfileOpen(false)}
+                              className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                            >
+                              <ShieldCheck className="w-4 h-4 opacity-70" />
+                              <span>অ্যাডমিন প্যানেল</span>
+                            </Link>
+                          )}
+                          
+                          <div className="h-px bg-slate-100 dark:bg-[#2a2a2a] my-1" />
+
+                          <button
+                            onClick={() => {
+                              setProfileOpen(false);
+                              signOut();
+                            }}
+                            className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-colors"
+                          >
+                            <LogOut className="w-4 h-4 opacity-70" />
+                            <span>লগ আউট</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="flex items-center justify-center h-9 px-4 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white text-[13px] font-medium transition-colors shadow-sm"
+                  >
+                    লগিন
+                  </Link>
+                )}
+              </div>
 
               {/* Mobile Drawer Trigger */}
               <button
@@ -1036,34 +1125,57 @@ export default function Navbar() {
                 <span>ফ্যামিলি ট্রি</span>
               </Link>
 
-              {/* About Us */}
-              <Link
-                href="/about"
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
-                  isSectionActive("/about")
-                    ? "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-semibold"
-                    : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5"
-                }`}
-              >
-                <Info className="w-4 h-4 opacity-75" />
-                <span>আমাদের সম্পর্কে</span>
-              </Link>
+            </div>
 
-              {/* Contact */}
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
-                  isSectionActive("/contact")
-                    ? "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-semibold"
-                    : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5"
-                }`}
-              >
-                <Phone className="w-4 h-4 opacity-75" />
-                <span>যোগাযোগ</span>
-              </Link>
-
+            {/* Mobile Auth (Bottom) */}
+            <div className="px-3 pt-3 pb-4 border-t border-slate-100 dark:border-[#222]">
+              {status === "loading" ? (
+                <div className="h-10 bg-slate-100 dark:bg-[#222] animate-pulse rounded-xl"></div>
+              ) : session?.user ? (
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-[#2a2a2a]">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                      <UserIcon className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
+                        {session.user.fullname}
+                      </p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                        {session.user.email}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      href={session.user.role === "ADMIN" ? "/admin" : "/profile"}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <UserIcon className="w-4 h-4" />
+                      প্রোফাইল
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setMobileOpen(false);
+                        signOut();
+                      }}
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-sm font-medium hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-colors"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      লগ আউট
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#1677ff] hover:bg-[#4096ff] text-white text-sm font-medium transition-colors shadow-sm"
+                >
+                  লগিন / সাইন আপ
+                </Link>
+              )}
             </div>
 
             {/* Drawer Footer with Theme Switcher */}

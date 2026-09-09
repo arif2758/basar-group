@@ -96,7 +96,7 @@ function NextraTreeItem({
             ? "bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border-l-2 border-emerald-500"
             : isHighlighted
               ? "bg-amber-400/20 text-amber-900 dark:text-amber-200 font-bold border-l-2 border-amber-500"
-              : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
+              : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
         }`}
         onClick={() => {
           onSelectMember(member);
@@ -176,7 +176,7 @@ function NextraTreeItem({
 
       {/* Sub-tree with Indented Guide Line (Nextra style) */}
       {hasChildren && isExpanded && (
-        <div className="relative pl-3.5 ml-3 border-l border-slate-200 dark:border-slate-800 space-y-0.5 mt-0.5">
+        <div className="relative pl-3.5 ml-3 border-l border-slate-200 dark:border-[#303030] space-y-0.5 mt-0.5">
           {member.children!.map((child) => (
             <NextraTreeItem
               key={child.key}
@@ -264,9 +264,9 @@ function AntDCascaderView({
         {levels.map((columnMembers, colIdx) => (
           <div
             key={colIdx}
-            className="w-56 sm:w-64 flex-shrink-0 border border-slate-200/80 dark:border-slate-800 rounded-xl p-2 bg-slate-50/60 dark:bg-[#111726]/60 max-h-[440px] overflow-y-auto"
+            className="w-56 sm:w-64 flex-shrink-0 border border-slate-200/80 dark:border-[#303030] rounded-xl p-2 bg-slate-50/60 dark:bg-[#141414]/60 max-h-[440px] overflow-y-auto"
           >
-            <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1 mb-1 border-b border-slate-200/50 dark:border-slate-800">
+            <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1 mb-1 border-b border-slate-200/50 dark:border-[#303030]">
               {getGenerationLabel(colIdx + 1)}
             </div>
 
@@ -293,7 +293,7 @@ function AntDCascaderView({
                           ? "bg-emerald-600 text-white font-bold shadow-sm"
                           : isSelected
                             ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold"
-                            : "text-slate-700 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-[#1a2233] hover:text-slate-900 dark:hover:text-white"
+                            : "text-slate-700 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
                       <div className="flex items-center gap-2 min-w-0">
@@ -393,7 +393,7 @@ function MemberDossier({
         {onOpenDetailModal && (
           <button
             onClick={() => onOpenDetailModal(member)}
-            className="py-1.5 px-3 rounded-xl bg-slate-100 dark:bg-[#1f2535] hover:bg-slate-200 dark:hover:bg-[#2a3449] text-slate-800 dark:text-slate-200 text-xs font-bold transition-colors text-center"
+            className="py-1.5 px-3 rounded-xl bg-slate-100 dark:bg-[#1f1f1f] hover:bg-slate-200 dark:hover:bg-[#303030] text-slate-800 dark:text-slate-200 text-xs font-bold transition-colors text-center"
           >
             বিস্তারিত প্রোফাইল
           </button>
@@ -540,7 +540,7 @@ function MemberDossier({
    Main FamilyTree Component
    ───────────────────────────────────────────── */
 
-export default function FamilyTree() {
+export default function FamilyTree({ isAdmin = false }: { isAdmin?: boolean }) {
   // Tree data with localStorage persistence
   const [treeData, setTreeData] = useState<FamilyMember[]>(familyTreeData);
 
@@ -693,7 +693,7 @@ export default function FamilyTree() {
   const handleAddMember = useCallback(
     async (
       parentKey: string,
-      memberData: Omit<FamilyMember, "key" | "generation">,
+      memberData: Omit<FamilyMember, "key" | "generation"> & { suggestedKey?: string },
       submitterInfo?: { name: string; phone: string },
     ) => {
       // 1. Submit crowd-sourced request to MongoDB Atlas
@@ -744,7 +744,7 @@ export default function FamilyTree() {
 
         // Show toast
         setToastMessage(
-          `সদস্য "${result.newMember.title}" এর তথ্য সেন্ট্রাল ডাটাবেজে সফলভাবে গৃহীত হয়েছে! (আইডি: ${result.newMember.key})`,
+          `সদস্য "${result.newMember.title}" এর তথ্য সেন্ট্রাল ডাটাবেজে সফলভাবে গৃহীত হয়েছে! (জেন আইডি: ${result.newMember.key})`,
         );
         setTimeout(() => setToastMessage(null), 5000);
         setTimeout(() => setHighlightedKey(null), 3500);
@@ -786,7 +786,7 @@ export default function FamilyTree() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50/60 dark:bg-[#070b14] text-slate-900 dark:text-white transition-colors duration-200 pb-20">
+    <div className="min-h-screen bg-slate-50/60 dark:bg-[#141414] text-slate-900 dark:text-white transition-colors duration-200 pb-20">
       {/* Compact Mobile-First Header */}
       <header className="pt-6 pb-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -805,10 +805,10 @@ export default function FamilyTree() {
             {/* Quick Pill Stats Bar & Add Button */}
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#151c2c] border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 shadow-sm">
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#141414] border border-slate-200/80 dark:border-[#424242]/60 text-slate-700 dark:text-slate-200 shadow-sm">
                   👥 {totalMembers} জন সদস্য
                 </span>
-                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#151c2c] border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 shadow-sm">
+                <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#141414] border border-slate-200/80 dark:border-[#424242]/60 text-slate-700 dark:text-slate-200 shadow-sm">
                   🌳 {maxGen}টি প্রজন্ম
                 </span>
                 <span className="px-3 py-1.5 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300 border border-blue-500/20 dark:border-blue-500/40">
@@ -820,15 +820,17 @@ export default function FamilyTree() {
               </div>
 
               {/* Admin Panel Link */}
-              <Link
-                href="/admin/family-tree"
-                className="w-full sm:w-auto px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#151c2c] dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 border border-slate-200/80 dark:border-slate-700/60 shadow-sm transition-all"
-              >
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span>অ্যাডমিন প্যানেল</span>
-              </Link>
+              {isAdmin && (
+                <Link
+                  href="/admin/family-tree"
+                  className="w-full sm:w-auto px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#141414] dark:hover:bg-[#ffffff14] text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 border border-slate-200/80 dark:border-[#424242]/60 shadow-sm transition-all"
+                >
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>অ্যাডমিন প্যানেল</span>
+                </Link>
+              )}
 
-              {/* + Add Member Button - Temporarily Hidden
+              {/* + Add Member Button */}
               <button
                 onClick={() => {
                   setAddModalParentKey(selectedMember?.key || "1-1-1-1-1");
@@ -839,7 +841,6 @@ export default function FamilyTree() {
                 <UserPlus className="w-4 h-4" />
                 <span>+ নতুন সদস্য যোগ করুন</span>
               </button>
-              */}
             </div>
           </div>
 
@@ -909,12 +910,12 @@ export default function FamilyTree() {
             {/* View Mode & Filter Controls */}
             <div className="flex flex-col xs:flex-row sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
               {/* Nextra vs Cascader Switcher */}
-              <div className="grid grid-cols-2 sm:flex items-center bg-slate-100 dark:bg-[#151c2c] p-0.5 rounded-xl border border-slate-200/80 dark:border-slate-700/60 flex-1 sm:flex-initial">
+              <div className="grid grid-cols-2 sm:flex items-center bg-slate-100 dark:bg-[#141414] p-0.5 rounded-xl border border-slate-200/80 dark:border-[#424242]/60 flex-1 sm:flex-initial">
                 <button
                   onClick={() => setViewStyle("nextra")}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
                     viewStyle === "nextra"
-                      ? "bg-white dark:bg-[#0c121e] text-emerald-600 dark:text-emerald-400 shadow-sm"
+                      ? "bg-white dark:bg-[#141414] text-emerald-600 dark:text-emerald-400 shadow-sm"
                       : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                   }`}
                   title="Nextra ডকস সাইডবার স্টাইল"
@@ -927,7 +928,7 @@ export default function FamilyTree() {
                   onClick={() => setViewStyle("cascader")}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
                     viewStyle === "cascader"
-                      ? "bg-white dark:bg-[#0c121e] text-emerald-600 dark:text-emerald-400 shadow-sm"
+                      ? "bg-white dark:bg-[#141414] text-emerald-600 dark:text-emerald-400 shadow-sm"
                       : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                   }`}
                   title="AntD ক্যাসকেডার ড্রিলডাউন স্টাইল"
@@ -946,7 +947,7 @@ export default function FamilyTree() {
                     className={`px-2.5 py-1.5 rounded-lg text-xs font-bold text-center transition-colors ${
                       selectedGender === g
                         ? "bg-emerald-600 text-white shadow-sm"
-                        : "bg-slate-100 dark:bg-[#151c2c] text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 hover:bg-slate-200 dark:hover:bg-[#1e283d] hover:text-slate-900 dark:hover:text-white"
+                        : "bg-slate-100 dark:bg-[#141414] text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-[#424242]/60 hover:bg-slate-200 dark:hover:bg-[#1f1f1f] hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     {g === "all" ? "সকল" : g === "male" ? "পুরুষ" : "মহিলা"}
@@ -1086,7 +1087,7 @@ export default function FamilyTree() {
                 setAddModalParentKey(selectedMember?.key || "1-1-1-1-1");
                 setIsAddModalOpen(true);
               }}
-              className="px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-semibold flex items-center gap-1 text-slate-700 dark:text-slate-200"
+              className="px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-[#424242] hover:bg-slate-100 dark:hover:bg-[#ffffff14] text-xs font-semibold flex items-center gap-1 text-slate-700 dark:text-slate-200"
             >
               <UserPlus className="w-3.5 h-3.5 text-emerald-500" />
               <span>+ যোগ</span>

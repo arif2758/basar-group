@@ -301,27 +301,7 @@ const CommunityWall = () => {
   );
 
   const handleToggle = (showTestimonialsValue: boolean) => {
-    const currentContent = showTestimonials
-      ? testimonialsRef.current
-      : gridRef.current;
-
-    gsap.to(currentContent, {
-      opacity: 0,
-      y: 20,
-      duration: 0.3,
-      ease: "power2.out",
-      onComplete: () => {
-        setShowTestimonials(showTestimonialsValue);
-        const newContent = showTestimonialsValue
-          ? testimonialsRef.current
-          : gridRef.current;
-        gsap.fromTo(
-          newContent,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
-        );
-      },
-    });
+    setShowTestimonials(showTestimonialsValue);
   };
 
   const filteredDonors =
@@ -424,12 +404,12 @@ const CommunityWall = () => {
             {/* Donors Grid */}
             <div
               ref={gridRef}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 mb-16"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500"
             >
               {filteredDonors.map((donor) => (
                 <div
                   key={donor.id}
-                  className="donor-card group bg-white dark:bg-[#141414] rounded-xl p-4 sm:p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 transition-all duration-200"
+                  className="donor-card group bg-white dark:bg-[#141414] rounded-xl p-4 sm:p-5 text-center border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300"
                 >
                   <div className="relative mb-3 inline-block">
                     <Image
@@ -483,12 +463,12 @@ const CommunityWall = () => {
           /* Testimonials Grid */
           <div
             ref={testimonialsRef}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500"
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="testimonial-card group bg-white dark:bg-[#141414] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 transition-all duration-200 flex flex-col justify-between"
+                className="testimonial-card group bg-white dark:bg-[#141414] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] hover:border-blue-400 dark:hover:border-blue-500/50 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center space-x-1 mb-4">

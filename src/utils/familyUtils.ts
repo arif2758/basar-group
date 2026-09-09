@@ -182,7 +182,7 @@ export function getAllSelectableParents(
 export function addMemberToTree(
   tree: FamilyMember[],
   parentKey: string,
-  newMemberData: Omit<FamilyMember, "key" | "generation">
+  newMemberData: Omit<FamilyMember, "key" | "generation"> & { suggestedKey?: string }
 ): { updatedTree: FamilyMember[]; newMember: FamilyMember } | null {
   // ডিপ কপি তৈরি
   const clonedTree: FamilyMember[] = JSON.parse(JSON.stringify(tree));
@@ -193,9 +193,11 @@ export function addMemberToTree(
     return null;
   }
 
-  const nextKey = generateNextChildKey(parent.key, parent.children);
+  const nextKey = newMemberData.suggestedKey || generateNextChildKey(parent.key, parent.children);
+  const { suggestedKey, ...restMemberData } = newMemberData;
+
   const newMember: FamilyMember = {
-    ...newMemberData,
+    ...restMemberData,
     key: nextKey,
     generation: parent.generation + 1,
     children: [],

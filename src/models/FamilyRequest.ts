@@ -16,6 +16,7 @@ export interface IFamilyRequestDocument extends Document {
   bio?: string;
   submitterName?: string;
   submitterPhone?: string;
+  submitterEmail?: string;
   status: "pending" | "approved" | "rejected";
   rejectionReason?: string;
   createdAt: Date;
@@ -39,6 +40,7 @@ const FamilyRequestSchema = new Schema<IFamilyRequestDocument>(
     bio: { type: String, default: "" },
     submitterName: { type: String, default: "" },
     submitterPhone: { type: String, default: "" },
+    submitterEmail: { type: String, default: "" },
     status: {
       type: String,
       enum: ["pending", "approved", "rejected"],
