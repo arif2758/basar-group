@@ -166,7 +166,7 @@ export async function updateFamilyMember(
       const updated = await FamilyMemberModel.findOneAndUpdate(
         { key },
         { $set: safeUpdates },
-        { new: true }
+        { returnDocument: 'after' }
       ).lean();
       if (updated) {
         return {

@@ -50,38 +50,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-neutral-dark text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
-        <div className="absolute top-0 left-0 w-32 h-32 bg-accent rounded-full -translate-x-16 -translate-y-16"></div>
-        <div className="absolute bottom-0 right-0 w-24 h-24 bg-soft rounded-full translate-x-12 translate-y-12"></div>
+    <footer className="bg-white dark:bg-[#1f1f1f] text-slate-800 dark:text-slate-200 border-t border-slate-200 dark:border-[#303030] relative overflow-hidden transition-colors">
+      {/* Background Decorative Gradient */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.07] pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full blur-3xl -translate-x-36 -translate-y-36"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-500 rounded-full blur-3xl translate-x-36 translate-y-36"></div>
       </div>
 
       <div className="relative z-10">
         {/* Main Footer */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 lg:gap-10">
             {/* Brand Column */}
-            <div className="lg:col-span-1 space-y-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-primary-green rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">B</span>
+            <div className="lg:col-span-1 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 flex items-center justify-center shadow-xs">
+                  <span className="text-white font-bold text-lg select-none">B</span>
                 </div>
-                <div className="text-center flex flex-col justify-center">
-                  <h3 className="font-poppins font-bold text-xl">
+                <div className="flex flex-col justify-center">
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white tracking-tight">
                     BASAR Group
                   </h3>
-                  <p className="text-gray-400 text-sm">Learn. Earn. Empower.</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs">Learn. Earn. Empower.</p>
                 </div>
               </div>
 
-              <p className="text-gray-300 leading-relaxed">
-              বাছার পরিবার ও কমিউনিটির উন্নয়নে প্রতিশ্রুতিবদ্ধ। শিক্ষা, দক্ষতা ও পারস্পরিক সহায়তার মাধ্যমে একটি উন্নত ভবিষ্যৎ গড়ছি।
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                বাছার পরিবার ও কমিউনিটির উন্নয়নে প্রতিশ্রুতিবদ্ধ। শিক্ষা, দক্ষতা ও পারস্পরিক সহায়তার মাধ্যমে একটি উন্নত ভবিষ্যৎ গড়ছি।
               </p>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex items-center gap-2.5 pt-1">
                 {[
                   { icon: FiFacebook, href: "https://facebook.com", label: "Facebook" },
                   { icon: FiTwitter, href: "https://twitter.com", label: "Twitter" },
@@ -92,9 +92,11 @@ export default function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors duration-200 hover:scale-110 transform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-[#262626] border border-slate-200 dark:border-[#303030] text-slate-600 dark:text-slate-400 hover:bg-[#1677ff] hover:text-white dark:hover:bg-[#1677ff] dark:hover:text-white dark:hover:border-[#1677ff] flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 shadow-xs cursor-pointer"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                   </a>
                 ))}
               </div>
@@ -102,17 +104,17 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-900 dark:text-white mb-4">
                 দ্রুত লিংক
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-2.5">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-primary-accent transition-colors duration-200 flex items-center group"
+                      className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#1677ff] dark:hover:text-[#1677ff] transition-colors duration-150 flex items-center group"
                     >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-primary-accent transition-all duration-200 mr-0 group-hover:mr-3"></span>
+                      <span className="w-0 group-hover:w-2 h-0.5 bg-[#1677ff] transition-all duration-150 mr-0 group-hover:mr-2 rounded-full"></span>
                       {link.label}
                     </Link>
                   </li>
@@ -122,14 +124,17 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-900 dark:text-white mb-4">
                 আমাদের সেবা
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-2.5">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <Link href={service.href} className="text-gray-300 flex items-center group cursor-pointer hover:text-primary-accent ">
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-soft transition-all duration-200 mr-0 group-hover:mr-3 bg-primary-accent "></span>
+                    <Link
+                      href={service.href}
+                      className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#1677ff] dark:hover:text-[#1677ff] transition-colors duration-150 flex items-center group cursor-pointer"
+                    >
+                      <span className="w-0 group-hover:w-2 h-0.5 bg-[#1677ff] transition-all duration-150 mr-0 group-hover:mr-2 rounded-full"></span>
                       {service.label}
                     </Link>
                   </li>
@@ -137,32 +142,32 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact Info */}
+            {/* Contact Info & Newsletter */}
             <div>
-              <h4 className="font-poppins font-semibold text-lg mb-6 text-white">
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-900 dark:text-white mb-4">
                 যোগাযোগ
               </h4>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <FiMapPin className="w-5 h-5 text-primary-accent mt-1 flex-shrink-0" />
-                  <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="space-y-3">
+                <div className="flex items-start gap-2.5">
+                  <FiMapPin className="w-4 h-4 text-[#1677ff] mt-0.5 shrink-0" />
+                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
                     {contact.address}
                   </p>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FiPhone className="w-5 h-5 text-primary-accent flex-shrink-0" />
+                <div className="flex items-center gap-2.5">
+                  <FiPhone className="w-4 h-4 text-[#1677ff] shrink-0" />
                   <a
                     href={`tel:${contact.phone}`}
-                    className="text-gray-300 hover:text-accent transition-colors"
+                    className="text-slate-600 dark:text-slate-400 hover:text-[#1677ff] dark:hover:text-[#1677ff] text-xs transition-colors"
                   >
                     {contact.phone}
                   </a>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FiMail className="w-5 h-5 text-primary-accent flex-shrink-0" />
+                <div className="flex items-center gap-2.5">
+                  <FiMail className="w-4 h-4 text-[#1677ff] shrink-0" />
                   <a
                     href={`mailto:${contact.email}`}
-                    className="text-gray-300 hover:text-accent transition-colors"
+                    className="text-slate-600 dark:text-slate-400 hover:text-[#1677ff] dark:hover:text-[#1677ff] text-xs transition-colors"
                   >
                     {contact.email}
                   </a>
@@ -170,18 +175,22 @@ export default function Footer() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="mt-6 p-4 bg-gray-800/50 rounded-lg  ">
-                <p className="text-sm text-gray-300 mb-3">
+              <div className="mt-5 p-3.5 bg-slate-50 dark:bg-[#262626] border border-slate-200 dark:border-[#303030] rounded-xl">
+                <p className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-2.5">
                   আপডেট পেতে Subscribe করুন
                 </p>
                 <div className="flex">
                   <input
                     type="email"
                     placeholder="আপনার Email লিখুন"
-                    className="flex-1 px-3 py-2 bg-gray-700 rounded-l-md text-sm focus:outline-none focus:border-accent"
+                    className="flex-1 min-w-0 px-3 py-1.5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] text-slate-800 dark:text-slate-200 placeholder:text-slate-400 rounded-l-lg text-xs focus:outline-none focus:border-[#1677ff] transition-colors"
                   />
-                  <button className="bg-primary-accent hover:bg-accent-600 px-4 py-2 rounded-r-md transition-colors">
-                    <FiMail className="w-4 h-4" />
+                  <button
+                    type="button"
+                    aria-label="Subscribe"
+                    className="bg-[#1677ff] hover:bg-[#4096ff] text-white px-3.5 py-1.5 rounded-r-lg transition-colors flex items-center justify-center cursor-pointer shadow-xs shrink-0"
+                  >
+                    <FiMail className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -189,33 +198,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <hr />
+        {/* Bottom Bar Separator */}
+        <div className="border-t border-slate-200 dark:border-[#303030]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+              <div className="text-slate-500 dark:text-slate-400 text-xs text-center md:text-left">
+                © {new Date().getFullYear()} BASAR Group. সর্বস্বত্ব সংরক্ষিত।
+              </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm text-center md:text-left">
-              © 2024 BASAR Group.{" "}
-              সকল অধিকার সংরক্ষিত।
-            </div>
-
-            <div className="flex items-center space-x-6 text-sm">
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                গোপনীয়তা নীতি
-              </Link>
-              <Link
-                href="/terms"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                শর্তাবলী
-              </Link>
-              <span className="text-gray-600">•</span>
-              <span className="text-gray-400">
-                প্রেমের সাথে তৈরি ❤️
-              </span>
+              <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                <Link
+                  href="/privacy"
+                  className="hover:text-[#1677ff] dark:hover:text-[#1677ff] transition-colors"
+                >
+                  গোপনীয়তা নীতি
+                </Link>
+                <span>•</span>
+                <Link
+                  href="/terms"
+                  className="hover:text-[#1677ff] dark:hover:text-[#1677ff] transition-colors"
+                >
+                  শর্তাবলী
+                </Link>
+                <span>•</span>
+                <span className="text-slate-400 dark:text-slate-500">
+                  ভালোবাসার সাথে তৈরি ❤️
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -227,7 +236,7 @@ export default function Footer() {
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll to top"
-          className="fixed bottom-8 right-8 z-50 w-10 h-10 rounded-full bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#303030] shadow-[0_6px_16px_0_rgba(0,0,0,0.12)] dark:shadow-[0_6px_16px_0_rgba(0,0,0,0.5)] flex items-center justify-center hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-400 dark:hover:border-blue-500 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
+          className="fixed bottom-8 right-8 z-50 w-10 h-10 rounded-full bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#303030] shadow-[0_6px_16px_0_rgba(0,0,0,0.12)] dark:shadow-[0_6px_16px_0_rgba(0,0,0,0.5)] flex items-center justify-center hover:text-[#1677ff] dark:hover:text-[#1677ff] hover:border-[#1677ff] dark:hover:border-[#1677ff] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
         >
           <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-200" />
         </button>

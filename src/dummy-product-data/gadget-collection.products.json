@@ -1,0 +1,3454 @@
+[
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1771"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা দেশি লাউ (Bottle Gourd - Lau)",
+    "slug": "bottle-gourd-lau",
+    "sku": "veg-bottle-gourd",
+    "shortDesc": "তাজা কচি লাউ, তরতাজা ও রসালো। বিভিন্ন সুস্বাদু পদ রান্নার জন্য উপযুক্ত।",
+    "description": "<p>Tender, fresh bottle gourds, known for their mild flavor and high water content. A versatile vegetable in many cuisines.</p><p>আমাদের মাঠ থেকে সরাসরি সংগৃহীত তাজা লাউ। অত্যন্ত পুষ্টিকর, হালকা ও হজমে সহায়ক।</p>",
+    "regularPrice": 60,
+    "salePrice": 50,
+    "costPrice": 35,
+    "stockQuantity": 50,
+    "weight": 1200,
+    "colors": [],
+    "thumbnail": "https://media.istockphoto.com/id/2198810711/photo/fresh-vegetable-bottle-gourd-or-calabash-fruits-hanging-on-the-plant-its-scientific-name-is.webp?a=1&b=1&s=612x612&w=0&k=20&c=UIMmlA17O6GsRZf0JxEFYDlLICS9aAdvdL5Ny_7UwZ0=",
+    "images": [
+      {
+        "url": "https://media.istockphoto.com/id/2198810711/photo/fresh-vegetable-bottle-gourd-or-calabash-fruits-hanging-on-the-plant-its-scientific-name-is.webp?a=1&b=1&s=612x612&w=0&k=20&c=UIMmlA17O6GsRZf0JxEFYDlLICS9aAdvdL5Ny_7UwZ0=",
+        "alt": "তাজা দেশি লাউ (Bottle Gourd - Lau)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.6,
+      "count": 76
+    },
+    "tags": [
+      "লাউ",
+      "সবজি",
+      "Bottle Gourd",
+      "Lau",
+      "Fresh Vegetable"
+    ],
+    "features": [
+      "মাঠ থেকে তাজা সংগৃহীত",
+      "উচ্চ পুষ্টি ও জলীয় উপাদান সমৃদ্ধ",
+      "হালকা ও সহজপাচ্য খাবার"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "500g - 1.5kg per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "10kg / 20kg mesh bags or corrugated cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1772"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "মিষ্টি কুমড়া (Pumpkin - Kumra)",
+    "slug": "pumpkin-kumra",
+    "sku": "veg-pumpkin",
+    "shortDesc": "মিষ্টি ও সুস্বাদু পাকা মিষ্টি কুমড়া। ভিটামিন ও পুষ্টিগুণে ভরপুর।",
+    "description": "<p>Sweet and earthy pumpkins, perfect for both savory dishes and desserts. Rich in vitamins and fiber.</p><p>পুষ্টিকর ও সুস্বাদু মিষ্টি কুমড়া, তরকারি ও ভাজির জন্য অত্যন্ত চমৎকার।</p>",
+    "regularPrice": 45,
+    "salePrice": 40,
+    "costPrice": 28,
+    "stockQuantity": 80,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1509622905150-fa66d3906e09?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHVtcGtpbnxlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509622905150-fa66d3906e09?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHVtcGtpbnxlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "মিষ্টি কুমড়া (Pumpkin - Kumra)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 21
+    },
+    "tags": [
+      "মিষ্টি কুমড়া",
+      "Pumpkin",
+      "Kumra",
+      "সবজি"
+    ],
+    "features": [
+      "ভিটামিন এ ও ফাইবার সমৃদ্ধ",
+      "তাজা ও মিষ্টি স্বাদের",
+      "রান্নায় চমৎকার রঙ ও স্বাদ আনে"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Whole), B (Cut)"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "1kg - 5kg per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bulk loading or individual wrapping in cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1773"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা পটল (Pointed Gourd - Potol)",
+    "slug": "pointed-gourd-potol",
+    "sku": "veg-pointed-gourd",
+    "shortDesc": "তাজা ও কচি পটল। তরকারি, ভাজি ও পটলের দোরমার জন্য আদর্শ।",
+    "description": "<p>A popular tropical vegetable, prized for its crunchy texture and subtle flavor. A staple in South Asian cooking.</p><p>প্রতিদিনের রান্নার জনপ্রিয় সবজি। সরাসরি কৃষকের ক্ষেত থেকে তোলা তাজা পটল।</p>",
+    "regularPrice": 50,
+    "salePrice": 42,
+    "costPrice": 30,
+    "stockQuantity": 60,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://cdn.pixabay.com/photo/2020/06/30/04/30/fresh-5355128_1280.jpg",
+    "images": [
+      {
+        "url": "https://cdn.pixabay.com/photo/2020/06/30/04/30/fresh-5355128_1280.jpg",
+        "alt": "তাজা পটল (Pointed Gourd - Potol)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 51
+    },
+    "tags": [
+      "পটল",
+      "Pointed Gourd",
+      "Potol",
+      "তাজা সবজি"
+    ],
+    "features": [
+      "কচি ও বীজহীন ফ্রেশ পটল",
+      "ভাজি ও তরকারির সেরা পছন্দ",
+      "উচ্চ আঁশযুক্ত"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "7-10 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "5kg / 10kg corrugated cartons with air holes."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "March - October"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1774"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "গোল বেগুন (Brinjal - Begun)",
+    "slug": "brinjal-eggplant-begun",
+    "sku": "veg-brinjal-eggplant",
+    "shortDesc": "চকচকে গাঢ় বেগুনি রঙের গোল বেগুন। নরম শাঁস ও মজাদার স্বাদের।",
+    "description": "<p>Glossy, deep-purple eggplants with a firm texture. Available in various shapes and sizes.</p><p>বেগুন ভাজা, বেগুন ভর্তা কিংবা মাছের ঝোলের সাথে অতুলনীয়।</p>",
+    "regularPrice": 65,
+    "salePrice": 55,
+    "costPrice": 38,
+    "stockQuantity": 70,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://media.istockphoto.com/id/105493281/photo/two-large-eggplants-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=6PzxCJIvSK1fZOkwNv27xTVV8N4li-fsNzvfUDjNdFI=",
+    "images": [
+      {
+        "url": "https://media.istockphoto.com/id/105493281/photo/two-large-eggplants-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=6PzxCJIvSK1fZOkwNv27xTVV8N4li-fsNzvfUDjNdFI=",
+        "alt": "গোল বেগুন (Brinjal - Begun)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.6,
+      "count": 96
+    },
+    "tags": [
+      "বেগুন",
+      "Begun",
+      "Brinjal",
+      "Eggplant"
+    ],
+    "features": [
+      "চকচকে ও তাজা চামড়া",
+      "নরম ও বীজ কম",
+      "বেগুন ভাজা ও ভর্তার জন্য আদর্শ"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Premium), B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "Long, Round, Oval varieties"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "10kg / 15kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1775"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা কচি ঢেঁড়শ (Okra - Dherosh)",
+    "slug": "okra-dherosh",
+    "sku": "veg-okra",
+    "shortDesc": "কচি ও নরম ঢেঁড়শ, ভাজি ও তরকারির জন্য সম্পূর্ণ দাগমুক্ত।",
+    "description": "<p>Tender, young okra pods, free from blemishes. Ideal for frying, stewing, and grilling.</p><p>প্রচুর পরিমাণে অ্যান্টিঅক্সিডেন্ট ও ফোলেট সমৃদ্ধ। কচি অবস্থায় আহরিত।</p>",
+    "regularPrice": 55,
+    "salePrice": 45,
+    "costPrice": 32,
+    "stockQuantity": 50,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1694152411105-1d8c09149382?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHZlZ2V0YWJsZSUyME9rcmElMjAoRGhlcm9zaCl8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1694152411105-1d8c09149382?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHZlZ2V0YWJsZSUyME9rcmElMjAoRGhlcm9zaCl8ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা কচি ঢেঁড়শ (Okra - Dherosh)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 95
+    },
+    "tags": [
+      "ঢেঁড়শ",
+      "Dherosh",
+      "Okra",
+      "সবজি"
+    ],
+    "features": [
+      "দাগহীন ও কচি",
+      "রান্নায় দ্রুত নরম হয়",
+      "পুষ্টিকর ও ফাইবার সমৃদ্ধ"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Extra Fine), B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "5-10 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "5kg cartons with proper ventilation."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1776"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "ডায়মন্ড গোল আলু (Potato - Alu)",
+    "slug": "potato-alu",
+    "sku": "veg-potato",
+    "shortDesc": "উন্নত জাতের ডায়মন্ড গোল আলু। প্রতিদিনের রান্নার অপরিহার্য উপাদান।",
+    "description": "<p>High-quality Granola and Diamant variety potatoes, perfect for a wide range of culinary uses.</p><p>পরিষ্কার ও শুকনা গোল আলু। দীর্ঘ দিন ভালো থাকে ও রান্নায় চমৎকার স্বাদ এনে দেয়।</p>",
+    "regularPrice": 35,
+    "salePrice": 30,
+    "costPrice": 22,
+    "stockQuantity": 300,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1741003132066-8ab7d54b9fe2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHZlZ2V0YWJsZSUyMHBvdGF0byUyMGhhcnZlc3R8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1741003132066-8ab7d54b9fe2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHZlZ2V0YWJsZSUyMHBvdGF0byUyMGhhcnZlc3R8ZW58MHx8MHx8fDA%3D",
+        "alt": "ডায়মন্ড গোল আলু (Potato - Alu)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 29
+    },
+    "tags": [
+      "আলু",
+      "Potato",
+      "Alu",
+      "নিত্যপ্রয়োজনীয়"
+    ],
+    "features": [
+      "ডায়মন্ড জাতের পরিষ্কার আলু",
+      "দ্রুত সেদ্ধ হয়",
+      "সব তরকারির সঙ্গী"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B, C"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "50g - 300g+"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "10kg / 25kg mesh or jute bags."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1777"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "কাঁচা পেঁপে (Green Papaya - Pepe)",
+    "slug": "green-papaya-pepe",
+    "sku": "veg-green-papaya",
+    "shortDesc": "পুষ্টিকর ও হজমে সহায়ক কচি কাঁচা পেঁপে। সালাদ ও রান্নার উপযোগী।",
+    "description": "<p>Firm, green papayas with a crisp texture, widely used in salads and curries.</p><p>পেটের নানা সমস্যা নিরাময় ও হজমশক্তি বাড়াতে কাঁচা পেঁপের তুলনা নেই।</p>",
+    "regularPrice": 40,
+    "salePrice": 32,
+    "costPrice": 20,
+    "stockQuantity": 60,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://cdn.pixabay.com/photo/2016/10/01/13/02/papaya-1707495_640.jpg",
+    "images": [
+      {
+        "url": "https://cdn.pixabay.com/photo/2016/10/01/13/02/papaya-1707495_640.jpg",
+        "alt": "কাঁচা পেঁপে (Green Papaya - Pepe)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.6,
+      "count": 37
+    },
+    "tags": [
+      "কাঁচা পেঁপে",
+      "Green Papaya",
+      "Pepe",
+      "সবজি"
+    ],
+    "features": [
+      "হজমকারক ও পেটের জন্য উপকারী",
+      "শক্ত ও সতেজ",
+      "ঝোল ও সালাদে অতুলনীয়"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "800g - 2kg per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Individually wrapped, 10kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1778"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা কাঁকরোল (Teasle Gourd - Kakrol)",
+    "slug": "teasle-gourd-kakrol",
+    "sku": "veg-teasle-gourd",
+    "shortDesc": "পুষ্টিগুণে ভরপুর কাঁটাযুক্ত তাজা কাঁকরোল। অসাধারণ ভাজি ও তরকারির জন্য।",
+    "description": "<p>A spiny, nutritious gourd known for its unique taste and texture. High in demand for its health benefits.</p><p>সুস্বাদু ও স্বাস্থ্যকর কাঁকরোল, ভিটামিন ও মিনারেলসে ভরপুর।</p>",
+    "regularPrice": 70,
+    "salePrice": 60,
+    "costPrice": 45,
+    "stockQuantity": 40,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://cdn.pixabay.com/photo/2021/08/15/18/50/teasle-gourd-6548602_640.jpg",
+    "images": [
+      {
+        "url": "https://cdn.pixabay.com/photo/2021/08/15/18/50/teasle-gourd-6548602_640.jpg",
+        "alt": "তাজা কাঁকরোল (Teasle Gourd - Kakrol)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 34
+    },
+    "tags": [
+      "কাঁকরোল",
+      "Kakrol",
+      "Teasle Gourd"
+    ],
+    "features": [
+      "রোগ প্রতিরোধ ক্ষমতা বাড়ায়",
+      "মচমচে ভাজির জন্য সেরা",
+      "তাজা সবুজ কাঁকরোল"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "5-8 cm diameter"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "5kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "June - September"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1779"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা চিচিঙ্গা (Snake Gourd - Chichinga)",
+    "slug": "snake-gourd-chichinga",
+    "sku": "veg-snake-gourd",
+    "shortDesc": "লম্বা ও নরম শাঁসযুক্ত তাজা চিচিঙ্গা। দ্রুত সেদ্ধ ও সুস্বাদু।",
+    "description": "<p>Long, slender snake gourds with a soft texture, ideal for various Asian dishes.</p><p>হালকা ও শীতলকারী সবজি হিসেবে চিচিঙ্গা অত্যন্ত জনপ্রিয়। ডিম দিয়ে ভাজিতে চমৎকার।</p>",
+    "regularPrice": 50,
+    "salePrice": 42,
+    "costPrice": 28,
+    "stockQuantity": 50,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1675364893053-180a3c6e0119?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU0fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGUlMjBmaWVsZCUyMGJhbmdsYWRlc2glMjBwYXRhdG98ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1675364893053-180a3c6e0119?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU0fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGUlMjBmaWVsZCUyMGJhbmdsYWRlc2glMjBwYXRhdG98ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা চিচিঙ্গা (Snake Gourd - Chichinga)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.9,
+      "count": 65
+    },
+    "tags": [
+      "চিচিঙ্গা",
+      "Snake Gourd",
+      "Chichinga",
+      "সবজি"
+    ],
+    "features": [
+      "নরম ও সহজপাচ্য",
+      "ডিম দিয়ে ভাজির জন্য দারুণ",
+      "তাজা ক্ষেত থেকে সংগৃহীত"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "30-60 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Carefully layered in 10kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "April - November"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177a"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি কাঁচা মরিচ (Green Chili - Kacha Morich)",
+    "slug": "green-chili-kacha-morich",
+    "sku": "veg-green-chili",
+    "shortDesc": "তীব্র সুগন্ধি ও ঝাঁঝালো দেশি তাজা কাঁচা মরিচ। ভিটামিন সি সমৃদ্ধ।",
+    "description": "<p>Fresh, pungent green chilies with a vibrant color and strong heat. Sourced for optimal spiciness.</p><p>গাঢ় সবুজ ও খাঁটি দেশি স্বাদের কাঁচা মরিচ। খাবারের স্বাদ ও ঝাঁঝ বহুগুণ বাড়িয়ে দেয়।</p>",
+    "regularPrice": 120,
+    "salePrice": 100,
+    "costPrice": 70,
+    "stockQuantity": 80,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1664302495846-8be51057b602?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1664302495846-8be51057b602?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "দেশি কাঁচা মরিচ (Green Chili - Kacha Morich)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 70
+    },
+    "tags": [
+      "কাঁচা মরিচ",
+      "Green Chili",
+      "Morich",
+      "মসলা"
+    ],
+    "features": [
+      "তীব্র ঝাঁঝ ও তাজা সুবাস",
+      "ভিটামিন সি সমৃদ্ধ",
+      "গাছপাকা সতেজ কাঁচা মরিচ"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Premium), B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "4-7 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "100g/200g punnets, or 4kg bulk cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177b"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা বরবটি (Yardlong Bean - Borboti)",
+    "slug": "yardlong-bean-borboti",
+    "sku": "veg-yardlong-bean",
+    "shortDesc": "লম্বা, মুচমুচে ও কচি সবুজ বরবটি। প্রচুর আঁশ ও পুষ্টি উপাদান সমৃদ্ধ।",
+    "description": "<p>Long, crisp, and tender beans. An excellent source of fiber and vitamins.</p><p>সুস্বাদু বরবটি ভাজি ও তরকারির জন্য গৃহিণীদের প্রথম পছন্দ।</p>",
+    "regularPrice": 65,
+    "salePrice": 55,
+    "costPrice": 40,
+    "stockQuantity": 55,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1663054412151-f9f2a2f6422d?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjUyfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1663054412151-f9f2a2f6422d?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjUyfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা বরবটি (Yardlong Bean - Borboti)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 40
+    },
+    "tags": [
+      "বরবটি",
+      "Yardlong Bean",
+      "Borboti"
+    ],
+    "features": [
+      "কচি ও মিষ্টি স্বাদের",
+      "রান্নায় দ্রুত নরম হয়",
+      "প্রোটিন ও আঁশ সমৃদ্ধ"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "30-50 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bundled and packed in 10kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177c"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা দেশি শিম (Hyacinth Bean - Shim)",
+    "slug": "hyacinth-bean-shim",
+    "sku": "veg-hyacinth-bean",
+    "shortDesc": "দেশি স্বাদের তাজা সবুজ শিম। শীতকালীন তরকারি ও ভর্তার অন্যতম আকর্ষণ।",
+    "description": "<p>Flat, green beans with a distinctive taste, popular in regional cuisines.</p><p>ঐতিহ্যবাহী স্বাদের দেশি শিম। শিমের বিচি ও ভর্তা ভোজনরসিকদের অত্যন্ত প্রিয়।</p>",
+    "regularPrice": 60,
+    "salePrice": 50,
+    "costPrice": 35,
+    "stockQuantity": 65,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1663051354978-47c570a9ef62?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1663051354978-47c570a9ef62?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা দেশি শিম (Hyacinth Bean - Shim)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 65
+    },
+    "tags": [
+      "শিম",
+      "Shim",
+      "Hyacinth Bean",
+      "শীতের সবজি"
+    ],
+    "features": [
+      "দেশি জাতের মিষ্টি শিম",
+      "শিম-আলু-বেগুন তরকারির জন্য সেরা",
+      "সরাসরি মাঠ থেকে সংগৃহীত"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "Standard"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "10kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "November - March"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177d"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "লাল পাকা টমেটো (Fresh Ripe Tomato)",
+    "slug": "fresh-tomato",
+    "sku": "veg-tomato",
+    "shortDesc": "রসালো লাল পাকা টমেটো। সালাদ, স্যুপ ও রান্নায় চমৎকার স্বাদ যুক্ত করে।",
+    "description": "<p>Juicy, ripe tomatoes sourced for their balanced sweetness and acidity. Perfect for salads, sauces, and fresh consumption.</p><p>ভিটামিন সি ও লাইকোপেন সমৃদ্ধ ফ্রেশ টমেটো।</p>",
+    "regularPrice": 60,
+    "salePrice": 48,
+    "costPrice": 32,
+    "stockQuantity": 120,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1664527305901-a3c8bec62850?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnJlc2glMjBoYXJ2ZXN0JTIwdmVnZXRhYmxlfGVufDB8fDB8fHww",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1664527305901-a3c8bec62850?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnJlc2glMjBoYXJ2ZXN0JTIwdmVnZXRhYmxlfGVufDB8fDB8fHww",
+        "alt": "লাল পাকা টমেটো (Fresh Ripe Tomato)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.9,
+      "count": 35
+    },
+    "tags": [
+      "টমেটো",
+      "Tomato",
+      "সালাদ",
+      "সবজি"
+    ],
+    "features": [
+      "পাকা ও রসালো লাল রঙ",
+      "সালাদ ও সসের জন্য অতুলনীয়",
+      "প্রাকৃতিক অ্যান্টিঅক্সিডেন্ট ভরপুর"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "80g - 200g per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "6kg / 10kg cartons, layered."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177e"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি লাল শাক (Red Amaranth - Lal Shak)",
+    "slug": "red-amaranth-lal-shak",
+    "sku": "veg-red-amaranth",
+    "shortDesc": "তাজা কচি লাল শাকের আঁটি। রক্তস্বল্পতা দূর করতে আয়রন ও ভিটামিন সমৃদ্ধ।",
+    "description": "<p>Vibrant red leafy greens, rich in antioxidants and iron. Known for their slightly sweet, earthy flavor.</p><p>গরম ভাতের সাথে লাল শাকের ভাজি জিভে জল আনার মতো। শিশুদের পুষ্টির জন্য অপরিহার্য।</p>",
+    "regularPrice": 25,
+    "salePrice": 20,
+    "costPrice": 12,
+    "stockQuantity": 70,
+    "weight": 300,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fGZyZXNoJTIwaGFydmVzdHxlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fGZyZXNoJTIwaGFydmVzdHxlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "দেশি লাল শাক (Red Amaranth - Lal Shak)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.7,
+      "count": 44
+    },
+    "tags": [
+      "লাল শাক",
+      "Lal Shak",
+      "Red Amaranth",
+      "শাক"
+    ],
+    "features": [
+      "প্রচুর আয়রন ও ক্যালসিয়াম",
+      "কচি পাতার সুস্বাদু শাক",
+      "সকালে মাঠ থেকে সরাসরি তোলা"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Fresh bunches)"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "20-30 cm bunches"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bundled, packed in ventilated cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e177f"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা পালং শাক (Spinach - Palong Shak)",
+    "slug": "spinach-palong-shak",
+    "sku": "veg-spinach",
+    "shortDesc": "গাঢ় সবুজ কচি পালং শাক। রোগ প্রতিরোধ ক্ষমতা ও শক্তি বৃদ্ধিতে অতুলনীয়।",
+    "description": "<p>Tender, dark green spinach leaves, packed with nutrients. Versatile for both raw and cooked dishes.</p><p>সবুজ শাকের রানী পালং শাক। পুষ্টিবিদদের অন্যতম সুপারিশকৃত শাক।</p>",
+    "regularPrice": 30,
+    "salePrice": 25,
+    "costPrice": 15,
+    "stockQuantity": 60,
+    "weight": 350,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1722456503963-f248c6f2c385?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlc2glMjBoYXJ2ZXN0fGVufDB8fDB8fHww",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1722456503963-f248c6f2c385?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlc2glMjBoYXJ2ZXN0fGVufDB8fDB8fHww",
+        "alt": "তাজা পালং শাক (Spinach - Palong Shak)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.9,
+      "count": 20
+    },
+    "tags": [
+      "পালং শাক",
+      "Palong Shak",
+      "Spinach",
+      "শাক"
+    ],
+    "features": [
+      "ভিটামিন কে, এ ও সি সমৃদ্ধ",
+      "নরম ও সতেজ সবুজ পাতা",
+      "সহজে রান্নাযোগ্য"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "Standard bunches"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Ice-packed cartons to retain freshness."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "November - April"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1780"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি শসা (Cucumber - Shosha)",
+    "slug": "cucumber-shosha",
+    "sku": "veg-cucumber",
+    "shortDesc": "তাজা, রসালো ও মুচমুচে দেশি শসা। প্রতিদিনের সালাদ ও রূপচর্চায় দারুণ।",
+    "description": "<p>Crisp and refreshing cucumbers with high water content. Sourced for a firm texture and minimal seeds.</p><p>শরীর ঠান্ডা রাখে এবং শরীর হাইড্রেটেড রাখতে সহায়তা করে।</p>",
+    "regularPrice": 45,
+    "salePrice": 38,
+    "costPrice": 25,
+    "stockQuantity": 80,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1663051354978-47c570a9ef62?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1663051354978-47c570a9ef62?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "দেশি শসা (Cucumber - Shosha)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 21
+    },
+    "tags": [
+      "শসা",
+      "Shosha",
+      "Cucumber",
+      "সালাদ"
+    ],
+    "features": [
+      "মুচমুচে ও তাজা শাঁস",
+      "বীজ কম ও পাতলা খোসা",
+      "হজমে সহায়ক ও শীতলকারক"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "15-25 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Individually wrapped or bulk in cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1781"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা ফুলকপি (Cauliflower - Phulkopi)",
+    "slug": "cauliflower-phulkopi",
+    "sku": "veg-cauliflower",
+    "shortDesc": "সাদা ধবধবে আঁটসাঁট ফুলকপি। রোস্ট, ভাজি ও তরকারির জন্য অসাধারণ।",
+    "description": "<p>Dense, creamy-white cauliflower heads. A versatile vegetable that can be roasted, steamed, or riced.</p><p>সুস্বাদু ফুলকপির রোস্ট ও ডালনার স্বাদ সবার প্রিয়।</p>",
+    "regularPrice": 45,
+    "salePrice": 35,
+    "costPrice": 22,
+    "stockQuantity": 50,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1681398641980-801e15c716fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY0fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1681398641980-801e15c716fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY0fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা ফুলকপি (Cauliflower - Phulkopi)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.9,
+      "count": 93
+    },
+    "tags": [
+      "ফুলকপি",
+      "Cauliflower",
+      "Phulkopi",
+      "সবজি"
+    ],
+    "features": [
+      "আঁটসাঁট ও দাগহীন ফুল",
+      "মিষ্টি ও ফ্রেশ স্বাদ",
+      "শীতকালীন তাজা ফসল"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "800g - 1.5kg per head"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Individually shrink-wrapped, 8-10 heads per carton."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "November - March"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1782"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "সবুজ পাতাকপি / বাঁধাকপি (Cabbage - Badhakopi)",
+    "slug": "cabbage-badhakopi",
+    "sku": "veg-cabbage",
+    "shortDesc": "তাজা নিরেট সবুজ বাঁধাকপি। ভাজি, স্যুপ ও সালাদের জন্য উপযুক্ত।",
+    "description": "<p>Fresh, compact heads of green cabbage, known for their crisp leaves and sweet flavor.</p><p>উচ্চ ফাইবারযুক্ত সতেজ বাঁধাকপি। পেট ভালো রাখতে ও চর্বি কমাতে সাহায্য করে।</p>",
+    "regularPrice": 40,
+    "salePrice": 30,
+    "costPrice": 18,
+    "stockQuantity": 60,
+    "weight": 1500,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1675798983878-604c09f6d154?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc2fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1675798983878-604c09f6d154?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc2fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "সবুজ পাতাকপি / বাঁধাকপি (Cabbage - Badhakopi)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 95
+    },
+    "tags": [
+      "বাঁধাকপি",
+      "Cabbage",
+      "Badhakopi",
+      "পাতাকপি"
+    ],
+    "features": [
+      "নিরেট ও ভারী কপি",
+      "মুচমুচে সবুজ পাতা",
+      "দীর্ঘ সময় তাজা থাকে"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "1kg - 2.5kg per head"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bulk loading in mesh bags."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "November - March"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1783"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি তিত করলা (Bitter Gourd - Korola)",
+    "slug": "bitter-gourd-korola",
+    "sku": "veg-bitter-gourd",
+    "shortDesc": "স্বাস্থ্যকর ও ভেষজ গুণসম্পন্ন তাজা করলা। ডায়াবেটিস নিয়ন্ত্রণে সহায়ক।",
+    "description": "<p>Valued for its distinctive bitter taste and numerous health benefits. Sourced for optimal freshness and texture.</p><p>করলা ভাজি কিংবা আলু দিয়ে হালকা ঝোল স্বাস্থ্য সচেতন মানুষের নিত্য পছন্দ।</p>",
+    "regularPrice": 65,
+    "salePrice": 55,
+    "costPrice": 38,
+    "stockQuantity": 45,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1708354056659-f4e422ab945b?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaHxlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1708354056659-f4e422ab945b?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaHxlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "দেশি তিত করলা (Bitter Gourd - Korola)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.6,
+      "count": 67
+    },
+    "tags": [
+      "করলা",
+      "Korola",
+      "Bitter Gourd",
+      "সবজি"
+    ],
+    "features": [
+      "রক্তের সুগার নিয়ন্ত্রণে সহায়ক",
+      "তাজা ও রোগবালাইমুক্ত",
+      "ভেষজ গুণাগুণে ভরপুর"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A, B"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "15-25 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "5kg cartons with paper lining."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1784"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা ঝিঙা (Ridge Gourd - Jhinga)",
+    "slug": "ridge-gourd-jhinga",
+    "sku": "veg-ridge-gourd",
+    "shortDesc": "কচি ও রসালো ঝিঙা। মাছের ঝোল ও চিংড়ি মাছ দিয়ে রান্নায় দারুণ।",
+    "description": "<p>A green vegetable with sharp ridges and a soft, spongy flesh. Popular in many Asian cuisines.</p><p>সহজে হজম হয় এবং পুষ্টিগুণে ভরপুর একটি দেশি সবজি।</p>",
+    "regularPrice": 50,
+    "salePrice": 40,
+    "costPrice": 28,
+    "stockQuantity": 40,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1686529896385-8a8d581d0225?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaHxlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1686529896385-8a8d581d0225?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaHxlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "তাজা ঝিঙা (Ridge Gourd - Jhinga)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 30
+    },
+    "tags": [
+      "ঝিঙা",
+      "Jhinga",
+      "Ridge Gourd",
+      "সবজি"
+    ],
+    "features": [
+      "কচি ও মিষ্টি শাঁস",
+      "চিংড়ি ও মাছের ঝোলে দারুণ স্বাদ",
+      "জলীয় অংশ বেশি ও সহজপাচ্য"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "20-40 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "10kg cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "April - October"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1785"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "ফ্রেঞ্চ বিন / সবুজ শিম (Green Bean - French Bean)",
+    "slug": "green-bean-french-bean",
+    "sku": "veg-green-bean",
+    "shortDesc": "চিকন ও মুচমুচে ফ্রেঞ্চ বিন। ভাজি, স্যুপ ও চাইনিজ রান্নায় চমৎকার।",
+    "description": "<p>Slender, crisp, and tender green beans. Harvested young for the best quality and flavor.</p><p>পুষ্টিকর ও সুস্বাদু কচি বিনস। শিশুদের প্রিয় সবজির তালিকায় অন্যতম।</p>",
+    "regularPrice": 70,
+    "salePrice": 60,
+    "costPrice": 42,
+    "stockQuantity": 50,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://plus.unsplash.com/premium_photo-1664299231810-29d1caf6f753?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjY2fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://plus.unsplash.com/premium_photo-1664299231810-29d1caf6f753?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjY2fHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "ফ্রেঞ্চ বিন / সবুজ শিম (Green Bean - French Bean)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.6,
+      "count": 42
+    },
+    "tags": [
+      "বিনস",
+      "French Bean",
+      "Green Bean",
+      "সবজি"
+    ],
+    "features": [
+      "কচি ও আঁশহীন",
+      "দ্রুত রান্না করা যায়",
+      "সালাদ ও ভাজির জন্য সেরা"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A (Fine)"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "10-15 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "250g punnets or 5kg bulk cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1786"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি মুখী কচু (Taro Root - Kochu)",
+    "slug": "taro-root-kochu",
+    "sku": "veg-taro-root",
+    "shortDesc": "দেশি তাজা মুখী কচু। ইলিশ মাছ কিংবা মাংস দিয়ে রান্নায় তুলনাহীন।",
+    "description": "<p>An starchy root vegetable with a nutty, sweet flavor. A staple food in many tropical countries.</p><p>পুষ্টিকর ও সুস্বাদু মূল জাতীয় সবজি। শরীরে প্রচুর শক্তি জোগায়।</p>",
+    "regularPrice": 55,
+    "salePrice": 48,
+    "costPrice": 32,
+    "stockQuantity": 60,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1741003188234-1d031351168c?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaCUyMHBhdGF0b3xlbnwwfHwwfHx8MA%3D%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1741003188234-1d031351168c?w=500&auto=format&fit=crop&q=60&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGZyZXNoJTIwaGFydmVzdCUyMHZlZ2V0YWJsZSUyMGZpZWxkJTIwYmFuZ2xhZGVzaCUyMHBhdGF0b3xlbnwwfHwwfHx8MA%3D%3D",
+        "alt": "দেশি মুখী কচু (Taro Root - Kochu)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 20
+    },
+    "tags": [
+      "কচু",
+      "Taro Root",
+      "Kochu",
+      "সবজি"
+    ],
+    "features": [
+      "ইলিশ মাছ দিয়ে ঝোলে দারুণ",
+      "নরম ও মোলায়েম শাঁস",
+      "আঁশ ও পটাসিয়াম সমৃদ্ধ"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "200g - 1kg per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "20kg mesh bags."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1787"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "তাজা কচি সজনে ডাঁটা (Drumstick - Sojne)",
+    "slug": "drumstick-sojne",
+    "sku": "veg-drumstick",
+    "shortDesc": "রোগ প্রতিরোধক মহৌষধী সজনে ডাঁটা। ডাল ও মাছের ঝোলে অত্যন্ত প্রিয়।",
+    "description": "<p>Long, slender pods from the Moringa tree, valued for their unique flavor and high nutritional content.</p><p>সজনে ডাঁটায় রয়েছে প্রচুর ক্যালসিয়াম, আয়রন ও ভিটামিন যা স্বাস্থ্যের জন্য ভীষণ উপকারী।</p>",
+    "regularPrice": 120,
+    "salePrice": 100,
+    "costPrice": 70,
+    "stockQuantity": 35,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1708795690898-e87f64f45376?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1708795690898-e87f64f45376?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxmcmVzaCUyMGhhcnZlc3QlMjB2ZWdldGFibGV8ZW58MHx8MHx8fDA%3D",
+        "alt": "তাজা কচি সজনে ডাঁটা (Drumstick - Sojne)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 51
+    },
+    "tags": [
+      "সজনে ডাঁটা",
+      "Sojne",
+      "Drumstick",
+      "মরিঙ্গা"
+    ],
+    "features": [
+      "উচ্চ রক্তচাপ নিয়ন্ত্রণে সাহায্য করে",
+      "ডালের সাথে অতুলনীয় স্বাদ",
+      "কচি ও মিষ্টি সজনে"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "30-50 cm length"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bundled and packed in ventilated cartons."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "March - July"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1788"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "title": "দেশি চাল কুমড়া (Ash Gourd - Chal Kumra)",
+    "slug": "ash-gourd-chal-kumra",
+    "sku": "veg-ash-gourd",
+    "shortDesc": "শীতলকারী মিষ্টি দেশি চাল কুমড়া। মোরব্বা, বড়ি ও তরকারির জন্য আদর্শ।",
+    "description": "<p>A large gourd with a mild taste and high water content, covered in a waxy, ash-like coating.</p><p>জলীয় উপাদান বেশি থাকায় পেট ঠান্ডা রাখে। চাল কুমড়া দিয়ে মাছের ঝোল অনন্য স্বাদের হয়।</p>",
+    "regularPrice": 60,
+    "salePrice": 50,
+    "costPrice": 35,
+    "stockQuantity": 40,
+    "weight": 2500,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1673192389008-c09a8b0b0f11?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlc2glMjBoYXJ2ZXN0JTIwdmVnZXRhYmxlJTIwZmllbGQlMjBiYW5nbGFkZXNofGVufDB8fDB8fHww",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1673192389008-c09a8b0b0f11?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlc2glMjBoYXJ2ZXN0JTIwdmVnZXRhYmxlJTIwZmllbGQlMjBiYW5nbGFkZXNofGVufDB8fDB8fHww",
+        "alt": "দেশি চাল কুমড়া (Ash Gourd - Chal Kumra)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": false,
+    "ratings": {
+      "average": 4.8,
+      "count": 67
+    },
+    "tags": [
+      "চাল কুমড়া",
+      "Chal Kumra",
+      "Ash Gourd"
+    ],
+    "features": [
+      "পেট ঠান্ডা ও শরীর শীতল রাখে",
+      "মোরব্বা ও তরকারিতে দারুণ",
+      "কচি ও পুরু শাঁসযুক্ত"
+    ],
+    "specifications": [
+      {
+        "key": "গ্রেড (Grades)",
+        "value": "A"
+      },
+      {
+        "key": "সাইজ / ওজন (Sizes)",
+        "value": "2kg - 8kg per piece"
+      },
+      {
+        "key": "প্যাকেজিং (Packaging)",
+        "value": "Bulk loading, protected with straw."
+      },
+      {
+        "key": "মৌসুমী প্রাপ্যতা (Seasonality)",
+        "value": "Year-round"
+      },
+      {
+        "key": "উৎস",
+        "value": "সরাসরি কৃষক ও তাজা খামার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1789"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "খাঁটি কাঠের ঘানিভাঙা সরিষার তেল (Pure Mustard Oil - 1L)",
+    "slug": "pure-mustard-oil-1l",
+    "sku": "groc-mustard-oil-1l",
+    "shortDesc": "১০০% খাঁটি দেশি সরিষার ঘানিভাঙা তেল। ঝাঁঝালো ও প্রাকৃতিক সুবাসযুক্ত।",
+    "description": "<p>গাছের খাঁটি সরিষা থেকে কাঠের ঘানিতে ভাঙানো প্রথম প্রেসের তেল। কোনো কেমিক্যাল বা কৃত্রিম গন্ধ মেশানো নেই।</p><p>ভর্তা, রান্না ও আচার তৈরির জন্য সেরা পছন্দ।</p>",
+    "regularPrice": 280,
+    "salePrice": 250,
+    "costPrice": 210,
+    "stockQuantity": 60,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=60",
+        "alt": "খাঁটি কাঠের ঘানিভাঙা সরিষার তেল (Pure Mustard Oil - 1L)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 94
+    },
+    "tags": [
+      "সরিষার তেল",
+      "Mustard Oil",
+      "ঘানিভাঙা তেল",
+      "মুদি"
+    ],
+    "features": [
+      "কাঠের ঘানিতে ভাঙানো খাঁটি তেল",
+      "প্রাকৃতিক ঝাঁঝ ও রঙ",
+      "কোনো রাসায়নিক ভেজাল নেই"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১ লিটার"
+      },
+      {
+        "key": "উৎস",
+        "value": "দেশি সরিষা দানা"
+      },
+      {
+        "key": "প্যাকেজিং",
+        "value": "ফুড গ্রেড বোতল"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178a"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "সুন্দরবনের প্রাকৃতিক খাঁটি মধু (Pure Sundarban Honey - 500g)",
+    "slug": "pure-sundarban-honey-500g",
+    "sku": "groc-sundarban-honey-500g",
+    "shortDesc": "সুন্দরবনের খলিসা ফুলের প্রাকৃতিক বুনো মধু। কোনো চিনি বা ভেজাল নেই।",
+    "description": "<p>মৌয়ালদের মাধ্যমে সুন্দরবনের গভীর জঙ্গল থেকে সংগৃহীত কাঁচা অপরিশোধিত প্রাকৃতিক মধু।</p><p>রোগ প্রতিরোধ ক্ষমতা বাড়াতে ও প্রতিদিনের স্বাস্থ্য রক্ষায় অতুলনীয়।</p>",
+    "regularPrice": 550,
+    "salePrice": 480,
+    "costPrice": 380,
+    "stockQuantity": 40,
+    "weight": 500,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&auto=format&fit=crop&q=60",
+        "alt": "সুন্দরবনের প্রাকৃতিক খাঁটি মধু (Pure Sundarban Honey - 500g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 89
+    },
+    "tags": [
+      "মধু",
+      "Honey",
+      "সুন্দরবন",
+      "Pure Honey"
+    ],
+    "features": [
+      "সুন্দরবনের প্রাকৃতিক মধু",
+      "প্রাকৃতিক অ্যান্টিঅক্সিডেন্ট",
+      "চিনিমুক্ত ও ভেজালহীন"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "৫০০ গ্রাম"
+      },
+      {
+        "key": "ফুলের উৎস",
+        "value": "খলিসা ও গরান ফুল"
+      },
+      {
+        "key": "সংগ্রহ এলাকা",
+        "value": "সুন্দরবন"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178b"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "খাঁটি গাওয়া ঘি (Pure Deshi Cow Ghee - 400g)",
+    "slug": "deshi-cow-ghee-400g",
+    "sku": "groc-cow-ghee-400g",
+    "shortDesc": "গ্রামের গরুর খাঁটি দুধের মাখন থেকে তৈরি সুগন্ধি গাওয়া ঘি।",
+    "description": "<p>ঐতিহ্যবাহী পদ্ধতিতে তৈরি দানাদার খাঁটি গাওয়া ঘি। এর মোহনীয় সুবাস ও স্বাদ আপনার খাবারের তৃপ্তি বাড়িয়ে দেবে।</p>",
+    "regularPrice": 750,
+    "salePrice": 680,
+    "costPrice": 560,
+    "stockQuantity": 30,
+    "weight": 400,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=500&auto=format&fit=crop&q=60",
+        "alt": "খাঁটি গাওয়া ঘি (Pure Deshi Cow Ghee - 400g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 71
+    },
+    "tags": [
+      "গাওয়া ঘি",
+      "Ghee",
+      "দেশি ঘি",
+      "দুধের ঘি"
+    ],
+    "features": [
+      "দানাদার টেক্সচার",
+      "মনমাতানো সুগন্ধ",
+      "শতভাগ খাঁটি গরুর দুধের"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "৪০০ গ্রাম"
+      },
+      {
+        "key": "উপাদান",
+        "value": "গরুর দুধের মাখন"
+      },
+      {
+        "key": "প্যাকেজিং",
+        "value": "কাঁচের বয়াম"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178c"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "দেশি লাল পেঁয়াজ (Deshi Red Onion - 1kg)",
+    "slug": "deshi-red-onion-1kg",
+    "sku": "groc-onion-1kg",
+    "shortDesc": "তীব্র ঝাঁঝ ও কড়া স্বাদের ফরিদপুরি দেশি পেঁয়াজ।",
+    "description": "<p>রান্নার স্বাদ বাড়ানোর আসল রহস্য দেশি পেঁয়াজ। সম্পূর্ণ শুকনা ও ভালো মানের পেঁয়াজ বাছাই করে সরবরাহ করা হয়।</p>",
+    "regularPrice": 75,
+    "salePrice": 65,
+    "costPrice": 50,
+    "stockQuantity": 200,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&auto=format&fit=crop&q=60",
+        "alt": "দেশি লাল পেঁয়াজ (Deshi Red Onion - 1kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.8,
+      "count": 66
+    },
+    "tags": [
+      "পেঁয়াজ",
+      "Onion",
+      "দেশি পেঁয়াজ",
+      "মসলা"
+    ],
+    "features": [
+      "তীব্র ঝাঁঝালো স্বাদ",
+      "শুকনা ও দীর্ঘস্থায়ী",
+      "দেশি ফরিদপুরি জাত"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১ কেজি"
+      },
+      {
+        "key": "জাত",
+        "value": "ফরিদপুরি দেশি"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178d"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "দেশি ছোট দানার মসুর ডাল (Premium Deshi Masoor Dal - 1kg)",
+    "slug": "premium-red-lentils-masoor-1kg",
+    "sku": "groc-masoor-dal-1kg",
+    "shortDesc": "দ্রুত সেদ্ধ হওয়া সুস্বাদু দেশি ছোট দানার মসুর ডাল।",
+    "description": "<p>উচ্চ প্রোটিন সমৃদ্ধ পরিষ্কার দেশি মসুর ডাল। দ্রুত সেদ্ধ হয় এবং রান্না করলে অসাধারণ ঘন ও সুস্বাদু ডাল প্রস্তুত হয়।</p>",
+    "regularPrice": 135,
+    "salePrice": 125,
+    "costPrice": 105,
+    "stockQuantity": 150,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60",
+        "alt": "দেশি ছোট দানার মসুর ডাল (Premium Deshi Masoor Dal - 1kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 65
+    },
+    "tags": [
+      "ডাল",
+      "মসুর ডাল",
+      "Lentil",
+      "Masoor Dal"
+    ],
+    "features": [
+      "দ্রুত সেদ্ধ হয়",
+      "প্রোটিন সমৃদ্ধ",
+      "পাথর ও ধূলামুক্ত পরিষ্কার"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১ কেজি"
+      },
+      {
+        "key": "দানা প্রকার",
+        "value": "ছোট দানা দেশি"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178e"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "ফার্ম ফ্রেশ লাল ডিম (Farm Fresh Red Eggs - 12 Pcs)",
+    "slug": "farm-fresh-red-eggs-12pcs",
+    "sku": "groc-eggs-12pcs",
+    "shortDesc": "তাজা স্বাস্থ্যসম্মত লাল ডিম ১ ডজন (১২টি)। প্রোটিনের উৎস।",
+    "description": "<p>প্রতিদিন খামার থেকে সংগৃহীত সতেজ ও বড় সাইজের লাল ডিম। নিরাপদ প্যাকেজিংয়ে সরবরাহ করা হয়।</p>",
+    "regularPrice": 160,
+    "salePrice": 145,
+    "costPrice": 125,
+    "stockQuantity": 100,
+    "weight": 750,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=500&auto=format&fit=crop&q=60",
+        "alt": "ফার্ম ফ্রেশ লাল ডিম (Farm Fresh Red Eggs - 12 Pcs)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 97
+    },
+    "tags": [
+      "ডিম",
+      "Eggs",
+      "ফার্মের ডিম",
+      "নাস্তা"
+    ],
+    "features": [
+      "তাজা ও বড় সাইজের ডিম",
+      "ক্যালসিয়াম ও প্রোটিন সমৃদ্ধ",
+      "ভাঙনমুক্ত ট্রে প্যাকেজিং"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১ ডজন (১২ পিস)"
+      },
+      {
+        "key": "প্রকার",
+        "value": "ব্রাউন / লাল ডিম"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e178f"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "title": "টুইংকল বেবি প্যান্ট ডায়াপার (Twinkle Baby Pant Diaper Large - 32 Pcs)",
+    "slug": "twinkle-baby-pant-diaper-large-32",
+    "sku": "baby-twinkle-diaper-l",
+    "shortDesc": "১২ ঘণ্টা পর্যন্ত লিক প্রটেকশন সহ নরম ও আরামদায়ক বেবি ডায়াপার।",
+    "description": "<p>শিশুর কোমল ত্বকের জন্য সম্পূর্ণ নিরাপদ ও তুলতুলে নরম প্যান্ট ডায়াপার। অতি দ্রুত তরল শুষে নেয় এবং ত্বক শুষ্ক রাখে।</p>",
+    "regularPrice": 850,
+    "salePrice": 750,
+    "costPrice": 650,
+    "stockQuantity": 40,
+    "weight": 950,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&auto=format&fit=crop&q=60",
+        "alt": "টুইংকল বেবি প্যান্ট ডায়াপার (Twinkle Baby Pant Diaper Large - 32 Pcs)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 41
+    },
+    "tags": [
+      "ডায়াপার",
+      "Diaper",
+      "Baby Diaper",
+      "বেবি কেয়ার"
+    ],
+    "features": [
+      "১২ ঘণ্টা শুকনা রাখার ক্ষমতা",
+      "ইলাস্টিক কোমর বন্ধনী",
+      "র‌্যাশ প্রতিরোধক নরম কটন"
+    ],
+    "specifications": [
+      {
+        "key": "সাইজ",
+        "value": "Large (৯-১৪ কেজি)"
+      },
+      {
+        "key": "প্যাকেট সাইজ",
+        "value": "৩২ পিস"
+      },
+      {
+        "key": "টাইপ",
+        "value": "প্যান্ট ডায়াপার"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1790"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "title": "মেরিল বেবি লোশন (Meril Baby Lotion - 200ml)",
+    "slug": "meril-baby-lotion-200ml",
+    "sku": "baby-meril-lotion-200ml",
+    "shortDesc": "শিশুর সংবেদনশীল ত্বকের কোমলতা ও আর্দ্রতা বজায় রাখার বিশ্বস্ত লোশন।",
+    "description": "<p>শিশুর ত্বক থাকে কোমল ও মসৃণ। প্রাকৃতিক উপাদান দিয়ে তৈরি যা শিশুর ত্বকে কোনো অ্যালার্জি বা জ্বালাপোড়া হতে দেয় না।</p>",
+    "regularPrice": 220,
+    "salePrice": 195,
+    "costPrice": 165,
+    "stockQuantity": 50,
+    "weight": 230,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+        "alt": "মেরিল বেবি লোশন (Meril Baby Lotion - 200ml)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.6,
+      "count": 93
+    },
+    "tags": [
+      "বেবি লোশন",
+      "Baby Lotion",
+      "Meril",
+      "শিশুর যত্ন"
+    ],
+    "features": [
+      "ত্বকের আর্দ্রতা ধরে রাখে",
+      "হালকা ও মনোরম সুবাস",
+      "শিশুর কোমল ত্বকে সম্পূর্ণ নিরাপদ"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "২০০ মিলি"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Meril Baby"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1791"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "title": "সেনোরা আল্ট্রা থিন উইংস স্যানিটারি ন্যাপকিন (Senora Ultra Thin - 16 Pads)",
+    "slug": "senora-ultra-thin-sanitary-napkins-16",
+    "sku": "women-senora-ultra-16",
+    "shortDesc": "নারীদের পিরিয়ডকালীন স্বাচ্ছন্দ্য ও সুরক্ষায় সুপার অ্যাবসর্বেন্ট স্যানিটারি প্যাড।",
+    "description": "<p>পাতলা কিন্তু অত্যন্ত শোষণক্ষম সেনোরা আল্ট্রা থিন ন্যাপকিন। উইংস থাকার কারণে কোনো সাইড লিক হয় না এবং সারাদিন নিশ্চিন্ত থাকা যায়।</p>",
+    "regularPrice": 190,
+    "salePrice": 170,
+    "costPrice": 145,
+    "stockQuantity": 70,
+    "weight": 200,
+    "colors": [],
+    "thumbnail": "/images/products/senora-napkins.jpg",
+    "images": [
+      {
+        "url": "/images/products/senora-napkins.jpg",
+        "alt": "সেনোরা আল্ট্রা থিন উইংস স্যানিটারি ন্যাপকিন (Senora Ultra Thin - 16 Pads)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 5,
+      "count": 52
+    },
+    "tags": [
+      "স্যানিটারি প্যাড",
+      "Sanitary Napkin",
+      "Senora",
+      "হাইজিন"
+    ],
+    "features": [
+      "উইংস যুক্ত উন্নত সুরক্ষা",
+      "আল্ট্রা থিন ও নরম কটন ফিলিং",
+      "দুর্গন্ধ দূরীকরণ ফর্মুলা"
+    ],
+    "specifications": [
+      {
+        "key": "প্যাকেটে সংখ্যা",
+        "value": "১৬ প্যাড"
+      },
+      {
+        "key": "টাইপ",
+        "value": "উইংস সহ আল্ট্রা থিন"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1792"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "এসএমসি ওআরএস খাবার স্যালাইন (SMC Orsaline-N - 5 Packets)",
+    "slug": "smc-orsaline-n-5-packets",
+    "sku": "health-smc-orsaline-5",
+    "shortDesc": "ডায়রিয়া, বমি ও অতিরিক্ত গরমে পানিশূন্যতা রোধে জীবন রক্ষাকারী স্যালাইন।",
+    "description": "<p>বিশ্ব স্বাস্থ্য সংস্থা অনুমোদিত ফর্মুলায় তৈরি বাংলাদেশের এক নম্বর খাবার স্যালাইন। প্রতিটি ঘরে প্রাথমিক চিকিৎসার জন্য অপরিহার্য।</p>",
+    "regularPrice": 35,
+    "salePrice": 30,
+    "costPrice": 24,
+    "stockQuantity": 200,
+    "weight": 100,
+    "colors": [],
+    "thumbnail": "/images/products/smc-orsaline.jpg",
+    "images": [
+      {
+        "url": "/images/products/smc-orsaline.jpg",
+        "alt": "এসএমসি ওআরএস খাবার স্যালাইন (SMC Orsaline-N - 5 Packets)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.8,
+      "count": 77
+    },
+    "tags": [
+      "স্যালাইন",
+      "Orsaline",
+      "SMC",
+      "খাবার স্যালাইন"
+    ],
+    "features": [
+      "পানিশূন্যতা নিরাময়ে তাৎক্ষণিক কাজ করে",
+      "WHO অনুমোদিত ফর্মুলা",
+      "সহজে তৈরিযোগ্য"
+    ],
+    "specifications": [
+      {
+        "key": "প্যাকেট সংখ্যা",
+        "value": "৫টি স্যালাইন স্যাচেট"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "SMC"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1793"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "লাইফবয় টোটাল বার সাবান (Lifebuoy Total Bar Soap 100g - 3 Pack)",
+    "slug": "lifebuoy-total-soap-pack-of-3",
+    "sku": "health-lifebuoy-soap-3p",
+    "shortDesc": "৯৯.৯% জীবাণু থেকে উন্নত সুরক্ষা দিতে বিশ্বস্ত লাইফবয় সাবান।",
+    "description": "<p>পরিবারের সবার স্বাস্থ্য সুরক্ষায় সিলভার শিল্ড ফর্মুলা সমৃদ্ধ লাইফবয় সাবান। গোসল ও হাত ধোয়ার জন্য সেরা।</p>",
+    "regularPrice": 150,
+    "salePrice": 135,
+    "costPrice": 115,
+    "stockQuantity": 90,
+    "weight": 300,
+    "colors": [],
+    "thumbnail": "/images/products/lifebuoy-soap.jpg",
+    "images": [
+      {
+        "url": "/images/products/lifebuoy-soap.jpg",
+        "alt": "লাইফবয় টোটাল বার সাবান (Lifebuoy Total Bar Soap 100g - 3 Pack)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 5,
+      "count": 70
+    },
+    "tags": [
+      "সাবান",
+      "Soap",
+      "Lifebuoy",
+      "জীবাণুনাশক"
+    ],
+    "features": [
+      "৯৯.৯% জীবাণু ধ্বংস করে",
+      "পরিবারের সুস্থতায় কার্যকর",
+      "৩টি সাবানের সাশ্রয়ী প্যাক"
+    ],
+    "specifications": [
+      {
+        "key": "প্যাকেজিং",
+        "value": "৩টি বার (১০০ গ্রাম করে)"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Lifebuoy"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1794"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "হুইল ২-ইন-১ ওয়াশিং ডিটারজেন্ট পাউডার (Wheel Detergent Powder - 1kg)",
+    "slug": "wheel-2in1-detergent-washing-powder-1kg",
+    "sku": "health-wheel-powder-1kg",
+    "shortDesc": "লেবুর সুবাসে কাপড়ের ময়লা দূর করে চমকপ্রদ উজ্জ্বলতা আনে।",
+    "description": "<p>সহজে কাপড়ের কঠিন ময়লা ও দাগ তুলে ফেলে এবং কাপড়ে রেখে যায় তাজা লেবুর মিষ্টি ঘ্রাণ। কম পরিশ্রমে বেশি পরিষ্কার।</p>",
+    "regularPrice": 140,
+    "salePrice": 125,
+    "costPrice": 105,
+    "stockQuantity": 80,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "/images/products/wheel-detergent.jpg",
+    "images": [
+      {
+        "url": "/images/products/wheel-detergent.jpg",
+        "alt": "হুইল ২-ইন-১ ওয়াশিং ডিটারজেন্ট পাউডার (Wheel Detergent Powder - 1kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 59
+    },
+    "tags": [
+      "ডিটারজেন্ট",
+      "Detergent",
+      "Wheel",
+      "ওয়াশিং পাউডার"
+    ],
+    "features": [
+      "লেবুর সতেজ সুবাস",
+      "সহজে দাগ পরিষ্কার করে",
+      "কাপড়ের রঙ উজ্জ্বল রাখে"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "১ কেজি"
+      },
+      {
+        "key": "সুগন্ধ",
+        "value": "লেবু ও বকুল"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1795"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "হারপিক পাওয়ার প্লাস টয়লেট ক্লিনার (Harpic Power Plus - 500ml)",
+    "slug": "harpic-power-plus-500ml",
+    "sku": "health-harpic-500ml",
+    "shortDesc": "টয়লেটের দাগ দূর ও ৯৯.৯% জীবাণু মুক্ত রাখতে বিশেষজ্ঞ ক্লিনার।",
+    "description": "<p>টয়লেটের হলুদ দাগ, জীবাণু ও দুর্গন্ধ দূর করে ঝকঝকে পরিষ্কার রাখে। ঘন ফর্মুলার কারণে কম ব্যবহারে বেশি কাজ হয়।</p>",
+    "regularPrice": 135,
+    "salePrice": 120,
+    "costPrice": 100,
+    "stockQuantity": 60,
+    "weight": 550,
+    "colors": [],
+    "thumbnail": "/images/products/harpic-cleaner.jpg",
+    "images": [
+      {
+        "url": "/images/products/harpic-cleaner.jpg",
+        "alt": "হারপিক পাওয়ার প্লাস টয়লেট ক্লিনার (Harpic Power Plus - 500ml)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 40
+    },
+    "tags": [
+      "হারপিক",
+      "Harpic",
+      "টয়লেট ক্লিনার",
+      "পরিচ্ছন্নতা"
+    ],
+    "features": [
+      "কঠিন দাগ দূর করে",
+      "জীবাণু ধ্বংসকারী ফর্মুলা",
+      "দীর্ঘস্থায়ী পরিচ্ছন্ন সুবাস"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "৫০০ মিলি"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Harpic"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1796"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "title": "লাল তীর হাইব্রিড লাউ বীজ (Lal Teer Hybrid Bottle Gourd Seeds - 10g)",
+    "slug": "lal-teer-hybrid-bottle-gourd-seeds-10g",
+    "sku": "agri-lalteer-lau-seed",
+    "shortDesc": "অধিক ফলনশীল ডায়না জাতের হাইব্রিড লাউ বীজ। উচ্চ অঙ্কুরোদগম ক্ষমতা।",
+    "description": "<p>বাংলাদেশের কৃষকদের বিশ্বস্ত লাল তীর ব্র্যান্ডের উন্নত হাইব্রিড লাউ বীজ। অল্প সময়ে প্রচুর লাউ ধরে এবং রোগবালাই প্রতিরোধ ক্ষমতা বেশি।</p>",
+    "regularPrice": 90,
+    "salePrice": 75,
+    "costPrice": 55,
+    "stockQuantity": 70,
+    "weight": 15,
+    "colors": [],
+    "thumbnail": "/images/products/lal-teer-lau-seeds.jpg",
+    "images": [
+      {
+        "url": "/images/products/lal-teer-lau-seeds.jpg",
+        "alt": "লাল তীর হাইব্রিড লাউ বীজ (Lal Teer Hybrid Bottle Gourd Seeds - 10g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 99
+    },
+    "tags": [
+      "বীজ",
+      "লাউ বীজ",
+      "Seeds",
+      "লাল তীর",
+      "কৃষি"
+    ],
+    "features": [
+      "৮৫%+ অঙ্কুরোদগম ক্ষমতা",
+      "অল্প সময়ে বেশি ফলন",
+      "রোগবালাই প্রতিরোধী"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১০ গ্রাম"
+      },
+      {
+        "key": "জাত",
+        "value": "ডায়না হাইব্রিড"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Lal Teer Seed"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1797"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "title": "ব্র্যাক হাইব্রিড কাঁচা মরিচ বীজ (BRAC Hybrid Chili Seeds - 10g)",
+    "slug": "brac-hybrid-green-chili-seeds-10g",
+    "sku": "agri-brac-chili-seed",
+    "shortDesc": "বারোমাসি উচ্চ ফলনশীল বিজলী প্লাস হাইব্রিড মরিচ বীজ।",
+    "description": "<p>ব্র্যাকের উদ্ভাবিত প্রচুর মরিচ ধারণক্ষম বিজলী প্লাস জাতের বীজ। সারা বছর চাষযোগ্য এবং মরিচ হয় দীর্ঘ ও তীব্র ঝাঁঝালো।</p>",
+    "regularPrice": 85,
+    "salePrice": 70,
+    "costPrice": 50,
+    "stockQuantity": 65,
+    "weight": 15,
+    "colors": [],
+    "thumbnail": "/images/products/brac-chili-seeds.jpg",
+    "images": [
+      {
+        "url": "/images/products/brac-chili-seeds.jpg",
+        "alt": "ব্র্যাক হাইব্রিড কাঁচা মরিচ বীজ (BRAC Hybrid Chili Seeds - 10g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.6,
+      "count": 72
+    },
+    "tags": [
+      "মরিচ বীজ",
+      "Chili Seeds",
+      "BRAC",
+      "বীজ"
+    ],
+    "features": [
+      "বারোমাসি চাষের উপযোগী",
+      "ঝাঁঝালো ও লম্বা মরিচ",
+      "উচ্চ ফলনশীল বিজলী প্লাস"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "১০ গ্রাম"
+      },
+      {
+        "key": "জাত",
+        "value": "বিজলী প্লাস হাইব্রিড"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "BRAC Seed"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1798"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "title": "হ্যান্ড প্রেশার স্প্রেয়ার ২ লিটার (Garden & Agri Hand Pressure Sprayer 2L)",
+    "slug": "garden-agri-pressure-sprayer-2l",
+    "sku": "agri-sprayer-2l",
+    "shortDesc": "ফসলে কীটনাশক, সার ও গাছে পানি স্প্রে করার মজবুত হ্যান্ড পাম্প স্প্রেয়ার।",
+    "description": "<p>টেকসই প্লাস্টিক বডি এবং ব্রাস নজলের শক্তিশালী প্রেশার স্প্রেয়ার। বাগান, ছাদবাগান এবং কৃষি ফসলে স্প্রে করার জন্য অত্যন্ত উপযোগী।</p>",
+    "regularPrice": 380,
+    "salePrice": 320,
+    "costPrice": 240,
+    "stockQuantity": 35,
+    "weight": 450,
+    "colors": [],
+    "thumbnail": "/images/products/pressure-sprayer.jpg",
+    "images": [
+      {
+        "url": "/images/products/pressure-sprayer.jpg",
+        "alt": "হ্যান্ড প্রেশার স্প্রেয়ার ২ লিটার (Garden & Agri Hand Pressure Sprayer 2L)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.8,
+      "count": 44
+    },
+    "tags": [
+      "স্প্রেয়ার",
+      "Sprayer",
+      "কৃষি সরঞ্জাম",
+      "গার্ডেন স্প্রে"
+    ],
+    "features": [
+      "ব্রাস এডজাস্টেবল নজল",
+      "সহজে পাম্প করা যায়",
+      "শক্তিশালী ও টেকসই বডি"
+    ],
+    "specifications": [
+      {
+        "key": "ধারণক্ষমতা",
+        "value": "২ লিটার"
+      },
+      {
+        "key": "উপাদান",
+        "value": "হেভি ডিউটি প্লাস্টিক ও ব্রাস"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1888"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "তীর ফর্টিফাইড সয়াবিন তেল (Teer Fortified Soybean Oil - 2L)",
+    "slug": "teer-soybean-oil-2l",
+    "sku": "groc-soybean-oil-2l",
+    "shortDesc": "ভিটামিন এ সমৃদ্ধ তীর খাঁটি সয়াবিন তেল ২ লিটার পেট বোতল।",
+    "description": "<p>স্বাস্থ্যসম্মত ও বিশুদ্ধ রান্নার তেল। খাবারে স্বাদ ও পুষ্টি নিশ্চিত করে।</p>",
+    "regularPrice": 380,
+    "salePrice": 350,
+    "costPrice": 315,
+    "stockQuantity": 50,
+    "weight": 2000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=500&auto=format&fit=crop&q=60",
+        "alt": "তীর ফর্টিফাইড সয়াবিন তেল (Teer Fortified Soybean Oil - 2L)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 98
+    },
+    "tags": [
+      "সয়াবিন তেল",
+      "Soybean Oil",
+      "তেল",
+      "মুদি"
+    ],
+    "features": [
+      "ভিটামিন এ সমৃদ্ধ",
+      "কোলেস্টেরল মুক্ত",
+      "১০০% বিশুদ্ধ"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "২ লিটার"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Teer"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1889"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "ফ্রেশ প্রিমিয়াম ফর্টিফাইড আটা (Fresh Fortified Atta - 2kg)",
+    "slug": "fresh-atta-2kg",
+    "sku": "groc-fresh-atta-2kg",
+    "shortDesc": "উন্নত গমের তৈরি পুষ্টিকর ফর্টিফাইড আটা। নরম ও তুলতুলে রুটির জন্য।",
+    "description": "<p>উচ্চমানের গম থেকে তৈরি সম্পূর্ণ ভুষিযুক্ত স্বাস্থ্যকর আটা। দীর্ঘক্ষণ রুটি নরম থাকে।</p>",
+    "regularPrice": 130,
+    "salePrice": 115,
+    "costPrice": 98,
+    "stockQuantity": 70,
+    "weight": 2000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60",
+        "alt": "ফ্রেশ প্রিমিয়াম ফর্টিফাইড আটা (Fresh Fortified Atta - 2kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 76
+    },
+    "tags": [
+      "আটা",
+      "Atta",
+      "Fresh",
+      "রুটি"
+    ],
+    "features": [
+      "উন্নত গমের পুষ্টি",
+      "নরম ও ফোলা রুটি হয়",
+      "ভেজালমুক্ত পরিষ্কার আটা"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "২ কেজি"
+      },
+      {
+        "key": "প্যাক প্রকার",
+        "value": "পলি প্যাক"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188a"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "প্রিমিয়াম মিনিকেট চাল (Premium Miniket Rice - 5kg)",
+    "slug": "miniket-rice-5kg",
+    "sku": "groc-miniket-rice-5kg",
+    "shortDesc": "ঝরঝরে, সরু ও পরিষ্কার অটো রাইস মিলের প্রিমিয়াম মিনিকেট চাল।",
+    "description": "<p>প্রতিদিনের ভাতের জন্য সেরা চাল। রান্না করলে ঝরঝরে ও সুস্বাদু হয়। পাথর ও ধূলামুক্ত।</p>",
+    "regularPrice": 380,
+    "salePrice": 350,
+    "costPrice": 310,
+    "stockQuantity": 60,
+    "weight": 5000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=60",
+        "alt": "প্রিমিয়াম মিনিকেট চাল (Premium Miniket Rice - 5kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 41
+    },
+    "tags": [
+      "চাল",
+      "মিনিকেট চাল",
+      "Miniket Rice",
+      "চাল ৫ কেজি"
+    ],
+    "features": [
+      "সরু ও ঝরঝরে ভাত",
+      "১০০% পরিষ্কার",
+      "অটো রাইস মিল প্রসেসড"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "৫ কেজি"
+      },
+      {
+        "key": "জাত",
+        "value": "মিনিকেট"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188b"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "title": "দেশি রসুন ও তাজা আদা কম্বো (Deshi Garlic & Ginger Combo - 1kg)",
+    "slug": "deshi-garlic-ginger-combo-1kg",
+    "sku": "groc-garlic-ginger-1kg",
+    "shortDesc": "৫০০ গ্রাম দেশি রসুন + ৫০০ গ্রাম ফ্রেশ আদা এর বিশেষ সাশ্রয়ী কম্বো।",
+    "description": "<p>রান্নার অত্যাবশ্যকীয় দুই মসলা একসাথে সাশ্রয়ী মূল্যে। সম্পূর্ণ শুকনা ও দাগহীন।</p>",
+    "regularPrice": 240,
+    "salePrice": 210,
+    "costPrice": 175,
+    "stockQuantity": 40,
+    "weight": 1000,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+        "alt": "দেশি রসুন ও তাজা আদা কম্বো (Deshi Garlic & Ginger Combo - 1kg)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 69
+    },
+    "tags": [
+      "রসুন",
+      "আদা",
+      "Garlic",
+      "Ginger",
+      "মসলা"
+    ],
+    "features": [
+      "তাজা ও ঝাঁঝালো দেশি রসুন",
+      "আঁশযুক্ত সতেজ আদা",
+      "সাশ্রয়ী কম্বো প্যাক"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "১ কেজি (৫০০ গ্রাম রসুন + ৫০০ গ্রাম আদা)"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188c"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "title": "প্যারাসুট খাঁটি নারিকেল তেল (Parachute Pure Coconut Oil - 200ml)",
+    "slug": "parachute-coconut-oil-200ml",
+    "sku": "care-parachute-oil-200ml",
+    "shortDesc": "১০০% খাঁটি নারিকেল তেল। চুলের পুষ্টি ও মাথার ত্বকের যত্নে দেশসেরা।",
+    "description": "<p>প্রাকৃতিক ফিল্টার করা বিশুদ্ধ নারিকেল তেল যা চুলকে করে ঘন, কালো ও মজবুত।</p>",
+    "regularPrice": 175,
+    "salePrice": 155,
+    "costPrice": 130,
+    "stockQuantity": 60,
+    "weight": 220,
+    "colors": [],
+    "thumbnail": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=500&auto=format&fit=crop&q=60",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=500&auto=format&fit=crop&q=60",
+        "alt": "প্যারাসুট খাঁটি নারিকেল তেল (Parachute Pure Coconut Oil - 200ml)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 39
+    },
+    "tags": [
+      "নারিকেল তেল",
+      "Parachute",
+      "Coconut Oil",
+      "তেল"
+    ],
+    "features": [
+      "১০০% খাঁটি ভোজ্য গ্রেড",
+      "চুল পড়া রোধ করে",
+      "মনোরম সুবাস"
+    ],
+    "specifications": [
+      {
+        "key": "পরিমাণ",
+        "value": "২০০ মিলি"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Parachute"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188d"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "title": "জনসন বেবি সোপ (Johnson's Baby Soap - 100g)",
+    "slug": "johnsons-baby-soap-100g",
+    "sku": "baby-johnsons-soap-100g",
+    "shortDesc": "শিশুর ত্বকে প্রাকৃতিক আর্দ্রতা বজায় রাখতে নো মোর টিয়ার্স বেবি সাবান।",
+    "description": "<p>ক্লিনিক্যালি প্রমাণিত নিরাপদ ও কোমল সাবান যা শিশুর চোখ ও ত্বকে কোনো জ্বালাপোড়া করে না।</p>",
+    "regularPrice": 130,
+    "salePrice": 115,
+    "costPrice": 95,
+    "stockQuantity": 50,
+    "weight": 100,
+    "colors": [],
+    "thumbnail": "/images/products/johnson-baby-soap.jpg",
+    "images": [
+      {
+        "url": "/images/products/johnson-baby-soap.jpg",
+        "alt": "জনসন বেবি সোপ (Johnson's Baby Soap - 100g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.6,
+      "count": 104
+    },
+    "tags": [
+      "বেবি সাবান",
+      "Johnsons Baby",
+      "Baby Soap"
+    ],
+    "features": [
+      "নো মোর টিয়ার্স ফর্মুলা",
+      "কোমল ও মসৃণ ত্বক রাখে",
+      "চর্মরোগ বিশেষজ্ঞ পরীক্ষিত"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "১০০ গ্রাম"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Johnson's"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188e"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "পেপসোডেন্ট জার্মি চেক টুথপেস্ট (Pepsodent Germi Check - 100g)",
+    "slug": "pepsodent-germi-check-toothpaste-100g",
+    "sku": "health-pepsodent-100g",
+    "shortDesc": "১২ ঘণ্টা পর্যন্ত জীবাণু থেকে দাঁতের সুরক্ষা ও তাজা নিঃশ্বাস নিশ্চিত করে।",
+    "description": "<p>দাঁতের এনামেল রক্ষা ও মাড়ি সুস্থ রাখতে কার্যকরী পেপসোডেন্ট টুথপেস্ট।</p>",
+    "regularPrice": 95,
+    "salePrice": 85,
+    "costPrice": 70,
+    "stockQuantity": 80,
+    "weight": 120,
+    "colors": [],
+    "thumbnail": "/images/products/pepsodent-toothpaste.jpg",
+    "images": [
+      {
+        "url": "/images/products/pepsodent-toothpaste.jpg",
+        "alt": "পেপসোডেন্ট জার্মি চেক টুথপেস্ট (Pepsodent Germi Check - 100g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 80
+    },
+    "tags": [
+      "টুথপেস্ট",
+      "Pepsodent",
+      "দাঁতের যত্ন",
+      "Toothpaste"
+    ],
+    "features": [
+      "জীবাণু প্রতিরোধক ফর্মুলা",
+      "দীর্ঘস্থায়ী তাজা নিঃশ্বাস",
+      "মাড়ি ও দাঁতের সার্বিক যত্ন"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "১০০ গ্রাম"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Pepsodent"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e188f"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "title": "গুড নাইট মশার কয়েল (Good Knight Power Active Coil - 10 Pcs)",
+    "slug": "good-knight-mosquito-coil-10pcs",
+    "sku": "health-goodknight-coil",
+    "shortDesc": "অল্প ধোঁয়ায় দ্রুত মশা তাড়াতে উন্নত ও নিরাপদ মশার কয়েল।",
+    "description": "<p>ডেঙ্গু ও ম্যালেরিয়া বাহক মশা থেকে সুরক্ষায় কার্যকর। ১২ ঘণ্টা পর্যন্ত একটানা কাজ করে।</p>",
+    "regularPrice": 75,
+    "salePrice": 65,
+    "costPrice": 50,
+    "stockQuantity": 100,
+    "weight": 150,
+    "colors": [],
+    "thumbnail": "/images/products/goodnight-coil.jpg",
+    "images": [
+      {
+        "url": "/images/products/goodnight-coil.jpg",
+        "alt": "গুড নাইট মশার কয়েল (Good Knight Power Active Coil - 10 Pcs)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.7,
+      "count": 42
+    },
+    "tags": [
+      "মশার কয়েল",
+      "Good Knight",
+      "Mosquito Coil"
+    ],
+    "features": [
+      "১২ ঘণ্টা একটানা সুরক্ষা",
+      "কম ধোঁয়া ও মিষ্টি সুবাস",
+      "মশা দ্রুত বিতাড়ন করে"
+    ],
+    "specifications": [
+      {
+        "key": "প্যাক সাইজ",
+        "value": "১০টি কয়েল + স্ট্যান্ড"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1890"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "title": "এসিআই হাইব্রিড টমেটো বীজ (ACI Hybrid Tomato Seeds - 5g)",
+    "slug": "aci-hybrid-tomato-seeds-5g",
+    "sku": "agri-aci-tomato-seed",
+    "shortDesc": "অধিক ফলনশীল রতন জাতের আকর্ষণীয় লাল হাইব্রিড টমেটো বীজ।",
+    "description": "<p>উচ্চ অঙ্কুরোদগম ও রোগ প্রতিরোধী জাত। প্রতিটি গাছে প্রচুর টমেটো ধরে এবং ফল শক্ত ও দীর্ঘস্থায়ী হয়।</p>",
+    "regularPrice": 80,
+    "salePrice": 65,
+    "costPrice": 48,
+    "stockQuantity": 50,
+    "weight": 10,
+    "colors": [],
+    "thumbnail": "/images/products/aci-tomato-seeds.jpg",
+    "images": [
+      {
+        "url": "/images/products/aci-tomato-seeds.jpg",
+        "alt": "এসিআই হাইব্রিড টমেটো বীজ (ACI Hybrid Tomato Seeds - 5g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.8,
+      "count": 66
+    },
+    "tags": [
+      "টমেটো বীজ",
+      "Tomato Seeds",
+      "ACI",
+      "কৃষি"
+    ],
+    "features": [
+      "উচ্চ ফলনশীল হাইব্রিড",
+      "গাঢ় লাল ও নিরেট ফল",
+      "ভাইরাস রোগ সহনশীল"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "৫ গ্রাম"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "ACI Seeds"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e1891"
+    },
+    "category": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "title": "লাল তীর হাইব্রিড শসা বীজ (Lal Teer Hybrid Cucumber Seeds - 10g)",
+    "slug": "lal-teer-hybrid-cucumber-seeds-10g",
+    "sku": "agri-lalteer-shosha-seed",
+    "shortDesc": "বারোমাসি উচ্চ ফলনশীল গ্রীন লাইন হাইব্রিড শসা বীজ।",
+    "description": "<p>দ্রুত বর্ধনশীল ও অধিক ফলনশীল জাত। শসা হয় সুষম লম্বা, সবুজ ও মিষ্টি স্বাদের।</p>",
+    "regularPrice": 85,
+    "salePrice": 70,
+    "costPrice": 52,
+    "stockQuantity": 45,
+    "weight": 15,
+    "colors": [],
+    "thumbnail": "/images/products/lal-teer-cucumber-seeds.jpg",
+    "images": [
+      {
+        "url": "/images/products/lal-teer-cucumber-seeds.jpg",
+        "alt": "লাল তীর হাইব্রিড শসা বীজ (Lal Teer Hybrid Cucumber Seeds - 10g)",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": {
+      "average": 4.9,
+      "count": 91
+    },
+    "tags": [
+      "শসা বীজ",
+      "Cucumber Seeds",
+      "Lal Teer",
+      "বীজ"
+    ],
+    "features": [
+      "বারোমাসি চাষ উপযোগী",
+      "মুচমুচে ও তিতাহীন শসা",
+      "উচ্চ ফলনশীল"
+    ],
+    "specifications": [
+      {
+        "key": "ওজন",
+        "value": "১০ গ্রাম"
+      },
+      {
+        "key": "ব্র্যান্ড",
+        "value": "Lal Teer Seed"
+      }
+    ],
+    "createdAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-05-01T10:00:00.000Z"
+    }
+  }
+]

@@ -49,6 +49,7 @@ import {
   User as UserIcon,
 } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
+import UnifiedUserMenu from "./UnifiedUserMenu";
 
 // Category definitions for Super Shop
 const categories = [
@@ -67,8 +68,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const { data: session, status } = useSession();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
     library: false,
     foundation: false,
@@ -78,6 +78,31 @@ export default function Navbar() {
   });
 
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollYRef = useRef(0);
+
+  // Auto-hiding Navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show at the very top or when mobile menu / dropdown is active
+      if (currentScrollY <= 60 || mobileOpen || activeDropdown !== null) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
+        // Scrolling DOWN -> hide navbar
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollYRef.current) {
+        // Scrolling UP -> show navbar
+        setIsVisible(true);
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen, activeDropdown]);
 
   // Close dropdowns and drawer on route change
   useEffect(() => {
@@ -91,9 +116,6 @@ export default function Navbar() {
       const target = e.target as HTMLElement;
       if (!target.closest(".nav-dropdown-container")) {
         setActiveDropdown(null);
-      }
-      if (!target.closest(".profile-dropdown-container")) {
-        setProfileOpen(false);
       }
     };
     document.addEventListener("click", handleOutsideClick);
@@ -142,7 +164,7 @@ export default function Navbar() {
 
   // Common Navlink Styles
   const navItemClass = (isActive: boolean) =>
-    `relative px-2.5 xl:px-3 py-1.5 text-[13.5px] font-medium rounded-lg flex items-center gap-1.5 transition-all duration-150 select-none cursor-pointer ${
+    `relative px-2 xl:px-2.5 py-1 text-[13px] font-medium rounded-md flex items-center gap-1.5 transition-all duration-150 select-none cursor-pointer ${
       isActive
         ? "bg-blue-50/90 text-blue-600 dark:bg-blue-950/60 dark:text-blue-400 font-semibold shadow-xs"
         : "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-white/5"
@@ -150,19 +172,23 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Desktop & Mobile Top Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#141414]/95 backdrop-blur-md transition-colors duration-200">
+      {/* Desktop & Mobile Top Header (Ant Design Theme + Auto-Hiding) */}
+      <header
+        className={`sticky top-0 z-50 w-full bg-white/95 dark:bg-[#1f1f1f]/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between gap-2 xl:gap-4">
+          <div className="flex h-[50px] items-center justify-between gap-2 xl:gap-3">
             
             {/* Logo Brand */}
             <Link
               href="/"
               className="flex items-center gap-3 group shrink-0 focus:outline-none"
             >
-              <div className="relative h-10 w-10 rounded-xl bg-white dark:bg-[#1e1e1e] shadow-xs border border-slate-200 dark:border-[#333] flex items-center justify-center group-hover:border-blue-400 dark:group-hover:border-blue-500 group-hover:shadow transition-all duration-300">
+              <div className="relative h-8 w-8 rounded-lg bg-white dark:bg-[#1e1e1e] shadow-xs border border-slate-200 dark:border-[#333] flex items-center justify-center group-hover:border-blue-400 dark:group-hover:border-blue-500 group-hover:shadow transition-all duration-300">
                 <span
-                  className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent font-black text-xl select-none"
+                  className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent font-black text-lg select-none"
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     WebkitBackgroundClip: "text",
@@ -174,10 +200,10 @@ export default function Navbar() {
               </div>
 
               <div className="leading-tight flex flex-col justify-center text-center">
-                <div className="text-[15px] font-semibold tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <div className="text-[13.5px] font-semibold tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   BASAR Group
                 </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-normal">
                   Learn. Earn. Empower.
                 </div>
               </div>
@@ -662,133 +688,41 @@ export default function Navbar() {
             <div className="flex items-center gap-2 xl:gap-2.5 shrink-0">
               
               {/* ThemeSwitcher */}
-              <ThemeSwitcher />
+              <ThemeSwitcher className="h-8 px-2 text-xs" />
 
-              {/* Auth Button / Profile Dropdown */}
-              <div className="relative profile-dropdown-container ml-1 hidden lg:block">
-                {status === "loading" ? (
-                  <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-[#333] animate-pulse"></div>
-                ) : session?.user ? (
-                  <>
-                    <button
-                      onClick={() => setProfileOpen(!profileOpen)}
-                      className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-slate-200 dark:border-[#303030] hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-[#1f1f1f] hover:bg-slate-50 dark:hover:bg-white/5 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 focus:outline-none shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
-                      title={session.user.fullname}
-                    >
-                      <UserIcon className="w-4 h-4" />
-                    </button>
-
-                    {/* Dropdown Menu */}
-                    {profileOpen && (
-                      <div className="absolute top-full right-0 mt-2 w-56 rounded-xl bg-white dark:bg-[#1a1a1a] border border-slate-200 dark:border-[#303030] shadow-xl p-1 z-50 animate-in fade-in zoom-in-95 duration-200">
-                        <div className="px-3 py-2.5 border-b border-slate-100 dark:border-[#2a2a2a] mb-1">
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
-                            {session.user.fullname}
-                          </p>
-                          <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
-                            {session.user.email}
-                          </p>
-                          {session.user.role === "ADMIN" && (
-                            <span className="inline-block mt-1.5 px-2 py-0.5 text-[10px] font-bold bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400 rounded-md">
-                              ADMIN
-                            </span>
-                          )}
-                        </div>
-                        <div className="p-1 space-y-0.5">
-                          <Link
-                            href="/dashboard"
-                            onClick={() => setProfileOpen(false)}
-                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                          >
-                            <LayoutDashboard className="w-4 h-4 opacity-70" />
-                            <span>ড্যাশবোর্ড ওভারভিউ</span>
-                          </Link>
-                          
-                          <Link
-                            href="/dashboard/profile"
-                            onClick={() => setProfileOpen(false)}
-                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                          >
-                            <UserIcon className="w-4 h-4 opacity-70" />
-                            <span>প্রোফাইল সেটিংস</span>
-                          </Link>
-
-                          <Link
-                            href="/dashboard/requests"
-                            onClick={() => setProfileOpen(false)}
-                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                          >
-                            <GitPullRequestDraft className="w-4 h-4 opacity-70" />
-                            <span>আমার রিকোয়েস্ট</span>
-                          </Link>
-
-                          {session.user.role === "ADMIN" && (
-                            <Link
-                              href="/admin/family-tree"
-                              onClick={() => setProfileOpen(false)}
-                              className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                            >
-                              <ShieldCheck className="w-4 h-4 opacity-70" />
-                              <span>অ্যাডমিন প্যানেল</span>
-                            </Link>
-                          )}
-                          
-                          <div className="h-px bg-slate-100 dark:bg-[#2a2a2a] my-1" />
-
-                          <button
-                            onClick={() => {
-                              setProfileOpen(false);
-                              signOut();
-                            }}
-                            className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-colors"
-                          >
-                            <LogOut className="w-4 h-4 opacity-70" />
-                            <span>লগ আউট</span>
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href="/login"
-                    className="flex items-center justify-center h-9 px-4 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white text-[13px] font-medium transition-colors shadow-sm"
-                  >
-                    লগিন
-                  </Link>
-                )}
+              {/* Unified User Menu */}
+              <div className="ml-1">
+                <UnifiedUserMenu variant="sm" loggedOutVariant="button" />
               </div>
 
-              {/* Mobile Drawer Trigger */}
+              {/* Mobile Menu Toggle Button */}
               <button
                 type="button"
-                onClick={() => setMobileOpen(true)}
-                aria-label="Open mobile navigation menu"
-                className="lg:hidden inline-flex items-center justify-center h-9 w-9 rounded-lg border border-slate-200 dark:border-[#303030] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors focus:outline-none cursor-pointer"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="lg:hidden p-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors focus:outline-none cursor-pointer"
+                aria-label="Toggle navigation menu"
               >
-                <MenuIcon className="w-5 h-5" />
+                {mobileOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
               </button>
             </div>
-
           </div>
         </div>
       </header>
 
-      {/* Ant Design Style Mobile Drawer */}
+      {/* Mobile Drawer Backdrop & Container (Ant Design Theme #1f1f1f) */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
-          
+        <div className="fixed inset-0 z-50 lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 animate-in fade-in"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileOpen(false)}
           />
 
-          {/* Drawer Container */}
-          <div className="relative z-10 w-[310px] sm:w-[350px] max-w-[85vw] h-full bg-white dark:bg-[#141414] border-l border-slate-200 dark:border-[#303030] shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300">
+          {/* Drawer Panel */}
+          <div className="fixed inset-y-0 right-0 w-full max-w-xs sm:max-w-sm bg-white dark:bg-[#1f1f1f] shadow-2xl flex flex-col z-10 border-l border-slate-200 dark:border-[#303030]">
             
             {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 h-16 shrink-0 border-b border-slate-100 dark:border-[#222]">
+            <div className="flex items-center justify-between px-4 h-[50px] border-b border-slate-200 dark:border-[#303030] shrink-0">
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}
@@ -799,7 +733,7 @@ export default function Navbar() {
                     B
                   </span>
                 </div>
-                <div className="text-center flex flex-col justify-center">
+                <div className="text-left flex flex-col justify-center">
                   <div className="font-semibold text-sm text-slate-900 dark:text-white">BASAR Group</div>
                   <div className="text-[10px] text-slate-500 dark:text-slate-400">
                     Learn. Earn. Empower.
@@ -1148,7 +1082,7 @@ export default function Navbar() {
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <Link
-                      href={session.user.role === "ADMIN" ? "/admin" : "/profile"}
+                      href="/dashboard"
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                     >

@@ -63,6 +63,8 @@ export interface IUser extends Document {
   subscriptionExpiry?: Date;
   enrolledCourses: IEnrolledCourse[];
   paymentHistory: any[]; // References OrderCollection
+  addresses?: any[];
+  wishlist?: any[];
   location?: {
     type: string;
     coordinates: number[];

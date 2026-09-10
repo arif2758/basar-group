@@ -3,8 +3,6 @@ import { Noto_Sans_Bengali, Inter } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/animations.css";
 import { ThemeProvider } from "@/context/ThemeContext";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 
 import AuthProvider from "@/components/AuthProvider";
@@ -76,11 +74,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <ThemeProvider>
-            <Navbar />
-            <div className="min-h-screen flex flex-col flex-1 overflow-x-hidden w-full">
-              {children}
-            </div>
-            <Footer />
+            {children}
             <Toaster position="bottom-right" richColors />
           </ThemeProvider>
         </AuthProvider>

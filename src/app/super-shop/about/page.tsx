@@ -473,7 +473,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="hero-content">
-                <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full text-sm font-semibold mb-8">
+                <div className="inline-flex items-center bg-white/15 border border-white/25 px-6 py-2.5 rounded-full text-sm font-semibold mb-8">
                   <Heart className="w-4 h-4 mr-2 text-pink-300" />
                   আমাদের পরিচিতি
                   <Users className="w-4 h-4 ml-2 text-blue-300" />
@@ -499,13 +499,13 @@ export default function AboutPage() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-8 mb-8">
-                  <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <div className="text-center bg-white/15 rounded-2xl p-6 border border-white/25">
                     <div className="text-4xl font-black mb-2">127</div>
                     <div className="text-white/80 font-medium">
                       তরুণদের কর্মসংস্থান
                     </div>
                   </div>
-                  <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <div className="text-center bg-white/15 rounded-2xl p-6 border border-white/25">
                     <div className="text-4xl font-black mb-2">5,200</div>
                     <div className="text-white/80 font-medium">
                       সেবাগ্রাহক পরিবার
@@ -534,23 +534,23 @@ export default function AboutPage() {
                   />
 
                   {/* Floating elements on image */}
-                  <div className="absolute top-6 left-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-100 dark:border-slate-800">
+                  <div className="absolute top-6 left-6 bg-white dark:bg-[#1f1f1f] rounded-2xl p-4 shadow-lg border border-slate-200 dark:border-[#303030]">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full flex items-center justify-center">
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
                       <div className="text-left">
-                        <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                        <div className="text-sm text-slate-600 dark:text-slate-300 font-medium">
                           কমিউনিটি প্রবৃদ্ধি
                         </div>
-                        <div className="text-xl font-black text-gray-900 dark:text-white">
+                        <div className="text-xl font-black text-slate-900 dark:text-white">
                           +150%
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-100 dark:border-slate-800">
+                  <div className="absolute bottom-6 right-6 bg-white dark:bg-[#1f1f1f] rounded-2xl p-4 shadow-lg border border-slate-200 dark:border-[#303030]">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full flex items-center justify-center">
                         <Heart className="w-5 h-5 text-white" />
@@ -774,7 +774,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
 
                     {/* Expertise Badge */}
-                    <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-gray-700 dark:text-gray-300 border border-gray-100 dark:border-slate-700">
+                    <div className="absolute top-4 left-4 bg-white/95 dark:bg-[#1f1f1f]/95 rounded-full px-3 py-1 text-xs font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#303030]">
                       {member.expertise}
                     </div>
                   </div>
@@ -812,7 +812,7 @@ export default function AboutPage() {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full text-sm font-semibold mb-8">
+              <div className="inline-flex items-center bg-white/15 border border-white/25 px-6 py-2.5 rounded-full text-sm font-semibold mb-8">
                 <TrendingUp className="w-4 h-4 mr-2 text-cyan-300" />
                 সামাজিক প্রভাব
                 <Heart className="w-4 h-4 ml-2 text-pink-300" />
@@ -838,7 +838,7 @@ export default function AboutPage() {
             <div className="impact-stats grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {impactStats.map((stat, index) => (
                 <div key={index} className="impact-stat relative">
-                  <div className="bg-white/15 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center shadow-2xl">
+                  <div className="bg-white/15 border border-white/25 rounded-3xl p-8 text-center shadow-2xl">
                     <div className="text-4xl mb-4">{stat.icon}</div>
                     <div className="counter-number text-4xl sm:text-5xl font-black text-white mb-3">
                       {stat.number}
@@ -847,15 +847,12 @@ export default function AboutPage() {
                       {stat.label}
                     </div>
                   </div>
-
-                  {/* Glow effect */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
                 </div>
               ))}
             </div>
 
             {/* Mission CTA */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 text-center">
+            <div className="bg-white/15 border border-white/25 rounded-3xl p-8 sm:p-12 text-center">
               <h3 className="text-3xl sm:text-4xl font-black text-white mb-6">
                 আমাদের এই মহতী উদ্যোগে শামিল হোন
               </h3>
@@ -876,7 +873,7 @@ export default function AboutPage() {
                 ].map((item, index) => (
                   <span
                     key={index}
-                    className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-white/90 font-medium border border-white/30 text-sm"
+                    className="bg-white/20 px-6 py-2.5 rounded-full text-white/90 font-medium border border-white/30 text-sm"
                   >
                     {item.icon} {item.text}
                   </span>
@@ -885,7 +882,7 @@ export default function AboutPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/super-shop/shop"
+                  href="/super-shop/products"
                   className="group bg-gradient-to-r from-orange-400 to-amber-400 hover:from-orange-500 hover:to-amber-500 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
                 >
                   <span>কেনাকাটা শুরু করুন</span>
@@ -894,7 +891,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/super-shop/contact"
-                  className="group bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
+                  className="group bg-white/15 border border-white/30 hover:bg-white/25 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
                 >
                   <Users className="w-5 h-5" />
                   <span>যোগাযোগ করুন</span>

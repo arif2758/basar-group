@@ -1,8 +1,9 @@
-import NextAuth from "next-auth"
+import NextAuth, { CredentialsSignin } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import Google from "next-auth/providers/google"
 import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
+import { z } from "zod"
 import { User } from "./models/User"
 
 // Ensure Mongoose connects for authorize and callbacks
@@ -20,36 +21,57 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       allowDangerousEmailAccountLinking: true,
     }),
     Credentials({
-      name: "Admin Credentials",
+      name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "admin@example.com" },
+        email: { label: "Email", type: "email", placeholder: "you@example.com" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        // Zod validation
+        const parsed = z
+          .object({
+            email: z.string().email(),
+            password: z.string().min(1),
+          })
+          .safeParse(credentials);
+
+        if (!parsed.success) return null;
+
+        const { email, password } = parsed.data;
 
         await connectToDB();
 
         // 1. Check if user is the root admin (from env)
         if (
-          credentials.email === process.env.ADMIN_USERNAME && // Still matches admin username if needed
-          credentials.password === process.env.ADMIN_PASSWORD
+          email === process.env.ADMIN_USERNAME &&
+          password === process.env.ADMIN_PASSWORD
         ) {
-          return { id: "0", email: credentials.email as string, fullname: "Super Admin", role: "ADMIN", isFamilyMember: true };
+          return {
+            id: "0",
+            email,
+            name: "Super Admin",
+            fullname: "Super Admin",
+            image: null,
+            role: "ADMIN",
+            isFamilyMember: true,
+          };
         }
 
         // 2. Check if user exists in database
-        const user = await User.findOne({ email: credentials.email });
-        if (!user) return null;
+        const user = await User.findOne({ email });
+        if (!user) throw new CredentialsSignin("InvalidCredentials");
 
         // 3. Verify password
-        const isValid = await bcrypt.compare(credentials.password as string, user.password);
-        if (!isValid) return null;
+        if (!user.password) throw new CredentialsSignin("InvalidCredentials");
+        const isValid = await bcrypt.compare(password, user.password);
+        if (!isValid) throw new CredentialsSignin("InvalidCredentials");
 
         return {
           id: user._id.toString(),
           email: user.email,
-          fullname: user.fullname,
+          name: user.fullname,          // next-auth standard field
+          fullname: user.fullname,      // backward compat for main site
+          image: user.profilePicture ?? null,
           role: user.role,
           isFamilyMember: user.isFamilyMember,
         };
@@ -61,46 +83,66 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account?.provider === "google") {
         await connectToDB();
         const existingUser = await User.findOne({ email: user.email });
-        
+
         if (!existingUser) {
-          // Auto-register OAuth user via Mongoose (respects schema defaults)
+          // Auto-register OAuth user
           const newUser = new User({
             fullname: user.name || profile?.name || "Google User",
             email: user.email,
-            profilePicture: user.image || profile?.picture,
-            // role and isFamilyMember will automatically get Mongoose defaults (USER, false)
+            profilePicture: user.image || (profile as { picture?: string })?.picture,
+            // role and isFamilyMember get Mongoose defaults (USER, false)
           });
           await newUser.save();
+        } else if (user.image || (profile as { picture?: string })?.picture) {
+          // Ensure profile picture is updated from Google
+          const googlePic = user.image || (profile as { picture?: string })?.picture;
+          if (existingUser.profilePicture !== googlePic) {
+            existingUser.profilePicture = googlePic;
+            await existingUser.save();
+          }
         }
       }
       return true;
     },
-    async jwt({ token, user, trigger }) {
+    async jwt({ token, user, trigger, account }) {
       const now = Date.now();
-      const tokenLastChecked = token.lastChecked as number || 0;
-      const shouldRefresh = (now - tokenLastChecked) > 5 * 60 * 1000; // Auto refresh every 5 mins
+      const tokenLastChecked = (token.lastChecked as number) || 0;
+      const shouldRefresh = now - tokenLastChecked > 5 * 60 * 1000; // 5 min refresh
+
+      // OAuth: mark email verified
+      if (account?.provider === "google") {
+        token.emailVerified = new Date().toISOString();
+      }
 
       if (user || trigger === "update" || shouldRefresh) {
-        // Fetch latest data from our MongoDB
         await connectToDB();
         const emailToFind = user?.email || token?.email;
+
         if (emailToFind) {
-          const dbUser = await User.findOne({ email: emailToFind });
+          const dbUser = await User.findOneAndUpdate(
+            { email: emailToFind },
+            { lastLogin: new Date() },
+            { returnDocument: 'after' }
+          );
 
           if (dbUser) {
             token.id = dbUser._id.toString();
             token.email = dbUser.email;
-            token.fullname = dbUser.fullname || user?.name || token.fullname;
+            token.name = dbUser.fullname;           // next-auth standard
+            token.fullname = dbUser.fullname;       // backward compat
+            token.image = dbUser.profilePicture || user?.image || (token.image as string) || null;
             token.role = dbUser.role;
             token.isFamilyMember = dbUser.isFamilyMember;
             token.lastChecked = now;
           } else if (user) {
-            // Fallback (e.g. for hardcoded Super Admin)
+            // Fallback for hardcoded Super Admin (not in DB)
             token.id = user.id;
             token.email = user.email;
-            token.fullname = user.fullname || user.name;
-            token.role = user.role;
-            token.isFamilyMember = user.isFamilyMember;
+            token.name = (user as { fullname?: string; name?: string }).fullname ?? user.name;
+            token.fullname = (user as { fullname?: string }).fullname ?? user.name;
+            token.image = user.image ?? null;
+            token.role = (user as { role?: string }).role;
+            token.isFamilyMember = (user as { isFamilyMember?: boolean }).isFamilyMember;
             token.lastChecked = now;
           }
         }
@@ -111,7 +153,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
-        session.user.fullname = token.fullname as string;
+        session.user.name = token.name as string;         // next-auth standard (UserMenuButton uses this)
+        session.user.fullname = token.fullname as string; // backward compat (main Navbar uses this)
+        session.user.image = token.image as string | null;
         session.user.role = token.role as string;
         session.user.isFamilyMember = token.isFamilyMember as boolean;
       }
@@ -123,5 +167,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   pages: {
     signIn: "/login",
+    error: "/login",
   },
+  trustHost: true,
 })

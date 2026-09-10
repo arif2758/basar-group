@@ -1,0 +1,1090 @@
+[
+    {
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5017" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+  "title": "JBL M3 Mini Portable Speaker",
+  "slug": "jbl-m3-mini-portable-speaker",
+  "sku": "jbl-m3-mini-portable-speaker",
+  "shortDesc": "ছোট্ট কিন্তু শক্তিশালী JBL M3 মিনি পোর্টেবল স্পিকার। ক্রিস্টাল ক্লিয়ার সাউন্ড আর দুর্দান্ত বেস।",
+  "description": "<p>JBL M3 মিনি পোর্টেবল স্পিকার দিয়ে আপনার প্রিয় গানগুলি উপভোগ করুন যেখানেই যান না কেন। এর ছোট ডিজাইন এবং লাইটওয়েট বডির কারণে এটি সহজে বহন করা যায়।</p><p>শক্তিশালী সাউন্ড, বিল্ট-ইন রিচার্জেবল ব্যাটারি এবং একাধিক কানেক্টিভিটি অপশন — এই স্পিকার আপনার প্রতিদিনের সঙ্গী হওয়ার জন্য তৈরি।</p>",
+  "regularPrice": 530,
+  "salePrice": 240,
+  "costPrice": 160,
+  "stockQuantity": 100,
+  "weight": 98,
+  "colors": ["Black", "Silver", "Red", "Blue", "Golden", "Rose Gold"],
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1782645929/jblm3-1_e5fh62.png",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645929/jblm3-1_e5fh62.png",
+      "alt": "JBL M3 Mini Portable Speaker",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645929/jblm3-2_fb8w4h.png",
+      "alt": "JBL M3 Mini Portable Speaker Side View",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645929/jblm3-3_rny3ma.png",
+      "alt": "JBL M3 Mini Portable Speaker Top View",
+      "order": 3
+    }
+  ],
+  "status": "published",
+  "variants": [
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501a" },
+      "variantSku": "jbl-m3-mini-speaker-black",
+      "variantTitle": "Black",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Black" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501b" },
+      "variantSku": "jbl-m3-mini-speaker-silver",
+      "variantTitle": "Silver",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Silver" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501c" },
+      "variantSku": "jbl-m3-mini-speaker-red",
+      "variantTitle": "Red",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Red" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501d" },
+      "variantSku": "jbl-m3-mini-speaker-blue",
+      "variantTitle": "Blue",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Blue" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501e" },
+      "variantSku": "jbl-m3-mini-speaker-golden",
+      "variantTitle": "Golden",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Golden" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e501f" },
+      "variantSku": "jbl-m3-mini-speaker-rosegold",
+      "variantTitle": "Rose Gold",
+      "regularPrice": 530,
+      "salePrice": 240,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Rose Gold" }
+      ]
+    }
+  ],
+  "featured": true,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.6, "count": 78 },
+  "tags": ["JBL", "Mini Speaker", "Portable Speaker", "Bluetooth Speaker"],
+  "features": [
+    "কমপ্যাক্ট ডিজাইন ও সহজে বহনযোগ্য",
+    "ক্রিস্টাল ক্লিয়ার সাউন্ড ও শক্তিশালী বেস",
+    "দীর্ঘস্থায়ী রিচার্জেবল ব্যাটারি",
+    "ব্লুটুথ কানেক্টিভিটি"
+  ],
+  "specifications": [
+    { "key": "ব্র্যান্ড", "value": "JBL" },
+    { "key": "মডেল", "value": "M3" },
+    { "key": "কানেক্টিভিটি", "value": "Bluetooth" },
+    { "key": "ব্যাটারি", "value": "রিচার্জেবল" }
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+},
+{
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5021" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+  "title": "Memory Card Support JBL M3-T Mini Portable Bluetooth Speaker",
+  "slug": "memory-card-support-jbl-m3-t-mini-portable-bluetooth-speaker",
+  "sku": "jbl-m3-t-mini-bluetooth-speaker",
+  "shortDesc": "মেমোরি কার্ড সাপোর্ট সহ JBL M3-T মিনি ব্লুটুথ স্পিকার। ফোন ছাড়াই মেমোরি কার্ড দিয়ে সরাসরি গান চালান।",
+  "description": "<p>মেমোরি কার্ড সাপোর্ট করে — ফোন ছাড়া আলাদাভাবে আপনি মেমোরি দিয়ে ব্যবহার করতে পারবেন। অত্যন্ত ছোট এবং হালকা হওয়ায় এটি সহজেই যেকোনো জায়গায় বহন করা যায়।</p><p><strong>সিরিজ কানেকশন:</strong> এই স্পিকারটিতে সিরিজ কানেকশন সুবিধা রয়েছে, যা দিয়ে একাধিক স্পিকার একসাথে যুক্ত করা সম্ভব।</p><p><strong>ব্লুটুথ কানেক্টিভিটি:</strong> স্মার্টফোন বা যেকোনো ব্লুটুথ ডিভাইসের সাথে দ্রুত কানেক্ট করা যায়।</p><p><strong>মেটালিক ফিনিশ:</strong> স্পিকারটির বডি গোল্ডেন রঙের মেটালিক ফিনিশ দেওয়া, যা একে প্রিমিয়াম লুক দেয়।</p><p><strong>সহজ বহনযোগ্যতা:</strong> সাথে একটি ক্যারিং স্ট্র্যাপ (ফিতে) রয়েছে, যাতে এটি কবজিতে বা ব্যাগের সাথে ঝুলিয়ে রাখা যায়।</p>",
+  "regularPrice": 600,
+  "salePrice": 290,
+  "costPrice": 185,
+  "stockQuantity": 100,
+  "weight": 98,
+  "colors": ["Black", "Silver", "Red", "Blue", "Golden", "Rose Gold"],
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1785683883/thumbnail_pxrnid.webp",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683883/all-color_faglax.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683943/six-color_npesvz.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Side View",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683883/jbl-m3t-blue_fyesji.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 3
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683920/jbl-m3t-silver_cvuh3j.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 4
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683884/jbl-m3t-rose-golden_b12emn.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 5
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683884/jbl-m3t-red_t3btf3.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 6
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683884/jbl-m3t-golden_ovxygv.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 7
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785683884/jbl-m3t-black_bo3ny4.webp",
+      "alt": "JBL M3-T Mini Portable Bluetooth Speaker Top View",
+      "order": 8
+    }
+  ],
+  "status": "published",
+  "variants": [
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5022" },
+      "variantSku": "jbl-m3-t-mini-speaker-black",
+      "variantTitle": "Black",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Black" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5023" },
+      "variantSku": "jbl-m3-t-mini-speaker-silver",
+      "variantTitle": "Silver",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Silver" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5024" },
+      "variantSku": "jbl-m3-t-mini-speaker-red",
+      "variantTitle": "Red",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Red" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5025" },
+      "variantSku": "jbl-m3-t-mini-speaker-blue",
+      "variantTitle": "Blue",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Blue" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5026" },
+      "variantSku": "jbl-m3-t-mini-speaker-golden",
+      "variantTitle": "Golden",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Golden" }
+      ]
+    },
+    {
+      "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5027" },
+      "variantSku": "jbl-m3-t-mini-speaker-rosegold",
+      "variantTitle": "Rose Gold",
+      "regularPrice": 600,
+      "salePrice": 290,
+      "stockQuantity": 2,
+      "variantImages": [],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Rose Gold" }
+      ]
+    }
+  ],
+  "featured": false,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.5, "count": 0 },
+  "tags": ["JBL", "JBL M3-T", "Mini Speaker", "Portable Speaker", "Bluetooth Speaker", "Memory Card Speaker"],
+  "features": [
+    "মেমোরি কার্ড সাপোর্ট — ফোন ছাড়াই সরাসরি গান চালানো যায়",
+    "সিরিজ কানেকশন — একাধিক স্পিকার একসাথে যুক্ত করা যায়",
+    "ওয়্যারলেস ব্লুটুথ কানেক্টিভিটি",
+    "প্রিমিয়াম মেটালিক ফিনিশ",
+    "লাইটওয়েট ও পোর্টেবল — ক্যারিং স্ট্র্যাপ সহ",
+    "বিল্ট-ইন মাইক্রোফোন"
+  ],
+  "specifications": [
+    { "key": "ব্র্যান্ড", "value": "JBL" },
+    { "key": "মডেল", "value": "M3-T" },
+    { "key": "কানেক্টিভিটি", "value": "USB / Bluetooth" },
+    { "key": "আউটপুট পাওয়ার", "value": "3W" },
+    { "key": "চ্যানেল", "value": "3 (2.1)" },
+    { "key": "ফ্রিকোয়েন্সি রেঞ্জ", "value": "100Hz - 20KHz" },
+    { "key": "প্লেব্যাক ফরম্যাট", "value": "APE, MP3, FLAC" },
+    { "key": "প্লে টাইম", "value": "৩-৪ ঘণ্টা" },
+    { "key": "ব্লুটুথ রেঞ্জ", "value": "১০ মিটার" },
+    { "key": "পাওয়ার সোর্স", "value": "ব্যাটারি / AC" },
+    { "key": "মেমোরি কার্ড", "value": "সাপোর্টেড" },
+    { "key": "বিল্ট-ইন মাইক্রোফোন", "value": "আছে" }
+  ],
+  "createdAt": { "$date": "2024-05-01T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-05-01T12:00:00.000Z" }
+},
+    {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5011" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5e" },
+    "title": "মাল্টিফাংশন কী-চেইন ল্যাম্প – ৮-ইন-১ LED রিচার্জেবল সারভাইভাল টুল",
+    "slug": "multifunction-keychain-lamp-8-in-1-survival-tool",
+    "sku": "MULTI-KEYCHAIN-W5147",
+    "shortDesc": "৮-ইন-১ কী-চেইন ল্যাম্প — COB LED লাইট, লাইটার, বোতল ওপেনার, স্ক্রু-ড্রাইভার, ম্যাগনেট, হুইসেল ও সিটবেল্ট কাটার।",
+    "description": "<h3>🔦 একটি টুলে ৮টি কাজ!</h3><p>এটি শুধু একটি কী-চেইন লাইট নয় — এটি একটি <strong>৮-ইন-১ সারভাইভাল মাল্টি-টুল</strong>। ক্যাম্পিং, হাইকিং, লোডশেডিং, গাড়ির ইমার্জেন্সি, কিংবা প্রতিদিনের EDC (Everyday Carry) হিসেবে — এই একটি টুলই যথেষ্ট।</p><h3>⚡ কী কী আছে এতে?</h3><ul><li>🔦 <strong>শক্তিশালী COB LED লাইট</strong> — Adjustable brightness</li><li>🔥 <strong>ইলেকট্রিক সিগারেট লাইটার</strong> — গ্যাস বা ম্যাচ ছাড়াই</li><li>🍾 <strong>বোতল ওপেনার</strong></li><li>🪛 <strong>ডাবল-হেড স্ক্রু-ড্রাইভার</strong></li><li>🧲 <strong>স্ট্রং ম্যাগনেট</strong> — মেটাল সারফেসে লাগিয়ে হ্যান্ডস-ফ্রি লাইট</li><li>📣 <strong>সারভাইভাল হুইসেল</strong> — বিপদে সংকেত দিতে</li><li>🚗 <strong>সিটবেল্ট কাটার</strong> — গাড়ির দুর্ঘটনায়</li><li>🔌 <strong>Type-C চার্জিং</strong> ও LED পাওয়ার ডিসপ্লে</li></ul><h3>📐 ১৮০° অ্যাডজাস্টেবল ব্র্যাকেট</h3><p>যেকোনো অ্যাঙ্গেলে লাইট সেট করুন। <strong>ক্যারাবিনার স্প্রিং লক</strong> দিয়ে ব্যাগ, বেল্ট বা চাবির রিং-এ ঝুলিয়ে রাখুন। গিফট হিসেবেও দারুণ চয়েস!</p><h4>📦 রিটার্ন ও রিপ্লেসমেন্ট নীতি</h4><p>ইলেকট্রিক্যাল প্রোডাক্টের ক্ষেত্রে আমাদের কোনো গ্যারান্টি/ওয়ারেন্টি নেই। <strong>৩ দিনের মধ্যে শুধুমাত্র রিপ্লেসমেন্ট</strong> দেওয়া হয়। ডেলিভারি ম্যানের সামনে প্যাকেট খুলে চেক করুন। ডেলিভারি বয় চলে যাওয়ার পর কোনো অভিযোগ গ্রহণযোগ্য নয়।</p>",
+    "regularPrice": 590,
+    "salePrice": 300,
+    "costPrice": 200,
+    "stockQuantity": 100,
+    "weight": 150,
+    "colors": ["Black", "Blue", "Red"],
+    "sizes": ["Standard"],
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1781856181/multifunction-keychain-lamp5_rsi5jy.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856181/multifunction-keychain-lamp5_rsi5jy.webp",
+        "alt": "মাল্টিফাংশন কী-চেইন ল্যাম্প - প্যাকেজিং",
+        "order": 1
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856180/multifunction-keychain-lamp1_pcftov.webp",
+        "alt": "কী-চেইন ল্যাম্প - ফিচার ওভারভিউ",
+        "order": 2
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856180/multifunction-keychain-lamp2_wshk8f.webp",
+        "alt": "কী-চেইন ল্যাম্প - সব ফাংশন",
+        "order": 3
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856180/multifunction-keychain-lamp3_db1vem.webp",
+        "alt": "কী-চেইন ল্যাম্প - পার্টস ডিটেইল",
+        "order": 4
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856180/multifunction-keychain-lamp4_usliiv.webp",
+        "alt": "কী-চেইন ল্যাম্প - ব্যবহারে",
+        "order": 5
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781856180/multifunction-keychain-lamp6_kfz2z6.webp",
+        "alt": "কী-চেইন ল্যাম্প - বক্স প্যাকেজ",
+        "order": 6
+      }
+    ],
+    "status": "draft",
+    "variants": [],
+    "featured": true,
+    "trending": true,
+    "bestseller": true,
+    "ratings": { "average": 4.7, "count": 142 },
+    "tags": [
+      "কী-চেইন লাইট",
+      "LED ফ্ল্যাশলাইট",
+      "সারভাইভাল টুল",
+      "মাল্টিফাংশন",
+      "রিচার্জেবল",
+      "EDC",
+      "ইমার্জেন্সি টুল"
+    ],
+    "features": [
+      "শক্তিশালী COB LED লাইট — ব্রাইটনেস রেগুলেশন সহ",
+      "বিল্ট-ইন ইলেকট্রিক সিগারেট লাইটার (ফ্লেমলেস)",
+      "স্ট্রং ম্যাগনেটিক ফিক্সেশন — হ্যান্ডস-ফ্রি ব্যবহার",
+      "সিটবেল্ট কাটার — গাড়ির ইমার্জেন্সিতে জীবন বাঁচায়",
+      "বিল্ট-ইন বোতল ওপেনার",
+      "ডাবল-হেড স্ক্রু-ড্রাইভার (ফিলিপস ও ফ্ল্যাট)",
+      "সারভাইভাল হুইসেল — বিপদে সংকেত দিন",
+      "১৮০° অ্যাডজাস্টেবল ব্র্যাকেট",
+      "Type-C ফাস্ট চার্জিং",
+      "LED পাওয়ার লেভেল ডিসপ্লে",
+      "ক্যারাবিনার স্প্রিং লক কী-চেইন"
+    ],
+    "specifications": [
+      { "key": "মডেল", "value": "W5147" },
+      { "key": "লাইট সোর্স", "value": "COB LED" },
+      { "key": "চার্জিং", "value": "Type-C USB" },
+      { "key": "ব্যাটারি", "value": "বিল্ট-ইন রিচার্জেবল" },
+      { "key": "লাইটার ধরন", "value": "ইলেকট্রিক / ফ্লেমলেস" },
+      { "key": "ব্র্যাকেট", "value": "০° – ১৮০° অ্যাডজাস্টেবল" },
+      { "key": "ম্যাটেরিয়াল", "value": "অ্যালুমিনিয়াম অ্যালয় + ABS" },
+      { "key": "ফাংশন সংখ্যা", "value": "৮-ইন-১ মাল্টি-টুল" },
+      { "key": "বক্সে যা থাকছে", "value": "১টি কী-চেইন ল্যাম্প, ১টি Type-C ক্যাবল, ম্যানুয়াল" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5020" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5e" },
+  "title": "Power Bank VEN-DENS VD-PB041 10000mAh",
+  "slug": "power-bank-ven-dens-vd-pb041-10000mah", 
+  "sku": "VEN-DENS-PB041",
+  "shortDesc": "ভ্রমণ বা জরুরি অবস্থার জন্য 10000mAh ক্ষমতার VEN-DENS VD-PB041 পাওয়ার ব্যাংক।",
+  "description": "<p>এই 10000mAh VEN-DENS VD-PB041 পাওয়ার ব্যাংক দিয়ে আপনার ডিভাইসগুলি যেকোনো সময়, যেকোনো স্থানে চার্জ করুন। উচ্চ ধারণক্ষমতা আপনাকে একাধিকবার ডিভাইস চার্জ করার সুবিধা দেয়।</p><p>এর স্লিম ডিজাইন, দ্রুত চার্জিং ক্ষমতা এবং মাল্টিপল প্রোটেকশন ফিচারগুলি এটিকে আপনার প্রতিদিনের ব্যবহারের জন্য একটি নির্ভরযোগ্য এবং নিরাপদ পছন্দ করে তোলে।</p>",
+  "regularPrice": 900,
+  "salePrice": 550,  
+  "costPrice": 410,
+  "stockQuantity": 100,
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1785071009/Power_Bank_VEN-DENS_VD-PB041_10000mAh_xvmtvv.webp",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785071009/Power_Bank_VEN-DENS_VD-PB041_10000mAh_xvmtvv.webp",
+      "alt": "Power Bank VEN-DENS VD-PB041 10000mAh",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785071010/Power_Bank_VEN-DENS_VD-PB041_10000mAh2_mu5isb.webp",
+      "alt": "Power Bank VEN-DENS VD-PB041 10000mAh",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785071007/Power_Bank_VEN-DENS_VD-PB041_10000mAh3_rxaaan.webp",
+      "alt": "Power Bank VEN-DENS VD-PB041 10000mAh",
+      "order": 3
+    }
+  ],
+  "status": "published",
+  "variants": [],
+  "featured": true,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.5, "count": 120 },
+  "tags": ["Power Bank", "VEN-DENS", "10000mAh", "Portable Charger", "Mobile Accessories"],
+  "features": [
+    "10000mAh উচ্চ ক্ষমতা",
+    "দ্রুত চার্জিং",
+    "স্লিম ও বহনযোগ্য ডিজাইন",
+    "মাল্টিপল সুরক্ষা ফিচার"
+  ],
+  "specifications": [
+    { "key": "ব্র্যান্ড", "value": "VEN-DENS" },
+    { "key": "মডেল", "value": "VD-PB041" },
+    { "key": "ক্ষমতা", "value": "10000mAh" }
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+},
+
+{
+  "_id": {"$oid": "662c1d9b3a0f9b1c2d3e4f71"},
+   "category": {"$oid": "662c1d9b3a0f9b1c2d3e4f5e"},
+  "title": "অটো-ইজেক্ট চার্জিং প্রোটেক্টর",
+  "slug": "auto-eject-charging-protector",
+  "sku": "AUTO-EJECT-CHARGING-PROTECTOR",
+  "shortDesc": "Type-C ডিভাইসের জন্য অটো-ইজেক্ট চার্জিং প্রোটেক্টর। ব্যাটারি সম্পূর্ণ চার্জ হলে চার্জিং সংযোগ বিচ্ছিন্ন করার জন্য ডিজাইন করা হয়েছে।",
+  "description": "Type-C ডিভাইস চার্জ করার জন্য ব্যবহার করুন Auto-Eject Charging Protector। ব্যাটারি সম্পূর্ণ চার্জ হলে চার্জিং সংযোগ স্বয়ংক্রিয়ভাবে বিচ্ছিন্ন করার জন্য এটি ডিজাইন করা হয়েছে। Fast Charging সাপোর্ট করে এবং এর কমপ্যাক্ট ডিজাইন সহজে বহন ও ব্যবহার করা যায়। যারা দীর্ঘ সময় ফোন বা অন্যান্য Type-C ডিভাইস চার্জে সংযুক্ত করে রাখেন, তাদের জন্য এটি একটি সুবিধাজনক চার্জিং অ্যাক্সেসরিজ।",
+  
+  "regularPrice": 800,
+  "salePrice": 550,
+  "costPrice": 420,
+  "stockQuantity": 100,
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1782645993/auto-disconnect-charging-adapter-1_kvbbbg.png",
+  "images": [
+      {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645993/auto-disconnect-charging-adapter-1_kvbbbg.png",
+      "alt": "auto-eject-charging-protector",
+      "order": 1
+    },
+      {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785070948/auto-eject-charging-separator1_e71jbj.webp",
+      "alt": "auto-eject-charging-protector",
+      "order": 2
+    },
+      {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785070948/auto-eject-charging-separator2_gdwtay.webp",
+      "alt": "auto-eject-charging-protector",
+      "order": 3
+    },
+      {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1785070948/auto-eject-charging-separator3_llozuh.webp",
+      "alt": "auto-eject-charging-protector",
+      "order": 4
+    }
+  ], 
+
+  "status": "published",
+  "variants": [],
+  "featured": false,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.5, "count": 120 },
+  "tags": [
+    "অটো ইজেক্ট চার্জিং প্রোটেক্টর",
+    "টাইপ-C চার্জিং প্রোটেক্টর",
+    "চার্জিং সেপারেটর",
+    "অটো কাট চার্জার",
+    "ব্যাটারি প্রোটেক্টর",
+    "টাইপ-C অ্যাক্সেসরিজ",
+    "মোবাইল অ্যাক্সেসরিজ",
+    "চার্জিং অ্যাক্সেসরিজ"
+  ],
+  "features": [
+    "অটো-ইজেক্ট চার্জিং প্রোটেকশন",
+    "ফাস্ট চার্জিং সাপোর্ট",
+    "ইউনিভার্সাল Type-C ফিট",
+    "ব্যাটারি সেফ ডিজাইন",
+    "ছোট ও কমপ্যাক্ট ডিজাইন",
+    "সহজে ব্যবহারযোগ্য" 
+  ],
+  "specifications": [
+  
+  { "key": "productType", "value": "VCharging Protector" },
+    { "key": "connectorType", "value": "USB Type-C" },
+    { "key": "compatibility", "value": "Type-C ডিভাইস" }
+
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+},
+
+{
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5016" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5f" },
+  "title": "পানির ফিল্টার - 6 Layer কলের ফিল্টার Tap, 360° ঘোরানো যায়।",
+  "slug": "water-filter-tap-6-layers-360-rotatable",
+  "sku": "WATER-FILTER-6L-1PCS",
+  "shortDesc": "সাশ্রয়ী মূল্যে ৬ স্তরের ওয়াটার পিউরিফায়ার। ৪টি কালারে পাওয়া যাচ্ছে।",
+  "description": "<h3>🚱 কলের পানি নিয়ে আর চিন্তা নয়!</h3><p>আপনার কলের পানি কি <strong>লালচে আয়রনে ভরা</strong>? পানি ছিটকে গায়ে-কাপড়ে পড়ে? দুর্গন্ধ, জং বা বালু দেখতে পান? — এই ৬ স্তরের ওয়াটার পিউরিফায়ার একদম পারফেক্ট সমাধান!</p><h3>💧 কীভাবে কাজ করে?</h3><p>প্রতিটি ফিল্টারে রয়েছে <strong>৬ স্তরের অ্যাডভান্সড ফিল্ট্রেশন সিস্টেম</strong> — <strong>নারকেল শেল অ্যাক্টিভেটেড কার্বন</strong> এবং <strong>প্রাকৃতিক মেডিকেল স্টোন</strong> দিয়ে তৈরি। প্রতিটি স্তর আলাদা আলাদা ক্ষতিকর উপাদান ফিল্টার করে — ক্লোরিন, জং, আয়রন, ভারী ধাতু, দুর্গন্ধ ও ব্যাকটেরিয়া। ফলে পানি হয়ে ওঠে <strong>সুস্বাদু, নিরাপদ ও স্বাস্থ্যসম্মত</strong>।</p><h3>🎨 ৪টি কালার অপশন</h3><p><strong>সাদা, পিংক, ব্লু, সবুজ</strong> — কিচেনে যেটা ভালো লাগে সেটা! অর্ডারের সময় পছন্দের কালার উল্লেখ করুন।</p><h3>🔧 ইনস্টলেশন কত সহজ?</h3><p>কোনো প্লাম্বার লাগবে না! মাত্র <strong>৩০ সেকেন্ডে</strong> নিজেই লাগিয়ে নিতে পারবেন।</p><h3>⚠️ পানি ধীরে আসা কি সমস্যা?</h3><p><strong>না!</strong> একাধিক স্তরের ফিল্টার থাকায় পানি ধীরে বের হওয়া <strong>সম্পূর্ণ স্বাভাবিক</strong>। এটাই প্রমাণ করে ফিল্টারটি সঠিকভাবে কাজ করছে। 🙏</p><h4>📦 রিটার্ন ও রিপ্লেসমেন্ট নীতি</h4><p>৩ দিনের মধ্যে শুধুমাত্র রিপ্লেসমেন্ট দেওয়া হয়। ডেলিভারি ম্যানের সামনে প্যাকেট খুলে চেক করুন। ডেলিভারি বয় চলে যাওয়ার পর কোনো অভিযোগ গ্রহণযোগ্য নয়।</p><p><strong>🔥 আজই অর্ডার করুন — পরিবারকে দিন বিশুদ্ধ পানির নিশ্চয়তা!</strong></p>",
+  "regularPrice": 300,
+  "salePrice": 130,
+  "costPrice": 85,
+  "stockQuantity": 100,
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1782310698/6-layers-water-filter-tap-thumbnail_qq5h90.webp",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782310698/6-layers-water-filter-tap-thumbnail_qq5h90.webp",
+      "alt": "Water Filter Tap",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781876645/6-layers-water-filter-tap1_kaskiu.webp",
+      "alt": "ওয়াটার ফিল্টার - ৬ স্তরের ফিল্ট্রেশন",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781876648/6-layers-water-filter-tap2_fqtx2k.webp",
+      "alt": "ওয়াটার ফিল্টার - ৩৬০ ডিগ্রি ঘূর্ণায়মান",
+      "order": 3
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781876649/6-layers-water-filter-tap3_rzjijl.webp",
+      "alt": "ওয়াটার ফিল্টার - কলে ইনস্টলেশন",
+      "order": 4
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1781876749/6-layers-water-filter-tap4_xij9cx.webp",
+      "alt": "ওয়াটার ফিল্টার - পরিষ্কার পানির ডেমো",
+      "order": 5
+    }
+  ],
+  "status": "published",
+  "variants": [
+    {
+      "variantSku": "WATER-FILTER-1PCS-WHITE",
+      "variantTitle": "সাদা",
+      "regularPrice": 300,
+      "salePrice": 130,
+      "stockQuantity": 25,
+      "variantImages": [
+        "https://res.cloudinary.com/tanjumart/image/upload/v1781876643/1pcs-6-layers-water-filter-tap-thumbnail_qygmaz.webp"
+      ],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "White" }
+      ]
+    },
+    {
+      "variantSku": "WATER-FILTER-1PCS-PINK",
+      "variantTitle": "পিংক",
+      "regularPrice": 300,
+      "salePrice": 130,
+      "stockQuantity": 25,
+      "variantImages": [
+        "https://res.cloudinary.com/tanjumart/image/upload/v1781876643/1pcs-6-layers-water-filter-tap-thumbnail_qygmaz.webp"
+      ],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Pink" }
+      ]
+    },
+    {
+      "variantSku": "WATER-FILTER-1PCS-BLUE",
+      "variantTitle": "ব্লু",
+      "regularPrice": 300,
+      "salePrice": 130,
+      "stockQuantity": 25,
+      "variantImages": [
+        "https://res.cloudinary.com/tanjumart/image/upload/v1781876643/1pcs-6-layers-water-filter-tap-thumbnail_qygmaz.webp"
+      ],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Blue" }
+      ]
+    },
+    {
+      "variantSku": "WATER-FILTER-1PCS-GREEN",
+      "variantTitle": "সবুজ",
+      "regularPrice": 300,
+      "salePrice": 130,
+      "stockQuantity": 25,
+      "variantImages": [
+        "https://res.cloudinary.com/tanjumart/image/upload/v1781876643/1pcs-6-layers-water-filter-tap-thumbnail_qygmaz.webp"
+      ],
+      "variantAttributes": [
+        { "attributeName": "Color", "attributeValue": "Green" }
+      ]
+    }
+  ],
+  "featured": true,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.9, "count": 312 },
+  "tags": [
+    "ওয়াটার ফিল্টার",
+    "বেস্ট সেলার",
+    "সবচেয়ে জনপ্রিয়",
+    "টার্গেট প্রোডাক্ট"
+  ],
+  "features": [
+    "🏆 ৪ পিস মেগা কম্বো — প্রতি পিস মাত্র ৳১৩৫",
+    "💰 ৫৫% ডিসকাউন্ট — ৳৬৬০ সাশ্রয়",
+    "🎨 ৪টি কালার একসাথে পাবেন",
+    "🏠 পুরো বাড়ির সব কলে লাগানো যাবে",
+    "৬ স্তরের অ্যাডভান্সড ফিল্ট্রেশন",
+    "৩৬০° ঘূর্ণায়মান নোজল",
+    "ক্লোরিন, জং, আয়রন ১০০% দূর করে",
+    "অ্যান্টি-স্প্ল্যাশ ডিজাইন",
+    "সহজ ৩০ সেকেন্ডের ইনস্টলেশন",
+    "লিক-প্রুফ ফুড-গ্রেড রাবার গ্যাসকেট",
+    "গিফটের জন্যও আদর্শ",
+    "✨ আমাদের সবচেয়ে জনপ্রিয় প্যাকেজ"
+  ],
+  "specifications": [
+    { "key": "প্যাকেজ", "value": "৪ পিস মেগা কম্বো 🏆" },
+    { "key": "প্রতি পিসের দাম", "value": "৳ ১৩৫ (সবচেয়ে কম!)" },
+    { "key": "মোট সেভিংস", "value": "৳ ৬৬০ (১ পিসের তুলনায়)" },
+    { "key": "ডিসকাউন্ট", "value": "৫৫% OFF" },
+    { "key": "ফিল্ট্রেশন স্তর", "value": "৬ স্তর" },
+    { "key": "ফিল্টার মিডিয়া", "value": "নারকেল কার্বন + মেডিকেল স্টোন" },
+    { "key": "উপলব্ধ কালার", "value": "সাদা, পিংক, ব্লু, সবুজ" },
+    { "key": "ঘূর্ণন", "value": "৩৬০° অ্যাডজাস্টেবল" },
+    { "key": "ম্যাটেরিয়াল", "value": "ফুড-গ্রেড ABS + স্টেইনলেস স্টিল + রাবার" },
+    { "key": "বক্সে যা থাকছে", "value": "৪টি ফিল্টার, ৪ সেট অ্যাডাপ্টার, ম্যানুয়াল" },
+    { "key": "সেরা ব্যবহার", "value": "পুরো বাড়ির সব কলে" }
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+},
+  
+
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5001" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f60" },
+    "title": "Turbo Fan Handheld Rechargeable",
+    "slug": "turbo-fan-handheld-rechargeable", 
+    "sku": "TURBO-FAN-001",
+    "shortDesc": "চলার পথে তাৎক্ষণিক ঠান্ডা হাওয়ার জন্য শক্তিশালী রিচার্জেবল হ্যান্ডহেল্ড টার্বো ফ্যান।",
+    "description": "<p>টার্বো ফ্যান হ্যান্ডহেল্ড রিচার্জেবল দিয়ে তাৎক্ষণিক ঠান্ডা অনুভব করুন। ছোট, হালকা এবং অবিশ্বাস্যভাবে শক্তিশালী — গরমের দিনে বাইরে ঘোরাঘুরি, ভিড়ের মধ্যে যাতায়াত বা অফিসে ব্যবহারের জন্য একদম পারফেক্ট সঙ্গী।</p><p>মাল্টিপল স্পিড সেটিং এবং লং-লাস্টিং ব্যাটারি দিয়ে ঘণ্টার পর ঘণ্টা আরামদায়ক হাওয়া উপভোগ করুন।</p>",
+    "regularPrice": 800,
+    "salePrice": 450,
+    "costPrice": 270,
+    "stockQuantity": 50,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/tarbo-fan-ironjali-thumbnail_ysvvih.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/tarbo-fan-ironjali-thumbnail_ysvvih.webp",
+        "alt": "Turbo Fan Thumbnail",
+        "order": 1
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550688/tarbofan-ironnet-1_drnymd.webp",
+        "alt": "Turbo Fan Angle 1",
+        "order": 2
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550688/tarbofan-ironnet-2_v71du3.webp",
+        "alt": "Turbo Fan Angle 2",
+        "order": 3
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": true,
+    "bestseller": true,
+    "ratings": { "average": 4.5, "count": 24 },
+    "tags": ["Fan", "Cooling", "Handheld Fan", "Rechargeable"],
+    "features": [
+      "High-speed turbo motor",
+      "Rechargeable long-lasting battery",
+      "Compact and portable design",
+      "Multiple speed settings"
+    ],
+    "specifications": [
+      { "key": "Type", "value": "Handheld" },
+      { "key": "Power Source", "value": "Battery Powered" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5002" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f60" },
+    "title": "Rechargeable Folding Table Fan with Led Light",
+    "slug": "rechargeable-folding-table-fan-led-light",
+    "sku": "FOLD-FAN-LED",
+    "shortDesc": "ফোল্ডিং ডিজাইনের রিচার্জেবল টেবিল ফ্যান — সাথে LED লাইটও আছে।",
+    "description": "<p>একটি বহুমুখী ফোল্ডিং টেবিল ফ্যান যেটা ইমার্জেন্সি LED লাইট হিসেবেও কাজ করে। পড়ার টেবিলে, লোডশেডিং-এ বা ভ্রমণে — সব জায়গায় পারফেক্ট।</p><p>ফোল্ড করে রাখলে কোনো জায়গা নেয় না, আবার খুললেই জোরালো হাওয়া। অ্যাডজাস্টেবল অ্যাঙ্গেল এবং নিরব অপারেশন এটাকে আরও বেশি ব্যবহারযোগ্য করে তোলে।</p>",
+    "regularPrice": 1200,
+    "salePrice": 850,
+    "costPrice": 570,
+    "stockQuantity": 30,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/foldingfan-thumbnail_w2vins.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/foldingfan-thumbnail_w2vins.webp",
+        "alt": "Folding Fan Thumbnail",
+        "order": 1
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/foldingfan-1_hv163o.webp",
+        "alt": "Folding Fan Open",
+        "order": 2
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": false,
+    "bestseller": true,
+    "ratings": { "average": 4.6, "count": 45 },
+    "tags": ["Fan", "Table Fan", "LED Light", "Folding Fan"],
+    "features": [
+      "Foldable space-saving design",
+      "Built-in LED emergency light",
+      "Adjustable angle",
+      "Quiet operation"
+    ],
+    "specifications": [
+      { "key": "Mounting Type", "value": "Tabletop" },
+      { "key": "Special Feature", "value": "LED Light integration" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5003" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5e" },
+    "title": "5 Pcs Nano USB LED Light",
+    "slug": "5-pcs-nano-usb-led-light",
+    "sku": "NANO-USB-LED-5",
+    "shortDesc": "পাওয়ারব্যাংক বা ল্যাপটপে লাগানোর জন্য ৫ পিস আল্ট্রা-কমপ্যাক্ট ন্যানো USB LED লাইট।",
+    "description": "<p>আপনার ওয়ার্কস্পেস আলোকিত করুন বা নাইট লাইট হিসেবে ব্যবহার করুন। যেকোনো USB পোর্টে — পাওয়ারব্যাংক, ল্যাপটপ বা অ্যাডাপ্টারে — প্লাগ ইন করলেই জ্বলে উঠবে।</p><p>অতি কম বিদ্যুৎ খরচ করে এবং চোখের জন্য আরামদায়ক সফট আলো দেয়। ৫ পিসের প্যাক — ঘরের প্রতিটা রুমে একটা করে রাখুন।</p>",
+    "regularPrice": 250,
+    "salePrice": 100,
+    "costPrice": 50,
+    "stockQuantity": 100,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/5pcs-mini-usblight-thumbnail_fh2yxj.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/5pcs-mini-usblight-thumbnail_fh2yxj.webp",
+        "alt": "Nano USB LED Light",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": true,
+    "bestseller": false,
+    "ratings": { "average": 4.8, "count": 112 },
+    "tags": ["USB Light", "LED", "Accessories", "Mini Light"],
+    "features": [
+      "Ultra-mini size",
+      "Low power consumption",
+      "Eye-friendly soft light",
+      "Pack of 5 pieces"
+    ],
+    "specifications": [
+      { "key": "Interface", "value": "USB Type-A" },
+      { "key": "Quantity", "value": "5 Pcs" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5004" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f60" },
+    "title": "Rechargeable JY-2218 Portable Mini Table Fan",
+    "slug": "rechargeable-jy-2218-portable-mini-table-fan",
+    "sku": "JY-2218-FAN",
+    "shortDesc": "JY-2218 মডেলের শক্তিশালী পোর্টেবল মিনি টেবিল ফ্যান — দারুণ বাতাস দেয়।",
+    "description": "<p>গরমে প্রোডাক্টিভ থাকুন আর কুল থাকুন। JY-2218 কমপ্যাক্ট ডিজাইনে জোরালো বাতাস দেয় — অফিসের ডেস্ক বা বেডসাইড টেবিলের জন্য পারফেক্ট।</p><p>লং ব্যাটারি ব্যাকআপ, মজবুত বেজ এবং সহজে পরিষ্কার করা যায় — ঝামেলাহীন কুলিং সলিউশন।</p>",
+    "regularPrice": 1800,
+    "salePrice": 1200,
+    "costPrice": 980,
+    "stockQuantity": 40,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/js-super2218-thumbnail_o7quk4.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/js-super2218-thumbnail_o7quk4.webp",
+        "alt": "JY-2218 Table Fan",
+        "order": 1
+      }
+    ],
+    "status": "draft",
+    "variants": [], 
+    "featured": false,
+    "trending": false,
+    "bestseller": true,
+    "ratings": { "average": 4.4, "count": 67 },
+    "tags": ["Table Fan", "Cooling", "Rechargeable", "Portable Fan"],
+    "features": [
+      "Strong wind output",
+      "Long battery backup",
+      "Sturdy base",
+      "Easy to clean"
+    ],
+    "specifications": [
+      { "key": "Model", "value": "JY-2218" },
+      { "key": "Type", "value": "Table Fan" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5005" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5e" },
+    "title": "Rechargeable Portable Stylish Mini Telescopic Zoom LED Flashlight",
+    "slug": "rechargeable-mini-telescopic-zoom-led-flashlight",
+    "sku": "MINI-ZOOM-LED",
+    "shortDesc": "টেলিস্কোপিক জুম ফিচারসহ স্টাইলিশ মিনি রিচার্জেবল LED ফ্ল্যাশলাইট।",
+    "description": "<p>পকেটে রাখার মতো ছোট কিন্তু ক্ষমতায় অতুলনীয়। এই রিচার্জেবল ফ্ল্যাশলাইটে টেলিস্কোপিক জুম লেন্স আছে যা দিয়ে ফোকাস অ্যাডজাস্ট করা যায়।</p><p>ইমার্জেন্সি, আউটডোর অ্যাক্টিভিটি বা রাতে চলাফেরার জন্য আইডিয়াল। USB দিয়ে চার্জ হয় এবং হাই ব্রাইটনেস LED অনেক দূর পর্যন্ত আলো দেয়।</p>",
+    "regularPrice": 300,
+    "salePrice": 195,
+    "costPrice": 130,
+    "stockQuantity": 80,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/geeps-gp009-flashlight--1_gz2yz1.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/geeps-gp009-flashlight--1_gz2yz1.webp",
+        "alt": "LED Flashlight 1",
+        "order": 1
+      },
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550686/geeps-gp009-flashlight--1_gz2yz1.webp",
+        "alt": "LED Flashlight 2",
+        "order": 2
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": true,
+    "bestseller": false,
+    "ratings": { "average": 4.7, "count": 89 },
+    "tags": ["Flashlight", "LED Torch", "Rechargeable", "Emergency"],
+    "features": [
+      "Telescopic zoom function",
+      "Stylish and durable casing",
+      "USB rechargeable",
+      "High brightness LED"
+    ],
+    "specifications": [
+      { "key": "Light Source", "value": "LED" },
+      { "key": "Feature", "value": "Zoomable Focus" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5006" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+    "title": "Mobicom Wireless Neckband Headset 300h",
+    "slug": "mobicom-wireless-neckband-headset-300h",
+    "sku": "MOBICOM-NB-300H",
+    "shortDesc": "৩০০ ঘণ্টা স্ট্যান্ডবাই টাইমের Mobicom ওয়্যারলেস নেকব্যান্ড হেডসেট।",
+    "description": "<p>Mobicom ওয়্যারলেস নেকব্যান্ড দিয়ে নিরবচ্ছিন্ন গান শুনুন আর ক্লিয়ার কল করুন। কমফোর্ট এবং বিশাল ব্যাটারি লাইফের জন্য ডিজাইন করা হয়েছে।</p><p>ডিপ বেস অডিও, বিল্ট-ইন HD মাইক্রোফোন এবং ফ্লেক্সিবল ফিটিং — সারাদিন পরে থাকলেও কানে চাপ লাগবে না।</p>",
+    "regularPrice": 1300,
+    "salePrice": 990,
+    "costPrice": 750,
+    "stockQuantity": 60,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/mobicom-neckband300h-thumbnail_c3rido.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/mobicom-neckband300h-thumbnail_c3rido.webp",
+        "alt": "Mobicom 300h Neckband",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": false,
+    "bestseller": true,
+    "ratings": { "average": 4.5, "count": 55 },
+    "tags": ["Neckband", "Earphones", "Bluetooth", "Mobicom"],
+    "features": [
+      "Up to 300h standby time",
+      "Flexible and comfortable fit",
+      "Deep bass audio",
+      "Built-in HD microphone"
+    ],
+    "specifications": [
+      { "key": "Connectivity", "value": "Bluetooth" },
+      { "key": "Form Factor", "value": "Neckband" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5007" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+    "title": "Mobicom Wireless Neckband Headset 600h",
+    "slug": "mobicom-wireless-neckband-headset-600h",
+    "sku": "MOBICOM-NB-600H",
+    "shortDesc": "৬০০ ঘণ্টা স্ট্যান্ডবাই — Mobicom এর আলটিমেট ওয়্যারলেস নেকব্যান্ড।",
+    "description": "<p>চার্জ নিয়ে আর চিন্তা করবেন না। Mobicom 600h অভূতপূর্ব ব্যাটারি ব্যাকআপের সাথে প্রিমিয়াম সাউন্ড কোয়ালিটি দেয়।</p><p>ঘামরোধী ডিজাইন, ম্যাগনেটিক ইয়ারবাড এবং ফাস্ট পেয়ারিং — জিম, অফিস বা ভ্রমণে সবখানে সঙ্গী।</p>",
+    "regularPrice": 1000,
+    "salePrice": 790,
+    "costPrice": 600,
+    "stockQuantity": 50,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/mobicom-neckband600h-thumbnail_nvakgu.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/mobicom-neckband600h-thumbnail_nvakgu.webp",
+        "alt": "Mobicom 600h Neckband",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": false,
+    "trending": true,
+    "bestseller": false,
+    "ratings": { "average": 4.6, "count": 72 },
+    "tags": ["Neckband", "Earphones", "Bluetooth", "Mobicom"],
+    "features": [
+      "Ultra-long 600h standby time",
+      "Sweat-proof design",
+      "Magnetic earbuds",
+      "Fast pairing"
+    ],
+    "specifications": [
+      { "key": "Connectivity", "value": "Bluetooth" },
+      { "key": "Battery Capability", "value": "High Capacity" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5008" },
+    "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+    "title": "Recrsi RE-NY060 Wireless Neckband Bluetooth Earphones – 200h",
+    "slug": "recrsi-re-ny060-wireless-neckband-earphones-200h",
+    "sku": "RECRSI-NY060",
+    "shortDesc": "সাশ্রয়ী দামে স্টাইলিশ Recrsi RE-NY060 ব্লুটুথ নেকব্যান্ড।",
+    "description": "<p>দাম আর পারফরম্যান্সের পারফেক্ট ব্যালেন্স। Recrsi RE-NY060 চমৎকার অডিও ক্লারিটি দেয় এবং ২০০ ঘণ্টা পর্যন্ত স্ট্যান্ডবাই টাইম আছে।</p><p>হালকা ওজন, নয়েজ আইসোলেশন এবং ইন-লাইন মিডিয়া কন্ট্রোল — বাজেটের মধ্যে সেরা চয়েস।</p>",
+    "regularPrice": 900,
+    "salePrice": 450,
+    "costPrice": 270,
+    "stockQuantity": 70,
+    "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/recrsi-re-ny060-200h-thumbnail_eivyss.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/tanjumart/image/upload/v1777550687/recrsi-re-ny060-200h-thumbnail_eivyss.webp",
+        "alt": "Recrsi RE-NY060",
+        "order": 1
+      }
+    ],
+    "status": "published",
+    "variants": [],
+    "featured": true,
+    "trending": false,
+    "bestseller": true,
+    "ratings": { "average": 4.3, "count": 105 },
+    "tags": ["Neckband", "Recrsi", "Bluetooth", "Audio"],
+    "features": [
+      "200h standby battery life",
+      "Lightweight build",
+      "Noise isolation",
+      "In-line media controls"
+    ],
+    "specifications": [
+      { "key": "Brand", "value": "Recrsi" },
+      { "key": "Model", "value": "RE-NY060" }
+    ],
+    "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+  },
+
+{
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5018" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f60" },
+  "title": "Micro USB Mini OTG Fan",
+  "slug": "micro-usb-mini-otg-fan",
+  "sku": "MICRO-USB-OTG-FAN",
+  "shortDesc": "মোবাইল বা পাওয়ারব্যাংকে লাগানোর জন্য পোর্টেবল Micro USB Mini OTG Fan — চলার পথে তাৎক্ষণিক ঠান্ডা হাওয়া।",
+  "description": "<p>গরমের দিনে তাৎক্ষণিক আরামের জন্য এই মাইক্রো USB মিনি OTG ফ্যানটি অপরিহার্য। এটি আপনার অ্যান্ড্রয়েড স্মার্টফোন বা পাওয়ারব্যাংকে সরাসরি সংযুক্ত করা যায়, যা আপনাকে যেকোনো সময়, যেকোনো স্থানে ঠান্ডা বাতাস সরবরাহ করবে।</p><p>ছোট এবং কমপ্যাক্ট ডিজাইনের কারণে এটি সহজেই আপনার পকেটে বা ব্যাগে বহন করা যায়। কম বিদ্যুৎ খরচ করে এবং এর ব্লেড নরম হওয়ায় সম্পূর্ণ নিরাপদ।</p>",
+  "regularPrice": 120,
+  "salePrice": 60,
+  "costPrice": 35,
+  "stockQuantity": 150,
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1782645949/micro-usb-mini-fan-1_zj6kta.png",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645949/micro-usb-mini-fan-1_zj6kta.png",
+      "alt": "Micro USB Mini OTG Fan Front",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645949/micro-usb-mini-fan-2_q3p0zi.png",
+      "alt": "Micro USB Mini OTG Fan Side",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645949/micro-usb-mini-fan-3_e8vudm.png",
+      "alt": "Micro USB Mini OTG Fan in use",
+      "order": 3
+    }
+  ],
+  "status": "published",
+  "variants": [],
+  "featured": false,
+  "trending": true,
+  "bestseller": false,
+  "ratings": { "average": 4.2, "count": 65 },
+  "tags": ["OTG Fan", "Mini Fan", "USB Fan", "Portable Fan", "Cooling Gadget"],
+  "features": [
+    "মাইক্রো USB কানেকশন",
+    "পাওয়ারব্যাংক ও স্মার্টফোনের সাথে সামঞ্জস্যপূর্ণ",
+    "কমপ্যাক্ট ও বহনযোগ্য ডিজাইন",
+    "নরম ব্লেড — নিরাপদ ব্যবহার",
+    "কম বিদ্যুৎ খরচ"
+  ],
+  "specifications": [
+    { "key": "কানেক্টর", "value": "Micro USB" },
+    { "key": "কম্প্যাটিবিলিটি", "value": "OTG সাপোর্টেড অ্যান্ড্রয়েড ফোন, পাওয়ারব্যাংক" },
+    { "key": "ম্যাটেরিয়াল", "value": "প্লাস্টিক" }
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+},
+{
+  "_id": { "$oid": "662c1d9b3a0f9b1c2d3e5019" },
+  "category": { "$oid": "662c1d9b3a0f9b1c2d3e4f5f" },
+  "title": "Waterproof Tape Paste",
+  "slug": "waterproof-tape-paste",
+  "sku": "WATERPROOF-TAPE",
+  "shortDesc": "লিক, ফাটল বা ছিদ্র মেরামতের জন্য শক্তিশালী Waterproof Tape Paste — ঘরোয়া জরুরি রিপেয়ারের জন্য দারুণ কার্যকর।",
+  "description": "<p>এই শক্তিশালী ওয়াটারপ্রুফ টেপ পেস্ট দিয়ে যেকোনো লিক, ফাটল বা ছিদ্র দ্রুত এবং কার্যকরভাবে মেরামত করুন। এটি ধাতু, প্লাস্টিক, কাঠ, সিরামিক এবং আরও অনেক কিছুর উপর ব্যবহার করা যায়।</p><p>দীর্ঘস্থায়ী এবং চরম আবহাওয়া প্রতিরোধী, এটি আপনার বাড়ি বা গাড়ির জরুরি মেরামতের জন্য একটি অপরিহার্য পণ্য।</p>",
+  "regularPrice": 300, 
+  "salePrice": 185,
+  "costPrice": 125,
+  "stockQuantity":100,
+  "thumbnail": "https://res.cloudinary.com/tanjumart/image/upload/v1782645967/waterproof-tape-paste-1_gxtkeq.png",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645967/waterproof-tape-paste-1_gxtkeq.png",
+      "alt": "Waterproof Tape Paste Product",
+      "order": 1
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645967/waterproof-tape-paste-2_jnyv7u.png",
+      "alt": "Waterproof Tape Paste in use on pipe",
+      "order": 2
+    },
+    {
+      "url": "https://res.cloudinary.com/tanjumart/image/upload/v1782645968/waterproof-tape-paste-3_my8ce2.png",
+      "alt": "Waterproof Tape Paste in use on roof",
+      "order": 3
+    }
+  ],
+  "status": "published",
+  "variants": [],
+  "featured": true,
+  "trending": true,
+  "bestseller": true,
+  "ratings": { "average": 4.5, "count": 55 },
+  "tags": ["Waterproof Tape", "Repair Tape", "Sealing Tape", "Home Repair"],
+  "features": [
+    "শক্তিশালী ওয়াটারপ্রুফ সিল",
+    "বিভিন্ন পৃষ্ঠে ব্যবহারযোগ্য — ধাতু, প্লাস্টিক, কাঠ",
+    "চরম আবহাওয়া প্রতিরোধী",
+    "সহজ ব্যবহার"
+  ],
+  "specifications": [
+    { "key": "ধরন", "value": "ওয়াটারপ্রুফ টেপ পেস্ট" },
+    { "key": "প্রয়োগ ক্ষেত্র", "value": "লিক মেরামত, ফাটল সিলিং" }
+  ],
+  "createdAt": { "$date": "2024-04-30T12:00:00.000Z" },
+  "updatedAt": { "$date": "2024-04-30T12:00:00.000Z" }
+}
+
+ 
+
+
+]
+ 

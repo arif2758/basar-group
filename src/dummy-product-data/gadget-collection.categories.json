@@ -1,0 +1,87 @@
+[
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f61"
+    },
+    "name": "শাক-সবজি",
+    "slug": "vegetables",
+    "description": "টাটকা দেশি শাক-সবজি ও তাজা মাঠের ফসল",
+    "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=60",
+    "seoTitle": "তাজা শাক-সবজি - বাসার সুপার শপ",
+    "seoDesc": "প্রতিদিনের তাজা শাক-সবজি সেরা দামে কিনুন",
+    "createdAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f62"
+    },
+    "name": "নিত্যপ্রয়োজনীয় মুদি",
+    "slug": "groceries",
+    "description": "খাঁটি তেল, ঘি, মধু, ডাল, লবণ, পেঁয়াজ ও মসলাপাতি",
+    "image": "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?w=500&auto=format&fit=crop&q=60",
+    "seoTitle": "নিত্যপ্রয়োজনীয় মুদি পণ্য - বাসার সুপার শপ",
+    "seoDesc": "খাঁটি সরিষার তেল, ঘি, মধু, চাল, ডাল ও রান্নার মসলা",
+    "createdAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f63"
+    },
+    "name": "নারী ও শিশু যত্ন",
+    "slug": "baby-women-care",
+    "description": "শিশুর ডায়াপার, তেল-লোশন ও নারীদের স্যানিটারি হাইজিন পণ্য",
+    "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&auto=format&fit=crop&q=60",
+    "seoTitle": "নারী ও শিশু যত্ন সামগ্রী - বাসার সুপার শপ",
+    "seoDesc": "বেবি কেয়ার ও নারীদের পার্সোনাল হাইজিন পণ্য",
+    "createdAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f64"
+    },
+    "name": "স্বাস্থ্য ও পরিচ্ছন্নতা",
+    "slug": "health-hygiene",
+    "description": "খাবার স্যালাইন, গোসল ও কাপড়ের সাবান, ডিটারজেন্ট এবং মশার কয়েল",
+    "image": "https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=500&auto=format&fit=crop&q=60",
+    "seoTitle": "স্বাস্থ্য ও পরিচ্ছন্নতা সামগ্রী - বাসার সুপার শপ",
+    "seoDesc": "প্রাথমিক স্বাস্থ্য ও ঘরোয়া পরিচ্ছন্নতার প্রয়োজনীয় জিনিস",
+    "createdAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c1d9b3a0f9b1c2d3e4f65"
+    },
+    "name": "বীজ ও কৃষি সামগ্রী",
+    "slug": "agri-seeds",
+    "description": "উন্নত মানের হাইব্রিড শাকসবজি বীজ ও কৃষি সরঞ্জাম",
+    "image": "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=500&auto=format&fit=crop&q=60",
+    "seoTitle": "সবজি বীজ ও কৃষি উপকরণ - বাসার সুপার শপ",
+    "seoDesc": "লাউ, মরিচ, টমেটো সহ উন্নত জাতের শাকসবজি বীজ",
+    "createdAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-04-20T12:00:00.000Z"
+    }
+  }
+]

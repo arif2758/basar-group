@@ -208,7 +208,7 @@ export default function ProductGrid({
                         </span>
                       )}
                       {product.badge && (
-                        <span className="px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md text-amber-300 text-[11px] font-bold border border-white/10">
+                        <span className="px-2.5 py-1 rounded-lg bg-slate-900 text-amber-300 text-[11px] font-bold border border-white/10">
                           {product.badge}
                         </span>
                       )}
@@ -218,10 +218,10 @@ export default function ProductGrid({
                     <button
                       onClick={() => toggleWishlist(product.id)}
                       aria-label="উইশলিস্টে সংরক্ষণ করুন"
-                      className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-200 z-10 ${
+                      className={`absolute top-3 right-3 p-2 rounded-full border border-slate-200 dark:border-[#303030] transition-all duration-200 z-10 ${
                         isWishlisted
                           ? "bg-rose-500 text-white shadow-md shadow-rose-500/30 scale-110"
-                          : "bg-white/80 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 hover:text-rose-500 hover:bg-white"
+                          : "bg-white dark:bg-[#1f1f1f] text-slate-500 dark:text-slate-400 hover:text-rose-500"
                       }`}
                     >
                       <Heart

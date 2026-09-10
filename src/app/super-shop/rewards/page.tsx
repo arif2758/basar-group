@@ -513,7 +513,7 @@ export default function RewardsPage() {
             </div>
 
             <div className="text-center">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+              <div className="bg-white/15 border border-white/25 rounded-3xl p-8">
                 <div className="text-3xl sm:text-4xl font-black mb-3 text-yellow-300">
                   {pointsToNextLevel}
                 </div>
@@ -533,7 +533,7 @@ export default function RewardsPage() {
             </div>
 
             <div className="text-center lg:text-right">
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <div className="inline-flex items-center bg-white/15 border border-white/25 px-4 py-2 rounded-full text-sm font-bold mb-4">
                 <TrendingUp className="w-4 h-4 mr-2" />
                 পরবর্তী স্তরের সুবিধা
               </div>
@@ -782,7 +782,7 @@ export default function RewardsPage() {
           </div>
 
           <div className="relative z-10 text-center">
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-white/15 border border-white/25 px-6 py-2.5 rounded-full text-sm font-semibold mb-8">
               <Zap className="w-4 h-4 mr-2 text-yellow-300" />
               সীমিত সময়ের অফার
               <Sparkles className="w-4 h-4 ml-2 text-pink-300" />
@@ -819,7 +819,7 @@ export default function RewardsPage() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6"
+                  className="bg-white/15 border border-white/25 rounded-2xl p-6"
                 >
                   <div className="text-3xl mb-3">{feature.icon}</div>
                   <h4 className="font-bold mb-2 text-lg">{feature.title}</h4>
@@ -830,7 +830,7 @@ export default function RewardsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/super-shop/shop"
+                href="/super-shop/products"
                 className="group bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
               >
                 <Gift className="w-5 h-5" />
@@ -839,8 +839,8 @@ export default function RewardsPage() {
               </Link>
 
               <Link
-                href="/super-shop/shop"
-                className="group bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
+                href="/super-shop/products"
+                className="group bg-white/15 border border-white/30 hover:bg-white/25 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center space-x-3 cursor-pointer"
               >
                 <Trophy className="w-5 h-5" />
                 <span>সব অফার দেখুন</span>

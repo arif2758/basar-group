@@ -62,6 +62,20 @@ const userSchema: Schema<IUser> = new Schema(
         ref: "OrderCollection",
       },
     ],
+    addresses: [
+      {
+        label: { type: String, default: "Home" },
+        name: { type: String },
+        phone: { type: String },
+        addressLine1: { type: String },
+        addressLine2: { type: String },
+        city: { type: String },
+        district: { type: String },
+        postalCode: { type: String },
+        isDefault: { type: Boolean, default: false },
+      },
+    ],
+    wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
     location: {
       type: { type: String, enum: ["Point"], required: false },
       coordinates: { type: [Number], required: false },
@@ -77,3 +91,4 @@ const userSchema: Schema<IUser> = new Schema(
 userSchema.index({ location: "2dsphere" });
 
 export const User = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
+export default User;

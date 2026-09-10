@@ -1,5 +1,5 @@
+import Navbar from "@/components/Navbar";
 import FooterFoundation from "./foundationComponents/FooterFoundation";
-
 
 function FoundationLayout({
   children,
@@ -7,14 +7,13 @@ function FoundationLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="flex-grow flex flex-col">
-     
-
-      <div className="flex-grow flex flex-col">
+    <div className="flex-grow flex flex-col min-h-screen w-full overflow-x-hidden">
+      <Navbar />
+      <main className="flex-grow flex flex-col w-full">
         {children}
-      </div>
+      </main>
       <FooterFoundation />
-    </section>
+    </div>
   );
 }
 

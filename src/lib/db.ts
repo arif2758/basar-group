@@ -1,4 +1,4 @@
-// This approach is taken from https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
+import mongoose, { Mongoose } from "mongoose";
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 if (!process.env.MONGODB_URI) {
@@ -6,7 +6,62 @@ if (!process.env.MONGODB_URI) {
 }
 
 const uri = process.env.MONGODB_URI;
-const options = {
+
+// ==========================================
+// 1. Mongoose Connection for Models & API
+// ==========================================
+interface GlobalMongoose {
+  conn: Mongoose | null;
+  promise: Promise<Mongoose> | null;
+}
+
+declare global {
+  var mongoose: GlobalMongoose | undefined;
+}
+
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+export async function dbConnect(): Promise<Mongoose> {
+  if (cached!.conn) {
+    return cached!.conn;
+  }
+
+  if (!cached!.promise) {
+    const opts = {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 30000,
+      heartbeatFrequencyMS: 10000,
+      socketTimeoutMS: 45000,
+      family: 4,
+      retryWrites: true,
+      w: "majority" as const,
+      appName: "BasarGroup",
+    };
+
+    cached!.promise = mongoose.connect(uri, opts).then((m) => {
+      console.log("MongoDB connected successfully via Mongoose");
+      return m;
+    });
+  }
+
+  try {
+    cached!.conn = await cached!.promise;
+  } catch (e) {
+    cached!.promise = null;
+    throw e;
+  }
+
+  return cached!.conn;
+}
+
+// ==========================================
+// 2. MongoClient & Promise for NextAuth / Direct Mongo
+// ==========================================
+const mongoOptions = {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -15,23 +70,27 @@ const options = {
 };
 
 let client: MongoClient;
+let clientPromise: Promise<MongoClient>;
 
 if (process.env.NODE_ENV === "development") {
-  // In development mode, use a global variable so that the value
-  // is preserved across module reloads caused by HMR (Hot Module Replacement).
   const globalWithMongo = global as typeof globalThis & {
     _mongoClient?: MongoClient;
+    _mongoClientPromise?: Promise<MongoClient>;
   };
 
   if (!globalWithMongo._mongoClient) {
-    globalWithMongo._mongoClient = new MongoClient(uri, options);
+    globalWithMongo._mongoClient = new MongoClient(uri, mongoOptions);
   }
   client = globalWithMongo._mongoClient;
+
+  if (!globalWithMongo._mongoClientPromise) {
+    globalWithMongo._mongoClientPromise = client.connect();
+  }
+  clientPromise = globalWithMongo._mongoClientPromise;
 } else {
-  // In production mode, it's best to not use a global variable.
-  client = new MongoClient(uri, options);
+  client = new MongoClient(uri, mongoOptions);
+  clientPromise = client.connect();
 }
 
-// Export a module-scoped MongoClient. By doing this in a
-// separate module, the client can be shared across functions.
+export { clientPromise };
 export default client;

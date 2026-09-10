@@ -639,7 +639,7 @@ function ShopContent() {
 
           {/* Mobile Filter Drawer / Modal */}
           {isMobileFilterOpen && (
-            <div className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex justify-end">
+            <div className="lg:hidden fixed inset-0 bg-black/50 z-50 flex justify-end animate-in fade-in duration-200">
               <div className="w-full max-w-xs sm:max-w-sm bg-white dark:bg-[#141414] h-full overflow-y-auto p-5 shadow-2xl flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-[#262626] mb-4">

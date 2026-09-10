@@ -1,6 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "./antd.css";
 
-@custom-variant dark (.dark &);
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   /* Fonts */
@@ -50,15 +52,15 @@
   --color-neutral-dark: #0f172a;
   --color-neutral-light: #f8fafc;
 
-  /* Theme Variables (Tailwind 3 merged) */
-  --color-background: 0 0% 100%;
-  --color-foreground: 0 0% 3.9%;
+  /* Theme Variables (Ant Design Default Palette) */
+  --color-background: 0 0% 96.1%;
+  --color-foreground: 0 0% 7.8%;
   --color-card: 0 0% 100%;
-  --color-card-foreground: 0 0% 3.9%;
+  --color-card-foreground: 0 0% 7.8%;
   --color-popover: 0 0% 100%;
-  --color-popover-foreground: 0 0% 3.9%;
-  --color-primary: 0 0% 9%;
-  --color-primary-foreground: 0 0% 98%;
+  --color-popover-foreground: 0 0% 7.8%;
+  --color-primary: 215 100% 54%;
+  --color-primary-foreground: 0 0% 100%;
   --color-secondary: 0 0% 96.1%;
   --color-secondary-foreground: 0 0% 9%;
   --color-muted: 0 0% 96.1%;
@@ -67,9 +69,9 @@
   --color-accent-foreground: 0 0% 9%;
   --color-destructive: 0 84.2% 60.2%;
   --color-destructive-foreground: 0 0% 98%;
-  --color-border: 0 0% 89.8%;
-  --color-input: 0 0% 89.8%;
-  --color-ring: 0 0% 3.9%;
+  --color-border: 0 0% 88%;
+  --color-input: 0 0% 88%;
+  --color-ring: 215 100% 54%;
   --color-chart-1: 12 76% 61%;
   --color-chart-2: 173 58% 39%;
   --color-chart-3: 197 37% 24%;
@@ -89,14 +91,14 @@
 }
 
 .dark {
-  --color-background: 0 0% 3.9%;
+  --color-background: 0 0% 7.8%;
   --color-foreground: 0 0% 98%;
-  --color-card: 0 0% 3.9%;
+  --color-card: 0 0% 12.2%;
   --color-card-foreground: 0 0% 98%;
-  --color-popover: 0 0% 3.9%;
+  --color-popover: 0 0% 14.9%;
   --color-popover-foreground: 0 0% 98%;
-  --color-primary: 0 0% 98%;
-  --color-primary-foreground: 0 0% 9%;
+  --color-primary: 215 81% 47%;
+  --color-primary-foreground: 0 0% 100%;
   --color-secondary: 0 0% 14.9%;
   --color-secondary-foreground: 0 0% 98%;
   --color-muted: 0 0% 14.9%;
@@ -105,9 +107,9 @@
   --color-accent-foreground: 0 0% 98%;
   --color-destructive: 0 62.8% 30.6%;
   --color-destructive-foreground: 0 0% 98%;
-  --color-border: 0 0% 14.9%;
-  --color-input: 0 0% 14.9%;
-  --color-ring: 0 0% 83.1%;
+  --color-border: 0 0% 18.8%;
+  --color-input: 0 0% 18.8%;
+  --color-ring: 215 81% 47%;
   --color-chart-1: 220 70% 50%; 
   --color-chart-2: 160 60% 45%;
   --color-chart-3: 30 80% 55%;
@@ -247,10 +249,12 @@ body {
 }
 
 /* Hide scrollbar utility */
-.no-scrollbar::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
+.no-scrollbar,
+.scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

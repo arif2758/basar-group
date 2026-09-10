@@ -1,0 +1,83 @@
+[
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5a" },
+    "name": "স্মার্টফোন",
+    "slug": "smartphones",
+    "description": "Premium smartphones from top brands like Apple, Samsung, and Pixel.",
+    "image": "https://placehold.co/400x400/png?text=Smartphones",
+    "seoTitle": "Buy Smartphones Online - GadgeterHub",
+    "seoDesc": "Best deals on smartphones",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5b" },
+    "name": "স্মার্টওয়াচ",
+    "slug": "smartwatches",
+    "description": "Fitness trackers and smartwatches",
+    "image": "https://placehold.co/400x400/png?text=Smartwatches",
+    "seoTitle": "Buy Smartwatches Online - GadgetShop",
+    "seoDesc": "Best deals on smartwatches",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5c" },
+    "name": "অডিও ও হেডফোন",
+    "slug": "audio",
+    "description": "Premium AirPods, Earbuds, and Speakers",
+    "image": "https://placehold.co/400x400/png?text=Audio",
+    "seoTitle": "Headphones & Earbuds - GadgeterHub",
+    "seoDesc": "High quality audio gears",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5d" },
+    "name": "ল্যাপটপ ও ট্যাব",
+    "slug": "laptops-tabs",
+    "description": "Laptops, MacBooks and iPads",
+    "image": "https://placehold.co/400x400/png?text=Laptops",
+    "seoTitle": "Buy Laptops Online - GadgeterHub",
+    "seoDesc": "Best deals on Laptops",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5e" },
+    "name": "পাওয়ার ও অ্যাক্সেসরিজ",
+    "slug": "power-accessories",
+    "description": "Powerbanks, Chargers, Hubs and Cables",
+    "image": "https://placehold.co/400x400/png?text=Accessories",
+    "seoTitle": "Gadget Accessories - GadgeterHub",
+    "seoDesc": "Powerbanks, Cables, Chargers",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f5f" },
+    "name": "কিচেন ও হোম অ্যাপ্লায়েন্স",
+    "slug": "kitchen-home",
+    "description": "Smart Home, Purifiers, Kitchen Gadgets",
+    "image": "https://placehold.co/400x400/png?text=Home",
+    "seoTitle": "Home Appliances - GadgeterHub",
+    "seoDesc": "Smart home living",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "662c1d9b3a0f9b1c2d3e4f60" },
+    "name": "ফ্যান ও কুলিং",
+    "slug": "fan-cooling",
+    "description": "Handheld fans, Desk fans and Air coolers",
+    "image": "https://placehold.co/400x400/png?text=Cooling",
+    "seoTitle": "Fans & Cooling - GadgeterHub",
+    "seoDesc": "Portable cooling solutions",
+    "createdAt": { "$date": "2024-04-20T12:00:00.000Z" },
+    "updatedAt": { "$date": "2024-04-20T12:00:00.000Z" }
+  }
+
+  
+
+  
+]
