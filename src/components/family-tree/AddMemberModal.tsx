@@ -15,6 +15,7 @@ import {
   Phone,
   MapPin,
   Calendar,
+  GraduationCap,
 } from "lucide-react";
 import { FamilyMember } from "@/data/familyData";
 import {
@@ -23,6 +24,12 @@ import {
   getGenerationLabel,
   findMemberByKey,
 } from "@/utils/familyUtils";
+import {
+  GENERAL_CLASSES,
+  MADRASAH_CLASSES,
+  HIGHER_CLASSES,
+  BLOOD_GROUPS,
+} from "@/types/enums";
 
 interface AddMemberModalProps {
   isOpen: boolean;
@@ -59,6 +66,13 @@ export default function AddMemberModal({
   const [address, setAddress] = useState("");
   const [spouse, setSpouse] = useState("");
   const [bio, setBio] = useState("");
+  const [educationType, setEducationType] = useState<"general" | "madrasah" | "higher" | "other">("general");
+  const [institution, setInstitution] = useState("");
+  const [academicClass, setAcademicClass] = useState("");
+  const [section, setSection] = useState("");
+  const [rollNumber, setRollNumber] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
+  const [nidOrBirthCert, setNidOrBirthCert] = useState("");
 
   // Submitter info (who submitted the info)
   const [submitterName, setSubmitterName] = useState("");
@@ -130,6 +144,9 @@ export default function AddMemberModal({
     if (!title.trim()) {
       newErrors.title = "সদস্যের পূর্ণ নাম দেওয়া আবশ্যক";
     }
+    if (!bloodGroup.trim()) {
+      newErrors.bloodGroup = "রক্তের গ্রুপ নির্বাচন করা আবশ্যিক";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -150,6 +167,13 @@ export default function AddMemberModal({
         address: address.trim() || undefined,
         spouse: spouse.trim() || undefined,
         bio: bio.trim() || undefined,
+        educationType: educationType || undefined,
+        institution: institution.trim() || undefined,
+        academicClass: academicClass.trim() || undefined,
+        section: section.trim() || undefined,
+        rollNumber: rollNumber.trim() || undefined,
+        bloodGroup: bloodGroup.trim() || undefined,
+        nidOrBirthCert: nidOrBirthCert.trim() || undefined,
       },
       submitterName.trim()
         ? {
@@ -169,6 +193,13 @@ export default function AddMemberModal({
     setAddress("");
     setSpouse("");
     setBio("");
+    setEducationType("general");
+    setInstitution("");
+    setAcademicClass("");
+    setSection("");
+    setRollNumber("");
+    setBloodGroup("");
+    setNidOrBirthCert("");
     setSubmitterName("");
     setSubmitterPhone("");
     onClose();
@@ -502,6 +533,55 @@ export default function AddMemberModal({
               </div>
             </div>
 
+            {/* Blood Group (Mandatory) & NID / Birth Certificate (Optional) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  রক্তের গ্রুপ * <span className="text-rose-500 font-semibold">(আবশ্যিক)</span>
+                </label>
+                <select
+                  value={bloodGroup}
+                  onChange={(e) => {
+                    setBloodGroup(e.target.value);
+                    if (errors.bloodGroup) setErrors((prev) => ({ ...prev, bloodGroup: "" }));
+                  }}
+                  className={`w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#1f1f1f] border text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 font-semibold ${
+                    errors.bloodGroup
+                      ? "border-rose-500 focus:ring-rose-500"
+                      : "border-slate-200 dark:border-[#424242] focus:ring-blue-500"
+                  }`}
+                >
+                  <option value="" className="bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white">
+                    -- রক্তের গ্রুপ নির্বাচন করুন --
+                  </option>
+                  {BLOOD_GROUPS.map((bg) => (
+                    <option key={bg} value={bg} className="bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white">
+                      {bg}
+                    </option>
+                  ))}
+                </select>
+                {errors.bloodGroup && (
+                  <p className="text-[11px] text-rose-500 mt-1 font-semibold flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 shrink-0" />
+                    {errors.bloodGroup}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  NID / জন্ম সনদ নম্বর <span className="text-slate-400 font-normal">(ঐচ্ছিক)</span>
+                </label>
+                <input
+                  type="text"
+                  value={nidOrBirthCert}
+                  onChange={(e) => setNidOrBirthCert(e.target.value)}
+                  placeholder="যেমন: 19901234567890123"
+                  className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                />
+              </div>
+            </div>
+
             {/* Address & Spouse */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
@@ -528,6 +608,144 @@ export default function AddMemberModal({
                   placeholder="স্বামী বা স্ত্রীর নাম"
                   className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+              </div>
+            </div>
+
+            {/* Academic Information (একাডেমিক তথ্য) */}
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#2a2a2a] space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">
+                    একাডেমিক তথ্য (ঐচ্ছিক)
+                  </span>
+                </div>
+                <span className="text-[10px] text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-950/80 px-2 py-0.5 rounded-full font-medium">
+                  শিক্ষা ও শ্রেণী
+                </span>
+              </div>
+
+              {/* Education Stream Toggle */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  শিক্ষা মাধ্যম
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEducationType("general");
+                      setAcademicClass("");
+                    }}
+                    className={`py-1.5 px-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      educationType === "general"
+                        ? "bg-blue-600 text-white shadow-sm font-bold"
+                        : "bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#424242]"
+                    }`}
+                  >
+                    <span>🏫 সাধারণ</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEducationType("madrasah");
+                      setAcademicClass("");
+                    }}
+                    className={`py-1.5 px-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      educationType === "madrasah"
+                        ? "bg-emerald-600 text-white shadow-sm font-bold"
+                        : "bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#424242]"
+                    }`}
+                  >
+                    <span>🕌 মাদ্রাসা</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEducationType("higher");
+                      setAcademicClass("");
+                    }}
+                    className={`py-1.5 px-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      educationType === "higher"
+                        ? "bg-purple-600 text-white shadow-sm font-bold"
+                        : "bg-white dark:bg-[#1f1f1f] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#424242]"
+                    }`}
+                  >
+                    <span>🎓 উচ্চশিক্ষা</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Institution Name & Class Dropdown */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    প্রতিষ্ঠানের নাম
+                  </label>
+                  <input
+                    type="text"
+                    value={institution}
+                    onChange={(e) => setInstitution(e.target.value)}
+                    placeholder={
+                      educationType === "madrasah"
+                        ? "যেমন: দারুল উলুম মাদ্রাসা, কাসেমিয়া..."
+                        : "যেমন: গভঃ বয়েজ স্কুল, ঢাকা কলেজ..."
+                    }
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    শ্রেণী {educationType === "general" ? "(প্লে থেকে দ্বাদশ)" : educationType === "madrasah" ? "(মাদ্রাসা স্তর)" : "(উচ্চশিক্ষা স্তর)"}
+                  </label>
+                  <select
+                    value={academicClass}
+                    onChange={(e) => setAcademicClass(e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  >
+                    <option value="" className="bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white">-- শ্রেণী নির্বাচন করুন --</option>
+                    {(educationType === "madrasah"
+                      ? MADRASAH_CLASSES
+                      : educationType === "higher"
+                      ? HIGHER_CLASSES
+                      : GENERAL_CLASSES
+                    ).map((cls) => (
+                      <option key={cls} value={cls} className="bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white">
+                        {cls}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Section & Roll Number */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    শাখা / বিভাগ
+                  </label>
+                  <input
+                    type="text"
+                    value={section}
+                    onChange={(e) => setSection(e.target.value)}
+                    placeholder="যেমন: ক, খ, বিজ্ঞান, মানবিক, হিফজ..."
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    রোল নম্বর
+                  </label>
+                  <input
+                    type="text"
+                    value={rollNumber}
+                    onChange={(e) => setRollNumber(e.target.value)}
+                    placeholder="যেমন: ০১, ১৫, ১০২..."
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#424242] text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  />
+                </div>
               </div>
             </div>
 

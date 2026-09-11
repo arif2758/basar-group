@@ -70,7 +70,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#141414] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-[100vw]"
+        className="font-[family-name:var(--font-noto-bengali),var(--font-inter),sans-serif] antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#141414] dark:text-slate-100 transition-colors duration-300 selection:bg-emerald-500 selection:text-white overflow-x-clip w-full max-w-[100vw]"
       >
         <AuthProvider>
           <ThemeProvider>

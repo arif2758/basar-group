@@ -3,6 +3,7 @@ import path from "path";
 import { connectToDatabase } from "./mongodb";
 import { FamilyMemberModel } from "@/models/FamilyMember";
 import { FamilyRequestModel, IFamilyRequestDocument } from "@/models/FamilyRequest";
+import { User } from "@/models/User";
 import { familyTreeData, FamilyMember, FlatFamilyMember } from "@/data/familyData";
 import {
   flattenMembersWithParent,
@@ -77,6 +78,13 @@ export async function getAllFlatMembers(): Promise<{
         profession: d.profession,
         spouse: d.spouse,
         bio: d.bio,
+        educationType: d.educationType,
+        institution: d.institution,
+        academicClass: d.academicClass,
+        section: d.section,
+        rollNumber: d.rollNumber,
+        bloodGroup: d.bloodGroup,
+        nidOrBirthCert: d.nidOrBirthCert,
       }));
 
       return { members, source: "mongodb" };
@@ -185,6 +193,13 @@ export async function updateFamilyMember(
             profession: updated.profession,
             spouse: updated.spouse,
             bio: updated.bio,
+            educationType: updated.educationType,
+            institution: updated.institution,
+            academicClass: updated.academicClass,
+            section: updated.section,
+            rollNumber: updated.rollNumber,
+            bloodGroup: updated.bloodGroup,
+            nidOrBirthCert: updated.nidOrBirthCert,
           },
         };
       }
@@ -279,6 +294,13 @@ export interface IFamilyRequestItem {
   profession?: string;
   spouse?: string;
   bio?: string;
+  educationType?: string;
+  institution?: string;
+  academicClass?: string;
+  section?: string;
+  rollNumber?: string;
+  bloodGroup?: string;
+  nidOrBirthCert?: string;
   submitterName?: string;
   submitterPhone?: string;
   submitterEmail?: string;
@@ -342,6 +364,13 @@ export async function getAllMemberRequests(): Promise<IFamilyRequestItem[]> {
         profession: d.profession,
         spouse: d.spouse,
         bio: d.bio,
+        educationType: d.educationType,
+        institution: d.institution,
+        academicClass: d.academicClass,
+        section: d.section,
+        rollNumber: d.rollNumber,
+        bloodGroup: d.bloodGroup,
+        nidOrBirthCert: d.nidOrBirthCert,
         submitterName: d.submitterName,
         submitterPhone: d.submitterPhone,
         status: d.status,
@@ -384,6 +413,13 @@ export async function approveMemberRequest(
     profession: req.profession,
     spouse: req.spouse,
     bio: req.bio,
+    educationType: req.educationType,
+    institution: req.institution,
+    academicClass: req.academicClass,
+    section: req.section,
+    rollNumber: req.rollNumber,
+    bloodGroup: req.bloodGroup,
+    nidOrBirthCert: req.nidOrBirthCert,
   });
 
   if (!insertResult.success || !insertResult.member) {
@@ -397,8 +433,28 @@ export async function approveMemberRequest(
       await FamilyRequestModel.findByIdAndUpdate(cleanId, {
         status: "approved",
       });
+
+      // ৩. ইউজার একাউন্ট সিঙ্ক করা (Sync User Account with Family Tree)
+      const emailToMatch = req.submitterEmail?.trim().toLowerCase();
+      const phoneToMatch = req.submitterPhone?.trim() || req.phone?.trim();
+
+      const queryConditions: Array<Record<string, any>> = [];
+      if (emailToMatch) queryConditions.push({ email: emailToMatch });
+      if (phoneToMatch) queryConditions.push({ mobile: phoneToMatch });
+
+      if (queryConditions.length > 0) {
+        await User.updateMany(
+          { $or: queryConditions },
+          {
+            $set: {
+              isFamilyMember: true,
+              genId: insertResult.member.generation.toString(),
+            },
+          }
+        );
+      }
     } catch (e) {
-      console.error("Failed to update request status in MongoDB:", e);
+      console.error("Failed to update request status or sync user in MongoDB:", e);
     }
   } else {
     const allReqs = readJsonFile<IFamilyRequestItem[]>(FALLBACK_REQUESTS_FILE, []);
@@ -410,6 +466,46 @@ export async function approveMemberRequest(
   }
 
   return { success: true, member: insertResult.member };
+}
+
+// ইউজার ফ্যামিলি মেম্বারশিপ সরাসরি সিঙ্ক/আপডেট করা
+export async function syncUserFamilyMemberStatus(
+  userIdOrEmail: string,
+  isFamilyMember: boolean,
+  genId?: string
+): Promise<{ success: boolean; user?: any; error?: string }> {
+  const db = await connectToDatabase();
+  if (!db) {
+    return { success: false, error: "ডাটাবেজ সংযোগ পাওয়া যায়নি।" };
+  }
+
+  try {
+    const query = userIdOrEmail.includes("@")
+      ? { email: userIdOrEmail.toLowerCase().trim() }
+      : { _id: userIdOrEmail };
+
+    const updateObj: Record<string, any> = {
+      isFamilyMember,
+    };
+    if (genId !== undefined) {
+      updateObj.genId = genId;
+    }
+
+    const updated = await User.findOneAndUpdate(
+      query,
+      { $set: updateObj },
+      { returnDocument: 'after' }
+    ).lean();
+
+    if (!updated) {
+      return { success: false, error: "ইউজার খুঁজে পাওয়া যায়নি।" };
+    }
+
+    return { success: true, user: updated };
+  } catch (err: unknown) {
+    const e = err as Error;
+    return { success: false, error: e.message };
+  }
 }
 
 // আবেদন প্রত্যাখ্যান (Reject Request)

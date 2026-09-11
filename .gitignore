@@ -64,3 +64,9 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 *.pem
+
+# Ignored sample/reference folders
+gadgeter-hub/
+mest-sample/
+
+

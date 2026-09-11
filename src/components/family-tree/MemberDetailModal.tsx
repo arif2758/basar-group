@@ -18,6 +18,9 @@ import {
   Sparkles,
   TreePine,
   ShieldAlert,
+  Droplet,
+  GraduationCap,
+  CreditCard,
 } from "lucide-react";
 import { FamilyMember } from "@/data/familyData";
 import {
@@ -156,6 +159,17 @@ export default function MemberDetailModal({
                   জেন আইডি: {member.key}
                 </span>
 
+                {/* Blood Group Badge */}
+                {member.bloodGroup && (
+                  <span
+                    className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border border-rose-200/80 dark:border-rose-800/60 flex items-center gap-1"
+                    title="রক্তের গ্রুপ"
+                  >
+                    <Droplet className="w-3 h-3 fill-rose-500 text-rose-500" />
+                    {member.bloodGroup}
+                  </span>
+                )}
+
                 {/* Living Status */}
                 {member.isAlive === false ? (
                   <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-200 dark:bg-[#2a2a2a] text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-[#424242]">
@@ -226,6 +240,48 @@ export default function MemberDetailModal({
                   </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {member.profession}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Academic Info */}
+            {(member.academicClass || member.institution) && (
+              <div className="flex items-start gap-2.5">
+                <GraduationCap className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    অধ্যায়নরত শ্রেণি ও শিক্ষা
+                  </p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                    {member.academicClass || ""}
+                    {(member.section || member.rollNumber) && (
+                      <span className="text-xs font-normal text-slate-500 dark:text-slate-400 ml-1 font-mono">
+                        ({member.section ? `শাখা: ${member.section}` : ""}
+                        {member.section && member.rollNumber ? ", " : ""}
+                        {member.rollNumber ? `রোল: ${member.rollNumber}` : ""})
+                      </span>
+                    )}
+                  </p>
+                  {member.institution && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      {member.institution}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* NID / Birth Cert */}
+            {member.nidOrBirthCert && (
+              <div className="flex items-start gap-2.5">
+                <CreditCard className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase">
+                    NID / জন্ম সনদ নম্বর
+                  </p>
+                  <p className="text-xs sm:text-sm font-semibold font-mono text-slate-800 dark:text-slate-200">
+                    {member.nidOrBirthCert}
                   </p>
                 </div>
               </div>

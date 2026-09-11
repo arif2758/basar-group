@@ -14,6 +14,13 @@ export interface IFamilyRequestDocument extends Document {
   profession?: string;
   spouse?: string;
   bio?: string;
+  educationType?: string;
+  institution?: string;
+  academicClass?: string;
+  section?: string;
+  rollNumber?: string;
+  bloodGroup?: string;
+  nidOrBirthCert?: string;
   submitterName?: string;
   submitterPhone?: string;
   submitterEmail?: string;
@@ -38,6 +45,13 @@ const FamilyRequestSchema = new Schema<IFamilyRequestDocument>(
     profession: { type: String, default: "" },
     spouse: { type: String, default: "" },
     bio: { type: String, default: "" },
+    educationType: { type: String, default: "" },
+    institution: { type: String, default: "" },
+    academicClass: { type: String, default: "" },
+    section: { type: String, default: "" },
+    rollNumber: { type: String, default: "" },
+    bloodGroup: { type: String, default: "" },
+    nidOrBirthCert: { type: String, default: "" },
     submitterName: { type: String, default: "" },
     submitterPhone: { type: String, default: "" },
     submitterEmail: { type: String, default: "" },

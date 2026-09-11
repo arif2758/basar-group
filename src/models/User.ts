@@ -30,6 +30,9 @@ const userSchema: Schema<IUser> = new Schema(
     profilePicture: { type: String },
     studentClass: { type: String },
     schoolName: { type: String },
+    educationType: { type: String },
+    section: { type: String },
+    rollNumber: { type: String },
     parentContact: { type: String },
     lastLogin: { type: Date },
     addressDetails: {

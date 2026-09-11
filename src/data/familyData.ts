@@ -14,6 +14,13 @@ export interface FamilyMember {
   profession?: string;
   spouse?: string;
   bio?: string;
+  educationType?: string;
+  institution?: string;
+  academicClass?: string;
+  section?: string;
+  rollNumber?: string;
+  bloodGroup?: string;
+  nidOrBirthCert?: string;
 }
 
 export interface FlatFamilyMember {
@@ -30,6 +37,13 @@ export interface FlatFamilyMember {
   profession?: string;
   spouse?: string;
   bio?: string;
+  educationType?: string;
+  institution?: string;
+  academicClass?: string;
+  section?: string;
+  rollNumber?: string;
+  bloodGroup?: string;
+  nidOrBirthCert?: string;
 }
 
 

@@ -6,18 +6,20 @@ export const proxy = auth((req) => {
   const isOnAdmin = req.nextUrl.pathname.startsWith('/admin');
   const isOnLogin = req.nextUrl.pathname.startsWith('/login');
 
+  // Both ADMIN and SUPER_ADMIN have full admin panel access
+  const isAdmin = userRole === 'ADMIN' || userRole === 'SUPER_ADMIN';
+
   if (isOnAdmin) {
     if (!isLoggedIn) {
       return Response.redirect(new URL('/login', req.nextUrl));
     }
-    // Only allow users with the 'ADMIN' role to access /admin routes
-    if (userRole !== 'ADMIN') {
+    if (!isAdmin) {
       return Response.redirect(new URL('/family-tree', req.nextUrl));
     }
   }
 
   if (isOnLogin && isLoggedIn) {
-    if (userRole === 'ADMIN') {
+    if (isAdmin) {
       return Response.redirect(new URL('/admin/family-tree', req.nextUrl));
     } else {
       return Response.redirect(new URL('/family-tree', req.nextUrl));

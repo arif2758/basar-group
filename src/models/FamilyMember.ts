@@ -14,6 +14,13 @@ export interface IFamilyMemberDocument extends Document {
   profession?: string;
   spouse?: string;
   bio?: string;
+  educationType?: string;
+  institution?: string;
+  academicClass?: string;
+  section?: string;
+  rollNumber?: string;
+  bloodGroup?: string;
+  nidOrBirthCert?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +40,13 @@ const FamilyMemberSchema = new Schema<IFamilyMemberDocument>(
     profession: { type: String, default: "" },
     spouse: { type: String, default: "" },
     bio: { type: String, default: "" },
+    educationType: { type: String, default: "" },
+    institution: { type: String, default: "" },
+    academicClass: { type: String, default: "" },
+    section: { type: String, default: "" },
+    rollNumber: { type: String, default: "" },
+    bloodGroup: { type: String, default: "" },
+    nidOrBirthCert: { type: String, default: "" },
   },
   {
     timestamps: true,

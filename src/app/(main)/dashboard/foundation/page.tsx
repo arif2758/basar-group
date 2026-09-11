@@ -51,19 +51,19 @@ export default async function FoundationDashboardPage() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
           <Link
             href="/foundation"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors whitespace-nowrap"
           >
-            <HandHeart className="size-4 text-rose-600 dark:text-rose-400" />
+            <HandHeart className="size-3.5 sm:size-4 text-rose-600 dark:text-rose-400 shrink-0" />
             <span>অনুদান প্রদান</span>
           </Link>
           <Link
             href="/foundation"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs whitespace-nowrap"
           >
-            <PlusCircle className="size-4" />
+            <PlusCircle className="size-3.5 sm:size-4 shrink-0" />
             <span>সাহায্যের আবেদন</span>
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default async function FoundationDashboardPage() {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
             <Heart className="size-5" />
           </div>
@@ -79,7 +79,7 @@ export default async function FoundationDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">মোট অনুদান</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
             <Receipt className="size-5" />
           </div>
@@ -87,7 +87,7 @@ export default async function FoundationDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">রিসিপ্ট ও ভাউচার</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
             <FileText className="size-5" />
           </div>
@@ -95,7 +95,7 @@ export default async function FoundationDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">সহায়তা আবেদন</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
             <Users className="size-5" />
           </div>
@@ -154,17 +154,17 @@ export default async function FoundationDashboardPage() {
         {/* Aid Applications & Volunteering (2 equal columns) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Aid Applications Card */}
-          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors">
+          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors text-center">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                  <FileText className="size-4" />
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="size-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                  <FileText className="size-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-base">
                     সাহায্য বা বৃত্তির আবেদন
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     চিকিৎসা, শিক্ষা বা জরুরি ত্রাণ সহায়তার আবেদনের অবস্থা
                   </p>
                 </div>
@@ -191,17 +191,17 @@ export default async function FoundationDashboardPage() {
           </div>
 
           {/* Volunteering Card */}
-          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors">
+          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors text-center">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                  <Users className="size-4" />
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="size-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <Users className="size-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-base">
                     ভলান্টিয়ারিং ও সমাজকল্যাণ
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     রক্তদান, শীতবস্ত্র বিতরণ ও ত্রাণ কার্যক্রমে সক্রিয় অংশগ্রহণ
                   </p>
                 </div>

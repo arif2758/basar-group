@@ -82,14 +82,14 @@ export default function LoginPage() {
             </div>
           )}
 
-          {/* Email Input */}
+          {/* Email / Username Input */}
           <div className="relative">
             <Mail className="w-[18px] h-[18px] text-slate-400 absolute left-3.5 top-3.5" />
             <input
-              type="email"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              placeholder="Email বা Username"
               disabled={loading}
               className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-transparent border border-slate-200 dark:border-[#303030] text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#1677ff] focus:ring-1 focus:ring-[#1677ff]/20 transition-colors"
               required
@@ -137,10 +137,25 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white font-medium text-[15px] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full py-3 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white font-medium text-[15px] transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
           >
-            {loading ? "লগিন হচ্ছে..." : "লগিন করুন"}
+            {loading ? "লগইন হচ্ছে..." : "লগিন করুন"}
           </button>
+
+          {/* Dev Quick Admin Login */}
+          {process.env.NODE_ENV === "development" && (
+            <button
+              type="button"
+              id="dev-autofill-btn"
+              onClick={() => {
+                setEmail("admin");
+                setPassword("basaradmin2026");
+              }}
+              className="w-full mt-2 py-1.5 px-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer border border-slate-200 dark:border-slate-700"
+            >
+              ⚡ অটো-ফিল অ্যাডমিন ক্রেডেনশিয়াল (Dev)
+            </button>
+          )}
         </form>
 
         {/* Footer */}

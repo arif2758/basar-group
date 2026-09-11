@@ -50,19 +50,19 @@ export default async function ITParkDashboardPage() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
           <Link
             href="/it-park#skills"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors whitespace-nowrap"
           >
-            <GraduationCap className="size-4 text-purple-600 dark:text-purple-400" />
+            <GraduationCap className="size-3.5 sm:size-4 text-purple-600 dark:text-purple-400 shrink-0" />
             <span>কোর্স খুঁজুন</span>
           </Link>
           <Link
             href="/it-park#jobs"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs whitespace-nowrap"
           >
-            <Briefcase className="size-4" />
+            <Briefcase className="size-3.5 sm:size-4 shrink-0" />
             <span>চাকরির পোর্টাল</span>
           </Link>
         </div>
@@ -70,7 +70,7 @@ export default async function ITParkDashboardPage() {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
             <GraduationCap className="size-5" />
           </div>
@@ -78,7 +78,7 @@ export default async function ITParkDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">এনরোল করা কোর্স</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
             <Briefcase className="size-5" />
           </div>
@@ -86,7 +86,7 @@ export default async function ITParkDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">চাকরির আবেদন</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
             <Award className="size-5" />
           </div>
@@ -94,7 +94,7 @@ export default async function ITParkDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">অর্জিত সার্টিফিকেট</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
             <Calendar className="size-5" />
           </div>
@@ -153,17 +153,17 @@ export default async function ITParkDashboardPage() {
         {/* Career & Event Cards (2 equal columns) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Job Applications Card */}
-          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors">
+          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors text-center">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                  <Briefcase className="size-4" />
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="size-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                  <Briefcase className="size-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-base">
                     চাকরির আবেদন ও সিভি
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     আইটি সেক্টরে নিয়োগ ও ইন্টার্নশিপ আবেদনের স্ট্যাটাস
                   </p>
                 </div>
@@ -190,17 +190,17 @@ export default async function ITParkDashboardPage() {
           </div>
 
           {/* IT Events & Hackathons Card */}
-          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors">
+          <div className="rounded-2xl p-6 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] space-y-4 flex flex-col justify-between transition-colors text-center">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                  <Calendar className="size-4" />
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="size-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                  <Calendar className="size-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-base">
                     আইটি ইভেন্ট ও কর্মশালা
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     সেমিনার, হ্যাকাথন ও টেক ওয়ার্কশপে অংশগ্রহণ
                   </p>
                 </div>

@@ -15,7 +15,7 @@ import {
   Alert,
   Space,
   Spin,
-  message,
+  App,
 } from "antd";
 import {
   TruckOutlined,
@@ -43,6 +43,7 @@ export const CarrierSelectorModal: React.FC<CarrierSelectorModalProps> = ({
   onClose,
   onSuccess,
 }) => {
+  const { message } = App.useApp();
   const [form] = Form.useForm();
   const [activeCarrier, setActiveCarrier] = useState<CourierProviderName>("pathao");
   const [loading, setLoading] = useState(false);

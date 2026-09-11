@@ -172,19 +172,19 @@ export default async function ShopDashboardPage() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
           <Link
             href="/super-shop"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors whitespace-nowrap"
           >
-            <ShoppingCart className="size-4 text-amber-600 dark:text-amber-400" />
+            <ShoppingCart className="size-3.5 sm:size-4 text-amber-600 dark:text-amber-400 shrink-0" />
             <span>শপ ভিজিট করুন</span>
           </Link>
           <Link
             href="/super-shop/track-order"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs whitespace-nowrap"
           >
-            <Truck className="size-4" />
+            <Truck className="size-3.5 sm:size-4 shrink-0" />
             <span>অর্ডার ট্র্যাকিং</span>
           </Link>
         </div>
@@ -192,7 +192,7 @@ export default async function ShopDashboardPage() {
 
       {/* ── Stats Highlights Strip ────────────────────── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-[#1677ff] dark:text-blue-400 flex items-center justify-center mb-3">
             <ShoppingBag className="size-5" />
           </div>
@@ -200,7 +200,7 @@ export default async function ShopDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">মোট অর্ডার</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
             <Clock className="size-5" />
           </div>
@@ -208,7 +208,7 @@ export default async function ShopDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">চলমান অর্ডার</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
             <Heart className="size-5" />
           </div>
@@ -216,7 +216,7 @@ export default async function ShopDashboardPage() {
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">পছন্দের পণ্য (Wishlist)</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors">
+        <div className="p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors flex flex-col items-center text-center">
           <div className="size-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
             <CheckCircle2 className="size-5" />
           </div>
@@ -234,9 +234,9 @@ export default async function ShopDashboardPage() {
           {/* My Orders */}
           <Link
             href="/dashboard/shop/orders"
-            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-[#1677ff] dark:hover:border-[#1677ff] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between"
+            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-[#1677ff] dark:hover:border-[#1677ff] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between items-center text-center"
           >
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-col items-center">
               <div className="size-11 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-[#1677ff] dark:text-blue-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <ShoppingBag className="size-5" />
               </div>
@@ -249,7 +249,7 @@ export default async function ShopDashboardPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-between text-xs font-semibold text-[#1677ff]">
+            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-center gap-1.5 w-full text-xs font-semibold text-[#1677ff]">
               <span>অর্ডার দেখুন</span>
               <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -258,9 +258,9 @@ export default async function ShopDashboardPage() {
           {/* Wishlist */}
           <Link
             href="/super-shop/wishlist"
-            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-rose-400 dark:hover:border-rose-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between"
+            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-rose-400 dark:hover:border-rose-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between items-center text-center"
           >
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-col items-center">
               <div className="size-11 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <Heart className="size-5" />
               </div>
@@ -273,7 +273,7 @@ export default async function ShopDashboardPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-between text-xs font-semibold text-rose-600 dark:text-rose-400">
+            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-center gap-1.5 w-full text-xs font-semibold text-rose-600 dark:text-rose-400">
               <span>উইশলিস্ট খুলুন</span>
               <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -282,9 +282,9 @@ export default async function ShopDashboardPage() {
           {/* Addresses */}
           <Link
             href="/dashboard/shop/addresses"
-            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-emerald-400 dark:hover:border-emerald-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between"
+            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-emerald-400 dark:hover:border-emerald-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between items-center text-center"
           >
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-col items-center">
               <div className="size-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <MapPin className="size-5" />
               </div>
@@ -297,7 +297,7 @@ export default async function ShopDashboardPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-center gap-1.5 w-full text-xs font-semibold text-emerald-600 dark:text-emerald-400">
               <span>ঠিকানা দেখুন</span>
               <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -306,9 +306,9 @@ export default async function ShopDashboardPage() {
           {/* Profile */}
           <Link
             href="/dashboard/profile"
-            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-purple-400 dark:hover:border-purple-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between"
+            className="group p-5 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:border-purple-400 dark:hover:border-purple-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex flex-col justify-between items-center text-center"
           >
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-col items-center">
               <div className="size-11 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <UserIcon className="size-5" />
               </div>
@@ -321,7 +321,7 @@ export default async function ShopDashboardPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-between text-xs font-semibold text-purple-600 dark:text-purple-400">
+            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#262626] flex items-center justify-center gap-1.5 w-full text-xs font-semibold text-purple-600 dark:text-purple-400">
               <span>প্রোফাইলে যান</span>
               <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -453,16 +453,16 @@ export default async function ShopDashboardPage() {
           </div>
 
           {/* Payment & Invoice Card */}
-          <div className="rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-5 space-y-3 transition-colors">
-            <div className="flex items-center gap-3">
-              <div className="size-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                <Receipt className="size-4" />
+          <div className="rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-5 space-y-3 transition-colors text-center">
+            <div className="flex flex-col items-center text-center gap-2">
+              <div className="size-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <Receipt className="size-5" />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                   ইনভয়েস ও মানি রিসিট
                 </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                   অর্ডারের ডিজিটাল ইনভয়েস ডাউনলোড
                 </p>
               </div>

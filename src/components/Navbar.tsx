@@ -79,30 +79,39 @@ export default function Navbar() {
 
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isVisible, setIsVisible] = useState(true);
-  const lastScrollYRef = useRef(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Auto-hiding Navbar on scroll
+  // Auto-hiding Navbar on scroll (exact behavior from SuperNavbar.tsx)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Always show at the very top or when mobile menu / dropdown is active
-      if (currentScrollY <= 60 || mobileOpen || activeDropdown !== null) {
+      // Always show when mobile menu or active dropdown is open
+      if (mobileOpen || activeDropdown !== null) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
-        // Scrolling DOWN -> hide navbar
+        return;
+      }
+
+      // Don't hide near the top
+      if (currentScrollY < 80) {
+        setIsVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY) {
         setIsVisible(false);
-      } else if (currentScrollY < lastScrollYRef.current) {
-        // Scrolling UP -> show navbar
+      } else {
         setIsVisible(true);
       }
 
-      lastScrollYRef.current = currentScrollY;
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [mobileOpen, activeDropdown]);
+  }, [lastScrollY, mobileOpen, activeDropdown]);
 
   // Close dropdowns and drawer on route change
   useEffect(() => {
@@ -162,19 +171,17 @@ export default function Navbar() {
     return false;
   };
 
-  // Common Navlink Styles
+  // Common Navlink Styles (Consistent across Links and Buttons, pure bg + text color, NO underline)
   const navItemClass = (isActive: boolean) =>
-    `relative px-2 xl:px-2.5 py-1 text-[13px] font-medium rounded-md flex items-center gap-1.5 transition-all duration-150 select-none cursor-pointer ${
-      isActive
-        ? "bg-blue-50/90 text-blue-600 dark:bg-blue-950/60 dark:text-blue-400 font-semibold shadow-xs"
-        : "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-white/5"
+    `main-nav-item relative px-2.5 xl:px-3 py-1.5 text-[13px] font-medium rounded-lg flex items-center gap-1.5 transition-all duration-150 select-none cursor-pointer ${
+      isActive ? "main-nav-item-active" : ""
     }`;
 
   return (
     <>
       {/* Desktop & Mobile Top Header (Ant Design Theme + Auto-Hiding) */}
       <header
-        className={`sticky top-0 z-50 w-full bg-white/95 dark:bg-[#1f1f1f]/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
+        className={`sticky top-0 z-50 w-full bg-white/95 dark:bg-[#1f1f1f]/95 backdrop-blur-md border-b border-slate-200/60 dark:border-[#2a2a2a] transition-transform duration-300 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -676,7 +683,11 @@ export default function Navbar() {
               {/* Family Tree */}
               <Link
                 href="/family-tree"
-                className={navItemClass(isSectionActive("/family-tree") || isSectionActive("/descendant"))}
+                className={navItemClass(
+                  isSectionActive("/family-tree") ||
+                  isSectionActive("/descendant") ||
+                  isSectionActive("/admin/family-tree")
+                )}
               >
                 <Users className="w-3.5 h-3.5 opacity-70" />
                 <span>ফ্যামিলি ট্রি</span>
@@ -1050,7 +1061,9 @@ export default function Navbar() {
                 href="/family-tree"
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
-                  isSectionActive("/family-tree") || isSectionActive("/descendant")
+                  isSectionActive("/family-tree") ||
+                  isSectionActive("/descendant") ||
+                  isSectionActive("/admin/family-tree")
                     ? "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-semibold"
                     : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5"
                 }`}

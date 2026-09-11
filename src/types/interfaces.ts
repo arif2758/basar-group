@@ -46,6 +46,9 @@ export interface IUser extends Document {
   profilePicture?: string;
   studentClass?: string;
   schoolName?: string;
+  educationType?: string;
+  section?: string;
+  rollNumber?: string;
   parentContact?: string;
   lastLogin?: Date;
   addressDetails?: {

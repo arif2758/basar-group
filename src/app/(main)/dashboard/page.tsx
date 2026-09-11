@@ -157,8 +157,8 @@ export default async function DashboardPage() {
     <div className="w-full space-y-6">
       {/* ── Welcome Hero Card (Ant Design Theme) ────────────────────── */}
       <div className="rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] p-6 sm:p-8 shadow-[0_1px_3px_0_rgba(0,0,0,0.02)] transition-colors">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2">
+        <div className="flex flex-col items-center text-center gap-6">
+          <div className="space-y-2.5 flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1677ff] dark:bg-blue-950/40 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
               <Sparkles className="size-3.5" />
               <span>BASAR Group ইন্টিগ্রেটেড ড্যাশবোর্ড</span>
@@ -166,20 +166,20 @@ export default async function DashboardPage() {
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               স্বাগতম, {displayName}! 👋
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mx-auto">
               আপনার কেন্দ্রীয় ড্যাশবোর্ড থেকে বাছার গ্রুপের ৪টি ডিপার্টমেন্টের সার্ভিস, ট্র্যাকিং ও প্রোফাইল পরিচালনা করুন।
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold ${tierBadge}`}>
+          <div className="flex items-center justify-between w-full gap-3 pt-1">
+            <div className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold ${tierBadge}`}>
               <TierIcon className="size-3.5" />
               <span>{tierLabel}</span>
             </div>
             {isAdmin && (
               <Link
                 href="/admin"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-900/40 hover:bg-rose-100 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-900/40 hover:bg-rose-100 transition-colors"
               >
                 <ShieldCheck className="size-3.5 text-rose-600" />
                 <span>সুপার অ্যাডমিন</span>
