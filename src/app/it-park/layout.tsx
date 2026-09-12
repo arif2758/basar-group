@@ -28,7 +28,8 @@ export default function ITParkLayout({
       {/* Sticky Pill-Shaped Sub Navbar */}
       <ITSubNav />
 
-      <main className="flex-grow flex flex-col w-full">
+      {/* Main Content Constrained to max-w-7xl */}
+      <main className="flex-grow flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         {children}
       </main>
 
