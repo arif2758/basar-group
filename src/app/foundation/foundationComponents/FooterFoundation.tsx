@@ -69,7 +69,7 @@ const FooterFoundation = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-slate-900 dark:bg-[#141414] text-white border-t border-slate-800 dark:border-[#303030] transition-colors duration-200">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-6 gap-8">

@@ -82,7 +82,7 @@ const ComingSoon: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] transition-colors duration-200">
+    <section ref={sectionRef} className="py-16 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="coming-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
@@ -95,7 +95,7 @@ const ComingSoon: React.FC = () => {
 
         <div className="coming-cards grid grid-cols-1 md:grid-cols-3 gap-8">
           {comingBooks.map((book) => (
-            <div key={book.id} className="coming-card bg-white dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] border-l-4 border-l-emerald-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all p-6">
+            <div key={book.id} className="coming-card bg-white dark:bg-[#1f1f1f] rounded-2xl border border-slate-200 dark:border-[#303030] border-l-4 border-l-emerald-500 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">

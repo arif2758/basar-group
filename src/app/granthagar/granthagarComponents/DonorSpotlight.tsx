@@ -114,7 +114,7 @@ const DonorSpotlight: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white dark:bg-[#070b14] transition-colors duration-200">
+    <section ref={sectionRef} className="py-16 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="donor-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
@@ -125,7 +125,7 @@ const DonorSpotlight: React.FC = () => {
           </p>
         </div>
 
-        <div className="donor-card bg-slate-50 dark:bg-[#141414] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden">
+        <div className="donor-card bg-white dark:bg-[#1f1f1f] rounded-2xl border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] overflow-hidden">
           <div className="md:flex">
             <div className="md:w-1/3 bg-gradient-to-br from-orange-400 to-pink-500 p-8 text-white flex items-center justify-center">
               <div className="donor-info text-center">

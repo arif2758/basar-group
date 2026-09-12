@@ -33,11 +33,11 @@ interface UnifiedUserMenuProps {
 }
 
 const SITE_LINKS = [
-  { label: "মূল ওয়েবসাইট", href: "/", icon: Home, color: "text-slate-600 dark:text-slate-300" },
-  { label: "Super Shop", href: "/super-shop", icon: Store, color: "text-purple-600 dark:text-purple-400" },
+  { label: "মূল ওয়েবসাইট", href: "/", icon: Home, color: "text-slate-600 dark:text-slate-300" },
   { label: "গ্রন্থাগার", href: "/granthagar", icon: BookOpen, color: "text-blue-600 dark:text-blue-400" },
   { label: "ফাউন্ডেশন", href: "/foundation", icon: Building2, color: "text-rose-600 dark:text-rose-400" },
-  { label: "IT Park", href: "/it-park", icon: Laptop, color: "text-sky-600 dark:text-sky-400" },
+  { label: "সুপার শপ", href: "/super-shop", icon: Store, color: "text-amber-600 dark:text-amber-400" },
+  { label: "আইটি পার্ক", href: "/it-park", icon: Laptop, color: "text-purple-600 dark:text-purple-400" },
 ];
 
 const ACCOUNT_LINKS = [

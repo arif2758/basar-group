@@ -1,7 +1,6 @@
 "use client";
 
 import { useCart } from "@/hooks/useCart";
-import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
@@ -98,10 +97,7 @@ export default function CartPageClient() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/super-shop/products"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "w-full sm:w-auto h-12 px-8 rounded-xl bg-[#1677ff] hover:bg-[#4096ff] active:bg-[#0958d9] text-white font-bold text-sm tracking-wide shadow-sm hover:shadow-md transition-all gap-2"
-                )}
+                className="w-full sm:w-auto h-12 px-8 rounded-xl bg-[#1677ff] hover:bg-[#4096ff] active:bg-[#0958d9] text-white font-bold text-sm tracking-wide shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="size-4" />
                 কেনাকাটা শুরু করুন
@@ -110,10 +106,7 @@ export default function CartPageClient() {
 
               <Link
                 href="/super-shop/products?sale=true"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "w-full sm:w-auto h-12 px-6 rounded-xl border-slate-300 dark:border-[#424242] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] font-bold text-sm transition-all gap-2"
-                )}
+                className="w-full sm:w-auto h-12 px-6 rounded-xl border border-slate-300 dark:border-[#424242] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#1f1f1f] font-bold text-sm transition-all flex items-center justify-center gap-2"
               >
                 <Tag className="size-4 text-[#ff4d4f]" />
                 আজকের অফারসমূহ
@@ -337,15 +330,13 @@ export default function CartPageClient() {
               ডেলিভারি চার্জ পরবর্তী পেজে যোগ হবে
             </p>
 
+            {/* Ant Design Primary Checkout Button */}
             <Link
               href="/super-shop/checkout"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "w-full h-12 rounded-xl text-base font-bold shadow-[0_2px_0_rgba(5,145,255,0.15)] inline-flex items-center justify-center gap-2 group bg-[#1677ff] hover:bg-[#4096ff] active:bg-[#0958d9] text-white dark:bg-[#1668dc] dark:hover:bg-[#3c89e8]"
-              )}
+              className="antd-btn antd-btn-primary w-full h-12 rounded-xl text-base font-semibold inline-flex items-center justify-center gap-2 group cursor-pointer"
             >
-              চেকআউটে যান
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              <span>চেকআউটে যান</span>
+              <ArrowRight className="size-4.5 transition-transform group-hover:translate-x-1" />
             </Link>
 
             {/* Trust Badges */}
@@ -375,12 +366,9 @@ export default function CartPageClient() {
         </div>
         <Link
           href="/super-shop/checkout"
-          className={cn(
-            buttonVariants({ size: "lg" }),
-            "h-12 rounded-xl px-6 font-bold flex-1 flex items-center justify-center gap-2 bg-[#1677ff] hover:bg-[#4096ff] text-white dark:bg-[#1668dc] dark:hover:bg-[#3c89e8] shadow-[0_2px_0_rgba(5,145,255,0.15)]"
-          )}
+          className="antd-btn antd-btn-primary h-12 rounded-xl px-6 font-semibold flex-1 flex items-center justify-center gap-2 text-sm"
         >
-          চেকআউট
+          <span>চেকআউটে যান</span>
           <ArrowRight className="size-4" />
         </Link>
       </div>

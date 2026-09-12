@@ -146,7 +146,7 @@ function BeneficiaryStories() {
   }, { scope: containerRef, dependencies: [currentStory] });
 
   return (
-    <section ref={containerRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
+    <section ref={containerRef} className="py-20 bg-white dark:bg-[#141414] transition-colors duration-200">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Main Story Display */}

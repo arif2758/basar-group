@@ -1,10 +1,5 @@
-import BookDetail from "../granthagarComponents/BookDetail"
+import { redirect } from "next/navigation";
 
-
-function page() {
-  return (
-   <BookDetail/>
-  )
+export default function BookDetailRedirectPage() {
+  redirect("/granthagar/books");
 }
-
-export default page

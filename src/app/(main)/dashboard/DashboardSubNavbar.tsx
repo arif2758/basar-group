@@ -15,6 +15,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
 
 // ৪টি ডিপার্টমেন্টের সঠিক সিকোয়েন্স: গ্রন্থাগার, ফাউন্ডেশন, সুপার শপ, আইটি পার্ক
 const NAV_ITEMS = [
@@ -29,9 +30,11 @@ const NAV_ITEMS = [
 
 export default function DashboardSubNavbar() {
   const pathname = usePathname();
+  const currentPath = pathname ? pathname.replace(/\/$/, "") || "/" : "";
   const navRef = useRef<HTMLElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const isNavVisible = useNavbarVisibility();
 
   const checkScroll = useCallback(() => {
     const el = navRef.current;
@@ -69,69 +72,76 @@ export default function DashboardSubNavbar() {
   };
 
   return (
-    <div className="relative w-full bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl p-1.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] transition-colors group">
-      {/* Left Scroll Button / Fade Indicator */}
-      {canScrollLeft && (
-        <div className="absolute left-1 top-1.5 bottom-1.5 z-10 flex items-center pr-3 pl-0.5 bg-gradient-to-r from-white via-white/95 dark:from-[#1f1f1f] dark:via-[#1f1f1f]/95 to-transparent rounded-l-xl pointer-events-none">
-          <button
-            type="button"
-            onClick={() => handleScroll("left")}
-            aria-label="Scroll left"
-            className="size-7 rounded-lg bg-slate-100 dark:bg-[#2a2a2a] text-slate-600 dark:text-slate-300 hover:text-[#1677ff] dark:hover:text-[#3c89e8] flex items-center justify-center shadow-xs transition-all active:scale-90 cursor-pointer pointer-events-auto"
-          >
-            <ChevronLeft className="size-4" />
-          </button>
-        </div>
+    <div
+      className={cn(
+        "sticky z-40 w-full transition-all duration-300 ease-in-out py-2.5 bg-slate-50/90 dark:bg-[#141414]/90 backdrop-blur-md",
+        isNavVisible ? "top-[50px]" : "top-0"
       )}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl p-1.5 shadow-[0_1px_3px_0_rgba(0,0,0,0.04)] transition-colors group">
+          {/* Left Scroll Button / Fade Indicator */}
+          {canScrollLeft && (
+            <div className="absolute left-1 top-1.5 bottom-1.5 z-10 flex items-center pr-3 pl-0.5 bg-gradient-to-r from-white via-white/95 dark:from-[#1f1f1f] dark:via-[#1f1f1f]/95 to-transparent rounded-l-xl pointer-events-none">
+              <button
+                type="button"
+                onClick={() => handleScroll("left")}
+                aria-label="Scroll left"
+                className="size-7 rounded-lg bg-slate-100 dark:bg-[#2a2a2a] text-slate-600 dark:text-slate-300 hover:text-[#1677ff] dark:hover:text-[#3c89e8] flex items-center justify-center shadow-xs transition-all active:scale-90 cursor-pointer pointer-events-auto"
+              >
+                <ChevronLeft className="size-4" />
+              </button>
+            </div>
+          )}
 
-      {/* Nav Items Container */}
-      <nav
-        ref={navRef}
-        className="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth"
-      >
-        {NAV_ITEMS.map((item) => {
-          const isActive = item.exact
-            ? pathname === item.href
-            : pathname.startsWith(item.href);
-          const Icon = item.icon;
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              data-active={isActive}
-              className={cn(
-                "inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[13px] font-medium whitespace-nowrap transition-all duration-150 shrink-0",
-                isActive
-                  ? "bg-[#1677ff] text-white font-semibold shadow-xs"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5"
-              )}
-            >
-              <Icon
-                className={cn(
-                  "size-4 shrink-0",
-                  isActive ? "text-white" : item.color || "text-slate-400"
-                )}
-              />
-              <span>{item.name}</span>
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Right Scroll Button / Fade Indicator (Signals more items exist!) */}
-      {canScrollRight && (
-        <div className="absolute right-1 top-1.5 bottom-1.5 z-10 flex items-center pl-3 pr-0.5 bg-gradient-to-l from-white via-white/95 dark:from-[#1f1f1f] dark:via-[#1f1f1f]/95 to-transparent rounded-r-xl pointer-events-none">
-          <button
-            type="button"
-            onClick={() => handleScroll("right")}
-            aria-label="Scroll right"
-            className="size-7 rounded-lg bg-slate-100 dark:bg-[#2a2a2a] text-slate-600 dark:text-slate-300 hover:text-[#1677ff] dark:hover:text-[#3c89e8] flex items-center justify-center shadow-xs transition-all active:scale-90 cursor-pointer pointer-events-auto animate-pulse sm:animate-none"
+          {/* Nav Items Container */}
+          <nav
+            ref={navRef}
+            className="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth"
           >
-            <ChevronRight className="size-4" />
-          </button>
+            {NAV_ITEMS.map((item) => {
+              const isActive = item.exact
+                ? currentPath === item.href
+                : currentPath === item.href || currentPath.startsWith(`${item.href}/`);
+              const Icon = item.icon;
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  data-active={isActive}
+                  className={cn(
+                    "dashboard-nav-item inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[13px] font-medium whitespace-nowrap shrink-0",
+                    isActive ? "dashboard-nav-item-active" : ""
+                  )}
+                >
+                  <Icon
+                    className={cn(
+                      "size-4 shrink-0 transition-colors",
+                      isActive ? "text-white" : item.color || "text-slate-400"
+                    )}
+                  />
+                  <span>{item.name}</span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right Scroll Button / Fade Indicator (Signals more items exist!) */}
+          {canScrollRight && (
+            <div className="absolute right-1 top-1.5 bottom-1.5 z-10 flex items-center pl-3 pr-0.5 bg-gradient-to-l from-white via-white/95 dark:from-[#1f1f1f] dark:via-[#1f1f1f]/95 to-transparent rounded-r-xl pointer-events-none">
+              <button
+                type="button"
+                onClick={() => handleScroll("right")}
+                aria-label="Scroll right"
+                className="size-7 rounded-lg bg-slate-100 dark:bg-[#2a2a2a] text-slate-600 dark:text-slate-300 hover:text-[#1677ff] dark:hover:text-[#3c89e8] flex items-center justify-center shadow-xs transition-all active:scale-90 cursor-pointer pointer-events-auto animate-pulse sm:animate-none"
+              >
+                <ChevronRight className="size-4" />
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

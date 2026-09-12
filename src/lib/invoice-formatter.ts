@@ -115,3 +115,112 @@ export function buildInvoiceText(
     `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
   );
 }
+
+export function buildBookBorrowInvoiceText(borrow: any): string {
+  const dateStr = new Date(borrow.createdAt || new Date()).toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  const returnDateStr = borrow.expectedReturnDate
+    ? new Date(borrow.expectedReturnDate).toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
+    : `${borrow.durationDays || 3} Days`;
+
+  const totalBooks = (borrow.items || []).reduce(
+    (sum: number, item: any) => sum + (Number(item.quantity) || 1),
+    0
+  );
+
+  const deliveryMethodLabel =
+    borrow.deliveryMethod === "self_pickup"
+      ? "পাঠক নিজে এসে নিয়ে যাবে (Self-Pickup)"
+      : "স্ট্যান্ডার্ড ডেলিভারি (Standard Delivery)";
+
+  const paymentLabel =
+    (borrow.deliveryFee || 0) <= 0
+      ? "বিনামূল্যে / Free"
+      : borrow.paymentMethod === "cod"
+      ? "ক্যাশ অন ডেলিভারি (COD)"
+      : `${borrow.paymentProvider?.toUpperCase() || "MOBILE"} (${(borrow.paymentStatus || "PENDING").toUpperCase()})`;
+
+  const header =
+    `          BASAR GRANTHAGAR\n` +
+    `         বাছার গ্রুপ সমাজকল্যাণ\n` +
+    `        শ্রীনগর, মুন্সীগঞ্জ, বাংলাদেশ\n` +
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+  const borrowInfo =
+    `BORROW REQUEST INFO\n` +
+    `Borrow Code   : ${borrow.borrowCode}\n` +
+    `Placed At     : ${dateStr}\n` +
+    `Duration      : ${borrow.durationDays} Days (ফেরত: ${returnDateStr})\n` +
+    `Delivery Method: ${deliveryMethodLabel}\n` +
+    `Payment Method: ${paymentLabel}\n` +
+    `Total Titles  : ${borrow.items?.length || 0}\n` +
+    `Total Quantity: ${totalBooks}`;
+
+  const recipientName = borrow.shippingAddress?.recipientName || borrow.user?.name || "N/A";
+  const recipientPhone = borrow.shippingAddress?.phone || borrow.user?.phone || "N/A";
+  const recipientAddress = borrow.shippingAddress?.fullAddress || "কাউন্টার থেকে সংগ্রহ (Self-Pickup)";
+
+  const readerBlock =
+    `READER & SHIPPING INFO\n` +
+    `Name          : ${recipientName}\n` +
+    `Phone         : ${recipientPhone}\n` +
+    `Address       : ${recipientAddress}`;
+
+  const itemLines = (borrow.items || [])
+    .map((item: any, index: number) => {
+      const num = String(index + 1).padStart(2, " ");
+      const title = (item.title || "Unknown Book").slice(0, 30);
+      const author = item.author ? `    Author: ${item.author}\n` : "";
+      const qty = `    Quantity: ${item.quantity || 1} কপি (ধার ফি: ৳0)`;
+      return `${num}. ${title}\n${author}${qty}`;
+    })
+    .join("\n");
+
+  const itemsBlock =
+    `BORROWED BOOKS\n` +
+    `----------------------------------------\n` +
+    itemLines +
+    `\n----------------------------------------`;
+
+  const serviceFee = `Book Service  : ${padL("বিনামূল্যে (৳0)", 16)}`;
+  const shippingFee = `Delivery Fee  : ${padL(borrow.deliveryFee > 0 ? "৳" + borrow.deliveryFee : "বিনামূল্যে (৳0)", 16)}`;
+  const total = `TOTAL PAYABLE : ${padL("৳" + (borrow.totalAmount || borrow.deliveryFee || 0), 16)}`;
+
+  const mobilePaymentLines =
+    borrow.paymentMethod === "mobile" && borrow.senderNumber
+      ? `\nSender Number : ${borrow.senderNumber}\nTrxID         : ${borrow.transactionId || "N/A"}`
+      : "";
+
+  const financialBlock =
+    `PAYMENT BREAKDOWN\n` +
+    serviceFee + "\n" +
+    shippingFee + "\n" +
+    `----------------------------------------\n` +
+    total +
+    mobilePaymentLines;
+
+  const notesBlock = borrow.shippingAddress?.notes
+    ? `\n\nREADER NOTE:\n${borrow.shippingAddress.notes}`
+    : "";
+
+  return (
+    `${header}\n\n` +
+    `${borrowInfo}\n\n` +
+    `${readerBlock}\n\n` +
+    `${itemsBlock}\n\n` +
+    `${financialBlock}` +
+    notesBlock +
+    `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+  );
+}

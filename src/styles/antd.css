@@ -405,22 +405,22 @@ html.dark .ant-table-wrapper .ant-table-tbody > tr.ant-table-expanded-row .ant-t
    Fix: Neutralize Ant Design's global #1677ff link color; default to white in dark mode
    Note: Excludes admin-nav-item and main-nav-item classes which have their own color definitions
    ========================================================================== */
-.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item) {
+.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item) {
   color: inherit;
   text-decoration: none;
 }
 
-.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):link,
-.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):visited {
+.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item):link,
+.ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item):visited {
   color: inherit;
 }
 
-html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item) {
+html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item) {
   color: #ffffff;
 }
 
-html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):link,
-html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):visited {
+html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item):link,
+html.dark .ant-app a:not([class*="text-"]):not(.admin-nav-item):not(.main-nav-item):not(.dashboard-nav-item):visited {
   color: #ffffff;
 }
 
@@ -546,20 +546,96 @@ html.dark .main-nav-item:not(.main-nav-item-active):hover {
   color: #2563eb !important; /* text-blue-600 */
   font-weight: 600 !important;
 }
+.main-nav-item.main-nav-item-active svg {
+  color: #2563eb !important;
+}
 .main-nav-item.main-nav-item-active:hover {
   background-color: #dbeafe !important; /* bg-blue-100 */
   color: #1d4ed8 !important; /* text-blue-700 */
 }
 
 /* Active Dark Mode: Subtle Dark Blue Pill + Blue-400 Text */
-html.dark .main-nav-item.main-nav-item-active {
+html.dark .main-nav-item.main-nav-item-active,
+.dark .main-nav-item.main-nav-item-active {
   background-color: rgba(30, 58, 138, 0.45) !important; /* bg-blue-900/45 */
   color: #60a5fa !important; /* text-blue-400 */
   font-weight: 600 !important;
 }
-html.dark .main-nav-item.main-nav-item-active:hover {
+html.dark .main-nav-item.main-nav-item-active svg,
+.dark .main-nav-item.main-nav-item-active svg {
+  color: #60a5fa !important;
+}
+html.dark .main-nav-item.main-nav-item-active:hover,
+.dark .main-nav-item.main-nav-item-active:hover {
   background-color: rgba(30, 58, 138, 0.65) !important;
   color: #93c5fd !important; /* text-blue-300 */
+}
+
+/* ==========================================================================
+   Dashboard Subnavbar Items (Clean Pill Design, High Contrast & Clear Active State)
+   ========================================================================== */
+.dashboard-nav-item {
+  text-decoration: none !important;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Inactive Light Mode */
+.dashboard-nav-item:not(.dashboard-nav-item-active) {
+  color: #475569 !important; /* slate-600 */
+  background-color: transparent !important;
+}
+.dashboard-nav-item:not(.dashboard-nav-item-active):hover {
+  color: #0f172a !important; /* slate-900 */
+  background-color: rgba(241, 245, 249, 0.8) !important; /* slate-100 */
+}
+
+/* Inactive Dark Mode */
+html.dark .dashboard-nav-item:not(.dashboard-nav-item-active),
+.dark .dashboard-nav-item:not(.dashboard-nav-item-active) {
+  color: #94a3b8 !important; /* slate-400 */
+  background-color: transparent !important;
+}
+html.dark .dashboard-nav-item:not(.dashboard-nav-item-active):hover,
+.dark .dashboard-nav-item:not(.dashboard-nav-item-active):hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Active Light Mode: Vibrant Ant Design Primary Blue Pill (#1677ff) with Pure White Text & Crisp Shadow */
+.dashboard-nav-item.dashboard-nav-item-active {
+  background-color: #1677ff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 6px -1px rgba(22, 119, 255, 0.35) !important;
+}
+.dashboard-nav-item.dashboard-nav-item-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.dashboard-nav-item.dashboard-nav-item-active:hover {
+  background-color: #4096ff !important;
+  color: #ffffff !important;
+}
+
+/* Active Dark Mode: Vibrant Ant Design Dark Mode Primary Blue (#1668dc) with Pure White Text */
+html.dark .dashboard-nav-item.dashboard-nav-item-active,
+.dark .dashboard-nav-item.dashboard-nav-item-active {
+  background-color: #1668dc !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px -1px rgba(22, 104, 220, 0.5) !important;
+}
+html.dark .dashboard-nav-item.dashboard-nav-item-active svg,
+.dark .dashboard-nav-item.dashboard-nav-item-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+html.dark .dashboard-nav-item.dashboard-nav-item-active:hover,
+.dark .dashboard-nav-item.dashboard-nav-item-active:hover {
+  background-color: #1554ad !important;
+  color: #ffffff !important;
 }
 
 /* ==========================================================================

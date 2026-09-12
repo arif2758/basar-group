@@ -1,15 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { Mail, Lock, User as UserIcon, Eye, EyeOff } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
 
-export default function RegisterPage() {
+function RegisterForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const rawCallbackUrl = searchParams.get("callbackUrl");
+  const callbackUrl =
+    rawCallbackUrl &&
+    !rawCallbackUrl.startsWith("/login") &&
+    !rawCallbackUrl.startsWith("/register") &&
+    rawCallbackUrl !== "/family-tree" &&
+    rawCallbackUrl !== "/admin/family-tree"
+      ? rawCallbackUrl
+      : "/dashboard";
+
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,24 +42,34 @@ export default function RegisterPage() {
 
       if (!res.ok) {
         toast.error(data.message || "Something went wrong.");
+        setLoading(false);
       } else {
-        toast.success("Account created successfully! Please sign in.");
-        setFullname("");
-        setEmail("");
-        setPassword("");
-        setTimeout(() => {
-          router.push("/login");
-        }, 2000);
+        toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! ড্যাশবোর্ডে প্রবেশ করা হচ্ছে...");
+        
+        // অটো-লগইন: রেজিস্ট্রেশন সফল হলে স্বয়ংক্রিয়ভাবে সাইন-ইন করে ড্যাশবোর্ডে নিয়ে যাওয়া
+        const signInResult = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        });
+
+        if (signInResult?.error) {
+          toast.info("অ্যাকাউন্ট তৈরি হয়েছে, অনুগ্রহ করে লগইন করুন।");
+          router.push(callbackUrl !== "/dashboard" ? `/login?callbackUrl=${encodeURIComponent(callbackUrl)}` : "/login");
+          setLoading(false);
+        } else {
+          router.push(callbackUrl);
+          router.refresh();
+        }
       }
     } catch (err) {
       toast.error("An error occurred during registration.");
-    } finally {
       setLoading(false);
     }
   };
 
   const handleGoogleSignup = () => {
-    signIn("google", { callbackUrl: "/admin/family-tree" });
+    signIn("google", { callbackUrl });
   };
 
   return (
@@ -139,9 +160,9 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-2 py-3 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white font-medium text-[15px] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full mt-2 py-3 rounded-lg bg-[#1677ff] hover:bg-[#4096ff] text-white font-medium text-[15px] transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
           >
-            {loading ? "রেজিস্টার হচ্ছে..." : "রেজিস্টার করুন"}
+            {loading ? "অ্যাকাউন্ট তৈরি হচ্ছে..." : "রেজিস্টার করুন"}
           </button>
         </form>
 
@@ -149,12 +170,23 @@ export default function RegisterPage() {
         <div className="mt-8 text-center">
           <p className="text-sm text-slate-500 dark:text-slate-400">
             ইতিমধ্যে অ্যাকাউন্ট আছে?{" "}
-            <Link href="/login" className="text-[#1677ff] hover:text-[#4096ff] font-medium transition-colors">
+            <Link
+              href={callbackUrl !== "/dashboard" ? `/login?callbackUrl=${encodeURIComponent(callbackUrl)}` : "/login"}
+              className="text-[#1677ff] hover:text-[#4096ff] font-medium transition-colors"
+            >
               লগিন করুন
             </Link>
           </p>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="w-full flex items-center justify-center p-8 text-slate-500">লোড হচ্ছে...</div>}>
+      <RegisterForm />
+    </Suspense>
   );
 }

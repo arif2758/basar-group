@@ -14,16 +14,20 @@ export const proxy = auth((req) => {
       return Response.redirect(new URL('/login', req.nextUrl));
     }
     if (!isAdmin) {
-      return Response.redirect(new URL('/family-tree', req.nextUrl));
+      return Response.redirect(new URL('/dashboard', req.nextUrl));
     }
   }
 
   if (isOnLogin && isLoggedIn) {
-    if (isAdmin) {
-      return Response.redirect(new URL('/admin/family-tree', req.nextUrl));
-    } else {
-      return Response.redirect(new URL('/family-tree', req.nextUrl));
-    }
+    const callbackUrl = req.nextUrl.searchParams.get('callbackUrl');
+    const target =
+      callbackUrl &&
+      !callbackUrl.startsWith('/login') &&
+      callbackUrl !== '/family-tree' &&
+      callbackUrl !== '/admin/family-tree'
+        ? callbackUrl
+        : '/dashboard';
+    return Response.redirect(new URL(target, req.nextUrl));
   }
 })
 

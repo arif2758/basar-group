@@ -1,10 +1,5 @@
-import BookCatalog from "../granthagarComponents/BookCatalog"
+import { redirect } from "next/navigation";
 
-
-function page() {
-  return (
-   <BookCatalog/>
-  )
+export default function BooksCatalogRedirectPage() {
+  redirect("/granthagar/books");
 }
-
-export default page

@@ -132,7 +132,7 @@ const ImpactStats = () => {
     <section 
       id="impact" 
       ref={sectionRef} 
-      className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200"
+      className="py-20 bg-white dark:bg-[#141414] transition-colors duration-200"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">

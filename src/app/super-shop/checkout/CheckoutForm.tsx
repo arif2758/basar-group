@@ -22,7 +22,6 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import {
   Loader2,
-  Banknote,
   ShieldCheck,
   Truck,
   ArrowRight,
@@ -30,7 +29,7 @@ import {
   PackageCheck,
   User,
   CreditCard,
-  Zap,
+  Copy,
 } from "lucide-react";
 import { formatPrice } from "@/lib/priceUtils";
 import Image from "next/image";
@@ -88,18 +87,24 @@ const PAYMENT_ACCOUNTS = {
     number: "01742413416",
     logo: "/payment-method-logo/bkash.svg",
     color: "text-[#D12053]",
+    bg: "bg-[#fef0f3] dark:bg-[#3d0a14]",
+    border: "border-[#f9a8bb] dark:border-[#6b1628]",
   },
   nagad: {
     name: "Nagad",
     number: "01742413416",
     logo: "/payment-method-logo/nagad.svg",
     color: "text-[#EF4136]",
+    bg: "bg-[#fef3f1] dark:bg-[#3d1008]",
+    border: "border-[#fbb3a9] dark:border-[#6b1c0e]",
   },
   rocket: {
     name: "Rocket",
     number: "01742413416",
     logo: "/payment-method-logo/rocket.png",
     color: "text-[#8C3494]",
+    bg: "bg-[#f8f0fa] dark:bg-[#2d0e36]",
+    border: "border-[#d5a8e0] dark:border-[#53185e]",
   },
 } as const;
 
@@ -444,60 +449,62 @@ export function CheckoutForm({ cart, user }: CheckoutFormProps) {
           </div>
 
           {/* Section 3: Payment */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="size-8 rounded-lg bg-[#e6f4ff] dark:bg-[#111a2c] border border-[#91caff]/60 dark:border-[#15325b]/60 flex items-center justify-center text-[#1677ff] dark:text-[#3c89e8]">
-                <CreditCard className="size-4" />
+          <div className="rounded-2xl border border-slate-200/80 dark:border-[#303030] bg-white dark:bg-[#1f1f1f] p-5 sm:p-6 shadow-xs space-y-4">
+            <div className="flex items-center gap-2.5 border-b border-slate-100 dark:border-[#262626] pb-3">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-[#1677ff] text-white text-xs font-bold">
+                3
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-white">
-                পেমেন্ট মেথড
-              </h2>
+              <div>
+                <h2 className="text-base font-bold text-slate-900 dark:text-white">
+                  পেমেন্ট পদ্ধতি
+                </h2>
+                <p className="text-[11px] text-slate-500">
+                  আপনার সুবিধাজনক পেমেন্ট মেথড নির্বাচন করুন
+                </p>
+              </div>
             </div>
-            <div className="grid gap-3">
+
+            <div className="grid gap-2.5">
               {/* COD */}
               <div
                 onClick={() => setValue("paymentMethod", "cod")}
                 className={cn(
-                  "relative flex items-center justify-between p-4 sm:p-5 rounded-xl transition-all cursor-pointer overflow-hidden group",
+                  "relative flex items-center justify-between px-3.5 py-3 sm:px-4 sm:py-3.5 rounded-xl border transition-all cursor-pointer overflow-hidden",
                   paymentMethod === "cod"
-                    ? "border-2 border-[#1677ff] dark:border-[#1668dc] bg-[#e6f4ff]/50 dark:bg-[#111a2c]/80 shadow-[0_2px_8px_rgba(22,119,255,0.12)]"
-                    : "border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#1f1f1f] hover:border-[#91caff] dark:hover:border-[#15325b] hover:bg-[#e6f4ff]/20 shadow-xs",
+                    ? "border-2 border-[#1677ff] bg-blue-50/40 dark:bg-blue-950/20 shadow-xs"
+                    : "border-slate-200 dark:border-[#303030] bg-slate-50/40 dark:bg-[#191919] hover:border-slate-300"
                 )}
               >
                 {paymentMethod === "cod" && (
-                  <div className="absolute top-0 right-0 bg-[#1677ff] dark:bg-[#1668dc] text-white px-1.5 py-0.5 rounded-bl-lg shadow-xs flex items-center justify-center animate-in fade-in zoom-in duration-200">
-                    <Check className="size-3.5 stroke-[3.5]" />
+                  <div className="absolute top-0 right-0 bg-[#1677ff] text-white px-1.5 py-0.5 rounded-bl-lg flex items-center justify-center">
+                    <Check className="size-3 stroke-[3]" />
                   </div>
                 )}
-                <div className="flex items-center gap-3.5">
+                <div className="flex items-center gap-3">
                   <div
                     className={cn(
-                      "size-5 rounded-full border-2 flex items-center justify-center transition-all shrink-0",
+                      "size-5 rounded-full border-2 flex items-center justify-center shrink-0",
                       paymentMethod === "cod"
-                        ? "border-[#1677ff] dark:border-[#1668dc] bg-white dark:bg-[#141414]"
-                        : "border-slate-300 dark:border-slate-600 bg-transparent",
+                        ? "border-[#1677ff] bg-white dark:bg-[#141414]"
+                        : "border-slate-300 dark:border-slate-600"
                     )}
                   >
                     {paymentMethod === "cod" && (
-                      <div className="size-2.5 rounded-full bg-[#1677ff] dark:bg-[#1668dc] transition-all" />
+                      <div className="size-2.5 rounded-full bg-[#1677ff]" />
                     )}
                   </div>
-                  <div className={cn(
-                    "size-10 rounded-xl flex items-center justify-center shrink-0 transition-colors",
-                    paymentMethod === "cod"
-                      ? "bg-[#e6f4ff] dark:bg-[#111a2c] text-[#1677ff] dark:text-[#3c89e8]"
-                      : "bg-slate-100 dark:bg-[#262626] text-slate-500 dark:text-slate-400"
-                  )}>
-                    <Banknote className="size-5" />
-                  </div>
                   <div className="leading-tight">
-                    <p className={cn(
-                      "text-sm sm:text-base",
-                      paymentMethod === "cod" ? "font-bold text-slate-900 dark:text-white" : "font-semibold text-slate-800 dark:text-slate-200"
-                    )}>
-                      ক্যাশ অন ডেলিভারি
+                    <p
+                      className={cn(
+                        "text-xs sm:text-sm font-bold",
+                        paymentMethod === "cod"
+                          ? "text-slate-900 dark:text-white"
+                          : "text-slate-800 dark:text-slate-200"
+                      )}
+                    >
+                      ক্যাশ অন ডেলিভারি (COD)
                     </p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+                    <p className="text-[11px] text-slate-500 mt-0.5">
                       পণ্য হাতে পেয়ে টাকা দিন
                     </p>
                   </div>
@@ -508,163 +515,148 @@ export function CheckoutForm({ cart, user }: CheckoutFormProps) {
               <div
                 onClick={() => setValue("paymentMethod", "mobile")}
                 className={cn(
-                  "relative flex items-center justify-between p-4 sm:p-5 rounded-xl transition-all cursor-pointer overflow-hidden group w-full",
+                  "relative flex items-center justify-between px-3.5 py-3 sm:px-4 sm:py-3.5 rounded-xl border transition-all cursor-pointer overflow-hidden group",
                   paymentMethod === "mobile"
-                    ? "border-2 border-[#1677ff] dark:border-[#1668dc] bg-[#e6f4ff]/50 dark:bg-[#111a2c]/80 shadow-[0_2px_8px_rgba(22,119,255,0.12)]"
-                    : "border border-slate-200 dark:border-[#303030] bg-white dark:bg-[#1f1f1f] hover:border-[#91caff] dark:hover:border-[#15325b] hover:bg-[#e6f4ff]/20 shadow-xs",
+                    ? "border-2 border-[#1677ff] bg-blue-50/40 dark:bg-blue-950/20 shadow-xs"
+                    : "border-slate-200 dark:border-[#303030] bg-slate-50/40 dark:bg-[#191919] hover:border-slate-300"
                 )}
               >
                 {paymentMethod === "mobile" && (
-                  <div className="absolute top-0 right-0 bg-[#1677ff] dark:bg-[#1668dc] text-white px-1.5 py-0.5 rounded-bl-lg shadow-xs flex items-center justify-center animate-in fade-in zoom-in duration-200 z-10">
-                    <Check className="size-3.5 stroke-[3.5]" />
+                  <div className="absolute top-0 right-0 bg-[#1677ff] text-white px-1.5 py-0.5 rounded-bl-lg flex items-center justify-center z-10">
+                    <Check className="size-3 stroke-[3]" />
                   </div>
                 )}
-                <div className="flex items-center gap-3.5 min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
                   <div
                     className={cn(
-                      "size-5 rounded-full border-2 flex items-center justify-center transition-all shrink-0",
+                      "size-5 rounded-full border-2 flex items-center justify-center shrink-0",
                       paymentMethod === "mobile"
-                        ? "border-[#1677ff] dark:border-[#1668dc] bg-white dark:bg-[#141414]"
-                        : "border-slate-300 dark:border-slate-600 bg-transparent",
+                        ? "border-[#1677ff] bg-white dark:bg-[#141414]"
+                        : "border-slate-300 dark:border-slate-600"
                     )}
                   >
                     {paymentMethod === "mobile" && (
-                      <div className="size-2.5 rounded-full bg-[#1677ff] dark:bg-[#1668dc] transition-all" />
+                      <div className="size-2.5 rounded-full bg-[#1677ff]" />
                     )}
                   </div>
-                  <div className={cn(
-                    "size-10 rounded-xl flex items-center justify-center shrink-0 transition-colors",
-                    paymentMethod === "mobile"
-                      ? "bg-[#e6f4ff] dark:bg-[#111a2c] text-[#1677ff] dark:text-[#3c89e8]"
-                      : "bg-slate-100 dark:bg-[#262626] text-slate-500 dark:text-slate-400"
-                  )}>
-                    <Zap className="size-5" />
-                  </div>
                   <div className="leading-tight min-w-0">
-                    <p className={cn(
-                      "text-sm sm:text-base",
-                      paymentMethod === "mobile" ? "font-bold text-slate-900 dark:text-white" : "font-semibold text-slate-800 dark:text-slate-200"
-                    )}>
+                    <p
+                      className={cn(
+                        "text-xs sm:text-sm font-bold",
+                        paymentMethod === "mobile"
+                          ? "text-slate-900 dark:text-white"
+                          : "text-slate-800 dark:text-slate-200"
+                      )}
+                    >
                       মোবাইল ব্যাংকিং
                     </p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5 truncate">
-                      বিকাশ, নগদ বা রকেটের মাধ্যমে অগ্রিম পেমেন্ট
+                    <p className="text-[11px] text-slate-500 mt-0.5 truncate">
+                      বিকাশ, নগদ বা রকেটে অগ্রিম পেমেন্ট
                     </p>
                   </div>
                 </div>
 
                 {/* Overlapping Logos on the right */}
-                <div className="flex items-center -space-x-2 shrink-0 pl-2">
-                  <div className="size-8 rounded-full bg-white dark:bg-[#262626] border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center p-1 relative z-30 transition-transform group-hover:scale-105">
-                    <Image
-                      src="/payment-method-logo/bkash.svg"
-                      alt="bKash"
-                      width={22}
-                      height={22}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="size-8 rounded-full bg-white dark:bg-[#262626] border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center p-1 relative z-20 transition-transform group-hover:scale-105">
-                    <Image
-                      src="/payment-method-logo/nagad.svg"
-                      alt="Nagad"
-                      width={22}
-                      height={22}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="size-8 rounded-full bg-white dark:bg-[#262626] border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center p-1 relative z-10 transition-transform group-hover:scale-105">
-                    <Image
-                      src="/payment-method-logo/rocket.png"
-                      alt="Rocket"
-                      width={22}
-                      height={22}
-                      className="object-contain"
-                    />
-                  </div>
+                <div className="flex items-center -space-x-1.5 shrink-0 pl-2">
+                  {(["bkash", "nagad", "rocket"] as const).map((p, i) => (
+                    <div
+                      key={p}
+                      className="size-7 rounded-full bg-white dark:bg-[#262626] border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center p-1 transition-transform group-hover:scale-105"
+                      style={{ zIndex: 30 - i * 10, position: "relative" }}
+                    >
+                      <Image
+                        src={PAYMENT_ACCOUNTS[p].logo}
+                        alt={PAYMENT_ACCOUNTS[p].name}
+                        width={18}
+                        height={18}
+                        className="object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             {/* Mobile Banking Details */}
             {paymentMethod === "mobile" && (
-              <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] space-y-4.5 shadow-xs animate-in fade-in duration-200">
-                <div className="flex flex-wrap gap-2.5">
-                  {(["bkash", "nagad", "rocket"] as const).map((provider) => (
-                    <button
-                      key={provider}
-                      type="button"
-                      onClick={() => setValue("paymentProvider", provider)}
+              <div className="space-y-3.5 pt-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                {/* Provider selector */}
+                <div className="grid grid-cols-3 gap-2 w-full">
+                  {(["bkash", "nagad", "rocket"] as const).map((p) => {
+                    const acc = PAYMENT_ACCOUNTS[p];
+                    return (
+                      <button
+                        key={p}
+                        type="button"
+                        onClick={() => setValue("paymentProvider", p)}
+                        className={cn(
+                          "py-2 px-1.5 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs w-full",
+                          paymentProvider === p
+                            ? `${acc.bg} ${acc.border} ${acc.color} ring-1 ring-current/30`
+                            : "bg-white dark:bg-[#1f1f1f] border-slate-200 dark:border-[#303030] text-slate-600 dark:text-slate-300 hover:border-slate-300"
+                        )}
+                      >
+                        <Image
+                          src={acc.logo}
+                          alt={acc.name}
+                          width={16}
+                          height={16}
+                          className="object-contain shrink-0"
+                        />
+                        <span className="truncate">{acc.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Account number with copy */}
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#303030] flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      {PAYMENT_ACCOUNTS[paymentProvider || "bkash"].name} নম্বর (Send Money)
+                    </p>
+                    <p
                       className={cn(
-                        "px-3.5 py-2 rounded-xl text-xs font-bold border transition-all flex items-center gap-2 cursor-pointer shadow-2xs",
-                        paymentProvider === provider
-                          ? provider === "bkash"
-                            ? "border-[#D12053] bg-[#D12053] text-white shadow-xs"
-                            : provider === "nagad"
-                            ? "border-[#EF4136] bg-[#EF4136] text-white shadow-xs"
-                            : "border-[#8C3494] bg-[#8C3494] text-white shadow-xs"
-                          : "border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-700 dark:text-slate-300 hover:border-slate-300",
+                        "text-base sm:text-lg font-black font-mono mt-0.5",
+                        PAYMENT_ACCOUNTS[paymentProvider || "bkash"].color
                       )}
                     >
-                      <div className="size-5.5 rounded-full bg-white p-0.5 flex items-center justify-center shrink-0 shadow-xs">
-                        <Image
-                          src={PAYMENT_ACCOUNTS[provider].logo}
-                          alt={PAYMENT_ACCOUNTS[provider].name}
-                          width={18}
-                          height={18}
-                          className="object-contain"
-                        />
-                      </div>
-                      <span className="capitalize">{PAYMENT_ACCOUNTS[provider].name}</span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="p-4 rounded-xl bg-[#e6f4ff]/50 dark:bg-[#111a2c]/60 border border-[#91caff]/60 dark:border-[#15325b]/60 flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="size-11 rounded-xl bg-white dark:bg-[#1a1a1a] border border-slate-200 dark:border-slate-700 p-1.5 flex items-center justify-center shrink-0 shadow-xs">
-                      <Image
-                        src={PAYMENT_ACCOUNTS[paymentProvider || "bkash"].logo}
-                        alt={PAYMENT_ACCOUNTS[paymentProvider || "bkash"].name}
-                        width={32}
-                        height={32}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                        {PAYMENT_ACCOUNTS[paymentProvider || "bkash"].name} পার্সোনাল নাম্বার (Send Money):
-                      </p>
-                      <p className="text-lg font-black tracking-wider text-[#1677ff] dark:text-[#3c89e8] mt-0.5 truncate">
-                        {PAYMENT_ACCOUNTS[paymentProvider || "bkash"].number}
-                      </p>
-                    </div>
+                      {PAYMENT_ACCOUNTS[paymentProvider || "bkash"].number}
+                    </p>
+                    <p className="text-[10px] text-slate-400 mt-0.5">
+                      পরিমাণ: ৳{grandTotal}
+                    </p>
                   </div>
-                  <Button
+                  <button
                     type="button"
-                    variant="outline"
-                    size="sm"
-                    className="bg-white dark:bg-[#1f1f1f] border-[#91caff] dark:border-[#15325b] text-[#1677ff] dark:text-[#3c89e8] hover:bg-[#e6f4ff] font-bold text-xs cursor-pointer shadow-xs shrink-0"
-                    onClick={() => handleCopy(PAYMENT_ACCOUNTS[paymentProvider || "bkash"].number)}
+                    onClick={() =>
+                      handleCopy(PAYMENT_ACCOUNTS[paymentProvider || "bkash"].number)
+                    }
+                    className="shrink-0 p-2 rounded-lg bg-white dark:bg-[#262626] border border-slate-200 dark:border-[#303030] hover:bg-slate-100 dark:hover:bg-[#303030] transition-colors cursor-pointer"
                   >
-                    {copied ? "কপি হয়েছে" : "কপি করুন"}
-                  </Button>
+                    {copied ? (
+                      <Check className="size-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="size-4 text-slate-500" />
+                    )}
+                  </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Sender + TrxID */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
                     <Label className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 ml-0.5">
-                      আপনার মোবাইল নম্বর
+                      আপনার মোবাইল নম্বর *
                     </Label>
                     <Input
                       {...register("senderNumber")}
-                      placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছেন"
+                      placeholder="01XXXXXXXXX"
                       className="h-11 rounded-xl bg-slate-50 dark:bg-[#141414] border-slate-200 dark:border-[#303030] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-[#141414] focus:border-[#1677ff] dark:focus:border-[#1668dc] focus:ring-2 focus:ring-[#1677ff]/15 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
                     <Label className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 ml-0.5">
-                      Transaction ID (TrxID)
+                      Transaction ID (TrxID) *
                     </Label>
                     <Input
                       {...register("transactionId")}
@@ -677,9 +669,9 @@ export function CheckoutForm({ cart, user }: CheckoutFormProps) {
             )}
 
             {/* Customer Notes */}
-            <div className="space-y-1.5 pt-2">
+            <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-[#262626]">
               <Label className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 ml-0.5">
-                অতিরিক্ত নোট (ঐচ্ছিক)
+                অতিরিক্ত নোট <span className="normal-case font-normal text-slate-400">(ঐচ্ছিক)</span>
               </Label>
               <Textarea
                 {...register("customerNotes")}
@@ -740,21 +732,21 @@ export function CheckoutForm({ cart, user }: CheckoutFormProps) {
               ))}
             </div>
 
-            <div className="bg-slate-50 dark:bg-[#141414] p-4 rounded-xl border border-slate-200 dark:border-[#303030] space-y-2.5">
-              <div className="flex justify-between text-xs font-medium text-slate-600 dark:text-slate-400">
+            <div className="space-y-2.5 pt-3 border-t border-slate-100 dark:border-[#262626] text-xs">
+              <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
                 <span>সাবটোটাল</span>
                 <span className="text-slate-900 dark:text-white font-bold">
                   {formatPrice(cart.total)}
                 </span>
               </div>
-              <div className="flex justify-between text-xs font-medium text-slate-600 dark:text-slate-400">
+              <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
                 <span>ডেলিভারি চার্জ</span>
                 <span className="text-[#1677ff] dark:text-[#3c89e8] font-bold">
                   + {formatPrice(deliveryCharge)}
                 </span>
               </div>
-              <div className="border-t border-slate-200 dark:border-[#303030] pt-2 flex justify-between items-baseline">
-                <span className="text-xs font-bold uppercase text-slate-700 dark:text-slate-300 tracking-wider">
+              <div className="border-t border-slate-200 dark:border-[#262626] pt-3 flex justify-between items-baseline">
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
                   সর্বমোট
                 </span>
                 <span className="text-2xl font-black text-[#cf1322] dark:text-[#ff7875]">

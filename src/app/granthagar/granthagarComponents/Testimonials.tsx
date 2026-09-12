@@ -142,7 +142,7 @@ const Testimonials: React.FC = () => {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
+    <section ref={sectionRef} className="py-20 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="testimonials-header text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
@@ -157,7 +157,7 @@ const Testimonials: React.FC = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#303030] rounded-xl p-6 sm:p-8 relative shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 flex flex-col justify-between"
+              className="testimonial-card bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-xl p-6 sm:p-8 relative shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 {/* Quote Icon */}
@@ -203,7 +203,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="stats-section bg-slate-900 dark:bg-[#141414] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 mt-16 text-white text-center shadow-sm">
+        <div className="stats-section bg-slate-900 dark:bg-[#1f1f1f] border border-slate-800 dark:border-[#303030] rounded-2xl p-8 mt-16 text-white text-center shadow-sm">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">
             200+ শিক্ষার্থীর সাথে যুক্ত হোন যারা বই পড়ার মাধ্যমে নিজেদের বিকশিত করেছেন
           </h3>

@@ -38,6 +38,7 @@
   "exclude": [
     "node_modules",
     "gadgeter-hub",
-    "mest-sample"
+    "mest-sample",
+    "tanjumart"
   ]
 }

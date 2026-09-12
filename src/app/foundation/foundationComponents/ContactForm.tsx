@@ -10,6 +10,11 @@ import {
   MessageSquare,
   Heart,
   Clock,
+  CheckCircle2,
+  PhoneCall,
+  MessageCircle,
+  HelpCircle,
+  Loader2,
 } from "lucide-react";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -25,20 +30,26 @@ const ContactForm = () => {
     message: "",
     volunteer: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const containerRef = useRef(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("আপনার বার্তার জন্য ধন্যবাদ! আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব।");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "general",
-      message: "",
-      volunteer: false,
-    });
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "general",
+        message: "",
+        volunteer: false,
+      });
+      setTimeout(() => setIsSuccess(false), 6000);
+    }, 800);
   };
 
   const handleChange = (
@@ -63,110 +74,41 @@ const ContactForm = () => {
       icon: MapPin,
       title: "প্রধান কার্যালয়",
       info: "বাছার ফাউন্ডেশন ভবন\nমাদারীপুর সদর, ঢাকা বিভাগ, বাংলাদেশ",
-      color: "from-emerald-500 to-emerald-700",
+      color: "from-[#52c41a] to-[#237804]",
     },
     {
       icon: Phone,
-      title: "হটলাইন ও ফোন নম্বর",
-      info: "প্রধান: +880 123 456 789\nজরুরি সেবা: +880 198 765 432\nWhatsApp: +880 171 234 5678",
-      color: "from-sky-500 to-sky-700",
+      title: "হটলাইন ও জরুরি যোগাযোগ",
+      info: "প্রধান: +880 171 234 5678\nজরুরি সেবা: +880 198 765 432\nWhatsApp: +880 171 234 5678",
+      color: "from-[#1677ff] to-[#0958d9]",
     },
     {
       icon: Mail,
       title: "ইমেইল যোগাযোগ",
-      info: "সাধারণ তথ্য: info@basarfoundation.org\nঅনুদান সহায়তা: donate@basarfoundation.org\nস্বেচ্ছাসেবক: volunteer@basarfoundation.org",
-      color: "from-amber-500 to-amber-700",
+      info: "সাধারণ তথ্য: info@basarfoundation.org\nঅনুদান সহায়তা: donate@basarfoundation.org",
+      color: "from-[#fa8c16] to-[#ad4e00]",
     },
     {
       icon: Clock,
       title: "অফিসের সময়সূচি",
-      info: "রবিবার - বৃহস্পতিবার: 9:00 AM - 6:00 PM\nশুক্রবার: 10:00 AM - 4:00 PM\nজরুরি সেবা: 24/7 খোলা",
-      color: "from-purple-500 to-purple-700",
+      info: "রবিবার - বৃহস্পতিবার: 9:00 AM - 6:00 PM\nজরুরি সেবা ও অ্যাম্বুলেন্স: ২৪/৭ খোলা",
+      color: "from-[#722ed1] to-[#391085]",
     },
   ];
 
   const subjects = [
     { value: "general", label: "সাধারণ জিজ্ঞাসা" },
-    { value: "donation", label: "অনুদান সম্পর্কিত তথ্য" },
-    { value: "volunteer", label: "স্বেচ্ছাসেবী হওয়ার সুযোগ" },
-    { value: "partnership", label: "প্রাতিষ্ঠানিক পার্টনারশিপ" },
-    { value: "media", label: "মিডিয়া ও প্রেস" },
-    { value: "emergency", label: "জরুরি সহায়তা ও ত্রাণ" },
+    { value: "donation", label: "অনুদান সম্পর্কিত তথ্য ও রসিদ" },
+    { value: "volunteer", label: "স্বেচ্ছাসেবী হওয়া ও ফিল্ডওয়ার্ক" },
+    { value: "partnership", label: "প্রাতিষ্ঠানিক পার্টনারশিপ / CSR" },
+    { value: "emergency", label: "জরুরি মানবিক সহায়তা ও চিকিৎসা" },
   ];
 
   useScrollAnimation();
   useGSAP(() => {
-    // Header animation
     gsap.from(".contact-header", {
       scrollTrigger: {
         trigger: ".contact-header",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
-    // Contact info sidebar
-    gsap.from(".contact-info", {
-      scrollTrigger: {
-        trigger: ".contact-info",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
-    // Contact info items stagger
-    gsap.from(".contact-info-item", {
-      scrollTrigger: {
-        trigger: ".contact-info",
-        start: "top 75%",
-        toggleActions: "play none none reverse",
-      },
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "sine.out",
-    });
-
-    // Contact form
-    gsap.from(".contact-form", {
-      scrollTrigger: {
-        trigger: ".contact-form",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
-    // Form fields stagger
-    gsap.from(".form-field", {
-      scrollTrigger: {
-        trigger: ".contact-form",
-        start: "top 75%",
-        toggleActions: "play none none reverse",
-      },
-      y: 20,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.08,
-      ease: "sine.out",
-    });
-
-    // FAQ section
-    gsap.from(".faq-section", {
-      scrollTrigger: {
-        trigger: ".faq-section",
         start: "top 80%",
         toggleActions: "play none none reverse",
       },
@@ -175,66 +117,43 @@ const ContactForm = () => {
       duration: 0.8,
       ease: "power2.out",
     });
-
-    // FAQ items stagger
-    gsap.from(".faq-item", {
-      scrollTrigger: {
-        trigger: ".faq-section",
-        start: "top 75%",
-        toggleActions: "play none none reverse",
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "sine.out",
-    });
-
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} id="contact" className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
-      <div className="container mx-auto px-4">
-        <div className="contact-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            আমাদের সাথে যোগাযোগ করুন
+    <section ref={containerRef} id="contact" className="py-12 sm:py-16 bg-slate-50 dark:bg-[#141414] transition-colors duration-200">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="contact-header text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-[#111a2c] text-[#1677ff] dark:text-[#4096ff] border border-blue-200/80 dark:border-[#15325b] text-xs font-bold mb-4 tracking-wide shadow-xs">
+            <MessageSquare className="size-3.5" />
+            <span>সরাসরি যোগাযোগ ও সহায়তা</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-3 tracking-tight">
+            আমরা আছি আপনার পাশে, সবসময়
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            আমাদের কর্মসূচি সম্পর্কে কোনো প্রশ্ন থাকলে, স্বেচ্ছাসেবী হতে চাইলে অথবা জরুরি সহায়তার প্রয়োজনে সরাসরি যোগাযোগ করুন।
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            কর্মসূচি সম্পর্কিত যেকোনো প্রশ্ন, পরামর্শ বা সহযোগিতার জন্য আমাদের সাথে সরাসরি যোগাযোগ করুন।
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {/* Contact Information */}
-          <div className="lg:col-span-1">
-            <div className="contact-info bg-slate-50 dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
-              <div className="text-center mb-8">
-                <div className="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-emerald-100 dark:border-emerald-800/40">
-                  <Heart className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1 tracking-tight">
-                  যোগাযোগের মাধ্যমসমূহ
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  আমাদের ডেডিকেটেড টিমের সাথে যুক্ত হওয়ার সহজ উপায়
-                </p>
-              </div>
-
-              <div className="space-y-5">
+        <div className="grid lg:grid-cols-12 gap-6 max-w-6xl mx-auto">
+          {/* Contact Information Cards */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-white dark:bg-[#1f1f1f] rounded-2xl p-5 sm:p-7 border border-slate-200 dark:border-[#303030] shadow-xs">
+              <div className="space-y-4">
                 {contactInfo.map((info, index) => {
                   const InfoIcon = info.icon;
                   return (
-                    <div key={index} className="contact-info-item flex items-start space-x-3.5">
+                    <div key={index} className="flex items-start gap-3">
                       <div
-                        className={`bg-gradient-to-r ${info.color} w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-xs`}
+                        className={`bg-gradient-to-r ${info.color} size-9 rounded-xl flex items-center justify-center shrink-0 shadow-xs text-white`}
                       >
-                        <InfoIcon className="w-5 h-5 text-white" />
+                        <InfoIcon className="size-4.5" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-0.5">
+                        <h4 className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">
                           {info.title}
                         </h4>
-                        <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed whitespace-pre-line">
+                        <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed whitespace-pre-line mt-0.5">
                           {info.info}
                         </p>
                       </div>
@@ -243,201 +162,194 @@ const ContactForm = () => {
                 })}
               </div>
 
-              {/* Quick Actions */}
-              <div className="mt-8 space-y-2.5">
-                <a 
+              {/* Quick Call & WhatsApp Action Buttons */}
+              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-[#262626] grid grid-cols-2 gap-2.5">
+                <a
                   href="tel:+880198765432"
-                  className="w-full inline-block text-center bg-rose-600 hover:bg-rose-700 text-white py-2.5 rounded-xl font-medium text-sm transition-all shadow-sm active:scale-[0.99]"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white transition-all shadow-xs active:scale-[0.98]"
                 >
-                  জরুরি হটলাইন
+                  <PhoneCall className="size-3.5" />
+                  <span>জরুরি কল</span>
                 </a>
-                <button 
-                  onClick={() => alert("ব্রোশিউর ডাউনলোড শীঘ্রই চালু হবে।")}
-                  className="w-full bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-700 dark:text-slate-300 py-2.5 rounded-xl font-medium text-sm transition-all"
+                <a
+                  href="https://wa.me/8801712345678"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-xs active:scale-[0.98]"
                 >
-                  ব্রোশিউর ডাউনলোড করুন
-                </button>
+                  <MessageCircle className="size-3.5" />
+                  <span>WhatsApp চ্যাট</span>
+                </a>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="contact-form bg-slate-50 dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-6 sm:p-8 border border-slate-200 dark:border-[#303030]">
-              <div className="flex items-center mb-8">
-                <div className="bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 p-3.5 rounded-xl mr-4 border border-sky-100 dark:border-sky-800/40">
-                  <MessageSquare className="w-6 h-6" />
+          <div className="lg:col-span-7">
+            <div className="bg-white dark:bg-[#1f1f1f] rounded-2xl p-5 sm:p-7 border border-slate-200 dark:border-[#303030] shadow-xs">
+              <div className="flex items-center gap-2.5 mb-5">
+                <div className="size-9 rounded-xl bg-blue-50 dark:bg-[#111a2c] text-[#1677ff] dark:text-[#4096ff] flex items-center justify-center">
+                  <MessageSquare className="size-4.5" />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                    আমাদের বার্তা পাঠান
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                    বার্তা বা জিজ্ঞাসা পাঠান
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                    আমরা 24 ঘণ্টার মধ্যে আপনার বার্তার উত্তর দেব
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    আমাদের টিম দ্রুততম সময়ে আপনার বার্তার উত্তর দেবে
                   </p>
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="form-field">
-                    <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      আপনার পূর্ণ নাম *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+              {isSuccess ? (
+                <div className="p-6 rounded-xl bg-emerald-50 dark:bg-[#162312] border border-emerald-200 dark:border-[#274916] text-center space-y-2 animate-fadeIn">
+                  <div className="size-11 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-xs">
+                    <CheckCircle2 className="size-6" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white">বার্তা সফলভাবে পাঠানো হয়েছে!</h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    বাছার ফাউন্ডেশনের সাথে যোগাযোগের জন্য ধন্যবাদ। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-3.5">
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                        আপনার পূর্ণ নাম *
+                      </label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="আপনার পূর্ণ নাম লিখুন"
+                        placeholder="আপনার নাম লিখুন"
+                        className="w-full h-10 px-3 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#1677ff]"
                       />
                     </div>
-                  </div>
 
-                  <div className="form-field">
-                    <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      ইমেইল ঠিকানা *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="আপনার ইমেইল লিখুন"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="form-field">
-                    <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      ফোন নম্বর
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                        মোবাইল নম্বর *
+                      </label>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                        placeholder="আপনার ফোন নম্বর লিখুন"
+                        required
+                        placeholder="01XXXXXXXXX"
+                        className="w-full h-10 px-3 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#1677ff]"
                       />
                     </div>
                   </div>
 
-                  <div className="form-field">
-                    <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                      বিষয় *
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                        ইমেইল ঠিকানা
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="name@example.com"
+                        className="w-full h-10 px-3 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#1677ff]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                        যোগাযোগের বিষয় *
+                      </label>
+                      <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full h-10 px-3 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#1677ff]"
+                      >
+                        {subjects.map((sub) => (
+                          <option key={sub.value} value={sub.value}>
+                            {sub.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      আপনার বার্তা বা বিবরণ *
                     </label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
+                    <textarea
+                      name="message"
+                      rows={3}
+                      value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm"
-                    >
-                      {subjects.map((subject) => (
-                        <option key={subject.value} value={subject.value} className="bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white">
-                          {subject.label}
-                        </option>
-                      ))}
-                    </select>
+                      placeholder="আপনার বার্তা বিস্তারিত লিখুন..."
+                      className="w-full p-3 rounded-xl border border-slate-200 dark:border-[#303030] bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#1677ff]"
+                    />
                   </div>
-                </div>
 
-                <div className="form-field">
-                  <label className="block text-slate-700 dark:text-slate-300 font-medium text-xs sm:text-sm mb-1.5">
-                    বার্তা বা মন্তব্য *
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-2.5 bg-white dark:bg-[#1f1f1f] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 border border-slate-200 dark:border-[#303030] rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-sm resize-none"
-                    placeholder="আপনার বার্তা বিস্তারিত লিখুন..."
-                  ></textarea>
-                </div>
-
-                <div className="form-field flex items-center">
-                  <input
-                    type="checkbox"
-                    name="volunteer"
-                    id="volunteer-checkbox"
-                    checked={formData.volunteer}
-                    onChange={handleChange}
-                    className="w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 dark:bg-[#1f1f1f] dark:border-[#303030]"
-                  />
-                  <label htmlFor="volunteer-checkbox" className="ml-2.5 text-slate-700 dark:text-slate-300 text-sm cursor-pointer">
-                    আমি স্বেচ্ছাসেবক হিসেবে কাজ করতে আগ্রহী
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl text-base font-medium shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 active:scale-[0.99]"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>বার্তা পাঠান</span>
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-11 rounded-xl text-xs sm:text-sm font-bold bg-[#1677ff] hover:bg-[#4096ff] text-white transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <Loader2 className="size-4 animate-spin" />
+                    ) : (
+                      <Send className="size-4" />
+                    )}
+                    <span>বার্তা পাঠান</span>
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="faq-section mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+        <div className="mt-14 max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
               সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)
             </h3>
-            <p className="text-base text-slate-600 dark:text-slate-400">
-              বাছার ফাউন্ডেশন ও আমাদের সমাজসেবামূলক কার্যক্রম সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর
+            <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
+              বাছার ফাউন্ডেশনের কার্যক্রম, আর্থিক স্বচ্ছতা ও সেবা গ্রহণ সম্পর্কিত উত্তর
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-3.5">
             {[
               {
-                question: "আমি কীভাবে আমার অনুদানের সামাজিক প্রভাব ট্র্যাক করতে পারব?",
-                answer:
-                  "প্রতিটি অনুদানকারীকে আমরা নিয়মিত প্রভাব প্রতিবেদন পাঠাই, যেখানে অনুদানের সঠিক ব্যবহার, সেবাগ্রহীতাদের ছবি ও বাস্তব সাফল্যের গল্প তুলে ধরা হয়।",
+                q: "আমি কীভাবে আমার অনুদানের সামাজিক প্রভাব ও হিসাব দেখতে পারব?",
+                a: "বাছার ফাউন্ডেশনের ওয়েবসাইটে নিয়মিত প্রকল্পভিত্তিক ফটো, ভিডিও এবং আর্থিক অডিট রিপোর্ট উন্মুক্ত করা হয়। দাতা যেকোনো সময় তার দেওয়া অনুদানের হিসাব ট্র্যাক করতে পারেন।",
               },
               {
-                question: "অনুদানে কি অফিসিয়াল রসিদ প্রদান করা হয়?",
-                answer:
-                  "হ্যাঁ, বাছার ফাউন্ডেশন একটি সরকার নিবন্ধিত অলাভজনক সমাজকল্যাণমূলক সংস্থা। প্রতিটি অনুদানের জন্য তাৎক্ষণিক অফিসিয়াল মানি রিসিট প্রদান করা হয়।",
+                q: "অনুদানের কি ডিজিটাল রসিদ প্রদান করা হয়?",
+                a: "হ্যাঁ, অনলাইন অনুদান সম্পন্ন করার সাথে সাথে স্বয়ংক্রিয়ভাবে ইউনিক ট্র্যাকিং নম্বরসহ ডিজিটাল মানি রিসিট (E-Receipt) পাওয়া যায়।",
               },
               {
-                question: "আমি কি দূর থেকে রিমোটলি স্বেচ্ছাসেবী হিসেবে কাজ করতে পারি?",
-                answer:
-                  "অবশ্যই! আমাদের সোশ্যাল মিডিয়া প্রচারণা, কনটেন্ট তৈরি, ডিজিটাল টিউটরিং এবং প্রশাসনিক সহায়তার মতো বিভিন্ন অনলাইন ভলান্টিয়ার সুযোগ রয়েছে।",
+                q: "কীভাবে কোনো অসহায় ব্যক্তি চিকিৎসা বা শিক্ষা সহায়তার জন্য আবেদন করতে পারেন?",
+                a: "আমাদের ওয়েবসাইটের 'সহায়তার আবেদন' পোর্টাল থেকে সরাসরি ফর্ম পূরণ করে অথবা হটলাইনে ফোন করে যে কেউ নিজের জন্য বা প্রতিবেশীর জন্য সহায়তার আবেদন করতে পারেন।",
               },
               {
-                question: "আপনারা কীভাবে আর্থিক স্বচ্ছতা বজায় রাখেন?",
-                answer:
-                  "আমরা নিয়মিত বার্ষিক অডিট রিপোর্ট প্রকাশ করি, প্রতিটি কর্মসূচির হিসাব উন্মুক্ত রাখি এবং যে কোনো শুভাকাঙ্ক্ষী ও ডোনারদের কার্যক্রম পরিদর্শনের সুযোগ উন্মুক্ত রাখি।",
+                q: "বাছার ফাউন্ডেশন কি যাকাত ফান্ড পরিচালনা করে?",
+                a: "হ্যাঁ, সম্পূর্ণ শরীয়াহসম্মত নিয়মে দরিদ্র ও হকদারদের মাঝে যাকাতের অর্থ সরাসরি বণ্টন করা হয়। আমাদের যাকাত ক্যালকুলেটর ব্যবহার করে সঠিক হিসাবও বের করা যায়।",
               },
-            ].map((faq, index) => (
+            ].map((faq, idx) => (
               <div
-                key={index}
-                className="faq-item bg-slate-50 dark:bg-[#141414] rounded-xl p-6 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]"
+                key={idx}
+                className="bg-white dark:bg-[#1f1f1f] rounded-xl p-4.5 border border-slate-200 dark:border-[#303030] shadow-xs"
               >
-                <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-base">
-                  {faq.question}
+                <h4 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1.5">
+                  {faq.q}
                 </h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{faq.answer}</p>
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

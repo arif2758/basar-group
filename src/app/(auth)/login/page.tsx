@@ -1,14 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const rawCallbackUrl = searchParams.get("callbackUrl");
+  const callbackUrl =
+    rawCallbackUrl &&
+    !rawCallbackUrl.startsWith("/login") &&
+    rawCallbackUrl !== "/family-tree" &&
+    rawCallbackUrl !== "/admin/family-tree"
+      ? rawCallbackUrl
+      : "/dashboard";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +41,7 @@ export default function LoginPage() {
       if (result?.error) {
         setError("Invalid email or password.");
       } else {
-        router.push("/admin/family-tree");
+        router.push(callbackUrl);
         router.refresh();
       }
     } catch (err) {
@@ -42,7 +52,7 @@ export default function LoginPage() {
   };
 
   const handleGoogleLogin = () => {
-    signIn("google", { callbackUrl: "/admin/family-tree" });
+    signIn("google", { callbackUrl });
   };
 
   return (
@@ -169,5 +179,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="w-full flex items-center justify-center p-8 text-slate-500">লোড হচ্ছে...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }

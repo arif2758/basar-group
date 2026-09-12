@@ -1,6 +1,6 @@
 import type { Types } from "mongoose";
 import type { IOrder } from "@/types/order";
-import { buildInvoiceText } from "@/lib/invoice-formatter";
+import { buildInvoiceText, buildBookBorrowInvoiceText } from "@/lib/invoice-formatter";
 
 type OrderForDiscord = Omit<IOrder, "_id"> & { _id: Types.ObjectId };
 
@@ -8,7 +8,7 @@ export async function sendDiscordOrder(
   orderData: OrderForDiscord,
   customerName?: string
 ) {
-  const webhookUrl = process.env.DISCORD_ORDER_WEBHOOK;
+  const webhookUrl = process.env.DISCORD_ORDER_WEBHOOK?.trim();
   if (!webhookUrl) return;
 
   try {
@@ -25,6 +25,27 @@ export async function sendDiscordOrder(
     });
   } catch (error) {
     console.error("Discord Order Webhook Error:", error);
+  }
+}
+
+export async function sendDiscordBookBorrow(borrowData: any) {
+  const webhookUrl = process.env.DISCORD_BOOK_REQUEST_WEBHOOK?.trim();
+  if (!webhookUrl) return;
+
+  try {
+    const invoiceText = buildBookBorrowInvoiceText(borrowData);
+
+    const content =
+      `📚 **নতুন বই ধার নেওয়ার আবেদন (BASAR Granthagar)!**\n` +
+      `\`\`\`\n${invoiceText}\n\`\`\``;
+
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content }),
+    });
+  } catch (error) {
+    console.error("Discord Book Borrow Webhook Error:", error);
   }
 }
 

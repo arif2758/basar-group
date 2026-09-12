@@ -33,21 +33,28 @@ const NAV_ITEMS = [
 // ✅ Desktop Nav Links
 function NavLinks() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [isOffersActive, setIsOffersActive] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setIsOffersActive(params.get("sale") === "true");
+    }
+  }, [pathname]);
+
+  const currentPath = pathname.replace(/\/$/, "") || "/";
   const isActive = (href: string): boolean => {
-    const [basePath, query] = href.split("?");
-    if (basePath === "/super-shop") return pathname === "/super-shop";
+    const [base, query] = href.split("?");
+    const basePath = base.replace(/\/$/, "") || "/";
+    if (basePath === "/super-shop") return currentPath === "/super-shop";
     if (query) {
-      const [key, value] = query.split("=");
-      return pathname === basePath && searchParams.get(key) === value;
+      return currentPath === basePath && isOffersActive;
     }
     if (basePath === "/super-shop/products") {
-      const isOffersActive = searchParams.get("sale") === "true";
       if (isOffersActive) return false;
-      return pathname.startsWith("/super-shop/products");
+      return currentPath.startsWith("/super-shop/products");
     }
-    return pathname.startsWith(basePath);
+    return currentPath.startsWith(basePath);
   };
 
   return (
@@ -62,17 +69,12 @@ function NavLinks() {
             key={href}
             href={href}
             className={cn(
-              "relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13.5px] font-medium transition-all duration-150",
-              active
-                ? "text-blue-600 dark:text-blue-400 bg-blue-50/90 dark:bg-blue-950/60 font-semibold"
-                : "text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-white/5",
+              "main-nav-item relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13.5px] font-medium transition-all duration-150 select-none cursor-pointer",
+              active ? "main-nav-item-active" : ""
             )}
           >
             <Icon className="size-4" />
             <span>{label}</span>
-            {active && (
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
-            )}
           </Link>
         );
       })}
@@ -83,21 +85,28 @@ function NavLinks() {
 // ✅ Mobile Nav Links
 function MobileNavLinks({ onClose }: { onClose: () => void }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [isOffersActive, setIsOffersActive] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setIsOffersActive(params.get("sale") === "true");
+    }
+  }, [pathname]);
+
+  const currentPath = pathname.replace(/\/$/, "") || "/";
   const isActive = (href: string): boolean => {
-    const [basePath, query] = href.split("?");
-    if (basePath === "/super-shop") return pathname === "/super-shop";
+    const [base, query] = href.split("?");
+    const basePath = base.replace(/\/$/, "") || "/";
+    if (basePath === "/super-shop") return currentPath === "/super-shop";
     if (query) {
-      const [key, value] = query.split("=");
-      return pathname === basePath && searchParams.get(key) === value;
+      return currentPath === basePath && isOffersActive;
     }
     if (basePath === "/super-shop/products") {
-      const isOffersActive = searchParams.get("sale") === "true";
       if (isOffersActive) return false;
-      return pathname.startsWith("/super-shop/products");
+      return currentPath.startsWith("/super-shop/products");
     }
-    return pathname.startsWith(basePath);
+    return currentPath.startsWith(basePath);
   };
 
   return (
@@ -115,7 +124,7 @@ function MobileNavLinks({ onClose }: { onClose: () => void }) {
             className={cn(
               "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
               active
-                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 font-semibold"
+                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/40 font-semibold"
                 : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-white/5",
             )}
           >
@@ -133,14 +142,6 @@ function MobileNavLinks({ onClose }: { onClose: () => void }) {
           </Link>
         );
       })}
-
-      {/* Theme Switcher Row in Mobile Menu */}
-      <div className="pt-3 mt-3 border-t border-slate-200 dark:border-[#303030] flex items-center justify-between px-4 py-2">
-        <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-          থিম পরিবর্তন করুন
-        </span>
-        <ThemeSwitcher showLabel={true} />
-      </div>
     </nav>
   );
 }
@@ -208,24 +209,7 @@ export default function NavbarClient() {
           </Link> 
 
           {/* Desktop Nav */}
-          <Suspense
-            fallback={
-              <div className="hidden lg:flex items-center gap-1">
-                {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500"
-                  >
-                    <Icon className="size-4" />
-                    <span>{label}</span>
-                  </Link>
-                ))}
-              </div>
-            }
-          >
-            <NavLinks />
-          </Suspense>
+          <NavLinks />
 
           {/* Actions */}
           <div className="flex items-center gap-2 sm:gap-2.5">
@@ -248,11 +232,11 @@ export default function NavbarClient() {
             {/* Cart Button */}
             <CartButton />
 
-            {/* User Menu */}
-            <UnifiedUserMenu variant="default" />
-
             {/* Ant Design Theme Switcher */}
             <ThemeSwitcher />
+
+            {/* User Menu */}
+            <UnifiedUserMenu variant="default" />
 
             {/* Mobile Menu Toggle */}
             <button
@@ -297,15 +281,7 @@ export default function NavbarClient() {
           <div
             className="fixed top-[50px] left-0 right-0 z-55 lg:hidden bg-white dark:bg-[#1f1f1f] border-b border-slate-200 dark:border-[#303030] shadow-xl animate-in slide-in-from-top-2 duration-200"
           >
-            <Suspense
-              fallback={
-                <div className="p-4 text-sm text-slate-500 dark:text-slate-400">
-                  লোডিং...
-                </div>
-              }
-            >
-              <MobileNavLinks onClose={() => setMobileOpen(false)} />
-            </Suspense>
+            <MobileNavLinks onClose={() => setMobileOpen(false)} />
           </div>
         </>
       )}

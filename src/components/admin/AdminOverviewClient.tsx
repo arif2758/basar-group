@@ -31,6 +31,9 @@ export interface AdminStatsData {
   totalProducts: number;
   totalOrders: number;
   pendingOrders: number;
+  totalBorrows: number;
+  pendingBorrows: number;
+  activeBorrows: number;
   recentFamilyRequests: Array<{
     _id: string;
     title: string;
@@ -45,6 +48,15 @@ export interface AdminStatsData {
     customerPhone: string;
     totalAmount?: number;
     status?: string;
+    createdAt: string;
+  }>;
+  recentBorrows: Array<{
+    _id: string;
+    borrowCode: string;
+    recipientName: string;
+    phone: string;
+    bookTitles: string;
+    status: string;
     createdAt: string;
   }>;
 }
@@ -77,9 +89,9 @@ export default function AdminOverviewClient({
       iconBg: "bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40",
       badgeColor: "blue",
       metrics: [
-        { label: "ক্যাটালগ বই", value: "১২০+ টি" },
-        { label: "পাঠক সদস্য", value: "৪৫ জন" },
-        { label: "বই রিকোয়েস্ট", value: "০ টি" },
+        { label: "মোট বই ধার", value: `${stats.totalBorrows} টি` },
+        { label: "পেন্ডিং আবেদন", value: `${stats.pendingBorrows} টি` },
+        { label: "চলতি / সক্রিয়", value: `${stats.activeBorrows} টি` },
       ],
       quickLinks: [
         { label: "বই তালিকা", href: "/admin/library" },
@@ -332,7 +344,7 @@ export default function AdminOverviewClient({
           </div>
           <div className="mt-2.5">
             <span className="text-xl sm:text-2xl font-bold text-rose-600 dark:text-rose-400">
-              {stats.pendingFamilyRequests + stats.pendingOrders}
+              {stats.pendingFamilyRequests + stats.pendingOrders + stats.pendingBorrows}
             </span>
             <span className="text-xs text-slate-500 dark:text-slate-400 ml-1">টি অ্যাকশন</span>
           </div>
@@ -570,6 +582,71 @@ export default function AdminOverviewClient({
                     className="shrink-0 px-2.5 py-1 text-[11px] font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-100 transition-colors"
                   >
                     বিস্তারিত
+                  </Link>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Library Recent Borrows Card */}
+        <div className="rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] p-5 sm:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.02)] lg:col-span-2">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="size-8 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-[#1677ff] dark:text-blue-400 flex items-center justify-center">
+                <BookOpen className="size-4" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                  গ্রন্থাগার — পেন্ডিং বই ধারের আবেদন
+                </h3>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  নতুন বই ধারের আবেদন যা অনুমোদন পেন্ডিং
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/admin/library"
+              className="text-xs font-semibold text-[#1677ff] hover:underline flex items-center gap-1"
+            >
+              <span>সব রেকর্ড</span>
+              <ChevronRight className="size-3.5" />
+            </Link>
+          </div>
+
+          {stats.recentBorrows.length === 0 ? (
+            <div className="py-8 text-center rounded-xl bg-slate-50/50 dark:bg-[#141414] border border-dashed border-slate-200 dark:border-[#2a2a2a]">
+              <CheckCircle2 className="size-8 text-blue-400 mx-auto mb-2 opacity-80" />
+              <p className="text-xs font-medium text-slate-600 dark:text-slate-300">
+                কোনো পেন্ডিং বই ধারের আবেদন নেই
+              </p>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
+                সব আবেদন প্রসেস করা হয়েছে।
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {stats.recentBorrows.map((borrow) => (
+                <div
+                  key={borrow._id}
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-100 dark:border-[#262626]"
+                >
+                  <div className="min-w-0 pr-3">
+                    <p className="text-xs font-bold text-slate-900 dark:text-white font-mono">
+                      {borrow.borrowCode}
+                    </p>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-300 truncate">
+                      {borrow.recipientName} · {borrow.phone}
+                    </p>
+                    <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate mt-0.5">
+                      {borrow.bookTitles}
+                    </p>
+                  </div>
+                  <Link
+                    href="/admin/library"
+                    className="shrink-0 px-2.5 py-1 text-[11px] font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-100 transition-colors"
+                  >
+                    রিভিউ
                   </Link>
                 </div>
               ))}

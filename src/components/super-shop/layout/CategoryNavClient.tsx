@@ -151,7 +151,7 @@ export function CategoryNavClient({ categories }: CategoryNavClientProps) {
           style={{ scrollBehavior: "auto" }}
         >
           <div className="max-w-7xl mx-auto">
-          <div className={cn("flex items-center gap-2 py-2.5 transition-[padding] duration-200", showLeft ? "pl-12" : "pl-4", showRight ? "pr-12" : "pr-4")}>
+          <div className={cn("flex items-center gap-2 py-2.5 transition-[padding] duration-200", showLeft ? "pl-12" : "pl-[2px] sm:pl-4", showRight ? "pr-12" : "pr-2 sm:pr-4")}>
             <button
               onClick={() => router.push("/super-shop/products")}
               className={cn(
@@ -161,7 +161,7 @@ export function CategoryNavClient({ categories }: CategoryNavClientProps) {
                   : "bg-white dark:bg-[#1f1f1f] border-slate-200 dark:border-[#303030] text-slate-700 dark:text-slate-300 hover:border-[#91caff] dark:hover:border-[#15325b] hover:text-[#1677ff] dark:hover:text-[#3c89e8] hover:bg-[#e6f4ff]/40 dark:hover:bg-[#111a2c]/40",
               )}
             >
-              সব
+              সব (All)
             </button>
 
             {categories.map(({ name, slug }) => (

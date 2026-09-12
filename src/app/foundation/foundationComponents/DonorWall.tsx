@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Crown, Award, Star, Heart } from "lucide-react";
+import { Crown, Award, Star, Heart, ArrowRight, Sparkles, Building2 } from "lucide-react";
+import Link from "next/link";
 import { gsap, useGSAP, ScrollTrigger } from "@/utils/mockGsap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,242 +13,134 @@ const DonorWall = () => {
 
   const donorTiers = [
     {
-      title: "প্লাটিনাম চ্যাম্পিয়নস (Platinum)",
+      title: "প্লাটিনাম পৃষ্ঠপোষক (Platinum Patrons)",
       icon: Crown,
-      color: "from-purple-500 to-purple-700",
-      minAmount: "$10,000+",
+      color: "from-purple-500 to-indigo-600",
+      minAmount: "৳১,০০,০০০+",
       donors: [
         {
-          name: "The Johnson Family Foundation",
-          amount: "$25,000",
-          year: "2024",
+          name: "বাছার ফ্যামিলি ট্রাস্ট",
+          amount: "৳২,৫০,০০০",
+          year: "২০২৬",
         },
-        { name: "Global Tech Solutions", amount: "$15,000", year: "2024" },
-        { name: "Anonymous Donor (বেনামী দাতা)", amount: "$12,500", year: "2024" },
+        { name: "আলহাজ্ব শফিকুল ইসলাম মেমোরিয়াল ফান্ড", amount: "৳১,৫০,০০০", year: "২০২৬" },
+        { name: "বেনামী সমাজসেবী (Anonymous Donor)", amount: "৳১,২০,০০০", year: "২০২৬" },
       ],
     },
     {
-      title: "গোল্ডেন সাপোর্টারস (Gold)",
+      title: "গোল্ডেন শুভাকাঙ্ক্ষী (Gold Supporters)",
       icon: Award,
-      color: "from-amber-500 to-amber-700",
-      minAmount: "$5,000+",
+      color: "from-amber-500 to-orange-600",
+      minAmount: "৳৫০,০০০+",
       donors: [
-        { name: "Sarah & Michael Chen", amount: "$8,000", year: "2024" },
-        { name: "Midwest Healthcare Group", amount: "$7,500", year: "2024" },
-        { name: "The Ahmed Family", amount: "$6,000", year: "2024" },
-        { name: "Future Builders Inc.", amount: "$5,500", year: "2024" },
+        { name: "মো. রফিকুল আহসান ও পরিবার (প্রবাসী)", amount: "৳৮০,০০০", year: "২০২৬" },
+        { name: "মেঘনা ট্রেডিং কর্পোরেশন", amount: "৳৭৫,০০০", year: "২০২৬" },
+        { name: "ডা. মাহমুদুর রহমান ও ডা. ফাহমিদা", amount: "৳৬০,০০০", year: "২০২৬" },
+        { name: "ইউনাইটেড ফ্রেন্ডস ফোরাম", amount: "৳৫০,০০০", year: "২০২৬" },
       ],
     },
     {
-      title: "সিলভার কন্ট্রিবিউটরস (Silver)",
+      title: "সিলভার অংশীদার (Silver Contributors)",
       icon: Star,
-      color: "from-gray-400 to-gray-600",
-      minAmount: "$1,000+",
+      color: "from-sky-500 to-blue-600",
+      minAmount: "৳১০,০০০+",
       donors: [
-        { name: "Robert & Lisa Davis", amount: "$3,000", year: "2024" },
-        {
-          name: "Community Bank of Springfield",
-          amount: "$2,500",
-          year: "2024",
-        },
-        { name: "The Wilson Trust", amount: "$2,000", year: "2024" },
-        { name: "Maria Rodriguez", amount: "$1,500", year: "2024" },
-        {
-          name: "Green Valley School District",
-          amount: "$1,200",
-          year: "2024", 
-        },
-        { name: "Dr. James Thompson", amount: "$1,000", year: "2024" },
+        { name: "ইঞ্জি. মোস্তাফিজুর রহমান", amount: "৳৩০,০০০", year: "২০২৬" },
+        { name: "মাদারীপুর প্রবাসী কল্যাণ পরিষদ", amount: "৳২৫,০০০", year: "২০২৬" },
+        { name: "কাজী তানভীর আহমেদ", amount: "৳২০,০০০", year: "২০২৬" },
+        { name: "সানশাইন যুব সংঘ", amount: "৳১৫,০০০", year: "২০২৬" },
+        { name: "আহমেদ জুবায়ের হাসান", amount: "৳১২,০০০", year: "২০২৬" },
+        { name: "বেনামী শুভাকাঙ্ক্ষী", amount: "৳১০,০০০", year: "২০২৬" },
       ],
     },
   ];
 
   const recentDonors = [
-    { name: "Emma Watson", amount: "$500", timeAgo: "2 ঘণ্টা আগে" },
-    { name: "David Park", amount: "$250", timeAgo: "4 ঘণ্টা আগে" },
-    { name: "বেনামী শুভাকাঙ্ক্ষী", amount: "$100", timeAgo: "6 ঘণ্টা আগে" },
-    { name: "Jennifer Smith", amount: "$750", timeAgo: "8 ঘণ্টা আগে" },
-    { name: "Carlos Rivera", amount: "$300", timeAgo: "12 ঘণ্টা আগে" },
+    { name: "তানজিমুল হাসান", amount: "৳৫,০০০", timeAgo: "১ ঘণ্টা আগে" },
+    { name: "ডা. নওশাদ আলী", amount: "৳২,৫০০", timeAgo: "৩ ঘণ্টা আগে" },
+    { name: "বেনামী শুভাকাঙ্ক্ষী", amount: "৳১,০০০", timeAgo: "৫ ঘণ্টা আগে" },
+    { name: "ফাহিমা আক্তার", amount: "৳৭,৫০০", timeAgo: "৮ ঘণ্টা আগে" },
+    { name: "রাশেদুল ইসলাম", amount: "৳৩,০০০", timeAgo: "১০ ঘণ্টা আগে" },
+  ];
+
+  const corporatePartners = [
+    { name: "BASAR Super Shop", role: "খাদ্য প্যাকেজ ও লজিস্টিক পার্টনার" },
+    { name: "BASAR IT Park", role: "ডিজিটাল ও আইটি প্রশিক্ষণ পার্টনার" },
+    { name: "বাছার গ্রন্থাগার", role: "শিক্ষা ও পাঠাগার উন্নয়ন পার্টনার" },
+    { name: "মাদারীপুর কমিউনিটি হসপিটাল", role: "বিনামূল্যে স্বাস্থ্যসেবা ও ক্যাম্প পার্টনার" },
   ];
 
   useScrollAnimation();
   useGSAP(() => {
-    // Header animation
     gsap.from(".donor-header", {
       scrollTrigger: {
         trigger: ".donor-header",
         start: "top 80%",
         toggleActions: "play none none reverse",
       },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
-    // Donor tiers animation
-    gsap.utils.toArray<HTMLElement>(".donor-tier").forEach((tier, index) => {
-      gsap.from(tier, {
-        scrollTrigger: {
-          trigger: tier,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        delay: index * 0.2,
-        ease: "power2.out",
-      });
-    });
-
-    // Donor cards individual
-    gsap.utils.toArray<HTMLElement>(".donor-card").forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        delay: index * 0.05,
-        ease: "power2.out",
-      });
-    });
-
-    // Recent donations section
-    gsap.from(".recent-donations", {
-      scrollTrigger: {
-        trigger: ".recent-donations",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
-    // Recent donor items - Individual targeting
-    gsap.utils.toArray<HTMLElement>(".recent-donor-item").forEach((item, index) => {
-      gsap.from(item, {
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: "power2.out",
-      });
-    });
-
-    // Corporate partners section
-    gsap.from(".corporate-partners", {
-      scrollTrigger: {
-        trigger: ".corporate-partners",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
       y: 40,
       opacity: 0,
       duration: 0.8,
       ease: "power2.out",
     });
-
-    // Corporate partner cards - Individual targeting
-    gsap.utils.toArray<HTMLElement>(".partner-card").forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        delay: index * 0.08,
-        ease: "power2.out",
-      });
-    });
-
-    // CTA animation
-    gsap.from(".donor-cta", {
-      scrollTrigger: {
-        trigger: ".donor-cta",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-20 bg-white dark:bg-[#070b14] transition-colors duration-200">
-      <div className="container mx-auto px-4">
-        <div className="donor-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-            সম্মানিত দাতাদের প্রাচীর (Wall of Generosity)
+    <section ref={containerRef} className="py-12 sm:py-16 bg-slate-50 dark:bg-[#141414] transition-colors duration-200">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="donor-header text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-[#2b2111] text-amber-600 dark:text-[#d89614] border border-amber-200/80 dark:border-[#594214] text-xs font-bold mb-4 tracking-wide shadow-xs">
+            <Sparkles className="size-3.5" />
+            <span>সম্মানিত দাতাদের প্রাচীর</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-3 tracking-tight">
+            যাঁদের উদারতায় দূর হচ্ছে সমাজের অন্ধকার
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            যাঁদের আন্তরিক অনুদান ও ভালোবাসায় আমাদের সামাজিক লক্ষ্য এগিয়ে চলেছে। প্রতিটি অনুদানই মানুষের মুখে হাসি ফোটাতে অর্থবহ ভূমিকা রাখে।
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            সম্মানিত পৃষ্ঠপোষক ও দাতাদের সহযোগিতায় প্রতিবছর হাজারো সুবিধাবঞ্চিত মানুষের জীবনে নতুন আশার আলো জ্বলে ওঠে।
           </p>
         </div>
 
         {/* Donor Tiers */}
-        <div className="space-y-10 max-w-6xl mx-auto">
+        <div className="space-y-6 max-w-5xl mx-auto">
           {donorTiers.map((tier, tierIndex) => {
             const TierIcon = tier.icon;
             return (
               <div
                 key={tierIndex}
-                className="donor-tier bg-white dark:bg-[#141414] rounded-2xl shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] p-8 border border-slate-200 dark:border-[#303030]"
+                className="bg-white dark:bg-[#1f1f1f] rounded-2xl p-5 sm:p-7 border border-slate-200 dark:border-[#303030] shadow-xs"
               >
-                <div className="flex items-center justify-center mb-8">
-                  <div
-                    className={`bg-gradient-to-r ${tier.color} p-3.5 rounded-xl mr-4 shadow-sm`}
-                  >
-                    <TierIcon className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`bg-gradient-to-r ${tier.color} p-2.5 rounded-xl text-white shadow-xs`}>
+                    <TierIcon className="size-4.5" />
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                       {tier.title}
                     </h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-                      সর্বনিম্ন অনুদান {tier.minAmount}
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                      অনুদান সীমা {tier.minAmount}
                     </p>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                   {tier.donors.map((donor, donorIndex) => (
                     <div
                       key={donorIndex}
-                      className={`donor-card bg-gradient-to-br ${tier.color} p-5 rounded-xl text-white relative overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
+                      className="bg-slate-50 dark:bg-[#141414] p-4 rounded-xl border border-slate-200 dark:border-[#303030] flex flex-col justify-between hover:border-[#1677ff] dark:hover:border-[#1677ff] transition-colors shadow-xs"
                     >
-                      <div className="relative z-10">
-                        <h4 className="font-bold text-base mb-2 line-clamp-1">
+                      <div>
+                        <h4 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white line-clamp-1">
                           {donor.name}
                         </h4>
-                        <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold">
-                            {donor.amount}
-                          </span>
-                          <span className="text-xs opacity-80">
-                            {donor.year}
-                          </span>
-                        </div>
+                        <span className="text-[10px] text-slate-400 block mt-0.5">বছর: {donor.year}</span>
                       </div>
-                      <div className="absolute -bottom-2 -right-2 opacity-20">
-                        <TierIcon className="w-14 h-14" />
+                      <div className="mt-3 pt-2 border-t border-slate-200 dark:border-[#262626] flex justify-between items-baseline">
+                        <span className="text-[10px] uppercase font-bold text-slate-400">অবদান:</span>
+                        <span className="text-sm sm:text-base font-extrabold text-[#1677ff] dark:text-[#4096ff]">
+                          {donor.amount}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -258,109 +150,53 @@ const DonorWall = () => {
           })}
         </div>
 
-        {/* Recent Donations */}
-        <div className="recent-donations mt-16 max-w-4xl mx-auto">
-          <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
-            <div className="text-center mb-6">
-              <Heart className="w-8 h-8 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                সাম্প্রতিক অনুদানসমূহ
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                আমাদের সহমর্মী ডোনারদের সাম্প্রতিক অনুদানের রিয়েল-টাইম তালিকা
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              {recentDonors.map((donor, index) => (
-                <div
-                  key={index}
-                  className="recent-donor-item bg-slate-50 dark:bg-[#1f1f1f] rounded-xl p-3.5 border border-slate-200 dark:border-[#303030] flex items-center justify-between transition-colors"
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-200 dark:border-emerald-800/40">
-                      <Heart className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-white text-sm">{donor.name}</h4>
-                      <p className="text-slate-500 dark:text-slate-400 text-xs">{donor.timeAgo}</p>
-                    </div>
-                  </div>
-                  <div className="text-emerald-600 dark:text-emerald-400 font-bold text-base">
-                    {donor.amount}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Corporate Partners */}
-        <div className="corporate-partners mt-16">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-              প্রাতিষ্ঠানিক সহযোগী সংস্থা (Corporate Partners)
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              কর্পোরেট সামাজিক দায়বদ্ধতা (CSR) ও কমিউনিটি উন্নয়নে নিবেদিত প্রতিষ্ঠানসমূহ
-            </p>
+        {/* Recent Micro Donors */}
+        <div className="mt-8 max-w-5xl mx-auto rounded-2xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] p-5 shadow-xs">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <Heart className="size-4 text-rose-500 fill-current" />
+              <span>সাম্প্রতিক অনুদানসমূহ (Recent Micro Donations)</span>
+            </h4>
+            <span className="text-[11px] text-slate-400 font-medium">সরাসরি অনলাইন আপডেট</span>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {[
-              "Global Tech Solutions",
-              "Midwest Healthcare Group",
-              "Future Builders Inc.",
-              "Community Bank of Springfield",
-              "Green Valley School District",
-              "Sunrise Energy Corp.",
-              "Metro Construction Group",
-              "Valley Fresh Foods",
-            ].map((company, index) => (
-              <div
-                key={index}
-                className="partner-card bg-white dark:bg-[#141414] rounded-xl p-5 shadow-[0_1px_2px_0_rgba(0,0,0,0.03)] hover:shadow-[0_6px_16px_0_rgba(0,0,0,0.08)] transition-all duration-200 border border-slate-200 dark:border-[#303030] text-center"
-              >
-                <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] mx-auto mb-3 flex items-center justify-center">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">
-                    {company.charAt(0)}
-                  </span>
-                </div>
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm">
-                  {company}
-                </h4>
-                <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
-                  সহযোগী 2023 সাল থেকে
-                </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+            {recentDonors.map((rd, i) => (
+              <div key={i} className="p-3 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#303030] text-xs">
+                <p className="font-bold text-slate-900 dark:text-white truncate">{rd.name}</p>
+                <p className="text-emerald-600 dark:text-[#49aa19] font-extrabold mt-0.5">{rd.amount}</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">{rd.timeAgo}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Join Wall CTA */}
-        <div className="donor-cta text-center mt-16">
-          <div className="bg-white dark:bg-[#141414] rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200 dark:border-[#303030] shadow-[0_1px_2px_0_rgba(0,0,0,0.03)]">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-              সম্মানিত দাতাদের তালিকায় আপনার নাম যুক্ত করুন
-            </h3>
-            <p className="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
-              আপনার প্রতিটি অনুদান সমাজে ইতিবাচক পরিবর্তনের বার্তা বহন করে এবং ভবিষ্যৎ প্রজন্মের উজ্জ্বল জীবন নিশ্চিত করে।
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link 
-                href="#contact"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl text-sm font-medium shadow-sm transition-all duration-200 active:scale-[0.98]"
-              >
-                অনুদানে অংশ নিন
-              </Link>
-              <Link 
-                href="#contact"
-                className="bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] hover:bg-slate-50 dark:hover:bg-[#252525] text-slate-800 dark:text-slate-200 px-8 py-3 rounded-xl text-sm font-medium transition-all duration-200"
-              >
-                কর্পোরেট পার্টনারশিপ
-              </Link>
-            </div>
+        {/* Strategic Partners */}
+        <div className="mt-10 max-w-5xl mx-auto">
+          <h4 className="text-center text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-4">
+            প্রাতিষ্ঠানিক ও কৌশলগত অংশীদারবৃন্দ
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {corporatePartners.map((cp, idx) => (
+              <div key={idx} className="p-4 rounded-xl bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] text-center">
+                <Building2 className="size-5 text-[#1677ff] dark:text-[#4096ff] mx-auto mb-1.5" />
+                <h5 className="text-xs font-bold text-slate-900 dark:text-white">{cp.name}</h5>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{cp.role}</p>
+              </div>
+            ))}
           </div>
+        </div>
+
+        {/* CTA to Donate */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/foundation/donate"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#1677ff] hover:bg-[#4096ff] active:scale-[0.98] transition-all shadow-xs"
+          >
+            <Heart className="size-4 fill-current" />
+            <span>আপনিও মানবতার এই অভিযাত্রায় যুক্ত হোন</span>
+            <ArrowRight className="size-4" />
+          </Link>
         </div>
       </div>
     </section>
