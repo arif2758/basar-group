@@ -27,6 +27,7 @@ import {
   ShieldCheck,
   Heart,
   LayoutGrid,
+  Layers,
   Trophy,
   GitPullRequestDraft,
   Store,
@@ -808,6 +809,15 @@ export default function Navbar() {
                 <span>ফ্যামিলি ট্রি</span>
               </Link>
 
+              {/* Blueprint */}
+              <Link
+                href="/blueprint"
+                className={navItemClass(isSectionActive("/blueprint"))}
+              >
+                <Layers className="w-3.5 h-3.5 opacity-70 text-emerald-500" />
+                <span>ব্লুপ্রিন্ট</span>
+              </Link>
+
             </nav>
 
             {/* Right Side: ThemeSwitcher + Mobile Menu Button */}
@@ -1252,6 +1262,20 @@ export default function Navbar() {
               >
                 <Users className="w-4 h-4 opacity-75" />
                 <span>ফ্যামিলি ট্রি</span>
+              </Link>
+
+              {/* Blueprint */}
+              <Link
+                href="/blueprint"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
+                  isSectionActive("/blueprint")
+                    ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 font-semibold"
+                    : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5"
+                }`}
+              >
+                <Layers className="w-4 h-4 opacity-75 text-emerald-500" />
+                <span>ব্লুপ্রিন্ট</span>
               </Link>
 
             </div>

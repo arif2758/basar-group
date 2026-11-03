@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useCallback, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
@@ -146,12 +147,19 @@ export default function GranthagarNavbarClient() {
           {/* Logo */}
           <Link
             href="/granthagar"
-            className="flex items-center transition-transform hover:opacity-90 active:scale-95 shrink-0"
-            aria-label="গ্রন্থাগার"
+            className="flex items-center gap-2 transition-transform hover:opacity-90 active:scale-95 shrink-0"
+            aria-label="বাছার গ্রন্থাগার"
           >
-            <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white whitespace-nowrap">
-              গ্রন্থাগার
-            </span>
+            <div className="relative h-12 w-12  rounded-full overflow-hidden shrink-0 flex items-center justify-center">
+              <Image
+                src="/logo/granthagar-logo.webp" 
+                alt="বাছার গ্রন্থাগার"
+                fill
+                sizes="500px"
+                className="object-cover"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
