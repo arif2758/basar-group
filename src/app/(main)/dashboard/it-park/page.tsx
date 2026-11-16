@@ -52,14 +52,14 @@ export default async function ITParkDashboardPage() {
 
         <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
           <Link
-            href="/it-park#skills"
+            href="/it-park/courses"
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-[#262626] text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] transition-colors whitespace-nowrap"
           >
             <GraduationCap className="size-3.5 sm:size-4 text-purple-600 dark:text-purple-400 shrink-0" />
             <span>কোর্স খুঁজুন</span>
           </Link>
           <Link
-            href="/it-park#jobs"
+            href="/it-park/jobs"
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors shadow-xs whitespace-nowrap"
           >
             <Briefcase className="size-3.5 sm:size-4 shrink-0" />
@@ -122,7 +122,7 @@ export default async function ITParkDashboardPage() {
               </div>
             </div>
             <Link
-              href="/it-park#skills"
+              href="/it-park/courses"
               className="text-xs font-semibold text-[#1677ff] hover:underline flex items-center gap-1"
             >
               <span>নতুন কোর্স এক্সপ্লোর করুন</span>
@@ -140,7 +140,7 @@ export default async function ITParkDashboardPage() {
                 বাছার আইটি পার্কের প্রফেশনাল মেন্টরদের পরিচালিত প্রযুক্তি কোর্সে যুক্ত হয়ে নিজের ক্যারিয়ার গড়ে তুলুন।
               </p>
               <Link
-                href="/it-park#skills"
+                href="/it-park/courses"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-[#1677ff] hover:bg-[#1677ff]/90 text-white transition-colors"
               >
                 <span>কোর্স ক্যাটালগ দেখুন</span>
@@ -181,7 +181,7 @@ export default async function ITParkDashboardPage() {
             </div>
 
             <Link
-              href="/it-park#jobs"
+              href="/it-park/jobs"
               className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-[#262626] hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] text-slate-800 dark:text-slate-200 transition-colors"
             >
               <span>চাকরির সার্কুলার দেখুন</span>
@@ -218,7 +218,7 @@ export default async function ITParkDashboardPage() {
             </div>
 
             <Link
-              href="/it-park#events"
+              href="/it-park/events"
               className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-[#262626] hover:bg-slate-200 dark:hover:bg-[#303030] border border-slate-200 dark:border-[#303030] text-slate-800 dark:text-slate-200 transition-colors"
             >
               <span>ইভেন্টস শিডিউল দেখুন</span>

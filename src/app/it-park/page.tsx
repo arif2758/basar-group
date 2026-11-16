@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { dbConnect } from "@/lib/db";
 import { ITCourse } from "@/models/ITCourse";
-import { ITJob } from "@/models/ITJob";
+import ITParkDesignCarousel from "./ITcomponents/ITParkDesignCarousel";
 
 export const metadata = {
   title: "বাছার আইটি পার্ক | BASAR IT Park - Learn. Earn. Empower.",
@@ -26,24 +26,48 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
+const DEFAULT_PREVIEW_COURSES = [
+  {
+    _id: "c1",
+    title: "ফুল-স্ট্যাক ওয়েব ডেভেলপমেন্ট (Next.js, React ও Node.js)",
+    batchNumber: "Batch-08",
+    discountFee: 8500,
+    courseFee: 12000,
+    instructorName: "ইঞ্জি. মো আরিফ বাছার",
+    description: "আধুনিক ওয়েব অ্যাপ তৈরি, API ডিজাইন, ক্লাউড ডিপ্লয়মেন্ট ও ফ্রিল্যান্সিং মার্কেটপ্লেসে কাজ পাওয়ার পূর্ণাঙ্গ বুটক্যাম্প।",
+  },
+  {
+    _id: "c2",
+    title: "প্রফেশনাল UI/UX ডিজাইন ও Figma মাস্টারি",
+    batchNumber: "Batch-05",
+    discountFee: 6500,
+    courseFee: 10000,
+    instructorName: "তানভীর আহমেদ",
+    description: "ইউজার রিসার্চ, ওয়্যারফ্রেম, আধুনিক মোবাইল ও ওয়েব ইন্টারফেস ডিজাইন এবং ইন্টারঅ্যাক্টিভ প্রোটোটাইপিং।",
+  },
+];
+
 export default async function ITParkOverviewPage() {
   let courses: any[] = [];
-  let jobs: any[] = [];
 
   try {
     await dbConnect();
-    const [rawCourses, rawJobs] = await Promise.all([
-      ITCourse.find({ status: { $ne: "completed" } }).sort({ isFeatured: -1, createdAt: -1 }).limit(2).lean(),
-      ITJob.find({ status: "active" }).sort({ isFeatured: -1, createdAt: -1 }).limit(2).lean(),
-    ]);
+    const rawCourses = await ITCourse.find({ status: { $ne: "completed" } })
+      .sort({ isFeatured: -1, createdAt: -1 })
+      .limit(2)
+      .lean();
     courses = JSON.parse(JSON.stringify(rawCourses));
-    jobs = JSON.parse(JSON.stringify(rawJobs));
   } catch (err) {
     console.error("Error fetching overview data:", err);
   }
 
+  const displayCourses = courses.length > 0 ? courses.slice(0, 2) : DEFAULT_PREVIEW_COURSES;
+
   return (
-    <div className="space-y-14">
+    <div className="space-y-12">
+      {/* Proposed IT Park Architectural Design Image Carousel */}
+      <ITParkDesignCarousel />
+
       {/* Hero Banner with Stats */}
       <div className="bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
         <div className="max-w-3xl space-y-4">
@@ -63,14 +87,14 @@ export default async function ITParkOverviewPage() {
           <div className="pt-3 flex flex-wrap items-center gap-3">
             <Link
               href="/it-park/courses"
-              className="px-6 py-3 bg-[#1677ff] hover:bg-[#4096ff] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md shadow-blue-500/20 transition-all flex items-center gap-2"
+              className="px-6 py-3 bg-[#1677ff] hover:bg-[#4096ff] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
             >
               <GraduationCap className="w-4 h-4" />
               কোর্স ও বুটক্যাম্প দেখুন
             </Link>
             <Link
               href="/it-park/jobs"
-              className="px-6 py-3 bg-slate-100 dark:bg-[#141414] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-[#303030] transition-all flex items-center gap-2"
+              className="px-6 py-3 bg-slate-100 dark:bg-[#141414] hover:bg-slate-200 dark:hover:bg-[#262626] text-slate-800 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-[#303030] transition-all flex items-center gap-2 cursor-pointer"
             >
               <Briefcase className="w-4 h-4 text-emerald-500" />
               চাকরির সার্কুলার
@@ -111,7 +135,7 @@ export default async function ITParkOverviewPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link
             href="/it-park/courses"
-            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group"
+            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-[#1677ff] flex items-center justify-center">
               <GraduationCap className="w-5 h-5" />
@@ -127,7 +151,7 @@ export default async function ITParkOverviewPage() {
 
           <Link
             href="/it-park/jobs"
-            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group"
+            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <Briefcase className="w-5 h-5" />
@@ -143,7 +167,7 @@ export default async function ITParkOverviewPage() {
 
           <Link
             href="/it-park/events"
-            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group"
+            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center">
               <Calendar className="w-5 h-5" />
@@ -159,7 +183,7 @@ export default async function ITParkOverviewPage() {
 
           <Link
             href="/it-park/coworking"
-            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group"
+            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center">
               <Building2 className="w-5 h-5" />
@@ -175,7 +199,7 @@ export default async function ITParkOverviewPage() {
 
           <Link
             href="/it-park/guardian"
-            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group"
+            className="p-5 bg-white dark:bg-[#1f1f1f] border border-slate-200 dark:border-[#303030] rounded-2xl shadow-sm hover:border-[#1677ff]/60 hover:-translate-y-0.5 transition-all space-y-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center">
               <Shield className="w-5 h-5" />
@@ -217,14 +241,14 @@ export default async function ITParkOverviewPage() {
           </div>
           <Link
             href="/it-park/courses"
-            className="text-xs font-bold text-[#1677ff] hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-[#1677ff] hover:underline flex items-center gap-1 cursor-pointer"
           >
             সব কোর্স দেখুন <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {courses.slice(0, 2).map((c: any) => (
+          {displayCourses.map((c: any) => (
             <div
               key={c._id}
               className="p-5 rounded-2xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#262626] space-y-3"
@@ -243,7 +267,7 @@ export default async function ITParkOverviewPage() {
                 <span className="text-xs text-slate-400 font-medium">{c.instructorName}</span>
                 <Link
                   href="/it-park/courses"
-                  className="text-xs font-bold text-[#1677ff] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-[#1677ff] hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   ভর্তি আবেদন <ArrowRight className="w-3.5 h-3.5" />
                 </Link>

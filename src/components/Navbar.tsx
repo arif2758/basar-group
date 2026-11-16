@@ -616,33 +616,33 @@ export default function Navbar() {
 
                       <div className="space-y-1 mt-2.5 pt-2 border-t border-slate-100 dark:border-[#282828]">
                         <Link
-                          href="/it-park#about"
+                          href="/it-park"
                           className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
                         >
                           <div className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
                             <Laptop className="w-3.5 h-3.5" />
                           </div>
                           <div>
-                            <div className="text-[13px] font-medium text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">IT Park সম্পর্কে</div>
-                            <div className="text-[11.5px] text-slate-500 dark:text-slate-400">ভিশন ও প্রযুক্তি অবকাঠামো</div>
+                            <div className="text-[13px] font-medium text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">IT Park ওভারভিউ</div>
+                            <div className="text-[11.5px] text-slate-500 dark:text-slate-400">ক্যাম্পাস ভিশন ও প্রধান সেবাসমূহ</div>
                           </div>
                         </Link>
 
                         <Link
-                          href="/it-park#skills"
+                          href="/it-park/courses"
                           className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
                         >
                           <div className="w-7 h-7 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                             <Lightbulb className="w-3.5 h-3.5" />
                           </div>
                           <div>
-                            <div className="text-[13px] font-medium text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">প্রযুক্তি দক্ষতা ও কোর্স</div>
+                            <div className="text-[13px] font-medium text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">প্রযুক্তি কোর্স ও বুটক্যাম্প</div>
                             <div className="text-[11.5px] text-slate-500 dark:text-slate-400">প্রোগ্রামিং, ফ্রিল্যান্সিং ও ক্যারিয়ার ট্রেনিং</div>
                           </div>
                         </Link>
 
                         <Link
-                          href="/it-park#jobs"
+                          href="/it-park/jobs"
                           className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
                         >
                           <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
@@ -655,7 +655,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link
-                          href="/it-park#events"
+                          href="/it-park/events"
                           className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
                         >
                           <div className="w-7 h-7 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 mt-0.5">
@@ -668,7 +668,20 @@ export default function Navbar() {
                         </Link>
 
                         <Link
-                          href="/it-park#guardian"
+                          href="/it-park/coworking"
+                          className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <Building2 className="w-3.5 h-3.5" />
+                          </div>
+                          <div>
+                            <div className="text-[13px] font-medium text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">কো-ওয়ার্কিং স্পেস</div>
+                            <div className="text-[11.5px] text-slate-500 dark:text-slate-400">ফ্রিল্যান্সার ও স্টার্টআপদের কাজের পরিবেশ</div>
+                          </div>
+                        </Link>
+
+                        <Link
+                          href="/it-park/guardian"
                           className="flex items-start gap-3 p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-colors group"
                         >
                           <div className="w-7 h-7 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
@@ -1143,35 +1156,35 @@ export default function Navbar() {
                       IT Park হোম ভিজিট করুন
                     </Link>
                     <Link
-                      href="/it-park#about"
+                      href="/it-park/courses"
                       onClick={() => setMobileOpen(false)}
                       className="block px-3 py-1.5 text-[13px] text-slate-600 dark:text-slate-300 hover:text-blue-600"
                     >
-                      IT Park সম্পর্কে
+                      প্রযুক্তি কোর্স ও বুটক্যাম্প
                     </Link>
                     <Link
-                      href="/it-park#skills"
+                      href="/it-park/jobs"
                       onClick={() => setMobileOpen(false)}
                       className="block px-3 py-1.5 text-[13px] text-slate-600 dark:text-slate-300 hover:text-blue-600"
                     >
-                      প্রযুক্তি দক্ষতা
+                      আইটি ক্যারিয়ার ও চাকরি
                     </Link>
                     <Link
-                      href="/it-park#jobs"
+                      href="/it-park/events"
                       onClick={() => setMobileOpen(false)}
                       className="block px-3 py-1.5 text-[13px] text-slate-600 dark:text-slate-300 hover:text-blue-600"
                     >
-                      ক্যারিয়ার ও চাকরি
+                      সেমিনার ও ইভেন্টসমূহ
                     </Link>
                     <Link
-                      href="/it-park#events"
+                      href="/it-park/coworking"
                       onClick={() => setMobileOpen(false)}
                       className="block px-3 py-1.5 text-[13px] text-slate-600 dark:text-slate-300 hover:text-blue-600"
                     >
-                      আইটি ইভেন্টসমূহ
+                      কো-ওয়ার্কিং স্পেস
                     </Link>
                     <Link
-                      href="/it-park#guardian"
+                      href="/it-park/guardian"
                       onClick={() => setMobileOpen(false)}
                       className="block px-3 py-1.5 text-[13px] text-slate-600 dark:text-slate-300 hover:text-blue-600"
                     >

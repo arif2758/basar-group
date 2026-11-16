@@ -39,10 +39,10 @@ export default function Footer() {
     { href: "/blood-donation/find-donor", label: "জরুরি রক্তদাতা সন্ধান" },
     { href: "/blood-donation/emergency", label: "জরুরি রক্তের অনুরোধ (SOS)" },
     { href: "/granthagar", label: "বই ডেলিভারি" },
-    { href: "/it-park#skills", label: "IT প্রশিক্ষণ" },
+    { href: "/it-park/courses", label: "IT প্রশিক্ষণ ও কোর্স" },
     { href: "/foundation", label: "কমিউনিটি সহায়তা" },
     { href: "/foundation#programs", label: "Scholarship" },
-    { href: "/it-park#jobs", label: "চাকরির সুযোগ" },
+    { href: "/it-park/jobs", label: "চাকরির সুযোগ" },
   ];
 
   const contact = {
